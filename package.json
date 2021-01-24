@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "types": "tsc --watch --noEmit"
   },
   "dependencies": {
     "next": "10.0.5",
