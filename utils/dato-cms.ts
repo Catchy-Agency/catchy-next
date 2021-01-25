@@ -7,7 +7,9 @@ import gql from 'graphql-tag'
 import { PageData } from '../pages/pages/[slug]'
 import { GetStaticPropsContext } from 'next'
 
-const API_TOKEN = '***REMOVED***'
+const API_TOKEN = process.env.DATOCMS_API_TOKEN
+
+if (!API_TOKEN) throw new Error('Failed to read API_TOKEN')
 
 const httpLink = createHttpLink({
   uri: 'https://graphql.datocms.com/',
@@ -42,22 +44,29 @@ export const createSubscription = async (
   context: GetStaticPropsContext,
   queryString: string,
 ) => {
+  const isPreview = Boolean(context.preview)
+
   const query = gql`
     ${queryString}
   `
-  const result = context.preview
+  const result = isPreview
     ? await previewClient.query({ query })
     : await client.query({ query })
 
   const initialData = result.data
 
-  return {
-    initialData,
-    query: queryString,
-    preview: Boolean(context.preview),
-    enabled: Boolean(context.preview),
-    token: API_TOKEN,
-  }
+  return isPreview
+    ? ({
+        initialData,
+        preview: true,
+        query: queryString,
+        token: API_TOKEN,
+      } as const)
+    : ({
+        initialData,
+        preview: false,
+        enabled: false,
+      } as const)
 }
 
 // TODO: LOL
