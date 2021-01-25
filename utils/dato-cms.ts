@@ -4,10 +4,17 @@ import { setContext } from "apollo-link-context"
 import { InMemoryCache } from "apollo-cache-inmemory"
 import gql from "graphql-tag"
 
-const apiToken = "***REMOVED***"
+import { PageData } from "../pages/pages/[slug]"
+import { GetStaticPropsContext } from "next"
+
+const API_TOKEN = "***REMOVED***"
 
 const httpLink = createHttpLink({
   uri: "https://graphql.datocms.com/",
+})
+
+const httpPreviewLink = createHttpLink({
+  uri: "https://graphql.datocms.com/preview/",
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -16,15 +23,46 @@ const authLink = setContext((_, { headers }) => {
       ...(headers || {}),
       "Content-Type": "application/json",
       Accept: "application/json",
-      Authorization: `Bearer ${apiToken}`,
+      Authorization: `Bearer ${API_TOKEN}`,
     },
   }
 })
 
-export const client = new ApolloClient({
+const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 })
+
+const previewClient = new ApolloClient({
+  link: authLink.concat(httpPreviewLink),
+  cache: new InMemoryCache(),
+})
+
+export const createSubscription = async (
+  context: GetStaticPropsContext,
+  queryString: string,
+) => {
+  const query = gql`
+    ${queryString}
+  `
+  const result = context.preview
+    ? await previewClient.query({ query })
+    : await client.query({ query })
+
+  const initialData = result.data
+
+  return {
+    initialData,
+    query: queryString,
+    preview: Boolean(context.preview),
+    enabled: Boolean(context.preview),
+    token: API_TOKEN,
+  }
+}
+
+// TODO: LOL
+type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
+export type Subscription = ThenArg<ReturnType<typeof createSubscription>>
 
 export const getPagePaths = async (): Promise<string[]> => {
   const result = await client.query({
@@ -39,12 +77,13 @@ export const getPagePaths = async (): Promise<string[]> => {
   return result.data.allPages.map((page: any) => "/pages/" + page.slug)
 }
 
-export const getPage = async (slug: string): Promise<{ title: string }> => {
+export const getPage = async (slug: string): Promise<PageData> => {
   const result = await client.query({
     query: gql`
       {
         page(filter: { slug: { eq: "${slug}" } }) {
           title
+          slug
         }
       }
     `,
