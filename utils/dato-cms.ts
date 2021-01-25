@@ -1,28 +1,28 @@
-import { ApolloClient } from "apollo-client"
-import { createHttpLink } from "apollo-link-http"
-import { setContext } from "apollo-link-context"
-import { InMemoryCache } from "apollo-cache-inmemory"
-import gql from "graphql-tag"
+import { ApolloClient } from 'apollo-client'
+import { createHttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import gql from 'graphql-tag'
 
-import { PageData } from "../pages/pages/[slug]"
-import { GetStaticPropsContext } from "next"
+import { PageData } from '../pages/pages/[slug]'
+import { GetStaticPropsContext } from 'next'
 
-const API_TOKEN = "***REMOVED***"
+const API_TOKEN = '***REMOVED***'
 
 const httpLink = createHttpLink({
-  uri: "https://graphql.datocms.com/",
+  uri: 'https://graphql.datocms.com/',
 })
 
 const httpPreviewLink = createHttpLink({
-  uri: "https://graphql.datocms.com/preview/",
+  uri: 'https://graphql.datocms.com/preview/',
 })
 
 const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...(headers || {}),
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
       Authorization: `Bearer ${API_TOKEN}`,
     },
   }
@@ -74,7 +74,7 @@ export const getPagePaths = async (): Promise<string[]> => {
       }
     `,
   })
-  return result.data.allPages.map((page: any) => "/pages/" + page.slug)
+  return result.data.allPages.map((page: any) => '/pages/' + page.slug)
 }
 
 export const getPage = async (slug: string): Promise<PageData> => {

@@ -1,11 +1,11 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import { useQuerySubscription } from "react-datocms"
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { useQuerySubscription } from 'react-datocms'
 
 import {
   createSubscription,
   getPagePaths,
   Subscription,
-} from "../../utils/dato-cms"
+} from '../../utils/dato-cms'
 
 export interface PageData {
   title: string
@@ -15,9 +15,9 @@ export interface PageData {
 const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription(subscription)
   const statusMessage = {
-    connecting: "Connecting to DatoCMS...",
-    connected: "Connected to DatoCMS, receiving live updates!",
-    closed: "Connection closed",
+    connecting: 'Connecting to DatoCMS...',
+    connected: 'Connected to DatoCMS, receiving live updates!',
+    closed: 'Connection closed',
   }
   return (
     <div>
