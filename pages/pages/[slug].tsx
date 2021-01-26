@@ -7,7 +7,8 @@ import {
   createSubscription,
   getPagePaths,
   Subscription,
-} from '../../utils/dato-cms'
+} from '../../gql/dato-cms'
+import { pageBySlug } from '../../gql/queries'
 
 const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription(subscription)
@@ -46,28 +47,9 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
-    subscription: await createSubscription(
-      context,
-      gql`
-        {
-          page: page(filter: { slug: { eq: "${context?.params?.slug}" } }) {
-            title
-            slug
-            _seoMetaTags {
-              attributes
-              content
-              tag
-            }
-          }
-          site: _site {
-            faviconMetaTags {
-              tag
-              attributes
-            }
-          }
-        }
-      `,
-    ),
+    subscription: await createSubscription(context, pageBySlug, {
+      slug: context?.params?.slug,
+    }),
   },
 })
 

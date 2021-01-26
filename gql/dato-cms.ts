@@ -2,10 +2,10 @@ import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import gql from 'graphql-tag'
-
 import { GetStaticPropsContext } from 'next'
 import { DocumentNode } from 'graphql'
+
+import { allPageSlugs } from './queries'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -43,6 +43,7 @@ const previewClient = new ApolloClient({
 export const createSubscription = async (
   context: GetStaticPropsContext,
   query: DocumentNode,
+  variables?: unknown,
 ) => {
   const isPreview = Boolean(context.preview)
 
@@ -57,6 +58,7 @@ export const createSubscription = async (
         initialData,
         preview: true,
         query: query.loc?.source.body,
+        variables,
         token: API_TOKEN,
       } as const)
     : ({
@@ -72,13 +74,7 @@ export type Subscription = ThenArg<ReturnType<typeof createSubscription>>
 
 export const getPagePaths = async (): Promise<string[]> => {
   const result = await client.query({
-    query: gql`
-      query AllPageSlugs {
-        allPages {
-          slug
-        }
-      }
-    `,
+    query: allPageSlugs,
   })
   return result.data.allPages.map((page: any) => '/pages/' + page.slug)
 }
