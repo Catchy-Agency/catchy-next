@@ -6,7 +6,9 @@
     "build": "next build",
     "start": "next start",
     "types": "tsc --watch --noEmit",
-    "schema-download": "export $(cat .env.local | xargs) && apollo schema:download --endpoint=\"https://graphql.datocms.com/\" --header=\"Authorization: Bearer $DATOCMS_API_TOKEN\""
+    "schema-download": "export $(cat .env.local | xargs) && apollo schema:download --endpoint=\"https://graphql.datocms.com/\" --header=\"Authorization: Bearer $DATOCMS_API_TOKEN\"",
+    "schema-codegen": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --useReadOnlyTypes --includes=utils/**/*.ts --tagName=gql --addTypename --globalTypesFile=./gql-types/global.ts --outputFlat gql-types",
+    "schema": "npm run schema-download && npm run schema-codegen"
   },
   "dependencies": {
     "apollo-cache-inmemory": "1.6.6",

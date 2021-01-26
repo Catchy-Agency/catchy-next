@@ -73,7 +73,7 @@ export type Subscription = ThenArg<ReturnType<typeof createSubscription>>
 export const getPagePaths = async (): Promise<string[]> => {
   const result = await client.query({
     query: gql`
-      {
+      query AllPageSlugs {
         allPages {
           slug
         }
