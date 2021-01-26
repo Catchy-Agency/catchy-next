@@ -5,6 +5,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import gql from 'graphql-tag'
 
 import { GetStaticPropsContext } from 'next'
+import { DocumentNode } from 'graphql'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -41,13 +42,10 @@ const previewClient = new ApolloClient({
 
 export const createSubscription = async (
   context: GetStaticPropsContext,
-  queryString: string,
+  query: DocumentNode,
 ) => {
   const isPreview = Boolean(context.preview)
 
-  const query = gql`
-    ${queryString}
-  `
   const result = isPreview
     ? await previewClient.query({ query })
     : await client.query({ query })
@@ -58,7 +56,7 @@ export const createSubscription = async (
     ? ({
         initialData,
         preview: true,
-        query: queryString,
+        query: query.loc?.source.body,
         token: API_TOKEN,
       } as const)
     : ({

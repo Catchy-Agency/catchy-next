@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Head from 'next/head'
+import gql from 'graphql-tag'
 
 import {
   createSubscription,
@@ -47,7 +48,7 @@ export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
     subscription: await createSubscription(
       context,
-      `
+      gql`
         {
           page: page(filter: { slug: { eq: "${context?.params?.slug}" } }) {
             title
