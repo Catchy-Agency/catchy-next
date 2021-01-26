@@ -1,16 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useQuerySubscription } from 'react-datocms'
+import { renderMetaTags, useQuerySubscription } from 'react-datocms'
+import Head from 'next/head'
 
 import {
   createSubscription,
   getPagePaths,
   Subscription,
 } from '../../utils/dato-cms'
-
-export interface PageData {
-  title: string
-  slug: string
-}
 
 const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription(subscription)
@@ -21,6 +17,12 @@ const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
   }
   return (
     <div>
+      <Head>
+        {renderMetaTags([
+          ...data.page._seoMetaTags,
+          ...data.site.faviconMetaTags,
+        ])}
+      </Head>
       <p>Connection status: {statusMessage[status]}</p>
       {error && (
         <div>
@@ -47,9 +49,20 @@ export const getStaticProps: GetStaticProps = async (context) => ({
       context,
       `
         {
-          page(filter: { slug: { eq: "${context?.params?.slug}" } }) {
+          page: page(filter: { slug: { eq: "${context?.params?.slug}" } }) {
             title
             slug
+            _seoMetaTags {
+              attributes
+              content
+              tag
+            }
+          }
+          site: _site {
+            faviconMetaTags {
+              tag
+              attributes
+            }
           }
         }
       `,

@@ -4,7 +4,6 @@ import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import gql from 'graphql-tag'
 
-import { PageData } from '../pages/pages/[slug]'
 import { GetStaticPropsContext } from 'next'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
@@ -84,18 +83,4 @@ export const getPagePaths = async (): Promise<string[]> => {
     `,
   })
   return result.data.allPages.map((page: any) => '/pages/' + page.slug)
-}
-
-export const getPage = async (slug: string): Promise<PageData> => {
-  const result = await client.query({
-    query: gql`
-      {
-        page(filter: { slug: { eq: "${slug}" } }) {
-          title
-          slug
-        }
-      }
-    `,
-  })
-  return result.data.page
 }
