@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Head from 'next/head'
-import gql from 'graphql-tag'
 
 import {
   createSubscription,
@@ -9,9 +8,10 @@ import {
   Subscription,
 } from '../../gql/dato-cms'
 import { pageBySlug } from '../../gql/queries'
+import { PageBySlug } from '../../gql/types/PageBySlug'
 
 const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription(subscription)
+  const { data, error, status } = useQuerySubscription<PageBySlug>(subscription)
   const statusMessage = {
     connecting: 'Connecting to DatoCMS...',
     connected: 'Connected to DatoCMS, receiving live updates!',
@@ -21,8 +21,8 @@ const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
     <div>
       <Head>
         {renderMetaTags([
-          ...data.page._seoMetaTags,
-          ...data.site.faviconMetaTags,
+          ...(data?.page?._seoMetaTags || []),
+          ...(data?.site.faviconMetaTags || []),
         ])}
       </Head>
       <p>Connection status: {statusMessage[status]}</p>
@@ -47,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
-    subscription: await createSubscription(context, pageBySlug, {
+    subscription: await createSubscription<PageBySlug>(context, pageBySlug, {
       slug: context?.params?.slug,
     }),
   },

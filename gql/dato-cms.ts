@@ -6,6 +6,7 @@ import { GetStaticPropsContext } from 'next'
 import { DocumentNode } from 'graphql'
 
 import { allPageSlugs } from './queries'
+import { AllPageSlugs } from './types/AllPageSlugs'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -40,16 +41,16 @@ const previewClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-export const createSubscription = async (
+export const createSubscription = async <Result>(
   context: GetStaticPropsContext,
   query: DocumentNode,
-  variables?: unknown,
+  variables?: any,
 ) => {
   const isPreview = Boolean(context.preview)
 
   const result = isPreview
-    ? await previewClient.query({ query })
-    : await client.query({ query })
+    ? await previewClient.query<Result>({ query })
+    : await client.query<Result>({ query })
 
   const initialData = result.data
 
@@ -57,7 +58,7 @@ export const createSubscription = async (
     ? ({
         initialData,
         preview: true,
-        query: query.loc?.source.body,
+        query: query.loc?.source.body || '',
         variables,
         token: API_TOKEN,
       } as const)
@@ -68,13 +69,13 @@ export const createSubscription = async (
       } as const)
 }
 
-// TODO: LOL
+// TODO: make this stricter to fix <Result> on createSubscription
 type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
 export type Subscription = ThenArg<ReturnType<typeof createSubscription>>
 
 export const getPagePaths = async (): Promise<string[]> => {
-  const result = await client.query({
+  const result = await client.query<AllPageSlugs>({
     query: allPageSlugs,
   })
-  return result.data.allPages.map((page: any) => '/pages/' + page.slug)
+  return result.data.allPages.map((page) => '/pages/' + page.slug)
 }

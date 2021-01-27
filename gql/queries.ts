@@ -13,8 +13,9 @@ export const pageBySlug = gql`
     }
     site: _site {
       faviconMetaTags {
-        tag
         attributes
+        content
+        tag
       }
     }
   }

@@ -3,13 +3,11 @@
 Catchy agency website built with DatoCMS + Next.js
 
 ```sh
-# Installation
-npm run install
-
-# Development
-npm run dev
-npm run types
-
-# Production
-npm run build
+npm run i       # install dependencies
+npm run dev     # start development server
+npm run types   # start typscript compiler watch
+npm run schema  # download graphql schema & codegen types
+npm run build   # build production version
+npm run start   # start production server
+npm run clean   # remove .next directory
 ```

@@ -26,8 +26,9 @@ export interface PageBySlug_page {
 
 export interface PageBySlug_site_faviconMetaTags {
   readonly __typename: "Tag";
-  readonly tag: string;
   readonly attributes: any | null;
+  readonly content: string | null;
+  readonly tag: string;
 }
 
 export interface PageBySlug_site {
