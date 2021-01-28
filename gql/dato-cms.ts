@@ -1,10 +1,14 @@
 import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import {
+  InMemoryCache,
+  IntrospectionFragmentMatcher,
+} from 'apollo-cache-inmemory'
 import { GetStaticPropsContext } from 'next'
 import { DocumentNode } from 'graphql'
 
+import schema from '../schema.json'
 import { allPageSlugs } from './queries'
 import { AllPageSlugs } from './types/AllPageSlugs'
 
@@ -33,7 +37,11 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    fragmentMatcher: new IntrospectionFragmentMatcher({
+      introspectionQueryResultData: schema as any,
+    }),
+  }),
 })
 
 const previewClient = new ApolloClient({
