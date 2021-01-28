@@ -10,7 +10,9 @@ import {
 import { pageBySlug } from '../../gql/queries'
 import { PageBySlug } from '../../gql/types/PageBySlug'
 
-const Page: NextPage<{ subscription: Subscription }> = ({ subscription }) => {
+const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
+  subscription,
+}) => {
   const { data, error, status } = useQuerySubscription<PageBySlug>(subscription)
   const statusMessage = {
     connecting: 'Connecting to DatoCMS...',

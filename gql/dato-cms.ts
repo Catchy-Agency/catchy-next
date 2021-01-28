@@ -49,37 +49,46 @@ const previewClient = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-export const createSubscription = async <Result>(
+export type Subscription<ResultData> =
+  | {
+      initialData: ResultData
+      enabled: true
+      query: string
+      token: string
+      variables?: { [key: string]: any }
+    }
+  | {
+      initialData: ResultData
+      enabled: false
+    }
+
+export const createSubscription = async <ResultData>(
   context: GetStaticPropsContext,
   query: DocumentNode,
-  variables?: any,
+  variables?: unknown,
 ) => {
   const isPreview = Boolean(context.preview)
 
   const result = isPreview
-    ? await previewClient.query<Result>({ query })
-    : await client.query<Result>({ query })
+    ? await previewClient.query<ResultData>({ query })
+    : await client.query<ResultData>({ query })
 
   const initialData = result.data
 
   return isPreview
-    ? ({
+    ? {
         initialData,
         preview: true,
         query: query.loc?.source.body || '',
         variables,
         token: API_TOKEN,
-      } as const)
-    : ({
+      }
+    : {
         initialData,
         preview: false,
         enabled: false,
-      } as const)
+      }
 }
-
-// TODO: make this stricter to fix <Result> on createSubscription
-type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
-export type Subscription = ThenArg<ReturnType<typeof createSubscription>>
 
 export const getPagePaths = async (): Promise<string[]> => {
   const result = await client.query<AllPageSlugs>({
