@@ -1,5 +1,7 @@
 import { AppComponent } from 'next/dist/next-server/lib/router/router'
 
+import '../styles/main.css'
+
 // TODO extract to component
 if (typeof window !== 'undefined') {
   let index = 0
