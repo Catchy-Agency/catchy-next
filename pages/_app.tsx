@@ -9,7 +9,9 @@ const App: AppComponent = ({ Component, pageProps }) => (
       isPreview={Boolean(pageProps?.subscription?.preview)}
       previewURL={(loc) => `${loc.origin}/api/preview?path=${loc.pathname}`}
       exitURL={(loc) => `${loc.origin}/api/exit-preview?path=${loc.pathname}`}
-    />
+    >
+      <div>THIS IS PREVIEW MODE</div>
+    </PreviewTrigger>
     <Component {...pageProps}></Component>
   </>
 )

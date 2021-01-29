@@ -43,5 +43,5 @@ export const PreviewTrigger: FC<{
     isPreview = props.isPreview
     index = 0
   }
-  return null
+  return <>{isPreview && props.children}</>
 }
