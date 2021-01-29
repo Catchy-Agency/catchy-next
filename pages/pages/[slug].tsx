@@ -28,6 +28,7 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
         ])}
       </Head>
       <p>Connection status: {statusMessage[status]}</p>
+      <input type="text" />
       {error && (
         <div>
           <h1>Error: {error.code}</h1>
