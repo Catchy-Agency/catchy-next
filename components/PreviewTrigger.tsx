@@ -1,25 +1,25 @@
 import { FC } from 'react'
 
-const PREVIEW = 'preview'
-const EXIT = 'exit'
+let index = 0
+let isPreviewMode = false
 
 let previewURL = (_: Location) => ''
 let exitURL = (_: Location) => ''
 
-let index = 0
-let isPreview = false
+let previewKey = 'preview'
+let exitKey = 'exit'
 
 if (typeof window !== 'undefined') {
   document.addEventListener('keydown', (e) => {
     if (e.target !== document.body) return
-    const keyword = isPreview ? EXIT : PREVIEW
+    const keyword = isPreviewMode ? exitKey : previewKey
     if (index === keyword.length - 1) {
       // Win condition
-      const destination = isPreview
+      const destination = isPreviewMode
         ? exitURL(window.location)
         : previewURL(window.location)
       index = 0
-      isPreview = !isPreview
+      isPreviewMode = !isPreviewMode
       window.location.replace(destination)
     } else if (keyword[index] === e.key) {
       // Step forward
@@ -32,16 +32,20 @@ if (typeof window !== 'undefined') {
 }
 
 export const PreviewTrigger: FC<{
-  isPreview: boolean
+  isPreviewMode: boolean
   previewURL: (loc: Location) => string
   exitURL: (loc: Location) => string
+  previewKey?: string
+  exitKey?: string
 }> = (props) => {
   previewURL = props.previewURL
   exitURL = props.exitURL
-  if (props.isPreview !== isPreview) {
-    // Reset if preview status changes
-    isPreview = props.isPreview
+  previewKey = props.previewKey || previewKey
+  exitKey = props.exitKey || exitKey
+  if (props.isPreviewMode !== isPreviewMode) {
+    // Reset if preview mode changes
+    isPreviewMode = props.isPreviewMode
     index = 0
   }
-  return <>{isPreview && props.children}</>
+  return <>{isPreviewMode && props.children}</>
 }
