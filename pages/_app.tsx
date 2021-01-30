@@ -11,7 +11,7 @@ const App: AppComponent = ({ Component, pageProps }) => (
       exitUrl={(loc) => `${loc.origin}/api/exit-preview?path=${loc.pathname}`}
       component={(isPreview, togglePreview) =>
         isPreview ? (
-          <div className="inline-block fixed right-5 bottom-5 py-2 px-4 text-md font-medium bg-blue-200 bg-opacity-80">
+          <div className="inline-block fixed right-2 bottom-2 py-2 px-4 text-md font-medium bg-blue-200 bg-opacity-80">
             Preview Mode &nbsp;
             <button
               className="py-1 px-3 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"

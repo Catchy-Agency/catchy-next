@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Head from 'next/head'
+import classNames from 'classnames'
 
 import {
   createSubscription,
@@ -27,8 +28,19 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
           ...(data?.site.faviconMetaTags || []),
         ])}
       </Head>
-      <p>Connection status: {statusMessage[status]}</p>
-      <input type="text" />
+      <div
+        className={classNames(
+          {
+            'bg-red-500': status === 'closed',
+            'bg-yellow-500': status === 'connecting',
+            'bg-green-500': status === 'connected',
+          },
+          'text-white',
+          'p-5',
+        )}
+      >
+        Connection status: {statusMessage[status]}
+      </div>
       {error && (
         <div>
           <h1>Error: {error.code}</h1>
@@ -38,7 +50,9 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
           )}
         </div>
       )}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre className="m-5 p-5 text-xs bg-gray-200 rounded-lg">
+        {JSON.stringify(data, null, 2)}
+      </pre>
     </div>
   )
 }
