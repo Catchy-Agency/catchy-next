@@ -32,6 +32,7 @@ export interface PageBySlug_page_content_HeroRecord_backgroundColor {
 
 export interface PageBySlug_page_content_HeroRecord {
   readonly __typename: "HeroRecord";
+  readonly id: any;
   readonly headline: string | null;
   readonly text: string | null;
   readonly imageSet: ReadonlyArray<PageBySlug_page_content_HeroRecord_imageSet>;
@@ -54,11 +55,13 @@ export interface PageBySlug_page_content_ImageSetRecord_imageSet {
 
 export interface PageBySlug_page_content_ImageSetRecord {
   readonly __typename: "ImageSetRecord";
+  readonly id: any;
   readonly imageSet: ReadonlyArray<PageBySlug_page_content_ImageSetRecord_imageSet>;
 }
 
 export interface PageBySlug_page_content_TextRecord {
   readonly __typename: "TextRecord";
+  readonly id: any;
   readonly text: string | null;
 }
 
@@ -70,6 +73,7 @@ export interface PageBySlug_page_content_VideoRecord_video {
 
 export interface PageBySlug_page_content_VideoRecord {
   readonly __typename: "VideoRecord";
+  readonly id: any;
   readonly video: PageBySlug_page_content_VideoRecord_video | null;
 }
 

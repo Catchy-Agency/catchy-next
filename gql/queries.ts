@@ -5,7 +5,9 @@ export const pageBySlug = gql`
     page: page(filter: { slug: { eq: $slug } }) {
       title
       content {
+        __typename
         ... on HeroRecord {
+          id
           headline
           text
           imageSet {
@@ -24,6 +26,7 @@ export const pageBySlug = gql`
           }
         }
         ... on ImageSetRecord {
+          id
           imageSet {
             responsiveImage {
               alt
@@ -34,9 +37,11 @@ export const pageBySlug = gql`
           }
         }
         ... on TextRecord {
+          id
           text
         }
         ... on VideoRecord {
+          id
           video {
             title
             url
