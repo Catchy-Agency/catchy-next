@@ -1,63 +1,88 @@
+import classNames from 'classnames'
 import { FC, ReactElement } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { PageBySlug_page } from '../gql/types/PageBySlug'
+import { Container } from './basics/Container'
 
 export const PageContent: FC<{ content: PageBySlug_page['content'] }> = ({
   content,
 }) => (
-  <div className="p-5">
+  <>
     {content?.map((item) => {
       if (!item) return null
       let inners: ReactElement | null = null
+
       switch (item.__typename) {
         case 'HeroRecord':
-          const colorStyle = {
-            color: item.textColor?.hex || undefined,
-            backgroundColor: item.backgroundColor?.hex || undefined,
-          }
           inners = (
-            <div className="p-10" style={colorStyle}>
-              {item.headline && <h3>{item.headline}</h3>}
-              {item.text && (
-                <div style={colorStyle} className="prose">
-                  {item.text}
+            <div
+              className="py-5"
+              style={{
+                color: item.textColor?.hex || undefined,
+                backgroundColor: item.backgroundColor?.hex || undefined,
+              }}
+            >
+              <Container
+                className={classNames({
+                  'grid grid-cols-1 md:grid-cols-2 gap-5':
+                    item.imageSet?.length,
+                })}
+              >
+                {item.imageSet &&
+                  item.imageSet.map(({ responsiveImage }) =>
+                    responsiveImage ? (
+                      <img
+                        key={responsiveImage.src}
+                        src={responsiveImage.src}
+                        srcSet={responsiveImage.srcSet || ''}
+                        title={responsiveImage.title || ''}
+                        alt={responsiveImage.alt || ''}
+                      />
+                    ) : null,
+                  )}
+                <div>
+                  {item.headline && <h1>{item.headline}</h1>}
+                  {item.text && (
+                    <div
+                      className="prose my-5"
+                      style={{
+                        color: item.textColor?.hex || undefined,
+                      }}
+                    >
+                      {item.text}
+                    </div>
+                  )}
                 </div>
-              )}
-              {item.imageSet &&
-                item.imageSet.map(({ responsiveImage }) =>
-                  responsiveImage ? (
-                    <img
-                      key={responsiveImage.src}
-                      src={responsiveImage.src}
-                      srcSet={responsiveImage.srcSet || ''}
-                      title={responsiveImage.title || ''}
-                      alt={responsiveImage.alt || ''}
-                    />
-                  ) : null,
-                )}
+              </Container>
             </div>
           )
           break
+
         case 'ImageSetRecord':
-          inners = <p>'ImageSetRecord'</p>
+          inners = <Container>'ImageSetRecord'</Container>
           break
+
         case 'TextRecord':
           inners = (
-            <div className="prose">
-              <ReactMarkdown>{item.text || ''}</ReactMarkdown>
-            </div>
+            <Container>
+              <div className="prose">
+                <ReactMarkdown>{item.text || ''}</ReactMarkdown>
+              </div>
+            </Container>
           )
           break
+
         case 'VideoRecord':
-          inners = <p>'VideoRecord'</p>
+          inners = <Container>'VideoRecord'</Container>
           break
       }
+
       return (
-        <div key={item.id} className="my-5">
+        <section key={item.id} className="my-5">
           {inners}
-        </div>
+        </section>
       )
     })}
-  </div>
+  </>
 )

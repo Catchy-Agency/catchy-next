@@ -11,6 +11,7 @@ import {
 import { pageBySlug } from '../../gql/queries'
 import { PageBySlug } from '../../gql/types/PageBySlug'
 import { PageContent } from '../../components/PageContent'
+import { Container } from '../../components/basics/Container'
 
 const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
   subscription,
@@ -51,10 +52,16 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
           )}
         </div>
       )}
+      <Container>
+        <h1 className="mt-12">{data?.page?.title}</h1>
+      </Container>
       {data?.page?.content && <PageContent content={data.page.content} />}
-      <pre className="m-5 p-5 text-xs bg-gray-200 rounded-lg">
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      <Container>
+        <h1 className="mt-24">~ Raw Data ~</h1>
+        <pre className="my-6 p-6 text-xs bg-gray-800 text-gray-300 rounded-lg">
+          {JSON.stringify(data, null, 2)}
+        </pre>
+      </Container>
     </div>
   )
 }
