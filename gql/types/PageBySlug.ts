@@ -69,6 +69,11 @@ export interface PageBySlug_page_content_VideoRecord_video {
   readonly __typename: "VideoField";
   readonly title: string | null;
   readonly url: string | null;
+  readonly provider: string | null;
+  readonly providerUid: string | null;
+  readonly thumbnailUrl: string | null;
+  readonly width: any | null;
+  readonly height: any | null;
 }
 
 export interface PageBySlug_page_content_VideoRecord {

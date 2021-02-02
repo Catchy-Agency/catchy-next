@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { PageBySlug_page } from '../gql/types/PageBySlug'
 import { Container } from './basics/Container'
+import { Video } from './Video'
 
 export const PageContent: FC<{ content: PageBySlug_page['content'] }> = ({
   content,
@@ -74,7 +75,11 @@ export const PageContent: FC<{ content: PageBySlug_page['content'] }> = ({
           break
 
         case 'VideoRecord':
-          inners = <Container>'VideoRecord'</Container>
+          inners = item.video ? (
+            <Container>
+              <Video video={item.video}></Video>
+            </Container>
+          ) : null
           break
       }
 

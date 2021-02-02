@@ -45,6 +45,11 @@ export const pageBySlug = gql`
           video {
             title
             url
+            provider
+            providerUid
+            thumbnailUrl
+            width
+            height
           }
         }
       }
