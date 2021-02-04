@@ -1,7 +1,7 @@
 const IndexPage = () => (
   <>
-    <h1>Hello Catchy</h1>
-    <p>This is a page</p>
+    <h1 className="title">Hello Catchy</h1>
+    <h2 className="subtitle">This is a page</h2>
   </>
 )
 

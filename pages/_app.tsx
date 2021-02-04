@@ -1,7 +1,7 @@
 import { AppComponent } from 'next/dist/next-server/lib/router/router'
 import { PreviewTrigger } from '../components/PreviewTrigger'
 
-import '../styles/main.css'
+import '../styles/global.scss'
 
 const App: AppComponent = ({ Component, pageProps }) => (
   <>
