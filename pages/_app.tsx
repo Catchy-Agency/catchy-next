@@ -7,8 +7,8 @@ const App: AppComponent = ({ Component, pageProps }) => (
   <>
     <PreviewTrigger
       isPreview={Boolean(pageProps?.subscription?.preview)}
-      previewUrl={(loc) => `${loc.origin}/api/preview?path=${loc.pathname}`}
-      exitUrl={(loc) => `${loc.origin}/api/exit-preview?path=${loc.pathname}`}
+      previewUrl={(loc) => `${loc.origin}/api/preview?slug=${loc.pathname}`}
+      exitUrl={(loc) => `${loc.origin}/api/exit-preview?slug=${loc.pathname}`}
       component={(isPreview, togglePreview) =>
         isPreview ? (
           <div className="inline-block fixed right-2 bottom-2 py-2 px-4 text-md font-medium bg-blue-200 bg-opacity-80">
