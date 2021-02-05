@@ -10,7 +10,7 @@ import {
 import { primaryPageBySlug } from '../gql/queries'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
 import { PreviewBanner } from '../components/cms/PreviewBanner'
-import { ResponseError } from '../components/cms/ResponseError'
+import { PageError } from '../components/cms/PageError'
 
 const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   subscription,
@@ -18,7 +18,7 @@ const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
     subscription,
   )
-  console.log(status)
+
   return (
     <>
       <Head>
@@ -28,7 +28,7 @@ const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
         ])}
       </Head>
       <PreviewBanner status={status} />
-      <ResponseError error={error} />
+      <PageError error={error} />
       <div className="container">
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
