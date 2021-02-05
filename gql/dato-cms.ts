@@ -68,13 +68,10 @@ export const createSubscription = async <ResultData>(
   variables?: unknown,
 ) => {
   const isPreview = Boolean(context.preview)
-
   const result = isPreview
     ? await previewClient.query<ResultData>({ query })
     : await client.query<ResultData>({ query })
-
   const initialData = result.data
-
   return isPreview
     ? {
         initialData,
