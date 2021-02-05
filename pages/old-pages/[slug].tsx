@@ -10,8 +10,8 @@ import {
 } from '../../gql/dato-cms'
 import { pageBySlug } from '../../gql/queries'
 import { PageBySlug } from '../../gql/types/PageBySlug'
-import { PageContent } from '../../components/PageContent'
-import { Container } from '../../components/basics/Container'
+import { PageContent } from '../../components-old/PageContent'
+import { Container } from '../../components-old/basics/Container'
 
 const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
   subscription,

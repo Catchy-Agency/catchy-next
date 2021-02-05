@@ -1,5 +1,5 @@
 import { AppComponent } from 'next/dist/next-server/lib/router/router'
-import { PreviewTrigger } from '../components/PreviewTrigger'
+import { PreviewTrigger } from '../components/cms/PreviewTrigger'
 
 import '../styles/global.scss'
 

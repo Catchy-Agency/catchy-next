@@ -1,7 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Head from 'next/head'
-import classNames from 'classnames'
 
 import {
   createSubscription,
@@ -10,6 +9,8 @@ import {
 } from '../gql/dato-cms'
 import { primaryPageBySlug } from '../gql/queries'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
+import { PreviewBanner } from '../components/cms/PreviewBanner'
+import { ResponseError } from '../components/cms/ResponseError'
 
 const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   subscription,
@@ -17,43 +18,21 @@ const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
     subscription,
   )
-  const statusMessage = {
-    connecting: 'Connecting to DatoCMS...',
-    connected: 'Connected to DatoCMS, receiving live updates!',
-    closed: 'Connection closed',
-  }
+  console.log(status)
   return (
-    <div>
+    <>
       <Head>
         {renderMetaTags([
           ...(data?.primaryPage?._seoMetaTags || []),
           ...(data?.site.faviconMetaTags || []),
         ])}
       </Head>
-      <div
-        className={classNames(
-          {
-            'bg-red-500': status === 'closed',
-            'bg-yellow-500': status === 'connecting',
-            'bg-green-500': status === 'connected',
-          },
-          'text-white',
-          'p-5',
-        )}
-      >
-        Connection status: {statusMessage[status]}
+      <PreviewBanner status={status} />
+      <ResponseError error={error} />
+      <div className="container">
+        <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
-      {error && (
-        <div>
-          <h1>Error: {error.code}</h1>
-          <div>{error.message}</div>
-          {error.response && (
-            <pre>{JSON.stringify(error.response, null, 2)}</pre>
-          )}
-        </div>
-      )}
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </div>
+    </>
   )
 }
 
