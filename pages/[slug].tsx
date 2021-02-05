@@ -5,18 +5,18 @@ import classNames from 'classnames'
 
 import {
   createSubscription,
-  getOldPagePaths,
+  getPrimaryPagePaths,
   Subscription,
-} from '../../gql/dato-cms'
-import { pageBySlug } from '../../gql/queries'
-import { PageBySlug } from '../../gql/types/PageBySlug'
-import { PageContent } from '../../components/PageContent'
-import { Container } from '../../components/basics/Container'
+} from '../gql/dato-cms'
+import { primaryPageBySlug } from '../gql/queries'
+import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
 
-const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
+const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   subscription,
 }) => {
-  const { data, error, status } = useQuerySubscription<PageBySlug>(subscription)
+  const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
+    subscription,
+  )
   const statusMessage = {
     connecting: 'Connecting to DatoCMS...',
     connected: 'Connected to DatoCMS, receiving live updates!',
@@ -26,7 +26,7 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
     <div>
       <Head>
         {renderMetaTags([
-          ...(data?.page?._seoMetaTags || []),
+          ...(data?.primaryPage?._seoMetaTags || []),
           ...(data?.site.faviconMetaTags || []),
         ])}
       </Head>
@@ -52,30 +52,23 @@ const Page: NextPage<{ subscription: Subscription<PageBySlug> }> = ({
           )}
         </div>
       )}
-      <Container>
-        <h1 className="mt-12">{data?.page?.title}</h1>
-      </Container>
-      {data?.page?.content && <PageContent content={data.page.content} />}
-      <Container>
-        <h1 className="mt-24">~ Raw Data ~</h1>
-        <pre className="my-6 p-6 text-xs bg-gray-800 text-gray-300 rounded-lg">
-          {JSON.stringify(data, null, 2)}
-        </pre>
-      </Container>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getOldPagePaths(),
+  paths: await getPrimaryPagePaths(),
   fallback: false,
 })
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
-    subscription: await createSubscription<PageBySlug>(context, pageBySlug, {
-      slug: context?.params?.slug,
-    }),
+    subscription: await createSubscription<PrimaryPageBySlug>(
+      context,
+      primaryPageBySlug,
+      { slug: context?.params?.slug },
+    ),
   },
 })
 

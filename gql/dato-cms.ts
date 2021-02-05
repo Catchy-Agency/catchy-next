@@ -9,8 +9,15 @@ import { GetStaticPropsContext } from 'next'
 import { DocumentNode } from 'graphql'
 
 import schema from '../schema.json'
-import { allPageSlugs } from './queries'
+import {
+  allContentPageSlugs,
+  allPageSlugs,
+  allPrimaryPageSlugs,
+} from './queries'
 import { AllPageSlugs } from './types/AllPageSlugs'
+import { AllPrimaryPageSlugs } from './types/AllPrimaryPageSlugs'
+import { AllContentPageSlugs } from './types/AllContentPageSlugs'
+import { AllContentPostSlugs } from './types/AllContentPostSlugs'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -87,9 +94,30 @@ export const createSubscription = async <ResultData>(
       }
 }
 
-export const getPagePaths = async (): Promise<string[]> => {
+export const getOldPagePaths = async (): Promise<string[]> => {
   const result = await client.query<AllPageSlugs>({
     query: allPageSlugs,
   })
   return result.data.allPages.map((page) => '/pages/' + page.slug)
+}
+
+export const getPrimaryPagePaths = async (): Promise<string[]> => {
+  const result = await client.query<AllPrimaryPageSlugs>({
+    query: allPrimaryPageSlugs,
+  })
+  return result.data.allPrimaryPages.map((page) => '/' + page.slug)
+}
+
+export const getContentPagePaths = async (): Promise<string[]> => {
+  const result = await client.query<AllContentPageSlugs>({
+    query: allContentPageSlugs,
+  })
+  return result.data.allContentPages.map((page) => '/pages/' + page.slug)
+}
+
+export const getContentPostPaths = async (): Promise<string[]> => {
+  const result = await client.query<AllContentPostSlugs>({
+    query: allContentPageSlugs,
+  })
+  return result.data.allContentPosts.map((post) => '/posts/' + post.slug)
 }

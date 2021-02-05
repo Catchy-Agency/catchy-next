@@ -70,9 +70,81 @@ export const pageBySlug = gql`
   }
 `
 
+export const primaryPageBySlug = gql`
+  query PrimaryPageBySlug($slug: String) {
+    primaryPage: primaryPage(filter: { slug: { eq: $slug } }) {
+      title
+      blocks {
+        __typename
+        ... on BannerRecord {
+          id
+        }
+        ... on ClientSetRecord {
+          id
+        }
+        ... on ContentLinkSetRecord {
+          id
+        }
+        ... on FormulaRecord {
+          id
+        }
+        ... on ServiceSetRecord {
+          id
+        }
+        ... on TeamRecord {
+          id
+        }
+        ... on TitleTextRecord {
+          id
+        }
+        ... on ViewMoreLinkRecord {
+          id
+        }
+      }
+      slug
+      _seoMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+    site: _site {
+      faviconMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+  }
+`
+
 export const allPageSlugs = gql`
   query AllPageSlugs {
     allPages {
+      slug
+    }
+  }
+`
+
+export const allPrimaryPageSlugs = gql`
+  query AllPrimaryPageSlugs {
+    allPrimaryPages {
+      slug
+    }
+  }
+`
+
+export const allContentPageSlugs = gql`
+  query AllContentPageSlugs {
+    allContentPages {
+      slug
+    }
+  }
+`
+
+export const allContentPostSlugs = gql`
+  query AllContentPostSlugs {
+    allContentPosts {
       slug
     }
   }
