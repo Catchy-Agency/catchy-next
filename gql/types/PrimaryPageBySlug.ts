@@ -32,9 +32,22 @@ export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord {
   readonly textColor: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_textColor | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet_logo {
+  readonly __typename: "FileField";
+  readonly url: string;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet {
+  readonly __typename: "ClientRecord";
+  readonly id: any;
+  readonly name: string | null;
+  readonly logo: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet_logo | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord {
   readonly __typename: "ClientSetRecord";
   readonly id: any;
+  readonly clientSet: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {

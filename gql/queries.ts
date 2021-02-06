@@ -92,6 +92,13 @@ export const primaryPageBySlug = gql`
         }
         ... on ClientSetRecord {
           id
+          clientSet {
+            id
+            name
+            logo {
+              url
+            }
+          }
         }
         ... on ContentLinkSetRecord {
           id
