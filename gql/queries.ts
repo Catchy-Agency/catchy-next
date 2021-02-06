@@ -102,6 +102,47 @@ export const primaryPageBySlug = gql`
         }
         ... on ContentLinkSetRecord {
           id
+          links {
+            ... on PrimaryPageRecord {
+              id
+              seo {
+                title
+                description
+                image {
+                  url
+                }
+              }
+            }
+            ... on ContentPostRecord {
+              id
+              seo {
+                title
+                description
+                image {
+                  url
+                }
+              }
+            }
+            ... on ContentPageRecord {
+              id
+              seo {
+                title
+                description
+                image {
+                  url
+                }
+              }
+            }
+          }
+          displaySize
+          callToActionLabel
+          alternatingAlignments
+          backgroundColor {
+            hex
+          }
+          textColor {
+            hex
+          }
         }
         ... on FormulaRecord {
           id
