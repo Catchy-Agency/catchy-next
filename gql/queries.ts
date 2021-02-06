@@ -78,6 +78,17 @@ export const primaryPageBySlug = gql`
         __typename
         ... on BannerRecord {
           id
+          title
+          text
+          backgroundImage {
+            url
+          }
+          backgroundColor {
+            hex
+          }
+          textColor {
+            hex
+          }
         }
         ... on ClientSetRecord {
           id
@@ -90,12 +101,26 @@ export const primaryPageBySlug = gql`
         }
         ... on ServiceSetRecord {
           id
+          services {
+            id
+            title
+            text
+            iconName
+            iconColor {
+              hex
+            }
+            iconBackgroundColor {
+              hex
+            }
+          }
         }
         ... on TeamRecord {
           id
         }
         ... on TitleTextRecord {
           id
+          title
+          text
         }
         ... on ViewMoreLinkRecord {
           id

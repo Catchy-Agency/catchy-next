@@ -7,9 +7,29 @@
 // GraphQL query operation: PrimaryPageBySlug
 // ====================================================
 
+export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage {
+  readonly __typename: "FileField";
+  readonly url: string;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_textColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord {
   readonly __typename: "BannerRecord";
   readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly backgroundImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage | null;
+  readonly backgroundColor: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundColor | null;
+  readonly textColor: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_textColor | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord {
@@ -27,9 +47,30 @@ export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord {
   readonly id: any;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconBackgroundColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly iconName: string | null;
+  readonly iconColor: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconColor | null;
+  readonly iconBackgroundColor: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconBackgroundColor | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
   readonly __typename: "ServiceSetRecord";
   readonly id: any;
+  readonly services: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord {
@@ -40,6 +81,8 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord {
 export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
   readonly __typename: "TitleTextRecord";
   readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {

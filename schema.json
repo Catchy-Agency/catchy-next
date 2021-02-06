@@ -9801,7 +9801,39 @@
             "deprecationReason": null
           },
           {
-            "name": "body",
+            "name": "createdAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ItemId",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "text",
             "description": null,
             "args": [
               {
@@ -9824,56 +9856,24 @@
             "deprecationReason": null
           },
           {
-            "name": "createdAt",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "DateTime",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "heading",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ItemId",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "textColor",
             "description": null,
             "args": [],
             "type": {
               "kind": "OBJECT",
               "name": "ColorField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -10316,29 +10316,6 @@
             "deprecationReason": null
           },
           {
-            "name": "caption",
-            "description": null,
-            "args": [
-              {
-                "name": "markdown",
-                "description": "Process content as markdown",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -10350,6 +10327,30 @@
                 "name": "DateTime",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "iconBackgroundColor",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ColorField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "iconColor",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ColorField",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -10378,6 +10379,29 @@
                 "name": "ItemId",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "text",
+            "description": null,
+            "args": [
+              {
+                "name": "markdown",
+                "description": "Process content as markdown",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -15032,7 +15056,27 @@
             "defaultValue": null
           },
           {
-            "name": "caption",
+            "name": "iconBackgroundColor",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ColorFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "iconColor",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ColorFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "text",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -15072,6 +15116,27 @@
                 "name": "ServiceModelFilter",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ColorFilter",
+        "description": "Specifies how to filter Color fields",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "exists",
+            "description": "Filter records with the specified field defined (i.e. with any value) or not",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
             },
             "defaultValue": null
           }

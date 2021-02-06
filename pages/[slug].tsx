@@ -11,6 +11,7 @@ import { primaryPageBySlug } from '../gql/queries'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
 import { PreviewBanner } from '../components/cms/PreviewBanner'
 import { PageError } from '../components/cms/PageError'
+import { PrimaryBlocks } from '../components/PrimaryBlocks'
 
 const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
   subscription,
@@ -29,7 +30,9 @@ const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
       </Head>
       <PreviewBanner status={status} />
       <PageError error={error} />
+      <PrimaryBlocks blocks={data?.primaryPage?.blocks || []} />
       <div className="container">
+        <h1 className="title">~ Raw Data ~</h1>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
     </>
