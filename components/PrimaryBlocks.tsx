@@ -18,29 +18,20 @@ export const PrimaryBlocks: FC<{
       switch (block?.__typename) {
         case 'BannerRecord':
           return <Banner block={block} />
-
         case 'ClientSetRecord':
           return <ClientSet block={block} />
-
         case 'ContentLinkSetRecord':
-          console.log(block)
           return <ContentLinkSet block={block} />
-
         case 'FormulaRecord':
           return <Formula block={block} />
-
         case 'ServiceSetRecord':
           return <ServiceSet block={block} />
-
         case 'TeamRecord':
           return <Team block={block} />
-
         case 'TitleTextRecord':
           return <TitleText block={block} />
-
         case 'ViewMoreLinkRecord':
           return <ViewMoreLink block={block} />
-
         default:
           return null
       }

@@ -50,6 +50,16 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord {
   readonly clientSet: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_backgroundColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_textColor {
+  readonly __typename: "ColorField";
+  readonly hex: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image {
   readonly __typename: "FileField";
   readonly url: string;
@@ -65,6 +75,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
+  readonly slug: string | null;
   readonly seo: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo | null;
 }
 
@@ -83,6 +94,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord {
   readonly __typename: "ContentPostRecord";
   readonly id: any;
+  readonly slug: string | null;
   readonly seo: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo | null;
 }
 
@@ -101,30 +113,21 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord {
   readonly __typename: "ContentPageRecord";
   readonly id: any;
+  readonly slug: string | null;
   readonly seo: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo | null;
 }
 
 export type PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links = PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord;
 
-export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_backgroundColor {
-  readonly __typename: "ColorField";
-  readonly hex: string | null;
-}
-
-export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_textColor {
-  readonly __typename: "ColorField";
-  readonly hex: string | null;
-}
-
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {
   readonly __typename: "ContentLinkSetRecord";
   readonly id: any;
-  readonly links: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links>;
   readonly displaySize: string | null;
   readonly callToActionLabel: string | null;
   readonly alternatingAlignments: any | null;
   readonly backgroundColor: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_backgroundColor | null;
   readonly textColor: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_textColor | null;
+  readonly links: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord {

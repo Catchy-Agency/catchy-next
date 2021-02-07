@@ -102,9 +102,20 @@ export const primaryPageBySlug = gql`
         }
         ... on ContentLinkSetRecord {
           id
+          displaySize
+          callToActionLabel
+          alternatingAlignments
+          backgroundColor {
+            hex
+          }
+          textColor {
+            hex
+          }
           links {
+            __typename
             ... on PrimaryPageRecord {
               id
+              slug
               seo {
                 title
                 description
@@ -115,6 +126,7 @@ export const primaryPageBySlug = gql`
             }
             ... on ContentPostRecord {
               id
+              slug
               seo {
                 title
                 description
@@ -125,6 +137,7 @@ export const primaryPageBySlug = gql`
             }
             ... on ContentPageRecord {
               id
+              slug
               seo {
                 title
                 description
@@ -133,15 +146,6 @@ export const primaryPageBySlug = gql`
                 }
               }
             }
-          }
-          displaySize
-          callToActionLabel
-          alternatingAlignments
-          backgroundColor {
-            hex
-          }
-          textColor {
-            hex
           }
         }
         ... on FormulaRecord {
