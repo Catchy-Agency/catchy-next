@@ -1,1 +1,5 @@
 @import '../node_modules/bulma/bulma.sass';
+
+.alternating > .columns:nth-child(even) {
+  flex-direction: row-reverse;
+}
