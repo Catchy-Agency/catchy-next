@@ -31,10 +31,6 @@ const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
       <PreviewBanner status={status} />
       <PageError error={error} />
       <PrimaryBlocks blocks={data?.primaryPage?.blocks || []} />
-      <div className="container">
-        <h1 className="title">~ Raw Data ~</h1>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      </div>
     </>
   )
 }
