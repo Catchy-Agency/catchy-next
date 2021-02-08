@@ -157,7 +157,7 @@ export const primaryPageBySlug = gql`
             id
             title
             text
-            iconName
+            fontAwesomeIcon
             iconColor {
               hex
             }
@@ -190,6 +190,37 @@ export const primaryPageBySlug = gql`
         attributes
         content
         tag
+      }
+    }
+    header {
+      logo {
+        url
+        title
+        alt
+      }
+      links {
+        id
+        title
+        seo {
+          title
+          description
+          image {
+            url
+          }
+        }
+      }
+      contactLinkLabel
+    }
+    footer {
+      title
+      nameLabel
+      emailAddressLabel
+      messageLabel
+      contactText
+      socialLinks {
+        id
+        fontAwesomeIcon
+        url
       }
     }
   }

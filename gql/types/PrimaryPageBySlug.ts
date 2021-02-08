@@ -150,7 +150,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services 
   readonly id: any;
   readonly title: string | null;
   readonly text: string | null;
-  readonly iconName: string | null;
+  readonly fontAwesomeIcon: string | null;
   readonly iconColor: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconColor | null;
   readonly iconBackgroundColor: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconBackgroundColor | null;
 }
@@ -210,6 +210,56 @@ export interface PrimaryPageBySlug_site {
   readonly faviconMetaTags: ReadonlyArray<PrimaryPageBySlug_site_faviconMetaTags>;
 }
 
+export interface PrimaryPageBySlug_header_logo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
+export interface PrimaryPageBySlug_header_links_seo_image {
+  readonly __typename: "FileField";
+  readonly url: string;
+}
+
+export interface PrimaryPageBySlug_header_links_seo {
+  readonly __typename: "SeoField";
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly image: PrimaryPageBySlug_header_links_seo_image | null;
+}
+
+export interface PrimaryPageBySlug_header_links {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly seo: PrimaryPageBySlug_header_links_seo | null;
+}
+
+export interface PrimaryPageBySlug_header {
+  readonly __typename: "HeaderRecord";
+  readonly logo: PrimaryPageBySlug_header_logo | null;
+  readonly links: ReadonlyArray<PrimaryPageBySlug_header_links>;
+  readonly contactLinkLabel: string | null;
+}
+
+export interface PrimaryPageBySlug_footer_socialLinks {
+  readonly __typename: "SocialLinkRecord";
+  readonly id: any;
+  readonly fontAwesomeIcon: string | null;
+  readonly url: string | null;
+}
+
+export interface PrimaryPageBySlug_footer {
+  readonly __typename: "FooterRecord";
+  readonly title: string | null;
+  readonly nameLabel: string | null;
+  readonly emailAddressLabel: string | null;
+  readonly messageLabel: string | null;
+  readonly contactText: string | null;
+  readonly socialLinks: ReadonlyArray<(PrimaryPageBySlug_footer_socialLinks | null)> | null;
+}
+
 export interface PrimaryPageBySlug {
   /**
    * Returns a specific record
@@ -219,6 +269,14 @@ export interface PrimaryPageBySlug {
    * Returns the single instance record
    */
   readonly site: PrimaryPageBySlug_site;
+  /**
+   * Returns the single instance record
+   */
+  readonly header: PrimaryPageBySlug_header | null;
+  /**
+   * Returns the single instance record
+   */
+  readonly footer: PrimaryPageBySlug_footer | null;
 }
 
 export interface PrimaryPageBySlugVariables {

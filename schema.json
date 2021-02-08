@@ -10344,6 +10344,18 @@
             "deprecationReason": null
           },
           {
+            "name": "fontAwesomeIcon",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "iconBackgroundColor",
             "description": null,
             "args": [],
@@ -10362,18 +10374,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "ColorField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "iconName",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -15068,6 +15068,16 @@
             "defaultValue": null
           },
           {
+            "name": "fontAwesomeIcon",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "iconBackgroundColor",
             "description": null,
             "type": {
@@ -15099,16 +15109,6 @@
           },
           {
             "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "iconName",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -15339,6 +15339,18 @@
             "deprecationReason": null
           },
           {
+            "name": "fontAwesomeIcon_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fontAwesomeIcon_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "title_ASC",
             "description": null,
             "isDeprecated": false,
@@ -15346,18 +15358,6 @@
           },
           {
             "name": "title_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "iconName_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "iconName_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -16166,6 +16166,29 @@
             "deprecationReason": null
           },
           {
+            "name": "contactText",
+            "description": null,
+            "args": [
+              {
+                "name": "markdown",
+                "description": "Process content as markdown",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -16222,7 +16245,7 @@
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "nameLabel",
             "description": null,
             "args": [],
             "type": {
@@ -16245,29 +16268,6 @@
                 "name": "SocialLinkRecord",
                 "ofType": null
               }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "text",
-            "description": null,
-            "args": [
-              {
-                "name": "markdown",
-                "description": "Process content as markdown",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -16491,12 +16491,12 @@
             "deprecationReason": null
           },
           {
-            "name": "icon",
+            "name": "fontAwesomeIcon",
             "description": null,
             "args": [],
             "type": {
-              "kind": "OBJECT",
-              "name": "FileField",
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -16716,6 +16716,18 @@
                 "name": "DateTime",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "contactLinkLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
