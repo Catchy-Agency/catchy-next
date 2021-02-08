@@ -2,6 +2,7 @@ import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug'
+import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
 
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord
@@ -11,8 +12,8 @@ export const Banner: FC<{
     key={block.id}
     style={{
       position: 'relative',
-      backgroundColor: block.backgroundColor?.hex || '#0D202C',
-      color: block.textColor?.hex || '#F6F6F6',
+      backgroundColor: block.backgroundColor?.hex || COLOR_DARK,
+      color: block.textColor?.hex || COLOR_LIGHT,
     }}
   >
     {block.backgroundImage?.url && (
@@ -32,7 +33,7 @@ export const Banner: FC<{
       {block.title && (
         <div
           className="title is-2"
-          style={{ color: block.textColor?.hex || '#F6F6F6' }}
+          style={{ color: block.textColor?.hex || COLOR_LIGHT }}
         >
           {block.title}
         </div>
