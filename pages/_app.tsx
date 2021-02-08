@@ -30,20 +30,8 @@ const App: AppComponent = ({ Component, pageProps }) => (
       {/* Font Awesome */}
       <link
         rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css"
-        integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/regular.css"
-        integrity="sha384-FKw7x8fCxuvzBwOJmhTJJsKzBl8dnN9e2R4+pXRfYoHivikuHkzWyhKWDSMcGNK8"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css"
-        integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq"
+        href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
         crossOrigin="anonymous"
       />
     </Head>
