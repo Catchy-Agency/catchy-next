@@ -1,4 +1,4 @@
-import { ApolloClient } from 'apollo-client'
+import { ApolloClient, OperationVariables } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import {
@@ -72,12 +72,12 @@ export type Subscription<ResultData> =
 export const createSubscription = async <ResultData>(
   context: GetStaticPropsContext,
   query: DocumentNode,
-  variables?: unknown,
+  variables: OperationVariables = {},
 ) => {
   const isPreview = Boolean(context.preview)
   const result = isPreview
-    ? await previewClient.query<ResultData>({ query })
-    : await client.query<ResultData>({ query })
+    ? await previewClient.query<ResultData>({ query, variables })
+    : await client.query<ResultData>({ query, variables })
   const initialData = result.data
   return isPreview
     ? {
