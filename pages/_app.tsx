@@ -1,9 +1,19 @@
 import { AppComponent } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 
 import { PreviewTrigger } from '../components/cms/PreviewTrigger'
 
 import '../styles/global.scss'
+import '../styles/nprogress.scss'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeError', () => NProgress.done())
+Router.events.on('routeChangeComplete', (_url) => {
+  NProgress.done()
+  // pageview(url) TODO
+})
 
 const App: AppComponent = ({ Component, pageProps }) => (
   <>
