@@ -98,7 +98,7 @@ export const getOldPagePaths = async (): Promise<string[]> => {
   const result = await client.query<AllPageSlugs>({
     query: allPageSlugs,
   })
-  return result.data.allPages.map((page) => '/pages/' + page.slug)
+  return result.data.allPages.map((page) => '/old-pages/' + page.slug)
 }
 
 export const getPrimaryPagePaths = async (): Promise<string[]> => {
