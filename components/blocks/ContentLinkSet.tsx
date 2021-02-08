@@ -28,15 +28,11 @@ export const ContentLinkSet: FC<{
 const CardContentLinkSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord
 }> = ({ block }) => {
-  const backgroundColor = block.backgroundColor?.hex || undefined
-  const color = block.textColor?.hex || undefined
+  const backgroundColor = block.backgroundColor?.hex || COLOR_DARK
+  const color = block.textColor?.hex || COLOR_LIGHT
   const cta = block.callToActionLabel
   return (
-    <section
-      className="section"
-      key={block.id}
-      style={{ backgroundColor, color }}
-    >
+    <section className="section" key={block.id}>
       <div className="container">
         <div className="columns">
           {block.links.map((link) => {
@@ -46,7 +42,7 @@ const CardContentLinkSet: FC<{
             const url = urlPrefixes[link.__typename] + link.slug
             return (
               <div key={link.id} className="column">
-                <div className="card">
+                <div className="card" style={{ backgroundColor, color }}>
                   <div className="card-image">
                     <figure className="image">
                       <img src={image} title={title} alt={title} />

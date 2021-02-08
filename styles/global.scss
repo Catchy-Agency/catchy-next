@@ -3,3 +3,15 @@
 .alternating > .columns:nth-child(even) {
   flex-direction: row-reverse;
 }
+
+.card {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+a:not(.button) {
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
+}
