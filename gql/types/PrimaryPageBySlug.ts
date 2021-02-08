@@ -217,23 +217,11 @@ export interface PrimaryPageBySlug_header_logo {
   readonly alt: string | null;
 }
 
-export interface PrimaryPageBySlug_header_links_seo_image {
-  readonly __typename: "FileField";
-  readonly url: string;
-}
-
-export interface PrimaryPageBySlug_header_links_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: PrimaryPageBySlug_header_links_seo_image | null;
-}
-
 export interface PrimaryPageBySlug_header_links {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
-  readonly seo: PrimaryPageBySlug_header_links_seo | null;
+  readonly slug: string | null;
 }
 
 export interface PrimaryPageBySlug_header {

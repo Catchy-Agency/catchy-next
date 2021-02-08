@@ -201,13 +201,7 @@ export const primaryPageBySlug = gql`
       links {
         id
         title
-        seo {
-          title
-          description
-          image {
-            url
-          }
-        }
+        slug
       }
       contactLinkLabel
     }

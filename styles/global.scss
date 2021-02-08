@@ -8,10 +8,3 @@
   border-radius: 0;
   box-shadow: none;
 }
-
-a:not(.button) {
-  color: inherit;
-  &:hover {
-    text-decoration: underline;
-  }
-}
