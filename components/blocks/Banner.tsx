@@ -9,7 +9,6 @@ export const Banner: FC<{
 }> = ({ block }) => (
   <section
     className="section"
-    key={block.id}
     style={{
       position: 'relative',
       backgroundColor: block.backgroundColor?.hex || COLOR_DARK,

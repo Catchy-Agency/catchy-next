@@ -5,7 +5,7 @@ import { PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord } from '../../g
 export const ViewMoreLink: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord
 }> = ({ block }) => (
-  <section className="section" key={block.id}>
-    <div className="container">{'ViewMoreLinkRecord'}</div>
+  <section className="section">
+    <div className="container">{block.__typename}</div>
   </section>
 )

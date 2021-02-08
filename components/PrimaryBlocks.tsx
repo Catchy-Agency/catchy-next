@@ -17,21 +17,21 @@ export const PrimaryBlocks: FC<{
     {blocks?.map((block) => {
       switch (block?.__typename) {
         case 'BannerRecord':
-          return <Banner block={block} />
+          return <Banner key={block.id} block={block} />
         case 'ClientSetRecord':
-          return <ClientSet block={block} />
+          return <ClientSet key={block.id} block={block} />
         case 'ContentLinkSetRecord':
-          return <ContentLinkSet block={block} />
+          return <ContentLinkSet key={block.id} block={block} />
         case 'FormulaRecord':
-          return <Formula block={block} />
+          return <Formula key={block.id} block={block} />
         case 'ServiceSetRecord':
-          return <ServiceSet block={block} />
+          return <ServiceSet key={block.id} block={block} />
         case 'TeamRecord':
-          return <Team block={block} />
+          return <Team key={block.id} block={block} />
         case 'TitleTextRecord':
-          return <TitleText block={block} />
+          return <TitleText key={block.id} block={block} />
         case 'ViewMoreLinkRecord':
-          return <ViewMoreLink block={block} />
+          return <ViewMoreLink key={block.id} block={block} />
         default:
           return null
       }

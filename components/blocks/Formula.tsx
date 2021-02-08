@@ -5,7 +5,7 @@ import { PrimaryPageBySlug_primaryPage_blocks_FormulaRecord } from '../../gql/ty
 export const Formula: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord
 }> = ({ block }) => (
-  <section className="section" key={block.id}>
-    <div className="container">{'FormulaRecord'}</div>
+  <section className="section">
+    <div className="container">{block.__typename}</div>
   </section>
 )

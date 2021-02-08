@@ -7,7 +7,7 @@ import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
 export const ServiceSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord
 }> = ({ block }) => (
-  <section className="section" key={block.id}>
+  <section className="section">
     <div className="container">
       <div className="columns">
         {block.services.map((service) => (

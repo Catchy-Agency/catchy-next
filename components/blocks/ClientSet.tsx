@@ -5,7 +5,7 @@ import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/
 export const ClientSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord
 }> = ({ block }) => (
-  <section className="section" key={block.id}>
+  <section className="section">
     <div className="container">
       <div className="columns is-mobile is-multiline is-centered">
         {block.clientSet.map((client) => (
