@@ -1,8 +1,7 @@
 import { FC } from 'react'
-import { PageBySlug_page_content_VideoRecord_video } from '../gql/types/PageBySlug'
 
 export const Video: FC<{
-  video: PageBySlug_page_content_VideoRecord_video
+  video: any // TODO
 }> = ({ video }) => {
   switch (video.provider) {
     case 'youtube':
