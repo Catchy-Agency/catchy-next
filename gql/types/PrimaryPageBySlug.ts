@@ -213,9 +213,36 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
   readonly services: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members {
+  readonly __typename: "MemberRecord";
+  readonly id: any;
+  readonly name: string | null;
+  readonly title: string | null;
+  readonly image: PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord {
   readonly __typename: "TeamRecord";
   readonly id: any;
+  readonly members: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {

@@ -146,6 +146,26 @@ export const primaryPageBySlug = gql`
         }
         ... on TeamRecord {
           id
+          members {
+            id
+            name
+            title
+            image {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
         }
         ... on TitleTextRecord {
           id

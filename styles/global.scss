@@ -11,18 +11,27 @@
 @import '../node_modules/bulma/bulma.sass';
 
 //
-// Other stuff
+// Bulma utility mods
 //
-
-.alternating > .columns:nth-child(even) {
-  flex-direction: row-reverse;
-}
 
 .card {
   border-radius: 0;
   box-shadow: none;
 }
 
+//
+// Own utilitites
+//
+
+.alternating > .columns:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
 .block-p:not(:last-child) {
   padding-bottom: 1.5rem;
+}
+
+.circle-crop {
+  border-radius: 1000px;
+  overflow: hidden;
 }
