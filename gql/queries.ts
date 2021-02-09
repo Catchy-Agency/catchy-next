@@ -50,7 +50,19 @@ export const primaryPageBySlug = gql`
                 title
                 description
                 image {
-                  url
+                  responsiveImage(
+                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
                 }
               }
             }
@@ -61,7 +73,19 @@ export const primaryPageBySlug = gql`
                 title
                 description
                 image {
-                  url
+                  responsiveImage(
+                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
                 }
               }
             }
@@ -72,7 +96,19 @@ export const primaryPageBySlug = gql`
                 title
                 description
                 image {
-                  url
+                  responsiveImage(
+                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
                 }
               }
             }
@@ -146,14 +182,6 @@ export const primaryPageBySlug = gql`
         fontAwesomeIcon
         url
       }
-    }
-  }
-`
-
-export const allPageSlugs = gql`
-  query AllPageSlugs {
-    allPages {
-      slug
     }
   }
 `

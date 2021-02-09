@@ -60,9 +60,22 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_textC
   readonly hex: string | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image {
   readonly __typename: "FileField";
-  readonly url: string;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image_responsiveImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo {
@@ -79,9 +92,22 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly seo: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image {
   readonly __typename: "FileField";
-  readonly url: string;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image_responsiveImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo {
@@ -98,9 +124,22 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly seo: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image {
   readonly __typename: "FileField";
-  readonly url: string;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image_responsiveImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo {

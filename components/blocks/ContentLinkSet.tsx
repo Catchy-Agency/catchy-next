@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 import { FC } from 'react'
+import { Image } from 'react-datocms'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord } from '../../gql/types/PrimaryPageBySlug'
 import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
-import { RatioImage } from '../RatioImage'
 
 const urlPrefixes = {
   ContentPageRecord: '/pages/',
@@ -39,14 +39,16 @@ const CardContentLinkSet: FC<{
           {block.links.map((link) => {
             const title = link.seo?.title || undefined
             const description = link.seo?.description || undefined
-            const image = link.seo?.image?.url || undefined
+            const image = link.seo?.image?.responsiveImage || undefined
             const url = urlPrefixes[link.__typename] + link.slug
             return (
               <div key={link.id} className="column">
                 <div className="card" style={{ backgroundColor, color }}>
-                  <div className="card-image">
-                    <RatioImage src={image} title={title} />
-                  </div>
+                  {image && (
+                    <div className="card-image">
+                      <Image data={image as any} />
+                    </div>
+                  )}
                   <div className="card-content">
                     {title && (
                       <div className="title is-6" style={{ color }}>
@@ -86,7 +88,7 @@ const MediumContentLinkSet: FC<{
         {block.links.map((link) => {
           const title = link.seo?.title || undefined
           const description = link.seo?.description || undefined
-          const image = link.seo?.image?.url || undefined
+          const image = link.seo?.image?.responsiveImage || undefined
           const url = urlPrefixes[link.__typename] + link.slug
           return (
             <div key={link.id} className="columns">
@@ -104,7 +106,7 @@ const MediumContentLinkSet: FC<{
                 </div>
               </div>
               <div className="column is-5">
-                <RatioImage src={image} title={title} />
+                {image && <Image data={image as any} />}
               </div>
             </div>
           )
@@ -131,7 +133,7 @@ const LargeContentLinkSet: FC<{
         {block.links.map((link) => {
           const title = link.seo?.title || undefined
           const description = link.seo?.description || undefined
-          const image = link.seo?.image?.url || undefined
+          const image = link.seo?.image?.responsiveImage || undefined
           const url = urlPrefixes[link.__typename] + link.slug
           return (
             <div key={link.id} className="columns">
@@ -147,7 +149,7 @@ const LargeContentLinkSet: FC<{
                 </a>
               </div>
               <div className="column is-5">
-                <RatioImage src={image} title={title} />
+                {image && <Image data={image as any} />}
               </div>
             </div>
           )
