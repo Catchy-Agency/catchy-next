@@ -91,7 +91,7 @@ const MediumContentLinkSet: FC<{
           const image = link.seo?.image?.responsiveImage || undefined
           const url = urlPrefixes[link.__typename] + link.slug
           return (
-            <div key={link.id} className="columns">
+            <div key={link.id} className="columns block-p">
               <div className="column is-7">
                 <div className="p-6">
                   {title && (
@@ -105,7 +105,7 @@ const MediumContentLinkSet: FC<{
                   </a>
                 </div>
               </div>
-              <div className="column is-5">
+              <div className="column is-5 p-0">
                 {image && <Image data={image as any} />}
               </div>
             </div>
@@ -136,7 +136,7 @@ const LargeContentLinkSet: FC<{
           const image = link.seo?.image?.responsiveImage || undefined
           const url = urlPrefixes[link.__typename] + link.slug
           return (
-            <div key={link.id} className="columns">
+            <div key={link.id} className="columns block-p">
               <div className="column is-7">
                 {title && (
                   <div className="title is-2" style={{ color }}>
@@ -148,7 +148,7 @@ const LargeContentLinkSet: FC<{
                   {cta}
                 </a>
               </div>
-              <div className="column is-5">
+              <div className="column is-5 p-0">
                 {image && <Image data={image as any} />}
               </div>
             </div>
