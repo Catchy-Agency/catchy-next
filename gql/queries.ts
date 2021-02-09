@@ -222,6 +222,8 @@ export const primaryPageBySlug = gql`
         }
         ... on ViewMoreLinkRecord {
           id
+          text
+          url
         }
       }
       slug

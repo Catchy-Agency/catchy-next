@@ -315,6 +315,8 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
 export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly __typename: "ViewMoreLinkRecord";
   readonly id: any;
+  readonly text: string | null;
+  readonly url: string | null;
 }
 
 export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;

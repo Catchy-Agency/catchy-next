@@ -6,6 +6,8 @@ export const ViewMoreLink: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord
 }> = ({ block }) => (
   <section className="section">
-    <div className="container">{block.__typename}</div>
+    <div className="container has-text-right">
+      <a href={block.url || undefined}>{block.text}</a>
+    </div>
   </section>
 )
