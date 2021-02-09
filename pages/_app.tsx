@@ -7,6 +7,7 @@ import { PreviewTrigger } from '../components/cms/PreviewTrigger'
 
 import '../styles/global.scss'
 import '../styles/nprogress.scss'
+import '../styles/formula-arrows.scss'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeError', () => NProgress.done())

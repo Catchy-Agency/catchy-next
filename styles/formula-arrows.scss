@@ -1,0 +1,22 @@
+.formula .column {
+  position: relative;
+}
+
+.formula .column .arrow {
+  position: absolute;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  width: 10%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .formula .column .arrow {
+    top: unset;
+    bottom: -5%;
+    right: 50%;
+    transform: translateX(50%) rotate(90deg);
+    max-width: 32px;
+  }
+}

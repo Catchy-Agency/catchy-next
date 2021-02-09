@@ -182,9 +182,69 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {
   readonly links: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links>;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step1_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step1 {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step1_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step2_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step2 {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step2_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step3_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step3 {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step3_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord {
   readonly __typename: "FormulaRecord";
   readonly id: any;
+  readonly step1: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step1 | null;
+  readonly step2: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step2 | null;
+  readonly step3: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step3 | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_iconColor {

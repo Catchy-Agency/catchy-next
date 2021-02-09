@@ -128,6 +128,54 @@ export const primaryPageBySlug = gql`
         }
         ... on FormulaRecord {
           id
+          step1 {
+            id
+            responsiveImage(
+              imgixParams: { fit: crop, ar: "1:1", w: 600, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          step2 {
+            id
+            responsiveImage(
+              imgixParams: { fit: crop, ar: "1:1", w: 600, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          step3 {
+            id
+            responsiveImage(
+              imgixParams: { fit: crop, ar: "1:1", w: 600, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
         }
         ... on ServiceSetRecord {
           id
