@@ -26,7 +26,19 @@ export const primaryPageBySlug = gql`
             id
             name
             logo {
-              url
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
             }
           }
         }
