@@ -1,4 +1,18 @@
+// Customize Bulma variables
+// $scheme-main: #0d202c;
+// $text: #ffffff;
+// $text-strong: #eeeeee;
+// $primary: #1dbc83;
+// $link: #2ba2c3;
+// $link-hover: #aaaaaa;
+// $info: #3d4d56;
+
+// Bring in Bulma
 @import '../node_modules/bulma/bulma.sass';
+
+//
+// Other stuff
+//
 
 .alternating > .columns:nth-child(even) {
   flex-direction: row-reverse;
