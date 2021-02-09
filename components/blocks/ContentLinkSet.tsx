@@ -3,6 +3,7 @@ import { FC } from 'react'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord } from '../../gql/types/PrimaryPageBySlug'
 import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
+import { RatioImage } from '../RatioImage'
 
 const urlPrefixes = {
   ContentPageRecord: '/pages/',
@@ -44,9 +45,7 @@ const CardContentLinkSet: FC<{
               <div key={link.id} className="column">
                 <div className="card" style={{ backgroundColor, color }}>
                   <div className="card-image">
-                    <figure className="image">
-                      <img src={image} title={title} alt={title} />
-                    </figure>
+                    <RatioImage src={image} title={title} />
                   </div>
                   <div className="card-content">
                     {title && (
@@ -105,9 +104,7 @@ const MediumContentLinkSet: FC<{
                 </div>
               </div>
               <div className="column is-5">
-                <figure className="image">
-                  <img src={image} title={title} alt={title} />
-                </figure>
+                <RatioImage src={image} title={title} />
               </div>
             </div>
           )
@@ -150,9 +147,7 @@ const LargeContentLinkSet: FC<{
                 </a>
               </div>
               <div className="column is-5">
-                <figure className="image">
-                  <img src={image} title={title} alt={title} />
-                </figure>
+                <RatioImage src={image} title={title} />
               </div>
             </div>
           )
