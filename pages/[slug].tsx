@@ -11,9 +11,9 @@ import { primaryPageBySlug } from '../gql/queries/primary-pages'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
 import { PreviewBanner } from '../components/cms/PreviewBanner'
 import { PageError } from '../components/cms/PageError'
-import { PrimaryBlocks } from '../components/PrimaryBlocks'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { PrimaryBlocks } from '../components/PrimaryBlocks'
 
 const PrimaryPage: NextPage<{
   subscription: Subscription<PrimaryPageBySlug>
