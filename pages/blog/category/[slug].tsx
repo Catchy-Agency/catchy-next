@@ -1,8 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { createSubscription, getCategoryPaths } from '../../../gql/dato-cms'
-import { allContentPosts } from '../../../gql/queries/content-posts'
-import { AllContentPosts } from '../../../gql/types/AllContentPosts'
+import {
+  createSubscription,
+  getCategoryIdBySlug,
+  getCategoryPaths,
+} from '../../../gql/dato-cms'
+import { contentPostsByCategoryId } from '../../../gql/queries/content-posts'
+import { ContentPostsByCategoryId } from '../../../gql/types/ContentPostsByCategoryId'
 import { ContentPosts } from '../../../components/pages/ContentPosts'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -11,13 +15,15 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  // todo fetch category id by slug
-  // todo fetch content posts by linked category id
+  const slug = context?.params?.slug
+  if (typeof slug !== 'string')
+    throw new Error(`Bad slug ${JSON.stringify(slug, null, 2)}`)
   return {
     props: {
-      subscription: await createSubscription<AllContentPosts>(
+      subscription: await createSubscription<ContentPostsByCategoryId>(
         context,
-        allContentPosts,
+        contentPostsByCategoryId,
+        { id: await getCategoryIdBySlug(slug, context.preview) },
       ),
     },
   }

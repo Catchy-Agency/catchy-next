@@ -12,11 +12,12 @@ import schema from '../schema.json'
 import { allPrimaryPageSlugs } from './queries/primary-pages'
 import { allContentPageSlugs } from './queries/content-pages'
 import { allContentPostSlugs } from './queries/content-posts'
-import { allCategorySlugs } from './queries/categories'
+import { allCategorySlugs, categoryIdBySlug } from './queries/categories'
 import { AllPrimaryPageSlugs } from './types/AllPrimaryPageSlugs'
 import { AllContentPageSlugs } from './types/AllContentPageSlugs'
 import { AllContentPostSlugs } from './types/AllContentPostSlugs'
 import { AllCategorySlugs } from './types/AllCategorySlugs'
+import { CategoryIdBySlug } from './types/CategoryIdBySlug'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -123,4 +124,16 @@ export const getCategoryPaths = async (): Promise<string[]> => {
     query: allCategorySlugs,
   })
   return result.data.allCategories.map((cat) => '/blog/category/' + cat.slug)
+}
+
+export const getCategoryIdBySlug = async (
+  slug: string,
+  isPreview?: boolean,
+): Promise<string> => {
+  const query = categoryIdBySlug
+  const variables = { slug }
+  const result = isPreview
+    ? await previewClient.query<CategoryIdBySlug>({ query, variables })
+    : await client.query<CategoryIdBySlug>({ query, variables })
+  return result.data.category?.id
 }

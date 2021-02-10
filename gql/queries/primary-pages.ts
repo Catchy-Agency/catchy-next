@@ -10,7 +10,7 @@ export const allPrimaryPageSlugs = gql`
 
 export const primaryPageBySlug = gql`
   query PrimaryPageBySlug($slug: String) {
-    primaryPage: primaryPage(filter: { slug: { eq: $slug } }) {
+    primaryPage(filter: { slug: { eq: $slug } }) {
       title
       blocks {
         __typename
