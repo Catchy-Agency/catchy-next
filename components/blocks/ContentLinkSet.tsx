@@ -19,23 +19,16 @@ export const ContentLinkSet: FC<{
   const backgroundColor = block.backgroundColor?.hex || COLOR_DARK
   const textColor = block.textColor?.hex || COLOR_LIGHT
   const callToAction = block.callToActionLabel
-  const links = block.links.map((link) => {
-    const id = link.id
-    const title = link.seo?.title || null
-    const description = link.seo?.description || null
-    const image: any = link.seo?.image?.responsiveImage || null
-    const url = urlPrefixes[link.__typename] + link.slug
-    return {
-      id,
-      url,
-      title,
-      description,
-      callToAction,
-      image,
-      backgroundColor,
-      textColor,
-    }
-  })
+  const links = block.links.map((link) => ({
+    id: link.id,
+    url: urlPrefixes[link.__typename] + link.slug,
+    title: link.seo?.title || null,
+    description: link.seo?.description || null,
+    image: (link.seo?.image?.responsiveImage as any) || null,
+    callToAction,
+    backgroundColor,
+    textColor,
+  }))
   const alternating = block.alternatingAlignments
   switch (block.displaySize) {
     case 'Card':
