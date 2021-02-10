@@ -163,10 +163,26 @@ export const contentPostBySlug = gql`
       date
       blocks {
         __typename
-        ... on ButtonRecord {
+        ... on ButtonExternalRecord {
           id
           label
           url
+        }
+        ... on ButtonInternalRecord {
+          id
+          label
+          link {
+            __typename
+            ... on ContentPageRecord {
+              slug
+            }
+            ... on ContentPostRecord {
+              slug
+            }
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         ... on ColumnSetRecord {
           id
@@ -174,7 +190,10 @@ export const contentPostBySlug = gql`
             id
             blocks {
               __typename
-              ... on ButtonRecord {
+              ... on ButtonExternalRecord {
+                id
+              }
+              ... on ButtonInternalRecord {
                 id
               }
               ... on ImageRecord {

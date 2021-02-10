@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { ContentPostBySlug_contentPost_blocks_ButtonRecord } from '../../gql/types/ContentPostBySlug'
+import { ContentPostBySlug_contentPost_blocks_ButtonExternalRecord } from '../../gql/types/ContentPostBySlug'
 
-export const Button: FC<{
-  block: ContentPostBySlug_contentPost_blocks_ButtonRecord
+export const ButtonExternal: FC<{
+  block: ContentPostBySlug_contentPost_blocks_ButtonExternalRecord
 }> = ({ block }) => (
   <section className="section">
     <div className="container has-text-centered">

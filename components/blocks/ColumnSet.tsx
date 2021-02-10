@@ -27,7 +27,9 @@ const ColumnBlocks: FC<{
   <>
     {blocks?.map((block) => {
       switch (block?.__typename) {
-        case 'ButtonRecord':
+        case 'ButtonExternalRecord':
+          return <div>{block.__typename}</div>
+        case 'ButtonInternalRecord':
           return <div>{block.__typename}</div>
         case 'ImageRecord':
           return <div>{block.__typename}</div>

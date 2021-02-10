@@ -2034,16 +2034,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "SCALAR",
-        "name": "JsonField",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "UNION",
         "name": "ContentPostModelBlocksField",
         "description": null,
@@ -2069,7 +2059,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ButtonRecord",
+            "name": "ButtonExternalRecord",
             "ofType": null
           },
           {
@@ -2080,6 +2070,16 @@
           {
             "kind": "OBJECT",
             "name": "ColumnSetRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "TitleRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ButtonInternalRecord",
             "ofType": null
           }
         ]
@@ -6151,8 +6151,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "ButtonRecord",
-        "description": "Record of type Button (button)",
+        "name": "ButtonExternalRecord",
+        "description": "Record of type Button: External (button_external)",
         "fields": [
           {
             "name": "_createdAt",
@@ -7034,6 +7034,16 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "JsonField",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -10098,7 +10108,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ButtonRecord",
+            "name": "ButtonExternalRecord",
             "ofType": null
           },
           {
@@ -10109,6 +10119,11 @@
           {
             "kind": "OBJECT",
             "name": "ColumnSetRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ButtonInternalRecord",
             "ofType": null
           }
         ]
@@ -10630,7 +10645,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ButtonRecord",
+            "name": "ButtonExternalRecord",
             "ofType": null
           },
           {
@@ -10641,6 +10656,11 @@
           {
             "kind": "OBJECT",
             "name": "ImageRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ButtonInternalRecord",
             "ofType": null
           }
         ]
@@ -11112,6 +11132,278 @@
         "interfaces": [],
         "enumValues": null,
         "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ButtonInternalRecord",
+        "description": "Record of type Button: Internal (button_internal)",
+        "fields": [
+          {
+            "name": "_createdAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_firstPublishedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_isValid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "BooleanType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_modelApiKey",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_publicationScheduledAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_publishedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_seoMetaTags",
+            "description": "SEO meta tags",
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Tag",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_status",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ItemStatus",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_unpublishingScheduledAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_updatedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ItemId",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "label",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "link",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "UNION",
+              "name": "ButtonInternalModelLinkField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "ButtonInternalModelLinkField",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "ContentPostRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PrimaryPageRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ContentPageRecord",
+            "ofType": null
+          }
+        ]
       },
       {
         "kind": "OBJECT",

@@ -7,15 +7,48 @@
 // GraphQL query operation: ContentPostBySlug
 // ====================================================
 
-export interface ContentPostBySlug_contentPost_blocks_ButtonRecord {
-  readonly __typename: "ButtonRecord";
+export interface ContentPostBySlug_contentPost_blocks_TitleRecord {
+  readonly __typename: "TitleRecord";
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ButtonExternalRecord {
+  readonly __typename: "ButtonExternalRecord";
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
 }
 
-export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonRecord {
-  readonly __typename: "ButtonRecord";
+export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly slug: string | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPostRecord {
+  readonly __typename: "ContentPostRecord";
+  readonly slug: string | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_PrimaryPageRecord {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
+export type ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link = ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPageRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPostRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_PrimaryPageRecord;
+
+export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord {
+  readonly __typename: "ButtonInternalRecord";
+  readonly id: any;
+  readonly label: string | null;
+  readonly link: ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonExternalRecord {
+  readonly __typename: "ButtonExternalRecord";
+  readonly id: any;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonInternalRecord {
+  readonly __typename: "ButtonInternalRecord";
   readonly id: any;
 }
 
@@ -39,7 +72,7 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_bl
   readonly id: any;
 }
 
-export type ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks = ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ImageRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_VideoRecord;
+export type ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks = ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonExternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonInternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ImageRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_VideoRecord;
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -221,7 +254,7 @@ export interface ContentPostBySlug_contentPost_blocks_VideoRecord {
   readonly video: ContentPostBySlug_contentPost_blocks_VideoRecord_video | null;
 }
 
-export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_ButtonRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
+export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_ButtonExternalRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
 
 export interface ContentPostBySlug_contentPost__seoMetaTags {
   readonly __typename: "Tag";
