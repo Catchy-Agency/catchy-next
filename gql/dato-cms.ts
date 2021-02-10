@@ -95,7 +95,11 @@ export const getPrimaryPagePaths = async (): Promise<string[]> => {
   const result = await client.query<AllPrimaryPageSlugs>({
     query: allPrimaryPageSlugs,
   })
-  return result.data.allPrimaryPages.map((page) => '/' + page.slug)
+  // Filter out duplicate dynamic & static "blog" page
+  // https://github.com/vercel/next.js/issues/12717
+  return result.data.allPrimaryPages
+    .filter((page) => page.slug !== 'blog')
+    .map((page) => '/' + page.slug)
 }
 
 export const getContentPagePaths = async (): Promise<string[]> => {
