@@ -165,9 +165,33 @@ export const contentPostBySlug = gql`
         __typename
         ... on ButtonRecord {
           id
+          label
+          url
         }
         ... on ColumnSetRecord {
           id
+          columns {
+            id
+            blocks {
+              __typename
+              ... on ButtonRecord {
+                id
+              }
+              ... on ImageRecord {
+                id
+              }
+              ... on RichTextRecord {
+                id
+              }
+              ... on TitleRecord {
+                id
+              }
+              ... on VideoRecord {
+                id
+              }
+            }
+            sizeModifier
+          }
         }
         ... on ContentLinkSetRecord {
           id
@@ -255,12 +279,38 @@ export const contentPostBySlug = gql`
         }
         ... on ImageSetRecord {
           id
+          imageSet {
+            id
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1344, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
         }
         ... on RichTextRecord {
           id
+          richText
         }
         ... on VideoRecord {
           id
+          video {
+            height
+            provider
+            providerUid
+            thumbnailUrl
+            title
+            url
+            width
+          }
         }
       }
       slug

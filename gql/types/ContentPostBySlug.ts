@@ -10,11 +10,48 @@
 export interface ContentPostBySlug_contentPost_blocks_ButtonRecord {
   readonly __typename: "ButtonRecord";
   readonly id: any;
+  readonly label: string | null;
+  readonly url: string | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonRecord {
+  readonly __typename: "ButtonRecord";
+  readonly id: any;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ImageRecord {
+  readonly __typename: "ImageRecord";
+  readonly id: any;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_RichTextRecord {
+  readonly __typename: "RichTextRecord";
+  readonly id: any;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_TitleRecord {
+  readonly __typename: "TitleRecord";
+  readonly id: any;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_VideoRecord {
+  readonly __typename: "VideoRecord";
+  readonly id: any;
+}
+
+export type ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks = ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ButtonRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_ImageRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks_VideoRecord;
+
+export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns {
+  readonly __typename: "ColumnRecord";
+  readonly id: any;
+  readonly blocks: ReadonlyArray<(ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns_blocks | null)> | null;
+  readonly sizeModifier: string | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord {
   readonly __typename: "ColumnSetRecord";
   readonly id: any;
+  readonly columns: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns>;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_backgroundColor {
@@ -136,19 +173,52 @@ export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord {
   readonly links: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_links>;
 }
 
+export interface ContentPostBySlug_contentPost_blocks_ImageSetRecord_imageSet_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_ImageSetRecord_imageSet {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly responsiveImage: ContentPostBySlug_contentPost_blocks_ImageSetRecord_imageSet_responsiveImage | null;
+}
+
 export interface ContentPostBySlug_contentPost_blocks_ImageSetRecord {
   readonly __typename: "ImageSetRecord";
   readonly id: any;
+  readonly imageSet: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ImageSetRecord_imageSet>;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_RichTextRecord {
   readonly __typename: "RichTextRecord";
   readonly id: any;
+  readonly richText: string | null;
+}
+
+export interface ContentPostBySlug_contentPost_blocks_VideoRecord_video {
+  readonly __typename: "VideoField";
+  readonly height: any | null;
+  readonly provider: string | null;
+  readonly providerUid: string | null;
+  readonly thumbnailUrl: string | null;
+  readonly title: string | null;
+  readonly url: string | null;
+  readonly width: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_VideoRecord {
   readonly __typename: "VideoRecord";
   readonly id: any;
+  readonly video: ContentPostBySlug_contentPost_blocks_VideoRecord_video | null;
 }
 
 export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_ButtonRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
