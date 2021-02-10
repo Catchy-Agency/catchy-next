@@ -1,18 +1,9 @@
 import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import { Image } from 'react-datocms'
 
-interface Link {
-  id: string
-  url: string | null
-  title: string | null
-  description: string | null
-  callToAction: string | null
-  image: ResponsiveImageType | null
-  backgroundColor?: string | null
-  textColor?: string | null
-}
+import { LinkData } from './LinkData'
 
-export const CardLinks: FC<{ links: Link[] }> = ({ links }) => (
+export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
   <div className="columns">
     {links.map((link) => (
       <div key={link.id} className="column">
