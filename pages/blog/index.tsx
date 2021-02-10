@@ -9,6 +9,7 @@ import { PreviewBanner } from '../../components/cms/PreviewBanner'
 import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
+import { MediumLinks } from '../../components/content-links/MediumLinks'
 
 const ContentPosts: NextPage<{
   subscription: Subscription<AllContentPosts>
@@ -16,6 +17,16 @@ const ContentPosts: NextPage<{
   const { data, error, status } = useQuerySubscription<AllContentPosts>(
     subscription,
   )
+
+  const links =
+    data?.allContentPosts.map((post) => ({
+      id: post.id,
+      url: `/blog/${post.slug}`,
+      title: post.seo?.title || null,
+      description: post.seo?.description || null,
+      image: (post.seo?.image?.responsiveImage as any) || null,
+      callToAction: 'Read More',
+    })) || []
 
   return (
     <>
@@ -42,7 +53,9 @@ const ContentPosts: NextPage<{
                 </div>
               ))}
             </div>
-            <div className="column is-10"></div>
+            <div className="column is-10">
+              <MediumLinks links={links} />
+            </div>
           </div>
         </div>
       </section>
