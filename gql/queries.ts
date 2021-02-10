@@ -1,5 +1,29 @@
 import gql from 'graphql-tag'
 
+export const allPrimaryPageSlugs = gql`
+  query AllPrimaryPageSlugs {
+    allPrimaryPages {
+      slug
+    }
+  }
+`
+
+export const allContentPageSlugs = gql`
+  query AllContentPageSlugs {
+    allContentPages {
+      slug
+    }
+  }
+`
+
+export const allContentPostSlugs = gql`
+  query AllContentPostSlugs {
+    allContentPosts {
+      slug
+    }
+  }
+`
+
 export const primaryPageBySlug = gql`
   query PrimaryPageBySlug($slug: String) {
     primaryPage: primaryPage(filter: { slug: { eq: $slug } }) {
@@ -264,30 +288,6 @@ export const primaryPageBySlug = gql`
         fontAwesomeIcon
         url
       }
-    }
-  }
-`
-
-export const allPrimaryPageSlugs = gql`
-  query AllPrimaryPageSlugs {
-    allPrimaryPages {
-      slug
-    }
-  }
-`
-
-export const allContentPageSlugs = gql`
-  query AllContentPageSlugs {
-    allContentPages {
-      slug
-    }
-  }
-`
-
-export const allContentPostSlugs = gql`
-  query AllContentPostSlugs {
-    allContentPosts {
-      slug
     }
   }
 `
