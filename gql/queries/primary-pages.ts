@@ -8,22 +8,6 @@ export const allPrimaryPageSlugs = gql`
   }
 `
 
-export const allContentPageSlugs = gql`
-  query AllContentPageSlugs {
-    allContentPages {
-      slug
-    }
-  }
-`
-
-export const allContentPostSlugs = gql`
-  query AllContentPostSlugs {
-    allContentPosts {
-      slug
-    }
-  }
-`
-
 export const primaryPageBySlug = gql`
   query PrimaryPageBySlug($slug: String) {
     primaryPage: primaryPage(filter: { slug: { eq: $slug } }) {

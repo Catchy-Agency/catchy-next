@@ -9,7 +9,9 @@ import { GetStaticPropsContext } from 'next'
 import { DocumentNode } from 'graphql'
 
 import schema from '../schema.json'
-import { allContentPageSlugs, allPrimaryPageSlugs } from './queries'
+import { allPrimaryPageSlugs } from './queries/primary-pages'
+import { allContentPageSlugs } from './queries/content-pages'
+import { allContentPostSlugs } from './queries/content-posts'
 import { AllPrimaryPageSlugs } from './types/AllPrimaryPageSlugs'
 import { AllContentPageSlugs } from './types/AllContentPageSlugs'
 import { AllContentPostSlugs } from './types/AllContentPostSlugs'
@@ -105,7 +107,7 @@ export const getContentPagePaths = async (): Promise<string[]> => {
 
 export const getContentPostPaths = async (): Promise<string[]> => {
   const result = await client.query<AllContentPostSlugs>({
-    query: allContentPageSlugs,
+    query: allContentPostSlugs,
   })
   return result.data.allContentPosts.map((post) => '/posts/' + post.slug)
 }
