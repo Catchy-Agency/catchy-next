@@ -51,11 +51,15 @@ export const Header: FC<{
           <div className="navbar-end">
             {header.links.map((link) => {
               const href = `/${link.slug}`
+              const isActive =
+                router.pathname === '/[slug]'
+                  ? link.slug === router.query.slug
+                  : router.pathname.startsWith(href)
               return (
                 <Link key={href} href={href}>
                   <a
                     className={classNames('navbar-item', 'is-tab', {
-                      'is-active': router.pathname === href,
+                      'is-active': isActive,
                     })}
                   >
                     {link.title}
