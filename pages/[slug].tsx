@@ -15,9 +15,9 @@ import { PrimaryBlocks } from '../components/PrimaryBlocks'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
-const Page: NextPage<{ subscription: Subscription<PrimaryPageBySlug> }> = ({
-  subscription,
-}) => {
+const PrimaryPage: NextPage<{
+  subscription: Subscription<PrimaryPageBySlug>
+}> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
     subscription,
   )
@@ -54,4 +54,4 @@ export const getStaticProps: GetStaticProps = async (context) => ({
   },
 })
 
-export default Page
+export default PrimaryPage
