@@ -14,7 +14,11 @@ export const Footer: FC<{
           {footer.title && <div className="title is-3">{footer.title}</div>}
           <div className="columns is-centered">
             <div className="column is-two-thirds">
-              <form action="https://formspree.io/gary@convoke.gg" method="POST">
+              <form
+                id="contact-form"
+                action="https://formspree.io/gary@convoke.gg"
+                method="POST"
+              >
                 <div className="field is-grouped">
                   <div className="control is-expanded has-icons-left">
                     <input

@@ -74,4 +74,6 @@ export const Header: FC<{
 }
 
 const scrollToFooter = () =>
-  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  document
+    .getElementById('contact-form')
+    ?.scrollIntoView({ behavior: 'smooth' })
