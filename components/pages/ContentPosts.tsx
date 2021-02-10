@@ -10,6 +10,7 @@ import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { MediumLinks } from '../../components/content-links/MediumLinks'
+import Link from 'next/link'
 
 export const ContentPosts: NextPage<{
   subscription: Subscription<AllContentPosts>
@@ -51,15 +52,14 @@ export const ContentPosts: NextPage<{
                   {cat.slug === router.query.slug ? (
                     <div className="tags are-medium has-addons">
                       <span className="tag is-primary">{cat.name}</span>
-                      <a href="/blog" className="tag is-primary is-delete"></a>
+                      <Link href="/blog">
+                        <a className="tag is-primary is-delete"></a>
+                      </Link>
                     </div>
                   ) : (
-                    <a
-                      className="tag is-medium"
-                      href={`/blog/category/${cat.slug}`}
-                    >
-                      {cat.name}
-                    </a>
+                    <Link href={`/blog/category/${cat.slug}`}>
+                      <a className="tag is-medium">{cat.name}</a>
+                    </Link>
                   )}
                 </div>
               ))}

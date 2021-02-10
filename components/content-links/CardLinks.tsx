@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
@@ -31,9 +32,9 @@ export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
             {link.description && (
               <div className="content">{link.description}</div>
             )}
-            <a href={link.url || undefined} title={link.title || undefined}>
-              {link.callToAction}
-            </a>
+            <Link href={link.url || ''}>
+              <a title={link.title || undefined}>{link.callToAction}</a>
+            </Link>
           </div>
         </div>
       </div>

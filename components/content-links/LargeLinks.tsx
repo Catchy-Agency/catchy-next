@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
@@ -19,13 +20,11 @@ export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
           {link.description && (
             <div className="content">{link.description}</div>
           )}
-          <a
-            className="button"
-            href={link.url || undefined}
-            title={link.title || undefined}
-          >
-            {link.callToAction}
-          </a>
+          <Link href={link.url || ''}>
+            <a className="button" title={link.title || undefined}>
+              {link.callToAction}
+            </a>
+          </Link>
         </div>
         <div className="column is-5 p-0">
           {link.image && <Image data={link.image} />}
