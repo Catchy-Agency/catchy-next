@@ -12,9 +12,11 @@ import schema from '../schema.json'
 import { allPrimaryPageSlugs } from './queries/primary-pages'
 import { allContentPageSlugs } from './queries/content-pages'
 import { allContentPostSlugs } from './queries/content-posts'
+import { allCategorySlugs } from './queries/categories'
 import { AllPrimaryPageSlugs } from './types/AllPrimaryPageSlugs'
 import { AllContentPageSlugs } from './types/AllContentPageSlugs'
 import { AllContentPostSlugs } from './types/AllContentPostSlugs'
+import { AllCategorySlugs } from './types/AllCategorySlugs'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -113,5 +115,12 @@ export const getContentPostPaths = async (): Promise<string[]> => {
   const result = await client.query<AllContentPostSlugs>({
     query: allContentPostSlugs,
   })
-  return result.data.allContentPosts.map((post) => '/posts/' + post.slug)
+  return result.data.allContentPosts.map((post) => '/blog/' + post.slug)
+}
+
+export const getCategoryPaths = async (): Promise<string[]> => {
+  const result = await client.query<AllCategorySlugs>({
+    query: allCategorySlugs,
+  })
+  return result.data.allCategories.map((cat) => '/blog/category/' + cat.slug)
 }
