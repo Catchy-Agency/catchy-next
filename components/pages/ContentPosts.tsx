@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
-import { useQuerySubscription, renderMetaTags } from 'react-datocms'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useQuerySubscription, renderMetaTags } from 'react-datocms'
 
 import { Subscription } from '../../gql/dato-cms'
 import { AllContentPosts } from '../../gql/types/AllContentPosts'
@@ -13,6 +14,7 @@ import { MediumLinks } from '../../components/content-links/MediumLinks'
 export const ContentPosts: NextPage<{
   subscription: Subscription<AllContentPosts>
 }> = ({ subscription }) => {
+  const router = useRouter()
   const { data, error, status } = useQuerySubscription<AllContentPosts>(
     subscription,
   )
@@ -46,14 +48,29 @@ export const ContentPosts: NextPage<{
               <hr />
               {data?.allCategories.map((cat) => (
                 <div key={cat.id} className="mb-2">
-                  <a href={`/blog/category/${cat.slug}`}>
-                    <span className="tag is-medium">{cat.name}</span>
-                  </a>
+                  {cat.slug === router.query.slug ? (
+                    <div className="tags are-medium has-addons">
+                      <span className="tag is-primary">{cat.name}</span>
+                      <a href="/blog" className="tag is-primary is-delete"></a>
+                    </div>
+                  ) : (
+                    <a
+                      className="tag is-medium"
+                      href={`/blog/category/${cat.slug}`}
+                    >
+                      {cat.name}
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
             <div className="column is-10">
               <MediumLinks links={links} />
+              {links.length === 0 && (
+                <div className="section is-size-1 is-italic has-text-centered">
+                  No posts to show
+                </div>
+              )}
             </div>
           </div>
         </div>
