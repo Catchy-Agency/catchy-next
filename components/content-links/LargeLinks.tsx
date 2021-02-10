@@ -6,7 +6,7 @@ import { LinkData } from './LinkData'
 export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
   <>
     {links.map((link) => (
-      <div key={link.id} className="columns block-p">
+      <div key={link.id} className="columns is-vcentered block-p">
         <div className="column is-7">
           {link.title && (
             <div
