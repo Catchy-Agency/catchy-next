@@ -193,21 +193,63 @@ export const contentPostBySlug = gql`
               __typename
               ... on ButtonExternalRecord {
                 id
+                label
+                url
+                openInANewTab
               }
               ... on ButtonInternalRecord {
                 id
+                label
+                link {
+                  __typename
+                  ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on ContentPostRecord {
+                    slug
+                  }
+                  ... on PrimaryPageRecord {
+                    slug
+                  }
+                }
               }
               ... on ImageRecord {
                 id
+                image {
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 960, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
               }
               ... on RichTextRecord {
                 id
+                richText
               }
               ... on TitleRecord {
                 id
+                title
               }
               ... on VideoRecord {
                 id
+                video {
+                  height
+                  provider
+                  providerUid
+                  thumbnailUrl
+                  title
+                  url
+                  width
+                }
               }
             }
             sizeModifier

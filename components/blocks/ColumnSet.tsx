@@ -39,7 +39,6 @@ const ColumnBlocks: FC<{
           return <div>{block.__typename}</div>
         case 'VideoRecord':
           return <div>{block.__typename}</div>
-        case 'VideoRecord':
         default:
           return null
       }
