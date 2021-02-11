@@ -8,17 +8,13 @@ import {
 export const ColumnSet: FC<{
   block: ContentPostBySlug_contentPost_blocks_ColumnSetRecord
 }> = ({ block }) => (
-  <section className="section">
-    <div className="container">
-      <div className="columns">
-        {block.columns.map((column) => (
-          <div key={column.id} className={`column ${column.sizeModifier}`}>
-            <ColumnBlocks blocks={column.blocks} />
-          </div>
-        ))}
+  <div className="columns">
+    {block.columns.map((column) => (
+      <div key={column.id} className={`column ${column.sizeModifier}`}>
+        <ColumnBlocks blocks={column.blocks} />
       </div>
-    </div>
-  </section>
+    ))}
+  </div>
 )
 
 const ColumnBlocks: FC<{

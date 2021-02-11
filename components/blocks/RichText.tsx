@@ -5,14 +5,9 @@ import { ContentPostBySlug_contentPost_blocks_RichTextRecord } from '../../gql/t
 
 export const RichText: FC<{
   block: ContentPostBySlug_contentPost_blocks_RichTextRecord
-}> = ({ block }) => (
-  <section className="section">
-    <div className="container">
-      {block.richText && (
-        <div className="content">
-          <ReactMarkdown>{block.richText}</ReactMarkdown>
-        </div>
-      )}
+}> = ({ block }) =>
+  block.richText ? (
+    <div className="content">
+      <ReactMarkdown>{block.richText}</ReactMarkdown>
     </div>
-  </section>
-)
+  ) : null

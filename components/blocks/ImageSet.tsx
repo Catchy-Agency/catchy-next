@@ -6,15 +6,11 @@ import { ContentPostBySlug_contentPost_blocks_ImageSetRecord } from '../../gql/t
 export const ImageSet: FC<{
   block: ContentPostBySlug_contentPost_blocks_ImageSetRecord
 }> = ({ block }) => (
-  <section className="section">
-    <div className="container">
-      <div className="columns is-vcentered">
-        {block.imageSet.map((image) => (
-          <div className="column">
-            <Image data={image.responsiveImage as any} />
-          </div>
-        ))}
+  <div className="columns is-vcentered">
+    {block.imageSet.map((image) => (
+      <div className="column">
+        <Image data={image.responsiveImage as any} />
       </div>
-    </div>
-  </section>
+    ))}
+  </div>
 )

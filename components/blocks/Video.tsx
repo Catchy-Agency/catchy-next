@@ -1,22 +1,18 @@
 import { FC } from 'react'
 
-interface VideoData {
-  provider: string | null
-  providerUid: string | null
-}
+import { ContentPostBySlug_contentPost_blocks_VideoRecord } from '../../gql/types/ContentPostBySlug'
 
 export const Video: FC<{
-  video: VideoData
-}> = ({ video }) => {
-  switch (video.provider) {
+  block: ContentPostBySlug_contentPost_blocks_VideoRecord
+}> = ({ block }) => {
+  switch (block?.video?.provider) {
     case 'youtube':
-      // Via https://kevinsimper.medium.com/full-width-youtube-embed-with-react-js-responsive-embed-509de7e7c3bf
       return (
         <div
           className="video"
           style={{
             position: 'relative',
-            paddingBottom: '56.25%' /* 16:9 */,
+            paddingBottom: '56.25%' /* 16:9 todo calc(9/16 * 100%) */,
             paddingTop: 25,
             height: 0,
           }}
@@ -29,13 +25,12 @@ export const Video: FC<{
               width: '100%',
               height: '100%',
             }}
-            src={`https://www.youtube.com/embed/${video.providerUid}`}
+            src={`https://www.youtube.com/embed/${block.video.providerUid}`}
             frameBorder="0"
           />
         </div>
       )
     default:
-      console.error('Unhandled Video Provider:', video.provider)
-      return <></>
+      return null
   }
 }

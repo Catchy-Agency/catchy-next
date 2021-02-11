@@ -5,15 +5,11 @@ import { ContentPostBySlug_contentPost_blocks_ButtonExternalRecord } from '../..
 export const ButtonExternal: FC<{
   block: ContentPostBySlug_contentPost_blocks_ButtonExternalRecord
 }> = ({ block }) => (
-  <section className="section">
-    <div className="container has-text-centered">
-      <a
-        className="button is-medium is-primary"
-        href={block.url || undefined}
-        target={block.openInANewTab ? '_blank' : undefined}
-      >
-        {block.label}
-      </a>
-    </div>
-  </section>
+  <a
+    className="button is-medium is-primary"
+    href={block.url || undefined}
+    target={block.openInANewTab ? '_blank' : undefined}
+  >
+    {block.label}
+  </a>
 )
