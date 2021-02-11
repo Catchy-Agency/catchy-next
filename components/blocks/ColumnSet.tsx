@@ -1,14 +1,25 @@
+import classNames from 'classnames'
 import { FC } from 'react'
+import { Image } from 'react-datocms'
 
 import {
   ContentPostBySlug_contentPost_blocks_ColumnSetRecord,
   ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns,
 } from '../../gql/types/ContentPostBySlug'
+import { ButtonExternal } from './ButtonExternal'
+import { ButtonInternal } from './ButtonInternal'
+import { RichText } from './RichText'
+import { Title } from './Title'
+import { Video } from './Video'
 
 export const ColumnSet: FC<{
   block: ContentPostBySlug_contentPost_blocks_ColumnSetRecord
 }> = ({ block }) => (
-  <div className="columns">
+  <div
+    className={classNames('columns', {
+      'is-vcentered': block.verticallyCenterAcrossColumns,
+    })}
+  >
     {block.columns.map((column) => (
       <div key={column.id} className={`column ${column.sizeModifier}`}>
         <ColumnBlocks blocks={column.blocks} />
@@ -24,17 +35,24 @@ const ColumnBlocks: FC<{
     {blocks?.map((block) => {
       switch (block?.__typename) {
         case 'ButtonExternalRecord':
-          return <div>{block.__typename}</div>
+          return <ButtonExternal key={block.id} block={block} />
         case 'ButtonInternalRecord':
-          return <div>{block.__typename}</div>
+          return <ButtonInternal key={block.id} block={block} />
         case 'ImageRecord':
-          return <div>{block.__typename}</div>
+          return (
+            block.image?.responsiveImage && (
+              <Image
+                key={block.id}
+                data={block.image?.responsiveImage as any}
+              />
+            )
+          )
         case 'RichTextRecord':
-          return <div>{block.__typename}</div>
+          return <RichText key={block.id} block={block} />
         case 'TitleRecord':
-          return <div>{block.__typename}</div>
+          return <Title key={block.id} block={block} />
         case 'VideoRecord':
-          return <div>{block.__typename}</div>
+          return <Video key={block.id} block={block} />
         default:
           return null
       }

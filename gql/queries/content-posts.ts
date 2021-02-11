@@ -254,6 +254,7 @@ export const contentPostBySlug = gql`
             }
             sizeModifier
           }
+          verticallyCenterAcrossColumns
         }
         ... on ContentLinkSetRecord {
           id
@@ -357,6 +358,7 @@ export const contentPostBySlug = gql`
               base64
             }
           }
+          verticallyCenterAcrossImages
         }
         ... on RichTextRecord {
           id

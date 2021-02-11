@@ -137,6 +137,7 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnSetRecord {
   readonly __typename: "ColumnSetRecord";
   readonly id: any;
   readonly columns: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ColumnSetRecord_columns>;
+  readonly verticallyCenterAcrossColumns: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_backgroundColor {
@@ -281,6 +282,7 @@ export interface ContentPostBySlug_contentPost_blocks_ImageSetRecord {
   readonly __typename: "ImageSetRecord";
   readonly id: any;
   readonly imageSet: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ImageSetRecord_imageSet>;
+  readonly verticallyCenterAcrossImages: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_RichTextRecord {
