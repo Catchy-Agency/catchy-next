@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useQuerySubscription, renderMetaTags } from 'react-datocms'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import {
   createSubscription,
@@ -33,6 +34,33 @@ const ContentPost: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
+      <header className="section">
+        <div className="container">
+          <nav className="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/blog">Blog</a>
+              </li>
+              <li className="is-active">
+                <a href="#" aria-current="page">
+                  {data?.contentPost?.title}
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <h1 className="title is-1">{data?.contentPost?.title}</h1>
+          <div className="tags are-medium">
+            {data?.contentPost?.categories.map((cat) => (
+              <Link href={`/blog/category/${cat.slug}`}>
+                <a className="tag">{cat.name}</a>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </header>
       <BlockSections blocks={data?.contentPost?.blocks || []} />
       {data?.footer && <Footer footer={data?.footer} />}
     </>

@@ -381,6 +381,11 @@ export const contentPostBySlug = gql`
           }
         }
       }
+      categories {
+        id
+        name
+        slug
+      }
       slug
       _seoMetaTags {
         attributes

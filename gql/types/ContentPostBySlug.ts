@@ -316,6 +316,13 @@ export interface ContentPostBySlug_contentPost_blocks_VideoRecord {
 
 export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_ButtonExternalRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
 
+export interface ContentPostBySlug_contentPost_categories {
+  readonly __typename: "CategoryRecord";
+  readonly id: any;
+  readonly name: string | null;
+  readonly slug: string | null;
+}
+
 export interface ContentPostBySlug_contentPost__seoMetaTags {
   readonly __typename: "Tag";
   readonly attributes: any | null;
@@ -328,6 +335,7 @@ export interface ContentPostBySlug_contentPost {
   readonly title: string | null;
   readonly date: any | null;
   readonly blocks: ReadonlyArray<(ContentPostBySlug_contentPost_blocks | null)> | null;
+  readonly categories: ReadonlyArray<ContentPostBySlug_contentPost_categories>;
   readonly slug: string | null;
   /**
    * SEO meta tags
