@@ -8,6 +8,7 @@ import { ContentLinkSet } from './blocks/ContentLinkSet'
 import { ImageSet } from './blocks/ImageSet'
 import { RichText } from './blocks/RichText'
 import { Title } from './blocks/Title'
+import { VideoBlock } from './blocks/VideoBlock'
 
 export const ContentBlocks: FC<{
   blocks: ContentPostBySlug_contentPost['blocks']
@@ -30,7 +31,7 @@ export const ContentBlocks: FC<{
         case 'TitleRecord':
           return <Title block={block} />
         case 'VideoRecord':
-          return <div className="section">{block.__typename}</div>
+          return <VideoBlock block={block} />
         default:
           return null
       }

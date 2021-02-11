@@ -1,7 +1,12 @@
 import { FC } from 'react'
 
+interface VideoData {
+  provider: string | null
+  providerUid: string | null
+}
+
 export const Video: FC<{
-  video: any // TODO
+  video: VideoData
 }> = ({ video }) => {
   switch (video.provider) {
     case 'youtube':
