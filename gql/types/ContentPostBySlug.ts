@@ -7,10 +7,6 @@
 // GraphQL query operation: ContentPostBySlug
 // ====================================================
 
-export interface ContentPostBySlug_contentPost_blocks_TitleRecord {
-  readonly __typename: "TitleRecord";
-}
-
 export interface ContentPostBySlug_contentPost_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -238,6 +234,12 @@ export interface ContentPostBySlug_contentPost_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
+export interface ContentPostBySlug_contentPost_blocks_TitleRecord {
+  readonly __typename: "TitleRecord";
+  readonly id: any;
+  readonly title: string | null;
+}
+
 export interface ContentPostBySlug_contentPost_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
   readonly height: any | null;
@@ -255,7 +257,7 @@ export interface ContentPostBySlug_contentPost_blocks_VideoRecord {
   readonly video: ContentPostBySlug_contentPost_blocks_VideoRecord_video | null;
 }
 
-export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_ButtonExternalRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
+export type ContentPostBySlug_contentPost_blocks = ContentPostBySlug_contentPost_blocks_ButtonExternalRecord | ContentPostBySlug_contentPost_blocks_ButtonInternalRecord | ContentPostBySlug_contentPost_blocks_ColumnSetRecord | ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord | ContentPostBySlug_contentPost_blocks_ImageSetRecord | ContentPostBySlug_contentPost_blocks_RichTextRecord | ContentPostBySlug_contentPost_blocks_TitleRecord | ContentPostBySlug_contentPost_blocks_VideoRecord;
 
 export interface ContentPostBySlug_contentPost__seoMetaTags {
   readonly __typename: "Tag";
