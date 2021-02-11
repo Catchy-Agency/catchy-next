@@ -39,15 +39,17 @@ const ContentPost: NextPage<{
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <a href="/">Home</a>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
               </li>
               <li>
-                <a href="/blog">Blog</a>
+                <Link href="/blog">
+                  <a>Blog</a>
+                </Link>
               </li>
               <li className="is-active">
-                <a href="#" aria-current="page">
-                  {data?.contentPost?.title}
-                </a>
+                <a aria-current="page">{data?.contentPost?.title}</a>
               </li>
             </ul>
           </nav>
