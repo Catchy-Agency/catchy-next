@@ -56,7 +56,7 @@ const ContentPost: NextPage<{
           <h1 className="title is-1">{data?.contentPost?.title}</h1>
           <div className="tags are-medium">
             {data?.contentPost?.categories.map((cat) => (
-              <Link href={`/blog/category/${cat.slug}`}>
+              <Link key={cat.id} href={`/blog/category/${cat.slug}`}>
                 <a className="tag">{cat.name}</a>
               </Link>
             ))}
