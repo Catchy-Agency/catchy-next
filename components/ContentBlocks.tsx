@@ -17,21 +17,21 @@ export const ContentBlocks: FC<{
     {blocks?.map((block) => {
       switch (block?.__typename) {
         case 'ButtonExternalRecord':
-          return <ButtonExternal block={block} />
+          return <ButtonExternal key={block.id} block={block} />
         case 'ButtonInternalRecord':
-          return <ButtonInternal block={block} />
+          return <ButtonInternal key={block.id} block={block} />
         case 'ColumnSetRecord':
-          return <ColumnSet block={block} />
+          return <ColumnSet key={block.id} block={block} />
         case 'ContentLinkSetRecord':
           return <ContentLinkSet key={block.id} block={block} />
         case 'ImageSetRecord':
-          return <ImageSet block={block} />
+          return <ImageSet key={block.id} block={block} />
         case 'RichTextRecord':
-          return <RichText block={block} />
+          return <RichText key={block.id} block={block} />
         case 'TitleRecord':
-          return <Title block={block} />
+          return <Title key={block.id} block={block} />
         case 'VideoRecord':
-          return <VideoBlock block={block} />
+          return <VideoBlock key={block.id} block={block} />
         default:
           return null
       }
