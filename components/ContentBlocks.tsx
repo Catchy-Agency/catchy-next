@@ -5,6 +5,8 @@ import { ButtonExternal } from './blocks/ButtonExternal'
 import { ButtonInternal } from './blocks/ButtonInternal'
 import { ColumnSet } from './blocks/ColumnSet'
 import { ContentLinkSet } from './blocks/ContentLinkSet'
+import { ImageSet } from './blocks/ImageSet'
+import { RichText } from './blocks/RichText'
 
 export const ContentBlocks: FC<{
   blocks: ContentPostBySlug_contentPost['blocks']
@@ -21,9 +23,9 @@ export const ContentBlocks: FC<{
         case 'ContentLinkSetRecord':
           return <ContentLinkSet key={block.id} block={block} />
         case 'ImageSetRecord':
-          return <div className="section">{block.__typename}</div>
+          return <ImageSet block={block} />
         case 'RichTextRecord':
-          return <div className="section">{block.__typename}</div>
+          return <RichText block={block} />
         case 'VideoRecord':
           return <div className="section">{block.__typename}</div>
         default:
