@@ -36,6 +36,7 @@ export const BlockSections: FC<{
         case 'BannerRecord':
           return (
             <section
+              key={block.id}
               className="section"
               style={{
                 position: 'relative',
@@ -76,36 +77,36 @@ export const BlockSections: FC<{
 
         case 'ButtonExternalRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container has-text-centered">
-                <ButtonExternal key={block.id} block={block} />
+                <ButtonExternal block={block} />
               </div>
             </section>
           )
 
         case 'ButtonInternalRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container has-text-centered">
-                <ButtonInternal key={block.id} block={block} />
+                <ButtonInternal block={block} />
               </div>
             </section>
           )
 
         case 'ClientSetRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <ClientSet key={block.id} block={block} />
+                <ClientSet block={block} />
               </div>
             </section>
           )
 
         case 'ColumnSetRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <ColumnSet key={block.id} block={block} />
+                <ColumnSet block={block} />
               </div>
             </section>
           )
@@ -128,7 +129,7 @@ export const BlockSections: FC<{
           switch (block.displaySize) {
             case 'Card':
               return (
-                <section className="section" key={block.id}>
+                <section key={block.id} className="section">
                   <div className="container">
                     <CardLinks links={links} />
                   </div>
@@ -136,7 +137,7 @@ export const BlockSections: FC<{
               )
             case 'Medium':
               return (
-                <section className="section" key={block.id}>
+                <section key={block.id} className="section">
                   <div
                     className={classNames('container', { alternating })}
                     style={{ backgroundColor, color: textColor }}
@@ -148,8 +149,8 @@ export const BlockSections: FC<{
             case 'Large':
               return (
                 <section
-                  className="section"
                   key={block.id}
+                  className="section"
                   style={{ backgroundColor, color: textColor }}
                 >
                   <div className={classNames('container', { alternating })}>
@@ -164,81 +165,81 @@ export const BlockSections: FC<{
 
         case 'FormulaRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <Formula key={block.id} block={block} />
+                <Formula block={block} />
               </div>
             </section>
           )
 
         case 'ImageSetRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <ImageSet key={block.id} block={block} />
+                <ImageSet block={block} />
               </div>
             </section>
           )
 
         case 'RichTextRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <RichText key={block.id} block={block} />
+                <RichText block={block} />
               </div>
             </section>
           )
 
         case 'ServiceSetRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <ServiceSet key={block.id} block={block} />
+                <ServiceSet block={block} />
               </div>
             </section>
           )
 
         case 'TeamRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <Team key={block.id} block={block} />
+                <Team block={block} />
               </div>
             </section>
           )
 
         case 'TitleRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <Title key={block.id} block={block} />
+                <Title block={block} />
               </div>
             </section>
           )
 
         case 'TitleTextRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <TitleText key={block.id} block={block} />
+                <TitleText block={block} />
               </div>
             </section>
           )
 
         case 'VideoRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container">
-                <Video key={block.id} block={block} />
+                <Video block={block} />
               </div>
             </section>
           )
 
         case 'ViewMoreLinkRecord':
           return (
-            <section className="section">
+            <section key={block.id} className="section">
               <div className="container has-text-right">
-                <ViewMoreLink key={block.id} block={block} />
+                <ViewMoreLink block={block} />
               </div>
             </section>
           )
