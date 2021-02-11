@@ -13,7 +13,7 @@ import { PreviewBanner } from '../../components/cms/PreviewBanner'
 import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { ContentBlocks } from '../../components/ContentBlocks'
+import { BlockSections } from '../../components/BlockSections'
 
 const ContentPost: NextPage<{
   subscription: Subscription<ContentPostBySlug>
@@ -33,7 +33,7 @@ const ContentPost: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
-      <ContentBlocks blocks={data?.contentPost?.blocks || []} />
+      <BlockSections blocks={data?.contentPost?.blocks || []} />
       {data?.footer && <Footer footer={data?.footer} />}
     </>
   )

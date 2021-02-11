@@ -13,7 +13,7 @@ import { PreviewBanner } from '../components/cms/PreviewBanner'
 import { PageError } from '../components/cms/PageError'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
-import { PrimaryBlocks } from '../components/PrimaryBlocks'
+import { BlockSections } from '../components/BlockSections'
 
 const PrimaryPage: NextPage<{
   subscription: Subscription<PrimaryPageBySlug>
@@ -33,7 +33,7 @@ const PrimaryPage: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
-      <PrimaryBlocks blocks={data?.primaryPage?.blocks || []} />
+      <BlockSections blocks={data?.primaryPage?.blocks || []} />
       {data?.footer && <Footer footer={data?.footer} />}
     </>
   )
