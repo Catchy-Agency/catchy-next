@@ -68,6 +68,7 @@ export interface ContentPageBySlug_contentPage_children_seo {
 
 export interface ContentPageBySlug_contentPage_children {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
   readonly seo: ContentPageBySlug_contentPage_children_seo | null;

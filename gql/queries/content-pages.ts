@@ -33,6 +33,7 @@ export const contentPageBySlug = gql`
         }
       }
       children {
+        id
         title
         slug
         seo {
