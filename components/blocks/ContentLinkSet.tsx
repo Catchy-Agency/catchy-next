@@ -3,15 +3,10 @@ import { FC } from 'react'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord } from '../../gql/types/PrimaryPageBySlug'
 import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
+import { prefixByTypename } from '../../util/url'
 import { CardLinks } from '../content-links/CardLinks'
 import { LargeLinks } from '../content-links/LargeLinks'
 import { MediumLinks } from '../content-links/MediumLinks'
-
-const urlPrefixes = {
-  ContentPageRecord: '/pages/',
-  ContentPostRecord: '/posts/',
-  PrimaryPageRecord: '/',
-} as const
 
 export const ContentLinkSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord
@@ -21,7 +16,7 @@ export const ContentLinkSet: FC<{
   const callToAction = block.callToActionLabel
   const links = block.links.map((link) => ({
     id: link.id,
-    url: urlPrefixes[link.__typename] + link.slug,
+    url: prefixByTypename[link.__typename] + link.slug,
     title: link.seo?.title || null,
     description: link.seo?.description || null,
     image: (link.seo?.image?.responsiveImage as any) || null,

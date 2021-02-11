@@ -16,6 +16,7 @@ export interface ContentPostBySlug_contentPost_blocks_ButtonExternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
+  readonly openInANewTab: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPageRecord {

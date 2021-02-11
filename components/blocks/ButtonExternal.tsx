@@ -10,7 +10,7 @@ export const ButtonExternal: FC<{
       <a
         className="button is-medium is-primary"
         href={block.url || undefined}
-        target="_blank"
+        target={block.openInANewTab ? '_blank' : undefined}
       >
         {block.label}
       </a>

@@ -167,6 +167,7 @@ export const contentPostBySlug = gql`
           id
           label
           url
+          openInANewTab
         }
         ... on ButtonInternalRecord {
           id

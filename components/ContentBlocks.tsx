@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { ContentPostBySlug_contentPost } from '../gql/types/ContentPostBySlug'
 import { ButtonExternal } from './blocks/ButtonExternal'
+import { ButtonInternal } from './blocks/ButtonInternal'
 import { ColumnSet } from './blocks/ColumnSet'
 import { ContentLinkSet } from './blocks/ContentLinkSet'
 
@@ -14,7 +15,7 @@ export const ContentBlocks: FC<{
         case 'ButtonExternalRecord':
           return <ButtonExternal block={block} />
         case 'ButtonInternalRecord':
-          return <div className="section">{block.__typename}</div>
+          return <ButtonInternal block={block} />
         case 'ColumnSetRecord':
           return <ColumnSet block={block} />
         case 'ContentLinkSetRecord':

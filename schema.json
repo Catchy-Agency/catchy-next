@@ -6362,6 +6362,18 @@
             "deprecationReason": null
           },
           {
+            "name": "openInANewTab",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatedAt",
             "description": null,
             "args": [],
