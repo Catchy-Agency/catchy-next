@@ -9,14 +9,21 @@ import {
   Subscription,
 } from '../../gql/dato-cms'
 import { contentPageBySlug } from '../../gql/queries/content-pages'
-import { ContentPageBySlug } from '../../gql/types/ContentPageBySlug'
+import {
+  ContentPageBySlug,
+  ContentPageBySlug_contentPage_parent,
+} from '../../gql/types/ContentPageBySlug'
 import { PreviewBanner } from '../../components/cms/PreviewBanner'
 import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlockSections } from '../../components/BlockSections'
 
-// const extractAncestors = (page: Conte)
+type Parent = ContentPageBySlug_contentPage_parent
+const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
+  if (parent === null) return list
+  else return extractAncestors(parent.parent as Parent, [...list, parent])
+}
 
 const ContentPage: NextPage<{
   subscription: Subscription<ContentPageBySlug>
@@ -25,7 +32,7 @@ const ContentPage: NextPage<{
     subscription,
   )
 
-  // const ancestors = extractAncestors(data?.contentPage, []);
+  const ancestors = extractAncestors(data?.contentPage?.parent || null, [])
 
   return (
     <>
@@ -43,15 +50,19 @@ const ContentPage: NextPage<{
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <a href="/">Home</a>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
               </li>
-              <li>
-                <a href="/blog">Blog</a>
-              </li>
+              {ancestors.map((ancestor) => (
+                <li>
+                  <Link href={`/pages/${ancestor.slug}`}>
+                    <a>{ancestor.title}</a>
+                  </Link>
+                </li>
+              ))}
               <li className="is-active">
-                <a href="#" aria-current="page">
-                  {data?.contentPage?.title}
-                </a>
+                <a aria-current="page">{data?.contentPage?.title}</a>
               </li>
             </ul>
           </nav>
