@@ -49,7 +49,7 @@ const ContentPage: NextPage<{
         (child) =>
           child && {
             id: child.id,
-            url: `/blog/${child.slug || ''}`,
+            url: `/pages/${child.slug || ''}`,
             title: child.seo?.title || null,
             description: child.seo?.description || null,
             image:
