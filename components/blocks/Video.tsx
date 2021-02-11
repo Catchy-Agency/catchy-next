@@ -12,7 +12,7 @@ export const Video: FC<{
           className="video"
           style={{
             position: 'relative',
-            paddingBottom: '56.25%' /* 16:9 todo calc(9/16 * 100%) */,
+            paddingBottom: 'calc(9/16 * 100%)',
             paddingTop: 25,
             height: 0,
           }}
