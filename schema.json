@@ -9955,24 +9955,16 @@
             "deprecationReason": null
           },
           {
-            "name": "breadcrumbs",
+            "name": "children",
             "description": null,
             "args": [],
             "type": {
-              "kind": "NON_NULL",
+              "kind": "LIST",
               "name": null,
               "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "UNION",
-                    "name": "ContentPageModelBreadcrumbsField",
-                    "ofType": null
-                  }
-                }
+                "kind": "OBJECT",
+                "name": "ContentPageRecord",
+                "ofType": null
               }
             },
             "isDeprecated": false,
@@ -10006,6 +9998,30 @@
                 "name": "ItemId",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ContentPageRecord",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -10082,32 +10098,6 @@
       },
       {
         "kind": "UNION",
-        "name": "ContentPageModelBreadcrumbsField",
-        "description": null,
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "ContentPostRecord",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "PrimaryPageRecord",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "ContentPageRecord",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "UNION",
         "name": "ContentPageModelBlocksField",
         "description": null,
         "fields": null,
@@ -10143,6 +10133,11 @@
           {
             "kind": "OBJECT",
             "name": "ColumnRowRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "TitleRecord",
             "ofType": null
           },
           {
@@ -13469,6 +13464,26 @@
             "defaultValue": null
           },
           {
+            "name": "parent",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ParentFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "position",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "PositionFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "_publicationScheduledAt",
             "description": null,
             "type": {
@@ -13549,16 +13564,6 @@
             "defaultValue": null
           },
           {
-            "name": "breadcrumbs",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "LinksFilter",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
             "name": "slug",
             "description": null,
             "type": {
@@ -13599,6 +13604,108 @@
                 "name": "ContentPageModelFilter",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ParentFilter",
+        "description": "Specifies how to filter by parent (tree-like collections only)",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "eq",
+            "description": "Filter records children of the specified record. Value must be a Record ID",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ItemId",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "exists",
+            "description": "Filter records with a parent record or not",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "PositionFilter",
+        "description": "Specifies how to filter by position (sorted and tree-like collections)",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "gt",
+            "description": "Filter records with a value that's strictly greater than the one specified",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "lt",
+            "description": "Filter records with a value that's less than the one specified",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "gte",
+            "description": "Filter records with a value that's greater than or equal to the one specified",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "lte",
+            "description": "Filter records with a value that's less or equal than the one specified",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "eq",
+            "description": "Search for records with an exact match",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "neq",
+            "description": "Exclude records with an exact match",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -13659,6 +13766,18 @@
           },
           {
             "name": "_firstPublishedAt_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
