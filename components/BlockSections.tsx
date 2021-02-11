@@ -18,7 +18,7 @@ import { Title } from './blocks/Title'
 import { Video } from './blocks/Video'
 import { ButtonExternal } from './blocks/ButtonExternal'
 import { ButtonInternal } from './blocks/ButtonInternal'
-import { ColumnSet } from './blocks/ColumnSet'
+import { ColumnRow } from './blocks/ColumnRow'
 import { CardLinks } from './content-links/CardLinks'
 import { LargeLinks } from './content-links/LargeLinks'
 import { MediumLinks } from './content-links/MediumLinks'
@@ -102,11 +102,11 @@ export const BlockSections: FC<{
             </section>
           )
 
-        case 'ColumnSetRecord':
+        case 'ColumnRowRecord':
           return (
             <section key={block.id} className="section">
               <div className="container">
-                <ColumnSet block={block} />
+                <ColumnRow block={block} />
               </div>
             </section>
           )

@@ -185,10 +185,27 @@ export const contentPostBySlug = gql`
             }
           }
         }
-        ... on ColumnSetRecord {
+        ... on ColumnRowRecord {
           id
           columns {
             id
+            title
+            image {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1344, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            text
             blocks {
               __typename
               ... on ButtonExternalRecord {
@@ -213,31 +230,9 @@ export const contentPostBySlug = gql`
                   }
                 }
               }
-              ... on ImageRecord {
-                id
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: clip, maxW: 960, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
-                }
-              }
               ... on RichTextRecord {
                 id
                 richText
-              }
-              ... on TitleRecord {
-                id
-                title
               }
               ... on VideoRecord {
                 id
