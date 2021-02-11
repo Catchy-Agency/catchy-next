@@ -24,7 +24,9 @@ export const ColumnRow: FC<{
       <div key={column.id} className={`column ${column.sizeModifier}`}>
         {column.title && <div className="title is-3">{column.title}</div>}
         {column.image?.responsiveImage && (
-          <Image data={column.image?.responsiveImage as any} />
+          <figure className="image mb-2">
+            <Image data={column.image?.responsiveImage as any} />
+          </figure>
         )}
         {column.text && (
           <div className="content">
