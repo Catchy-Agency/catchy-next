@@ -44,9 +44,17 @@ const ColumnBlocks: FC<{
     {blocks?.map((block) => {
       switch (block?.__typename) {
         case 'ButtonExternalRecord':
-          return <ButtonExternal key={block.id} block={block} />
+          return (
+            <div key={block.id} className="has-text-centered">
+              <ButtonExternal block={block} />
+            </div>
+          )
         case 'ButtonInternalRecord':
-          return <ButtonInternal key={block.id} block={block} />
+          return (
+            <div key={block.id} className="has-text-centered">
+              <ButtonInternal block={block} />
+            </div>
+          )
         case 'RichTextRecord':
           return <RichText key={block.id} block={block} />
         case 'VideoRecord':
