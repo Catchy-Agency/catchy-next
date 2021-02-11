@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { FC } from 'react'
-import { Image } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 
 import { ContentPostBySlug_contentPost_blocks_ImageSetRecord } from '../../gql/types/ContentPostBySlug'
 
@@ -13,8 +13,8 @@ export const ImageSet: FC<{
     })}
   >
     {block.imageSet.map((image) => (
-      <div className="column">
-        <Image data={image.responsiveImage as any} />
+      <div key={image.id} className="column">
+        <Image data={image.responsiveImage as ResponsiveImageType} />
       </div>
     ))}
   </div>

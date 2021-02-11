@@ -1,5 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useQuerySubscription, renderMetaTags } from 'react-datocms'
+import {
+  useQuerySubscription,
+  renderMetaTags,
+  ResponsiveImageType,
+} from 'react-datocms'
 import Head from 'next/head'
 import Link from 'next/link'
 
@@ -45,10 +49,12 @@ const ContentPage: NextPage<{
         (child) =>
           child && {
             id: child.id,
-            url: `/blog/${child.slug}`,
+            url: `/blog/${child.slug || ''}`,
             title: child.seo?.title || null,
             description: child.seo?.description || null,
-            image: (child.seo?.image?.responsiveImage as any) || null,
+            image:
+              (child.seo?.image?.responsiveImage as ResponsiveImageType) ||
+              null,
             callToAction: 'Read More',
           },
       )
@@ -75,8 +81,8 @@ const ContentPage: NextPage<{
                 </Link>
               </li>
               {ancestors.map((ancestor) => (
-                <li>
-                  <Link href={`/pages/${ancestor.slug}`}>
+                <li key={ancestor.id}>
+                  <Link href={`/pages/${ancestor.slug || ''}`}>
                     <a>{ancestor.title}</a>
                   </Link>
                 </li>

@@ -9,12 +9,14 @@
 
 export interface ContentPageBySlug_contentPage_parent_parent_parent_parent_parent {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
 export interface ContentPageBySlug_contentPage_parent_parent_parent_parent {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent_parent_parent_parent_parent | null;
@@ -22,6 +24,7 @@ export interface ContentPageBySlug_contentPage_parent_parent_parent_parent {
 
 export interface ContentPageBySlug_contentPage_parent_parent_parent {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent_parent_parent_parent | null;
@@ -29,6 +32,7 @@ export interface ContentPageBySlug_contentPage_parent_parent_parent {
 
 export interface ContentPageBySlug_contentPage_parent_parent {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent_parent_parent | null;
@@ -36,6 +40,7 @@ export interface ContentPageBySlug_contentPage_parent_parent {
 
 export interface ContentPageBySlug_contentPage_parent {
   readonly __typename: "ContentPageRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent_parent | null;

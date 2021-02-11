@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 import classNames from 'classnames'
+import { ResponsiveImageType } from 'react-datocms'
 
 import { prefixByTypename } from '../util/url'
 import { COLOR_DARK, COLOR_LIGHT } from '../styles/colors'
@@ -118,10 +119,11 @@ export const BlockSections: FC<{
           const callToAction = block.callToActionLabel
           const links = block.links.map((link) => ({
             id: link.id,
-            url: prefixByTypename[link.__typename] + link.slug,
+            url: `${prefixByTypename[link.__typename]}${link.slug || ''}`,
             title: link.seo?.title || null,
             description: link.seo?.description || null,
-            image: (link.seo?.image?.responsiveImage as any) || null,
+            image:
+              (link.seo?.image?.responsiveImage as ResponsiveImageType) || null,
             callToAction,
             backgroundColor,
             textColor,

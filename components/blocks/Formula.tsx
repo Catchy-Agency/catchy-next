@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Image } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 
 import { PrimaryPageBySlug_primaryPage_blocks_FormulaRecord } from '../../gql/types/PrimaryPageBySlug'
 
@@ -15,7 +15,7 @@ export const Formula: FC<{
               <img className="arrow" src="https://i.imgur.com/YkHuAqc.png" />
             )}
             {step.responsiveImage && (
-              <Image data={step.responsiveImage as any} />
+              <Image data={step.responsiveImage as ResponsiveImageType} />
             )}
           </div>
         ),

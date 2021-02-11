@@ -46,6 +46,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache({
     fragmentMatcher: new IntrospectionFragmentMatcher({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       introspectionQueryResultData: schema as any,
     }),
   }),
@@ -59,13 +60,14 @@ const previewClient = new ApolloClient({
 export type Subscription<ResultData> =
   | {
       initialData: ResultData
-      enabled: true
+      preview: true
       query: string
       token: string
-      variables?: { [key: string]: any }
+      variables?: { [key: string]: unknown }
     }
   | {
       initialData: ResultData
+      preview: false
       enabled: false
     }
 
@@ -73,7 +75,7 @@ export const createSubscription = async <ResultData>(
   context: GetStaticPropsContext,
   query: DocumentNode,
   variables: OperationVariables = {},
-) => {
+): Promise<Subscription<ResultData>> => {
   const isPreview = Boolean(context.preview)
   const result = isPreview
     ? await previewClient.query<ResultData>({ query, variables })
@@ -102,38 +104,40 @@ export const getPrimaryPagePaths = async (): Promise<string[]> => {
   // https://github.com/vercel/next.js/issues/12717
   return result.data.allPrimaryPages
     .filter((page) => page.slug !== 'blog')
-    .map((page) => '/' + page.slug)
+    .map((page) => `/${page.slug || ''}`)
 }
 
 export const getContentPagePaths = async (): Promise<string[]> => {
   const result = await client.query<AllContentPageSlugs>({
     query: allContentPageSlugs,
   })
-  return result.data.allContentPages.map((page) => '/pages/' + page.slug)
+  return result.data.allContentPages.map((page) => `/pages/${page.slug || ''}`)
 }
 
 export const getContentPostPaths = async (): Promise<string[]> => {
   const result = await client.query<AllContentPostSlugs>({
     query: allContentPostSlugs,
   })
-  return result.data.allContentPosts.map((post) => '/blog/' + post.slug)
+  return result.data.allContentPosts.map((post) => `/blog/${post.slug || ''}`)
 }
 
 export const getCategoryPaths = async (): Promise<string[]> => {
   const result = await client.query<AllCategorySlugs>({
     query: allCategorySlugs,
   })
-  return result.data.allCategories.map((cat) => '/blog/category/' + cat.slug)
+  return result.data.allCategories.map(
+    (cat) => `/blog/category/${cat.slug || ''}`,
+  )
 }
 
 export const getCategoryIdBySlug = async (
   slug: string,
   isPreview?: boolean,
-): Promise<string> => {
+): Promise<string | null> => {
   const query = categoryIdBySlug
   const variables = { slug }
   const result = isPreview
     ? await previewClient.query<CategoryIdBySlug>({ query, variables })
     : await client.query<CategoryIdBySlug>({ query, variables })
-  return result.data.category?.id
+  return (result.data.category?.id as string) || null
 }

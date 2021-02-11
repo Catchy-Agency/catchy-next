@@ -8,7 +8,11 @@ export const ButtonInternal: FC<{
   block: ContentPostBySlug_contentPost_blocks_ButtonInternalRecord
 }> = ({ block }) =>
   block.link && (
-    <Link href={prefixByTypename[block.link.__typename] + block.link.slug}>
+    <Link
+      href={`${prefixByTypename[block.link.__typename]}${
+        block.link.slug || ''
+      }`}
+    >
       <a className="button is-medium is-primary">{block.label}</a>
     </Link>
   )

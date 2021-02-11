@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Image } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/types/PrimaryPageBySlug'
 
@@ -10,7 +10,7 @@ export const ClientSet: FC<{
     {block.clientSet.map((client) => (
       <div key={client.id} className="column is-4-mobile is-3-tablet">
         {client.logo?.responsiveImage && (
-          <Image data={client.logo.responsiveImage as any} />
+          <Image data={client.logo.responsiveImage as ResponsiveImageType} />
         )}
       </div>
     ))}

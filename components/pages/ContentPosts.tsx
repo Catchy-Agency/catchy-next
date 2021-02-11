@@ -1,7 +1,11 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useQuerySubscription, renderMetaTags } from 'react-datocms'
+import {
+  useQuerySubscription,
+  renderMetaTags,
+  ResponsiveImageType,
+} from 'react-datocms'
 
 import { Subscription } from '../../gql/dato-cms'
 import { AllContentPosts } from '../../gql/types/AllContentPosts'
@@ -23,10 +27,10 @@ export const ContentPosts: NextPage<{
   const links =
     data?.allContentPosts.map((post) => ({
       id: post.id,
-      url: `/blog/${post.slug}`,
+      url: `/blog/${post.slug || ''}`,
       title: post.seo?.title || null,
       description: post.seo?.description || null,
-      image: (post.seo?.image?.responsiveImage as any) || null,
+      image: (post.seo?.image?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
 
@@ -57,7 +61,7 @@ export const ContentPosts: NextPage<{
                       </Link>
                     </div>
                   ) : (
-                    <Link href={`/blog/category/${cat.slug}`}>
+                    <Link href={`/blog/category/${cat.slug || ''}`}>
                       <a className="tag is-medium">{cat.name}</a>
                     </Link>
                   )}

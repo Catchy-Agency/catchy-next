@@ -19,7 +19,7 @@ export const ServiceSet: FC<{
               }}
             ></i>
             <i
-              className={`fas fa-${service.fontAwesomeIcon} fa-stack-1x`}
+              className={`fas fa-${service.fontAwesomeIcon || ''} fa-stack-1x`}
               style={{
                 color: service.iconColor?.hex || COLOR_LIGHT,
               }}

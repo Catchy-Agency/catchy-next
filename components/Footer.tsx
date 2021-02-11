@@ -73,6 +73,7 @@ export const Footer: FC<{
                       key={link.fontAwesomeIcon}
                       href={link.url || undefined}
                       target="_blank"
+                      rel="noreferrer"
                       className="title is-4"
                     >
                       <span className="fa-stack">
@@ -81,7 +82,9 @@ export const Footer: FC<{
                           style={{ color: COLOR_DARK }}
                         ></i>
                         <i
-                          className={`fab fa-${link.fontAwesomeIcon} fa-stack-1x`}
+                          className={`fab fa-${
+                            link.fontAwesomeIcon || ''
+                          } fa-stack-1x`}
                           style={{ color: COLOR_LIGHT }}
                         ></i>
                       </span>

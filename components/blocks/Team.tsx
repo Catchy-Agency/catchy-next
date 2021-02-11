@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Image } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 
 import { PrimaryPageBySlug_primaryPage_blocks_TeamRecord } from '../../gql/types/PrimaryPageBySlug'
 
@@ -14,7 +14,7 @@ export const Team: FC<{
       >
         {member.image?.responsiveImage && (
           <figure className="circle-crop mb-3">
-            <Image data={member.image.responsiveImage as any} />
+            <Image data={member.image.responsiveImage as ResponsiveImageType} />
           </figure>
         )}
         {member.name && <h4 className="title is-4">{member.name}</h4>}

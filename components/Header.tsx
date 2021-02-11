@@ -50,7 +50,7 @@ export const Header: FC<{
         <div className={classNames('navbar-menu', { 'is-active': isOpen })}>
           <div className="navbar-end">
             {header.links.map((link) => {
-              const href = `/${link.slug}`
+              const href = `/${link.slug || ''}`
               const isActive =
                 router.pathname === '/[slug]'
                   ? link.slug === router.query.slug

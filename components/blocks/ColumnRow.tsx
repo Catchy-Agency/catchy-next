@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import { FC } from 'react'
-import { Image } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 import ReactMarkdown from 'react-markdown'
 
 import {
@@ -21,11 +21,13 @@ export const ColumnRow: FC<{
     })}
   >
     {block.columns.map((column) => (
-      <div key={column.id} className={`column ${column.sizeModifier}`}>
+      <div key={column.id} className={`column ${column.sizeModifier || ''}`}>
         {column.title && <div className="title is-3">{column.title}</div>}
         {column.image?.responsiveImage && (
           <figure className="image mb-2">
-            <Image data={column.image?.responsiveImage as any} />
+            <Image
+              data={column.image?.responsiveImage as ResponsiveImageType}
+            />
           </figure>
         )}
         {column.text && (

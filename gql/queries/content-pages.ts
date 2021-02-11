@@ -13,18 +13,23 @@ export const contentPageBySlug = gql`
     contentPage(filter: { slug: { eq: $slug } }) {
       title
       parent {
+        id
         title
         slug
         parent {
+          id
           title
           slug
           parent {
+            id
             title
             slug
             parent {
+              id
               title
               slug
               parent {
+                id
                 title
                 slug
               }

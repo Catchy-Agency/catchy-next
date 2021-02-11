@@ -25,7 +25,9 @@ export const Video: FC<{
               width: '100%',
               height: '100%',
             }}
-            src={`https://www.youtube.com/embed/${block.video.providerUid}`}
+            src={`https://www.youtube.com/embed/${
+              block.video.providerUid || ''
+            }`}
             frameBorder="0"
           />
         </div>
