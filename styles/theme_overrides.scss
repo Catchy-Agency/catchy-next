@@ -194,6 +194,13 @@ a {
   }
 }
 
+.navbar-burger:hover,
+a.navbar-item.is-tab.is-active,
+a.navbar-item.is-tab:hover {
+  color: $navbar-item-active-color;
+  border-bottom-color: $navbar-item-active-color;
+}
+
 .hero .navbar,
 body > .navbar {
   border-radius: 0;

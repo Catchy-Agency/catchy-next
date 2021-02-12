@@ -87,9 +87,9 @@ $navbar-height: 4rem;
 
 $navbar-background-color: $primary;
 $navbar-item-color: $text;
-$navbar-item-hover-color: $link;
+$navbar-item-hover-color: $grey-darker;
 $navbar-item-hover-background-color: transparent;
-$navbar-item-active-color: $link;
+$navbar-item-active-color: $navbar-item-hover-color;
 $navbar-dropdown-arrow: #fff;
 $navbar-divider-background-color: rgba(0, 0, 0, 0.2);
 $navbar-dropdown-border-top: 1px solid $navbar-divider-background-color;
