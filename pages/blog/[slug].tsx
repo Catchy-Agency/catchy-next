@@ -35,7 +35,7 @@ const ContentPost: NextPage<{
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
       <header className="section">
-        <div className="container">
+        <div className="container is-max-desktop">
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
@@ -63,7 +63,10 @@ const ContentPost: NextPage<{
           </div>
         </div>
       </header>
-      <BlockSections blocks={data?.contentPost?.blocks || []} />
+      <BlockSections
+        blocks={data?.contentPost?.blocks || []}
+        containerMax="desktop"
+      />
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
   )

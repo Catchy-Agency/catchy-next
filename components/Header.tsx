@@ -23,7 +23,7 @@ export const Header: FC<{
 
   return (
     <nav className="navbar is-fixed-top">
-      <div className="container">
+      <div className="container is-max-widescreen">
         <div className="navbar-brand">
           <Link href="/">
             <a className="navbar-item">

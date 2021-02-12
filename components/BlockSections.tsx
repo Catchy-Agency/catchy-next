@@ -24,17 +24,22 @@ import { LargeLinks } from './content-links/LargeLinks'
 import { MediumLinks } from './content-links/MediumLinks'
 
 export const BlockSections: FC<{
+  containerMax?: 'desktop' | 'widescreen'
   textAlign?: string | null
   blocks: ReadonlyArray<
     | PrimaryPageBySlug_primaryPage_blocks
     | ContentPostBySlug_contentPost_blocks
     | null
   >
-}> = ({ blocks, textAlign }) => {
+}> = ({ blocks, containerMax, textAlign }) => {
   const alignClass = {
     'has-text-centered': textAlign === 'Center',
     'has-text-right': textAlign === 'Right',
     'has-text-left': textAlign !== 'Center' && textAlign !== 'Right', // Default
+  }
+  const maxClass = {
+    'is-max-desktop': containerMax === 'desktop',
+    'is-max-widescreen': containerMax === 'widescreen',
   }
   return (
     <>
@@ -64,7 +69,7 @@ export const BlockSections: FC<{
                     }}
                   ></div>
                 )}
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   {block.title && (
                     <div
                       className="title is-2"
@@ -87,7 +92,13 @@ export const BlockSections: FC<{
           case 'ButtonExternalRecord':
             return (
               <section key={block.id} className="section ButtonExternalRecord">
-                <div className="container has-text-centered">
+                <div
+                  className={classNames(
+                    'container',
+                    'has-text-centered',
+                    maxClass,
+                  )}
+                >
                   <ButtonExternal block={block} />
                 </div>
               </section>
@@ -96,7 +107,13 @@ export const BlockSections: FC<{
           case 'ButtonInternalRecord':
             return (
               <section key={block.id} className="section ButtonInternalRecord">
-                <div className="container has-text-centered">
+                <div
+                  className={classNames(
+                    'container',
+                    'has-text-centered',
+                    maxClass,
+                  )}
+                >
                   <ButtonInternal block={block} />
                 </div>
               </section>
@@ -105,7 +122,7 @@ export const BlockSections: FC<{
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <ClientSet block={block} />
                 </div>
               </section>
@@ -114,7 +131,7 @@ export const BlockSections: FC<{
           case 'ColumnRowRecord':
             return (
               <section key={block.id} className="section ColumnRowRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <ColumnRow block={block} />
                 </div>
               </section>
@@ -144,7 +161,7 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord Card"
                   >
-                    <div className="container">
+                    <div className={classNames('container', maxClass)}>
                       <CardLinks links={links} />
                     </div>
                   </section>
@@ -155,7 +172,11 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord Medium"
                   >
-                    <div className={classNames('container', { alternating })}>
+                    <div
+                      className={classNames('container', maxClass, {
+                        alternating,
+                      })}
+                    >
                       <MediumLinks links={links} />
                     </div>
                   </section>
@@ -167,7 +188,11 @@ export const BlockSections: FC<{
                     className="section ContentLinkSetRecord Large has-background-grey-darker"
                     style={{ backgroundColor, color: textColor }}
                   >
-                    <div className={classNames('container', { alternating })}>
+                    <div
+                      className={classNames('container', maxClass, {
+                        alternating,
+                      })}
+                    >
                       <LargeLinks links={links} />
                     </div>
                   </section>
@@ -180,7 +205,7 @@ export const BlockSections: FC<{
           case 'FormulaRecord':
             return (
               <section key={block.id} className="section FormulaRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <Formula block={block} />
                 </div>
               </section>
@@ -189,7 +214,7 @@ export const BlockSections: FC<{
           case 'ImageSetRecord':
             return (
               <section key={block.id} className="section ImageSetRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <ImageSet block={block} />
                 </div>
               </section>
@@ -198,7 +223,7 @@ export const BlockSections: FC<{
           case 'RichTextRecord':
             return (
               <section key={block.id} className="section RichTextRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <RichText block={block} />
                 </div>
               </section>
@@ -207,7 +232,7 @@ export const BlockSections: FC<{
           case 'ServiceSetRecord':
             return (
               <section key={block.id} className="section ServiceSetRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <ServiceSet block={block} />
                 </div>
               </section>
@@ -216,7 +241,7 @@ export const BlockSections: FC<{
           case 'TeamRecord':
             return (
               <section key={block.id} className="section TeamRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <Team block={block} />
                 </div>
               </section>
@@ -225,7 +250,7 @@ export const BlockSections: FC<{
           case 'TitleRecord':
             return (
               <section key={block.id} className="section TitleRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <Title block={block} />
                 </div>
               </section>
@@ -234,7 +259,7 @@ export const BlockSections: FC<{
           case 'TitleTextRecord':
             return (
               <section key={block.id} className="section TitleTextRecord">
-                <div className={classNames('container', alignClass)}>
+                <div className={classNames('container', maxClass, alignClass)}>
                   <TitleText block={block} />
                 </div>
               </section>
@@ -243,7 +268,7 @@ export const BlockSections: FC<{
           case 'VideoRecord':
             return (
               <section key={block.id} className="section VideoRecord">
-                <div className="container">
+                <div className={classNames('container', maxClass)}>
                   <Video block={block} />
                 </div>
               </section>
@@ -252,7 +277,13 @@ export const BlockSections: FC<{
           case 'ViewMoreLinkRecord':
             return (
               <section key={block.id} className="section ViewMoreLinkRecord">
-                <div className="container has-text-right">
+                <div
+                  className={classNames(
+                    'container',
+                    'has-text-right',
+                    maxClass,
+                  )}
+                >
                   <ViewMoreLink block={block} />
                 </div>
               </section>

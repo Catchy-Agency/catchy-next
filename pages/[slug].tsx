@@ -36,6 +36,7 @@ const PrimaryPage: NextPage<{
       <BlockSections
         blocks={data?.primaryPage?.blocks || []}
         textAlign={data?.primaryPage?.textAlign}
+        containerMax="widescreen"
       />
       {data?.footer && <Footer footer={data?.footer} />}
     </>

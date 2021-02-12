@@ -46,7 +46,7 @@ export const ContentPosts: NextPage<{
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
       <section className="section">
-        <div className="container">
+        <div className="container is-max-widescreen">
           <div className="columns">
             <div className="column is-2">
               <h5 className="title is-5">Categories</h5>

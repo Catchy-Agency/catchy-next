@@ -72,7 +72,7 @@ const ContentPage: NextPage<{
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
       <header className="section">
-        <div className="container">
+        <div className="container  is-max-desktop">
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
@@ -95,10 +95,13 @@ const ContentPage: NextPage<{
           <h1 className="title is-1">{data?.contentPage?.title}</h1>
         </div>
       </header>
-      <BlockSections blocks={data?.contentPage?.blocks || []} />
+      <BlockSections
+        blocks={data?.contentPage?.blocks || []}
+        containerMax="desktop"
+      />
       {links.length > 0 && (
         <section className="section">
-          <div className="container">
+          <div className="container is-max-desktop">
             <MediumLinks links={links} />{' '}
           </div>
         </section>
