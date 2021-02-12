@@ -7,18 +7,10 @@ $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 
+// Bulma theme & core
 @import './theme_variables.scss';
 @import '../node_modules/bulma/bulma.sass';
 @import './theme_overrides.scss';
-
-//
-// Bulma utility mods
-//
-
-.card {
-  border-radius: 0;
-  box-shadow: none;
-}
 
 //
 // Own utilitites
