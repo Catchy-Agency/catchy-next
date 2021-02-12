@@ -15,7 +15,10 @@ export const Formula: FC<{
               <img className="arrow" src="https://i.imgur.com/YkHuAqc.png" />
             )}
             {step.responsiveImage && (
-              <Image data={step.responsiveImage as ResponsiveImageType} />
+              <Image
+                lazyLoad={false}
+                data={step.responsiveImage as ResponsiveImageType}
+              />
             )}
           </div>
         ),
