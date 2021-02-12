@@ -6,7 +6,7 @@ import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer
 }> = ({ footer }) => (
-  <footer className="section">
+  <footer className="section has-background-grey-darker">
     <div className="container">
       <div className="columns is-centered">
         <div className="column is-10">
@@ -82,7 +82,7 @@ export const Footer: FC<{
                       className="title is-4"
                     >
                       <span className="fa-stack">
-                        <i className="fas fa-circle fa-stack-2x has-text-grey-dark"></i>
+                        <i className="fas fa-circle fa-stack-2x has-text-grey"></i>
                         <i
                           className={`fab fa-${
                             link.fontAwesomeIcon || ''
