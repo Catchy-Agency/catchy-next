@@ -5,12 +5,19 @@ import { Image } from 'react-datocms'
 import { LinkData } from './LinkData'
 
 export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
-  <div className="columns">
+  <div
+    className="columns"
+    style={{
+      flexWrap: 'wrap',
+      alignItems: 'stretch',
+    }}
+  >
     {links.map((link) => (
       <div key={link.id} className="column">
         <div
           className="card"
           style={{
+            height: '100%',
             backgroundColor: link.backgroundColor || undefined,
             color: link.textColor || undefined,
           }}
@@ -32,8 +39,20 @@ export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
             {link.description && (
               <div className="content">{link.description}</div>
             )}
+            {/* Shadow link to take up space */}
+            <a style={{ visibility: 'hidden' }}>{link.callToAction}</a>
+            {/* Real link, pinned to bottom */}
             <Link href={link.url || ''}>
-              <a title={link.title || undefined}>{link.callToAction}</a>
+              <a
+                style={{
+                  position: 'absolute',
+                  bottom: '1.5rem',
+                  left: '1.5rem',
+                }}
+                title={link.title || undefined}
+              >
+                {link.callToAction}
+              </a>
             </Link>
           </div>
         </div>
