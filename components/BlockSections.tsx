@@ -155,14 +155,7 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord Medium"
                   >
-                    <div
-                      className={classNames(
-                        'container',
-                        'has-background-grey-darker',
-                        { alternating },
-                      )}
-                      style={{ backgroundColor, color: textColor }}
-                    >
+                    <div className={classNames('container', { alternating })}>
                       <MediumLinks links={links} />
                     </div>
                   </section>

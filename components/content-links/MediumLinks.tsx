@@ -9,7 +9,7 @@ export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
     {links.map((link) => (
       <div
         key={link.id}
-        className="columns is-gapless block-p"
+        className="columns is-gapless has-background-grey-darker"
         style={{
           flexWrap: 'wrap',
           alignItems: 'stretch',
