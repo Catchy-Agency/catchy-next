@@ -33,7 +33,10 @@ const PrimaryPage: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
-      <BlockSections blocks={data?.primaryPage?.blocks || []} />
+      <BlockSections
+        blocks={data?.primaryPage?.blocks || []}
+        textAlign={data?.primaryPage?.textAlign}
+      />
       {data?.footer && <Footer footer={data?.footer} />}
     </>
   )

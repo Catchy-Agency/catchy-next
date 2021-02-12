@@ -13,6 +13,51 @@ $cam-gray3: #56636b;
 @import './theme_overrides.scss';
 
 //
+// Section spacing hacks for modular blocks
+//
+
+// .section {
+//   border: 1px dotted red;
+// }
+
+.section.TitleTextRecord {
+  padding-top: 4rem;
+  padding-bottom: 0;
+
+  &:first-of-type {
+    padding-top: 3rem;
+  }
+}
+
+.section.ClientSetRecord {
+  padding-top: 1rem;
+}
+
+.section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
+  padding-top: 0;
+}
+
+.section.ContentLinkSetRecord.Large {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.section.ViewMoreLinkRecord {
+  padding-top: 0;
+  position: relative;
+  top: -1rem;
+
+  &:not(:last-of-type) {
+    padding-bottom: 0;
+  }
+}
+
+footer.section {
+  margin-top: 3rem;
+  padding-bottom: 6rem;
+}
+
+//
 // Own utilitites
 //
 

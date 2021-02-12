@@ -7,6 +7,6 @@ export const ViewMoreLink: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord
 }> = ({ block }) => (
   <Link href={block.url || ''}>
-    <a>{block.text}</a>
+    <a className="is-size-5">{block.text}</a>
   </Link>
 )

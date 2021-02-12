@@ -7,7 +7,7 @@ export const TitleText: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord
 }> = ({ block }) => (
   <>
-    {block.title && <div className="title is-3">{block.title}</div>}
+    {block.title && <h2 className="title is-2">{block.title}</h2>}
     {block.text && (
       <div className="content">
         <ReactMarkdown linkTarget="_blank">{block.text}</ReactMarkdown>

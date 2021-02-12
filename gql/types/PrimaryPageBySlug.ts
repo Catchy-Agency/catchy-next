@@ -331,6 +331,7 @@ export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
 export interface PrimaryPageBySlug_primaryPage {
   readonly __typename: "PrimaryPageRecord";
   readonly title: string | null;
+  readonly textAlign: string | null;
   readonly blocks: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks | null)> | null;
   readonly slug: string | null;
   /**
