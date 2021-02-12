@@ -66,6 +66,18 @@ a {
 }
 
 .input,
+.textarea,
+.select select {
+  background: $body-background-color;
+  color: $text;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: $grey-light;
+}
+
+.input,
 .textarea {
   transition: all 200ms ease;
   box-shadow: none;
@@ -170,8 +182,6 @@ a {
 }
 
 .navbar {
-  border-radius: $radius;
-
   &.is-transparent {
     background: none;
   }
