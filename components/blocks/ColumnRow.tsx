@@ -32,7 +32,7 @@ export const ColumnRow: FC<{
         )}
         {column.text && (
           <div className="content">
-            <ReactMarkdown>{column.text}</ReactMarkdown>
+            <ReactMarkdown linkTarget="_blank">{column.text}</ReactMarkdown>
           </div>
         )}
         <ColumnBlocks blocks={column.blocks} />

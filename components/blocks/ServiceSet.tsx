@@ -29,7 +29,7 @@ export const ServiceSet: FC<{
         {service.title && <div className="title is-5">{service.title}</div>}
         {service.text && (
           <div className="content">
-            <ReactMarkdown>{service.text}</ReactMarkdown>
+            <ReactMarkdown linkTarget="_blank">{service.text}</ReactMarkdown>
           </div>
         )}
       </div>

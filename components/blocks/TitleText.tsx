@@ -10,7 +10,7 @@ export const TitleText: FC<{
     {block.title && <div className="title is-3">{block.title}</div>}
     {block.text && (
       <div className="content">
-        <ReactMarkdown>{block.text}</ReactMarkdown>
+        <ReactMarkdown linkTarget="_blank">{block.text}</ReactMarkdown>
       </div>
     )}
   </>

@@ -69,7 +69,9 @@ export const BlockSections: FC<{
                 )}
                 {block.text && (
                   <div className="content">
-                    <ReactMarkdown>{block.text}</ReactMarkdown>
+                    <ReactMarkdown linkTarget="_blank">
+                      {block.text}
+                    </ReactMarkdown>
                   </div>
                 )}
               </div>

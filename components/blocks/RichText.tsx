@@ -8,6 +8,6 @@ export const RichText: FC<{
 }> = ({ block }) =>
   block.richText ? (
     <div className="content">
-      <ReactMarkdown>{block.richText}</ReactMarkdown>
+      <ReactMarkdown linkTarget="_blank">{block.richText}</ReactMarkdown>
     </div>
   ) : null

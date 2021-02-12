@@ -63,7 +63,9 @@ export const Footer: FC<{
             <div className="column is-one-third">
               <div className="content">
                 {footer.contactText && (
-                  <ReactMarkdown>{footer.contactText}</ReactMarkdown>
+                  <ReactMarkdown linkTarget="_blank">
+                    {footer.contactText}
+                  </ReactMarkdown>
                 )}
               </div>
               {footer.socialLinks?.map(
