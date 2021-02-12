@@ -24,7 +24,7 @@ const ContentPost: NextPage<{
   )
 
   return (
-    <>
+    <div className="content-post">
       <Head>
         {renderMetaTags([
           ...(data?.contentPost?._seoMetaTags || []),
@@ -65,7 +65,7 @@ const ContentPost: NextPage<{
       </header>
       <BlockSections blocks={data?.contentPost?.blocks || []} />
       {data?.footer && <Footer footer={data?.footer} />}
-    </>
+    </div>
   )
 }
 

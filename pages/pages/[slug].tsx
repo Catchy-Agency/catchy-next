@@ -61,7 +61,7 @@ const ContentPage: NextPage<{
       .filter(notEmpty) || []
 
   return (
-    <>
+    <div className="content-page">
       <Head>
         {renderMetaTags([
           ...(data?.contentPage?._seoMetaTags || []),
@@ -104,7 +104,7 @@ const ContentPage: NextPage<{
         </section>
       )}
       {data?.footer && <Footer footer={data?.footer} />}
-    </>
+    </div>
   )
 }
 
