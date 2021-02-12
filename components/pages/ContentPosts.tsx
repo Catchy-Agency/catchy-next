@@ -52,7 +52,7 @@ export const ContentPosts: NextPage<{
               <h5 className="title is-5">Categories</h5>
               <hr />
               {data?.allCategories.map((cat) => (
-                <div key={cat.id} className="mb-2">
+                <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
                   {cat.slug === router.query.slug ? (
                     <div className="tags are-medium has-addons">
                       <span className="tag is-primary">{cat.name}</span>
