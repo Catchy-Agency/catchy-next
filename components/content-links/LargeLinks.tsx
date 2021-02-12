@@ -9,14 +9,7 @@ export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
     {links.map((link) => (
       <div key={link.id} className="columns is-vcentered block-p">
         <div className="column is-7">
-          {link.title && (
-            <div
-              className="title is-2"
-              style={{ color: link.textColor || undefined }}
-            >
-              {link.title}
-            </div>
-          )}
+          {link.title && <div className="title is-2">{link.title}</div>}
           {link.description && (
             <div className="content">{link.description}</div>
           )}

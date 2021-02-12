@@ -17,14 +17,7 @@ export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
       >
         <div className="column is-7">
           <div className="p-6">
-            {link.title && (
-              <div
-                className="title is-2"
-                style={{ color: link.textColor || undefined }}
-              >
-                {link.title}
-              </div>
-            )}
+            {link.title && <div className="title is-2">{link.title}</div>}
             {link.description && (
               <div className="content">{link.description}</div>
             )}

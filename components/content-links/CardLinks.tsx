@@ -14,28 +14,14 @@ export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
   >
     {links.map((link) => (
       <div key={link.id} className="column">
-        <div
-          className="card"
-          style={{
-            height: '100%',
-            backgroundColor: link.backgroundColor || undefined,
-            color: link.textColor || undefined,
-          }}
-        >
+        <div className="card" style={{ height: '100%' }}>
           {link.image && (
             <div className="card-image">
               <Image data={link.image} />
             </div>
           )}
           <div className="card-content">
-            {link.title && (
-              <h5
-                className="title is-5"
-                style={{ color: link.textColor || undefined }}
-              >
-                {link.title}
-              </h5>
-            )}
+            {link.title && <h5 className="title is-5">{link.title}</h5>}
             {link.description && (
               <div className="content">{link.description}</div>
             )}

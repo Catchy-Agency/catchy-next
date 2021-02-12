@@ -11,17 +11,9 @@ export const ServiceSet: FC<{
       <div key={service.id} className="column has-text-centered">
         <div className="title is-4">
           <span className="fa-stack fa-3x">
-            <i
-              className="fas fa-circle fa-stack-2x has-text-grey-dark"
-              style={{
-                color: service.iconBackgroundColor?.hex || undefined,
-              }}
-            ></i>
+            <i className="fas fa-circle fa-stack-2x has-text-grey-dark"></i>
             <i
               className={`fas fa-${service.fontAwesomeIcon || ''} fa-stack-1x`}
-              style={{
-                color: service.iconColor?.hex || undefined,
-              }}
             ></i>
           </span>
         </div>

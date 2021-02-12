@@ -12,7 +12,7 @@ export interface ContentPostBySlug_contentPost_blocks_ButtonExternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
-  readonly openInANewTab: any | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ButtonInternalRecord_link_ContentPageRecord {
@@ -58,7 +58,7 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_im
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+  readonly __typename: "ImageSetRecord" | "TitleRecord";
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -66,7 +66,7 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_bl
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
-  readonly openInANewTab: any | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_ContentPageRecord {
@@ -133,16 +133,6 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord {
   readonly id: any;
   readonly columns: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns>;
   readonly verticallyCenterAcrossColumns: any | null;
-}
-
-export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_backgroundColor {
-  readonly __typename: "ColorField";
-  readonly hex: string | null;
-}
-
-export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_textColor {
-  readonly __typename: "ColorField";
-  readonly hex: string | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image_responsiveImage {
@@ -249,8 +239,6 @@ export interface ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord {
   readonly displaySize: string | null;
   readonly callToActionLabel: string | null;
   readonly alternatingAlignments: any | null;
-  readonly backgroundColor: ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_backgroundColor | null;
-  readonly textColor: ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_textColor | null;
   readonly links: ReadonlyArray<ContentPostBySlug_contentPost_blocks_ContentLinkSetRecord_links>;
 }
 

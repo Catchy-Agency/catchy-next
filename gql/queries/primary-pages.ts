@@ -22,12 +22,6 @@ export const primaryPageBySlug = gql`
           backgroundImage {
             url
           }
-          backgroundColor {
-            hex
-          }
-          textColor {
-            hex
-          }
         }
         ... on ClientSetRecord {
           id
@@ -56,12 +50,6 @@ export const primaryPageBySlug = gql`
           displaySize
           callToActionLabel
           alternatingAlignments
-          backgroundColor {
-            hex
-          }
-          textColor {
-            hex
-          }
           links {
             __typename
             ... on PrimaryPageRecord {
@@ -193,12 +181,6 @@ export const primaryPageBySlug = gql`
             title
             text
             fontAwesomeIcon
-            iconColor {
-              hex
-            }
-            iconBackgroundColor {
-              hex
-            }
           }
         }
         ... on TeamRecord {

@@ -7,6 +7,4 @@ export interface LinkData {
   description: string | null
   callToAction: string | null
   image: ResponsiveImageType | null
-  backgroundColor?: string | null
-  textColor?: string | null
 }

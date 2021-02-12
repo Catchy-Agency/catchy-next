@@ -67,7 +67,7 @@ export const contentPageBySlug = gql`
           id
           label
           url
-          openInANewTab
+          openInNewTab
         }
         ... on ButtonInternalRecord {
           id
@@ -112,7 +112,7 @@ export const contentPageBySlug = gql`
                 id
                 label
                 url
-                openInANewTab
+                openInNewTab
               }
               ... on ButtonInternalRecord {
                 id
@@ -156,12 +156,6 @@ export const contentPageBySlug = gql`
           displaySize
           callToActionLabel
           alternatingAlignments
-          backgroundColor {
-            hex
-          }
-          textColor {
-            hex
-          }
           links {
             __typename
             ... on PrimaryPageRecord {

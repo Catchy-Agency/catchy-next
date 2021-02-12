@@ -49,12 +49,7 @@ export const BlockSections: FC<{
             return (
               <section
                 key={block.id}
-                className="section BannerRecord hero is-dark"
-                style={{
-                  position: 'relative',
-                  backgroundColor: block.backgroundColor?.hex || undefined,
-                  color: block.textColor?.hex || undefined,
-                }}
+                className="section BannerRecord hero is-dark is-relative"
               >
                 {block.backgroundImage?.url && (
                   <div
@@ -71,12 +66,7 @@ export const BlockSections: FC<{
                 )}
                 <div className={classNames('container', maxClass)}>
                   {block.title && (
-                    <div
-                      className="title is-2"
-                      style={{ color: block.textColor?.hex || undefined }}
-                    >
-                      {block.title}
-                    </div>
+                    <div className="title is-2">{block.title}</div>
                   )}
                   {block.text && (
                     <div className="content">
@@ -139,8 +129,6 @@ export const BlockSections: FC<{
 
           case 'ContentLinkSetRecord': {
             const alternating = block.alternatingAlignments
-            const backgroundColor = block.backgroundColor?.hex || undefined
-            const textColor = block.textColor?.hex || undefined
             const callToAction = block.callToActionLabel
             const links = block.links.map((link) => ({
               id: link.id,
@@ -151,8 +139,6 @@ export const BlockSections: FC<{
                 (link.seo?.image?.responsiveImage as ResponsiveImageType) ||
                 null,
               callToAction,
-              backgroundColor,
-              textColor,
             }))
             switch (block.displaySize) {
               case 'Card':
@@ -186,7 +172,6 @@ export const BlockSections: FC<{
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord Large has-background-grey-darker"
-                    style={{ backgroundColor, color: textColor }}
                   >
                     <div
                       className={classNames('container', maxClass, {

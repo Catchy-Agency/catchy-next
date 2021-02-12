@@ -8,7 +8,7 @@ export const ButtonExternal: FC<{
   <a
     className="button is-medium is-primary"
     href={block.url || undefined}
-    target={block.openInANewTab ? '_blank' : undefined}
+    target={block.openInNewTab ? '_blank' : undefined}
     rel="noreferrer"
   >
     {block.label}
