@@ -7,7 +7,7 @@ import { LinkData } from './LinkData'
 export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
   <>
     {links.map((link) => (
-      <div key={link.id} className="columns is-vcentered block-p">
+      <div key={link.id} className="columns is-gapless is-vcentered block-p">
         <div className="column is-7">
           <div className="p-6">
             {link.title && (
@@ -28,7 +28,7 @@ export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
             </Link>
           </div>
         </div>
-        <div className="column is-5 p-0">
+        <div className="column is-5">
           {link.image && <Image data={link.image} />}
         </div>
       </div>

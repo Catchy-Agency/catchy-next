@@ -108,32 +108,24 @@ a {
 }
 
 .card {
-  $card-border-color: lighten($grey-darker, 5);
   box-shadow: none;
-  border: $border-width solid $card-border-color;
   background-color: $grey-darker;
-  border-radius: $radius;
+  border-radius: 0;
 
   .card-image {
     img {
-      border-radius: $radius $radius 0 0;
+      border-radius: 0;
     }
   }
 
   .card-header {
     box-shadow: none;
     background-color: rgba($black-bis, 0.2);
-    border-radius: $radius $radius 0 0;
+    border-radius: 0;
   }
 
   .card-footer {
     background-color: rgba($black-bis, 0.2);
-  }
-
-  .card-footer,
-  .card-footer-item {
-    border-width: $border-width;
-    border-color: $card-border-color;
   }
 }
 

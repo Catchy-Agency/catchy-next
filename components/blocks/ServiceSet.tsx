@@ -2,7 +2,6 @@ import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord } from '../../gql/types/PrimaryPageBySlug'
-import { COLOR_DARK, COLOR_LIGHT } from '../../styles/colors'
 
 export const ServiceSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord
@@ -13,15 +12,15 @@ export const ServiceSet: FC<{
         <div className="title is-4">
           <span className="fa-stack fa-3x">
             <i
-              className="fas fa-circle fa-stack-2x"
+              className="fas fa-circle fa-stack-2x has-text-grey-dark"
               style={{
-                color: service.iconBackgroundColor?.hex || COLOR_DARK,
+                color: service.iconBackgroundColor?.hex || undefined,
               }}
             ></i>
             <i
               className={`fas fa-${service.fontAwesomeIcon || ''} fa-stack-1x`}
               style={{
-                color: service.iconColor?.hex || COLOR_LIGHT,
+                color: service.iconColor?.hex || undefined,
               }}
             ></i>
           </span>

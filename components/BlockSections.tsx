@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import { ResponsiveImageType } from 'react-datocms'
 
 import { prefixByTypename } from '../util/url'
-import { COLOR_DARK, COLOR_LIGHT } from '../styles/colors'
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
 import { ContentPostBySlug_contentPost_blocks } from '../gql/types/ContentPostBySlug'
 import { ClientSet } from './blocks/ClientSet'
@@ -38,11 +37,11 @@ export const BlockSections: FC<{
           return (
             <section
               key={block.id}
-              className="section"
+              className="section hero is-dark"
               style={{
                 position: 'relative',
-                backgroundColor: block.backgroundColor?.hex || COLOR_DARK,
-                color: block.textColor?.hex || COLOR_LIGHT,
+                backgroundColor: block.backgroundColor?.hex || undefined,
+                color: block.textColor?.hex || undefined,
               }}
             >
               {block.backgroundImage?.url && (
@@ -62,7 +61,7 @@ export const BlockSections: FC<{
                 {block.title && (
                   <div
                     className="title is-2"
-                    style={{ color: block.textColor?.hex || COLOR_LIGHT }}
+                    style={{ color: block.textColor?.hex || undefined }}
                   >
                     {block.title}
                   </div>
@@ -116,8 +115,8 @@ export const BlockSections: FC<{
 
         case 'ContentLinkSetRecord': {
           const alternating = block.alternatingAlignments
-          const backgroundColor = block.backgroundColor?.hex || COLOR_DARK
-          const textColor = block.textColor?.hex || COLOR_LIGHT
+          const backgroundColor = block.backgroundColor?.hex || undefined
+          const textColor = block.textColor?.hex || undefined
           const callToAction = block.callToActionLabel
           const links = block.links.map((link) => ({
             id: link.id,
@@ -143,7 +142,11 @@ export const BlockSections: FC<{
               return (
                 <section key={block.id} className="section">
                   <div
-                    className={classNames('container', { alternating })}
+                    className={classNames(
+                      'container',
+                      'has-background-grey-darker',
+                      { alternating },
+                    )}
                     style={{ backgroundColor, color: textColor }}
                   >
                     <MediumLinks links={links} />
@@ -154,7 +157,7 @@ export const BlockSections: FC<{
               return (
                 <section
                   key={block.id}
-                  className="section"
+                  className="section has-background-grey-darker"
                   style={{ backgroundColor, color: textColor }}
                 >
                   <div className={classNames('container', { alternating })}>

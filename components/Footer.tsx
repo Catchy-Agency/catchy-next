@@ -2,7 +2,6 @@ import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
-import { COLOR_DARK, COLOR_LIGHT } from '../styles/colors'
 
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer
@@ -79,15 +78,11 @@ export const Footer: FC<{
                       className="title is-4"
                     >
                       <span className="fa-stack">
-                        <i
-                          className="fas fa-circle fa-stack-2x"
-                          style={{ color: COLOR_DARK }}
-                        ></i>
+                        <i className="fas fa-circle fa-stack-2x has-text-grey-dark"></i>
                         <i
                           className={`fab fa-${
                             link.fontAwesomeIcon || ''
                           } fa-stack-1x`}
-                          style={{ color: COLOR_LIGHT }}
                         ></i>
                       </span>
                     </a>
