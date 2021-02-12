@@ -125,7 +125,7 @@ export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns {
   readonly image: ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_image | null;
   readonly text: string | null;
   readonly blocks: ReadonlyArray<(ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns_blocks | null)> | null;
-  readonly sizeModifier: string | null;
+  readonly width: string | null;
 }
 
 export interface ContentPostBySlug_contentPost_blocks_ColumnRowRecord {

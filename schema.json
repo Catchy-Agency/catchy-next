@@ -10550,18 +10550,6 @@
             "deprecationReason": null
           },
           {
-            "name": "sizeModifier",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "text",
             "description": null,
             "args": [
@@ -10576,6 +10564,18 @@
                 "defaultValue": null
               }
             ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "textAlign",
+            "description": null,
+            "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -10608,6 +10608,18 @@
                 "name": "DateTime",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "width",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -15737,6 +15749,26 @@
             "defaultValue": null
           },
           {
+            "name": "width",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "textAlign",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "text",
             "description": null,
             "type": {
@@ -15752,16 +15784,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "FileFilter",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "sizeModifier",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null
@@ -15936,13 +15958,25 @@
             "deprecationReason": null
           },
           {
-            "name": "sizeModifier_ASC",
+            "name": "width_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "sizeModifier_DESC",
+            "name": "width_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "textAlign_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "textAlign_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

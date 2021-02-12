@@ -247,7 +247,7 @@ export const contentPostBySlug = gql`
                 }
               }
             }
-            sizeModifier
+            width
           }
           verticallyCenterAcrossColumns
         }

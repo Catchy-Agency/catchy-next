@@ -21,7 +21,13 @@ export const ColumnRow: FC<{
     })}
   >
     {block.columns.map((column) => (
-      <div key={column.id} className={`column ${column.sizeModifier || ''}`}>
+      <div
+        key={column.id}
+        className={classNames('column', {
+          'is-one-third': column.width === 'One Third',
+          'is-two-thirds': column.width === 'Two Thirds',
+        })}
+      >
         {column.title && <div className="title is-3">{column.title}</div>}
         {column.image?.responsiveImage && (
           <figure className="image mb-2">
