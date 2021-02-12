@@ -71,7 +71,7 @@ export const ContentPosts: NextPage<{
             <div className="column is-10">
               <MediumLinks links={links} />
               {links.length === 0 && (
-                <div className="section is-size-1 is-italic has-text-centered">
+                <div className="section is-size-3 is-italic has-text-centered">
                   No posts to show
                 </div>
               )}
