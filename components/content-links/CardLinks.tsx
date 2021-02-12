@@ -29,12 +29,12 @@ export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
           )}
           <div className="card-content">
             {link.title && (
-              <div
-                className="title is-6"
+              <h5
+                className="title is-5"
                 style={{ color: link.textColor || undefined }}
               >
                 {link.title}
-              </div>
+              </h5>
             )}
             {link.description && (
               <div className="content">{link.description}</div>
