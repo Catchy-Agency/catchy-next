@@ -5,9 +5,16 @@ import { Image } from 'react-datocms'
 import { LinkData } from './LinkData'
 
 export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
-  <>
+  <div className="medium-links">
     {links.map((link) => (
-      <div key={link.id} className="columns is-gapless is-vcentered block-p">
+      <div
+        key={link.id}
+        className="columns is-gapless block-p"
+        style={{
+          flexWrap: 'wrap',
+          alignItems: 'stretch',
+        }}
+      >
         <div className="column is-7">
           <div className="p-6">
             {link.title && (
@@ -33,5 +40,5 @@ export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
         </div>
       </div>
     ))}
-  </>
+  </div>
 )
