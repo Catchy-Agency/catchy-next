@@ -96,7 +96,7 @@ const ContentPage: NextPage<{
         </div>
       </header>
       <BlockSections blocks={data?.contentPage?.blocks || []} />
-      {links.length && (
+      {links.length > 0 && (
         <section className="section">
           <div className="container">
             <MediumLinks links={links} />{' '}
