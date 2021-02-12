@@ -21,7 +21,7 @@ export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
             <div className="content">{link.description}</div>
           )}
           <Link href={link.url || ''}>
-            <a className="button" title={link.title || undefined}>
+            <a className="button is-primary" title={link.title || undefined}>
               {link.callToAction}
             </a>
           </Link>

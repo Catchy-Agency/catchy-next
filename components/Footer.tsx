@@ -54,7 +54,11 @@ export const Footer: FC<{
                 </div>
                 <div className="field is-grouped">
                   <div className="control">
-                    <input className="button" type="submit" value="Send" />
+                    <input
+                      className="button is-primary"
+                      type="submit"
+                      value="Send"
+                    />
                   </div>
                 </div>
               </form>
