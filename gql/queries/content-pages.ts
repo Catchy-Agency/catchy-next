@@ -147,6 +147,7 @@ export const contentPageBySlug = gql`
                 }
               }
             }
+            textAlign
             width
           }
           verticallyCenterAcrossColumns

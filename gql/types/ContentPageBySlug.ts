@@ -197,6 +197,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
   readonly image: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_image | null;
   readonly text: string | null;
   readonly blocks: ReadonlyArray<(ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks | null)> | null;
+  readonly textAlign: string | null;
   readonly width: string | null;
 }
 

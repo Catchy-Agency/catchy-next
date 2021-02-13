@@ -23,10 +23,19 @@ export const ColumnRow: FC<{
     {block.columns.map((column) => (
       <div
         key={column.id}
-        className={classNames('column', {
-          'is-one-third': column.width === 'One Third',
-          'is-two-thirds': column.width === 'Two Thirds',
-        })}
+        className={classNames(
+          'column',
+          {
+            'is-one-third': column.width === 'One Third',
+            'is-two-thirds': column.width === 'Two Thirds',
+          },
+          {
+            'has-text-centered': column.textAlign === 'Center',
+            'has-text-right': column.textAlign === 'Right',
+            'has-text-left':
+              column.textAlign !== 'Center' && column.textAlign !== 'Right', // Default
+          },
+        )}
       >
         {column.title && <div className="title is-3">{column.title}</div>}
         {column.image?.responsiveImage && (
