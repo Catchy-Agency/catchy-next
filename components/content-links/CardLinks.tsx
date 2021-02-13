@@ -18,7 +18,9 @@ export const CardLinks: FC<{ links: LinkData[] }> = ({ links }) => (
           <div className="card" style={{ height: '100%' }}>
             {link.image && (
               <div className="card-image">
-                <Image data={link.image} />
+                <Link href={link.url || ''}>
+                  <a>{link.image && <Image data={link.image} />}</a>
+                </Link>
               </div>
             )}
             <div className="card-content">
