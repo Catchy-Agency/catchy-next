@@ -81,12 +81,25 @@ footer.section {
   object-fit: cover;
 }
 
+// Flip content link images on mobile
+@media screen and (max-width: 768px) {
+  .medium-links,
+  .large-links {
+    .columns {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}
+
 //
 // Own utilitites
 //
 
-.alternating .columns:nth-child(even) {
-  flex-direction: row-reverse;
+@media screen and (min-width: 769px) {
+  .alternating .columns:nth-child(even) {
+    flex-direction: row-reverse;
+  }
 }
 
 .block-p:not(:last-child) {

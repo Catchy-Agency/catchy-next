@@ -5,7 +5,7 @@ import { Image } from 'react-datocms'
 import { LinkData } from './LinkData'
 
 export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
-  <>
+  <div className="large-links">
     {links.map((link) => (
       <div key={link.id} className="columns is-vcentered block-p">
         <div className="column is-7">
@@ -24,5 +24,5 @@ export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
         </div>
       </div>
     ))}
-  </>
+  </div>
 )
