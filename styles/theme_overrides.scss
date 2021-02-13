@@ -1,3 +1,9 @@
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
 hr {
   height: $border-width;
 }
