@@ -19,7 +19,7 @@ export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
             </a>
           </Link>
         </div>
-        <div className="column is-5 p-0">
+        <div className="column is-5">
           {link.image && <Image data={link.image} />}
         </div>
       </div>
