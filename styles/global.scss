@@ -85,7 +85,7 @@ footer.section {
 // Own utilitites
 //
 
-.alternating > .columns:nth-child(even) {
+.alternating .columns:nth-child(even) {
   flex-direction: row-reverse;
 }
 
