@@ -7,7 +7,7 @@ export const Footer: FC<{
   footer: PrimaryPageBySlug_footer
 }> = ({ footer }) => (
   <footer className="section has-background-grey-darker">
-    <div className="container  is-max-widescreen">
+    <div className="container is-max-widescreen">
       <div className="columns is-centered">
         <div className="column is-10">
           {footer.title && <div className="title is-3">{footer.title}</div>}

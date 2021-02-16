@@ -72,7 +72,7 @@ const ContentPage: NextPage<{
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
       <header className="section">
-        <div className="container  is-max-desktop">
+        <div className="container is-max-desktop">
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
