@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { ContentPostBySlug_contentPost_blocks_VideoRecord } from '../../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_VideoRecord } from '../../gql/types/BlogPostBySlug'
 
 export const Video: FC<{
-  block: ContentPostBySlug_contentPost_blocks_VideoRecord
+  block: BlogPostBySlug_blogPost_blocks_VideoRecord
 }> = ({ block }) => {
   switch (block?.video?.provider) {
     case 'youtube':

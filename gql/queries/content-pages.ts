@@ -75,7 +75,7 @@ export const contentPageBySlug = gql`
             ... on ContentPageRecord {
               slug
             }
-            ... on ContentPostRecord {
+            ... on BlogPostRecord {
               slug
             }
             ... on PrimaryPageRecord {
@@ -120,7 +120,7 @@ export const contentPageBySlug = gql`
                   ... on ContentPageRecord {
                     slug
                   }
-                  ... on ContentPostRecord {
+                  ... on BlogPostRecord {
                     slug
                   }
                   ... on PrimaryPageRecord {
@@ -178,7 +178,7 @@ export const contentPageBySlug = gql`
                 }
               }
             }
-            ... on ContentPostRecord {
+            ... on BlogPostRecord {
               id
               slug
               title

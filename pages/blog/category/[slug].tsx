@@ -5,9 +5,9 @@ import {
   getCategoryIdBySlug,
   getCategoryPaths,
 } from '../../../gql/dato-cms'
-import { contentPostsByCategoryId } from '../../../gql/queries/content-posts'
-import { ContentPostsByCategoryId } from '../../../gql/types/ContentPostsByCategoryId'
-import { ContentPosts } from '../../../components/pages/ContentPosts'
+import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
+import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
+import { BlogPosts } from '../../../components/pages/BlogPosts'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getCategoryPaths(),
@@ -20,13 +20,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     throw new Error(`Bad slug ${JSON.stringify(slug, null, 2)}`)
   return {
     props: {
-      subscription: await createSubscription<ContentPostsByCategoryId>(
+      subscription: await createSubscription<BlogPostsByCategoryId>(
         context,
-        contentPostsByCategoryId,
+        blogPostsByCategoryId,
         { id: await getCategoryIdBySlug(slug, context.preview) },
       ),
     },
   }
 }
 
-export default ContentPosts
+export default BlogPosts

@@ -2,10 +2,10 @@ import classNames from 'classnames'
 import { FC } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
-import { ContentPostBySlug_contentPost_blocks_ImageSetRecord } from '../../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_ImageSetRecord } from '../../gql/types/BlogPostBySlug'
 
 export const ImageSet: FC<{
-  block: ContentPostBySlug_contentPost_blocks_ImageSetRecord
+  block: BlogPostBySlug_blogPost_blocks_ImageSetRecord
 }> = ({ block }) => (
   <div
     className={classNames('columns', {

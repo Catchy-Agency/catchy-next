@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { ContentPostBySlug_contentPost_blocks_ButtonInternalRecord } from '../../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_ButtonInternalRecord } from '../../gql/types/BlogPostBySlug'
 import { prefixByTypename } from '../../util/url'
 
 export const ButtonInternal: FC<{
-  block: ContentPostBySlug_contentPost_blocks_ButtonInternalRecord
+  block: BlogPostBySlug_blogPost_blocks_ButtonInternalRecord
 }> = ({ block }) =>
   block.link && (
     <Link

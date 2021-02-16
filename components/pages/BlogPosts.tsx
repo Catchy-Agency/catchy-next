@@ -8,24 +8,24 @@ import {
 } from 'react-datocms'
 
 import { Subscription } from '../../gql/dato-cms'
-import { AllContentPosts } from '../../gql/types/AllContentPosts'
-import { PreviewBanner } from '../../components/cms/PreviewBanner'
-import { PageError } from '../../components/cms/PageError'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { MediumLinks } from '../../components/content-links/MediumLinks'
+import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
+import { PreviewBanner } from '../cms/PreviewBanner'
+import { PageError } from '../cms/PageError'
+import { Header } from '../Header'
+import { Footer } from '../Footer'
+import { MediumLinks } from '../content-links/MediumLinks'
 import Link from 'next/link'
 
-export const ContentPosts: NextPage<{
-  subscription: Subscription<AllContentPosts>
+export const BlogPosts: NextPage<{
+  subscription: Subscription<AllBlogPosts>
 }> = ({ subscription }) => {
   const router = useRouter()
-  const { data, error, status } = useQuerySubscription<AllContentPosts>(
+  const { data, error, status } = useQuerySubscription<AllBlogPosts>(
     subscription,
   )
 
   const links =
-    data?.allContentPosts.map((post) => ({
+    data?.allBlogPosts.map((post) => ({
       id: post.id,
       url: `/blog/${post.slug || ''}`,
       title: post.title,

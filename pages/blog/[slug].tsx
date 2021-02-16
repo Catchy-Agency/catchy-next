@@ -5,21 +5,21 @@ import Link from 'next/link'
 
 import {
   createSubscription,
-  getContentPostPaths,
+  getBlogPostPaths,
   Subscription,
 } from '../../gql/dato-cms'
-import { contentPostBySlug } from '../../gql/queries/content-posts'
-import { ContentPostBySlug } from '../../gql/types/ContentPostBySlug'
+import { blogPostBySlug } from '../../gql/queries/blog-posts'
+import { BlogPostBySlug } from '../../gql/types/BlogPostBySlug'
 import { PreviewBanner } from '../../components/cms/PreviewBanner'
 import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlockSections } from '../../components/BlockSections'
 
-const ContentPost: NextPage<{
-  subscription: Subscription<ContentPostBySlug>
+const BlogPost: NextPage<{
+  subscription: Subscription<BlogPostBySlug>
 }> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<ContentPostBySlug>(
+  const { data, error, status } = useQuerySubscription<BlogPostBySlug>(
     subscription,
   )
 
@@ -27,7 +27,7 @@ const ContentPost: NextPage<{
     <div className="content-post">
       <Head>
         {renderMetaTags([
-          ...(data?.contentPost?._seoMetaTags || []),
+          ...(data?.blogPost?._seoMetaTags || []),
           ...(data?.site.faviconMetaTags || []),
         ])}
       </Head>
@@ -49,13 +49,13 @@ const ContentPost: NextPage<{
                 </Link>
               </li>
               <li className="is-active">
-                <a aria-current="page">{data?.contentPost?.title}</a>
+                <a aria-current="page">{data?.blogPost?.title}</a>
               </li>
             </ul>
           </nav>
-          <h1 className="title is-1">{data?.contentPost?.title}</h1>
+          <h1 className="title is-1">{data?.blogPost?.title}</h1>
           <div className="tags are-medium">
-            {data?.contentPost?.categories.map((cat) => (
+            {data?.blogPost?.categories.map((cat) => (
               <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
                 <a className="tag">{cat.name}</a>
               </Link>
@@ -64,7 +64,7 @@ const ContentPost: NextPage<{
         </div>
       </header>
       <BlockSections
-        blocks={data?.contentPost?.blocks || []}
+        blocks={data?.blogPost?.blocks || []}
         containerMax="desktop"
       />
       {data?.footer && <Footer footer={data?.footer} />}
@@ -73,18 +73,18 @@ const ContentPost: NextPage<{
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getContentPostPaths(),
+  paths: await getBlogPostPaths(),
   fallback: false,
 })
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
-    subscription: await createSubscription<ContentPostBySlug>(
+    subscription: await createSubscription<BlogPostBySlug>(
       context,
-      contentPostBySlug,
+      blogPostBySlug,
       { slug: context?.params?.slug },
     ),
   },
 })
 
-export default ContentPost
+export default BlogPost

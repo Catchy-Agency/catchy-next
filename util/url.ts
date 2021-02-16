@@ -1,5 +1,5 @@
 export const prefixByTypename = {
+  BlogPostRecord: '/blog/',
   ContentPageRecord: '/pages/',
-  ContentPostRecord: '/blog/',
   PrimaryPageRecord: '/',
 } as const

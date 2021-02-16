@@ -181,7 +181,7 @@
             "deprecationReason": null
           },
           {
-            "name": "_allContentPostsMeta",
+            "name": "_allBlogPostsMeta",
             "description": "Returns meta information regarding a record collection",
             "args": [
               {
@@ -199,7 +199,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ContentPostModelFilter",
+                  "name": "BlogPostModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -705,7 +705,7 @@
             "deprecationReason": null
           },
           {
-            "name": "allContentPosts",
+            "name": "allBlogPosts",
             "description": "Returns a collection of records",
             "args": [
               {
@@ -743,7 +743,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ContentPostModelFilter",
+                  "name": "BlogPostModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -756,7 +756,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "ContentPostModelOrderBy",
+                    "name": "BlogPostModelOrderBy",
                     "ofType": null
                   }
                 },
@@ -774,7 +774,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "ContentPostRecord",
+                    "name": "BlogPostRecord",
                     "ofType": null
                   }
                 }
@@ -1288,7 +1288,7 @@
             "deprecationReason": null
           },
           {
-            "name": "contentPost",
+            "name": "blogPost",
             "description": "Returns a specific record",
             "args": [
               {
@@ -1306,7 +1306,7 @@
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "ContentPostModelFilter",
+                  "name": "BlogPostModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -1319,7 +1319,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "ENUM",
-                    "name": "ContentPostModelOrderBy",
+                    "name": "BlogPostModelOrderBy",
                     "ofType": null
                   }
                 },
@@ -1328,7 +1328,7 @@
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "ContentPostRecord",
+              "name": "BlogPostRecord",
               "ofType": null
             },
             "isDeprecated": false,
@@ -1576,7 +1576,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "ContentPostRecord",
+        "name": "BlogPostRecord",
         "description": "Record of type Content Post (content_post)",
         "fields": [
           {
@@ -1751,7 +1751,7 @@
               "name": null,
               "ofType": {
                 "kind": "UNION",
-                "name": "ContentPostModelBlocksField",
+                "name": "BlogPostModelBlocksField",
                 "ofType": null
               }
             },
@@ -5292,7 +5292,7 @@
       },
       {
         "kind": "UNION",
-        "name": "ContentPostModelBlocksField",
+        "name": "BlogPostModelBlocksField",
         "description": null,
         "fields": null,
         "inputFields": null,
@@ -6747,7 +6747,7 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "ContentPostRecord",
+            "name": "BlogPostRecord",
             "ofType": null
           },
           {
@@ -11267,7 +11267,7 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "ContentPostRecord",
+            "name": "BlogPostRecord",
             "ofType": null
           },
           {
@@ -11540,7 +11540,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "ContentPostModelFilter",
+        "name": "BlogPostModelFilter",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -11742,7 +11742,7 @@
               "name": null,
               "ofType": {
                 "kind": "INPUT_OBJECT",
-                "name": "ContentPostModelFilter",
+                "name": "BlogPostModelFilter",
                 "ofType": null
               }
             },
@@ -12640,7 +12640,7 @@
       },
       {
         "kind": "ENUM",
-        "name": "ContentPostModelOrderBy",
+        "name": "BlogPostModelOrderBy",
         "description": null,
         "fields": null,
         "inputFields": null,
@@ -19047,11 +19047,7 @@
         "name": "include",
         "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
         "isRepeatable": false,
-        "locations": [
-          "FIELD",
-          "FRAGMENT_SPREAD",
-          "INLINE_FRAGMENT"
-        ],
+        "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
         "args": [
           {
             "name": "if",
@@ -19073,11 +19069,7 @@
         "name": "skip",
         "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
         "isRepeatable": false,
-        "locations": [
-          "FIELD",
-          "FRAGMENT_SPREAD",
-          "INLINE_FRAGMENT"
-        ],
+        "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
         "args": [
           {
             "name": "if",
@@ -19099,10 +19091,7 @@
         "name": "deprecated",
         "description": "Marks an element of a GraphQL schema as no longer supported.",
         "isRepeatable": false,
-        "locations": [
-          "FIELD_DEFINITION",
-          "ENUM_VALUE"
-        ],
+        "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
         "args": [
           {
             "name": "reason",

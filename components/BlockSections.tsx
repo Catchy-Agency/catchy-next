@@ -5,7 +5,7 @@ import { ResponsiveImageType } from 'react-datocms'
 
 import { prefixByTypename } from '../util/url'
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
-import { ContentPostBySlug_contentPost_blocks } from '../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug'
 import { ClientSet } from './blocks/ClientSet'
 import { Formula } from './blocks/Formula'
 import { ServiceSet } from './blocks/ServiceSet'
@@ -28,7 +28,7 @@ export const BlockSections: FC<{
   textAlign?: string | null
   blocks: ReadonlyArray<
     | PrimaryPageBySlug_primaryPage_blocks
-    | ContentPostBySlug_contentPost_blocks
+    | BlogPostBySlug_blogPost_blocks
     | null
   >
 }> = ({ blocks, containerMax, textAlign }) => {

@@ -73,7 +73,7 @@ export const primaryPageBySlug = gql`
                 }
               }
             }
-            ... on ContentPostRecord {
+            ... on BlogPostRecord {
               id
               slug
               title

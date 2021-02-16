@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import { ContentPostBySlug_contentPost_blocks_ButtonExternalRecord } from '../../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_ButtonExternalRecord } from '../../gql/types/BlogPostBySlug'
 
 export const ButtonExternal: FC<{
-  block: ContentPostBySlug_contentPost_blocks_ButtonExternalRecord
+  block: BlogPostBySlug_blogPost_blocks_ButtonExternalRecord
 }> = ({ block }) => (
   <a
     className="button is-medium is-primary"

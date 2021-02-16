@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import ReactMarkdown from 'react-markdown'
 
-import { ContentPostBySlug_contentPost_blocks_RichTextRecord } from '../../gql/types/ContentPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_RichTextRecord } from '../../gql/types/BlogPostBySlug'
 
 export const RichText: FC<{
-  block: ContentPostBySlug_contentPost_blocks_RichTextRecord
+  block: BlogPostBySlug_blogPost_blocks_RichTextRecord
 }> = ({ block }) =>
   block.richText ? (
     <div className="content">

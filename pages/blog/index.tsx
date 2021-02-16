@@ -1,17 +1,14 @@
 import { GetStaticProps } from 'next'
 
 import { createSubscription } from '../../gql/dato-cms'
-import { allContentPosts } from '../../gql/queries/content-posts'
-import { AllContentPosts } from '../../gql/types/AllContentPosts'
-import { ContentPosts } from '../../components/pages/ContentPosts'
+import { allBlogPosts } from '../../gql/queries/blog-posts'
+import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
+import { BlogPosts } from '../../components/pages/BlogPosts'
 
 export const getStaticProps: GetStaticProps = async (context) => ({
   props: {
-    subscription: await createSubscription<AllContentPosts>(
-      context,
-      allContentPosts,
-    ),
+    subscription: await createSubscription<AllBlogPosts>(context, allBlogPosts),
   },
 })
 
-export default ContentPosts
+export default BlogPosts

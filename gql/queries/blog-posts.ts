@@ -1,16 +1,16 @@
 import gql from 'graphql-tag'
 
-export const allContentPostSlugs = gql`
-  query AllContentPostSlugs {
-    allContentPosts {
+export const allBlogPostSlugs = gql`
+  query AllBlogPostSlugs {
+    allBlogPosts {
       slug
     }
   }
 `
 
-export const allContentPosts = gql`
-  query AllContentPosts {
-    allContentPosts(orderBy: date_DESC) {
+export const allBlogPosts = gql`
+  query AllBlogPosts {
+    allBlogPosts(orderBy: date_DESC) {
       id
       slug
       title
@@ -80,9 +80,9 @@ export const allContentPosts = gql`
   }
 `
 
-export const contentPostsByCategoryId = gql`
-  query ContentPostsByCategoryId($id: ItemId) {
-    allContentPosts(filter: { categories: { anyIn: [$id] } }) {
+export const blogPostsByCategoryId = gql`
+  query BlogPostsByCategoryId($id: ItemId) {
+    allBlogPosts(filter: { categories: { anyIn: [$id] } }) {
       id
       slug
       title
@@ -152,9 +152,9 @@ export const contentPostsByCategoryId = gql`
   }
 `
 
-export const contentPostBySlug = gql`
-  query ContentPostBySlug($slug: String) {
-    contentPost(filter: { slug: { eq: $slug } }) {
+export const blogPostBySlug = gql`
+  query BlogPostBySlug($slug: String) {
+    blogPost(filter: { slug: { eq: $slug } }) {
       title
       date
       blocks {
@@ -173,7 +173,7 @@ export const contentPostBySlug = gql`
             ... on ContentPageRecord {
               slug
             }
-            ... on ContentPostRecord {
+            ... on BlogPostRecord {
               slug
             }
             ... on PrimaryPageRecord {
@@ -218,7 +218,7 @@ export const contentPostBySlug = gql`
                   ... on ContentPageRecord {
                     slug
                   }
-                  ... on ContentPostRecord {
+                  ... on BlogPostRecord {
                     slug
                   }
                   ... on PrimaryPageRecord {
@@ -276,7 +276,7 @@ export const contentPostBySlug = gql`
                 }
               }
             }
-            ... on ContentPostRecord {
+            ... on BlogPostRecord {
               id
               slug
               title

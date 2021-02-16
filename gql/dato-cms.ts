@@ -11,11 +11,11 @@ import { DocumentNode } from 'graphql'
 import schema from '../schema.json'
 import { allPrimaryPageSlugs } from './queries/primary-pages'
 import { allContentPageSlugs } from './queries/content-pages'
-import { allContentPostSlugs } from './queries/content-posts'
+import { allBlogPostSlugs } from './queries/blog-posts'
 import { allCategorySlugs, categoryIdBySlug } from './queries/categories'
 import { AllPrimaryPageSlugs } from './types/AllPrimaryPageSlugs'
 import { AllContentPageSlugs } from './types/AllContentPageSlugs'
-import { AllContentPostSlugs } from './types/AllContentPostSlugs'
+import { AllBlogPostSlugs } from './types/AllBlogPostSlugs'
 import { AllCategorySlugs } from './types/AllCategorySlugs'
 import { CategoryIdBySlug } from './types/CategoryIdBySlug'
 
@@ -114,11 +114,11 @@ export const getContentPagePaths = async (): Promise<string[]> => {
   return result.data.allContentPages.map((page) => `/pages/${page.slug || ''}`)
 }
 
-export const getContentPostPaths = async (): Promise<string[]> => {
-  const result = await client.query<AllContentPostSlugs>({
-    query: allContentPostSlugs,
+export const getBlogPostPaths = async (): Promise<string[]> => {
+  const result = await client.query<AllBlogPostSlugs>({
+    query: allBlogPostSlugs,
   })
-  return result.data.allContentPosts.map((post) => `/blog/${post.slug || ''}`)
+  return result.data.allBlogPosts.map((post) => `/blog/${post.slug || ''}`)
 }
 
 export const getCategoryPaths = async (): Promise<string[]> => {

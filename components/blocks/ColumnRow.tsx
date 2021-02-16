@@ -4,16 +4,16 @@ import { Image, ResponsiveImageType } from 'react-datocms'
 import ReactMarkdown from 'react-markdown'
 
 import {
-  ContentPostBySlug_contentPost_blocks_ColumnRowRecord,
-  ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns,
-} from '../../gql/types/ContentPostBySlug'
+  BlogPostBySlug_blogPost_blocks_ColumnRowRecord,
+  BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns,
+} from '../../gql/types/BlogPostBySlug'
 import { ButtonExternal } from './ButtonExternal'
 import { ButtonInternal } from './ButtonInternal'
 import { RichText } from './RichText'
 import { Video } from './Video'
 
 export const ColumnRow: FC<{
-  block: ContentPostBySlug_contentPost_blocks_ColumnRowRecord
+  block: BlogPostBySlug_blogPost_blocks_ColumnRowRecord
 }> = ({ block }) => (
   <div
     className={classNames('columns', {
@@ -57,7 +57,7 @@ export const ColumnRow: FC<{
 )
 
 const ColumnBlocks: FC<{
-  blocks: ContentPostBySlug_contentPost_blocks_ColumnRowRecord_columns['blocks']
+  blocks: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns['blocks']
 }> = ({ blocks }) => (
   <>
     {blocks?.map((block) => {
