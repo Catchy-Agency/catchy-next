@@ -46,7 +46,7 @@ export interface ContentPageBySlug_contentPage_parent {
   readonly parent: ContentPageBySlug_contentPage_parent_parent | null;
 }
 
-export interface ContentPageBySlug_contentPage_children_seo_image_responsiveImage {
+export interface ContentPageBySlug_contentPage_children_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -59,16 +59,9 @@ export interface ContentPageBySlug_contentPage_children_seo_image_responsiveImag
   readonly base64: string | null;
 }
 
-export interface ContentPageBySlug_contentPage_children_seo_image {
+export interface ContentPageBySlug_contentPage_children_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: ContentPageBySlug_contentPage_children_seo_image_responsiveImage | null;
-}
-
-export interface ContentPageBySlug_contentPage_children_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: ContentPageBySlug_contentPage_children_seo_image | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_children_previewImage_responsiveImage | null;
 }
 
 export interface ContentPageBySlug_contentPage_children {
@@ -76,7 +69,8 @@ export interface ContentPageBySlug_contentPage_children {
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
-  readonly seo: ContentPageBySlug_contentPage_children_seo | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPageBySlug_contentPage_children_previewImage | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
@@ -208,7 +202,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord {
   readonly verticallyCenterAcrossColumns: any | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image_responsiveImage {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -221,26 +215,21 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly base64: string | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image_responsiveImage | null;
-}
-
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo_image | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage_responsiveImage | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly slug: string | null;
-  readonly seo: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_seo | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image_responsiveImage {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -253,26 +242,21 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly base64: string | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image_responsiveImage | null;
-}
-
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo_image | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_previewImage_responsiveImage | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord {
   readonly __typename: "ContentPostRecord";
   readonly id: any;
   readonly slug: string | null;
-  readonly seo: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_seo | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord_previewImage | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image_responsiveImage {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -285,23 +269,18 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly base64: string | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image {
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image_responsiveImage | null;
-}
-
-export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo_image | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage_responsiveImage | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord {
   readonly __typename: "ContentPageRecord";
   readonly id: any;
   readonly slug: string | null;
-  readonly seo: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_seo | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage | null;
 }
 
 export type ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links = ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPostRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord;

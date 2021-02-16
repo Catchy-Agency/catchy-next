@@ -7,7 +7,7 @@
 // GraphQL query operation: ContentPostsByCategoryId
 // ====================================================
 
-export interface ContentPostsByCategoryId_allContentPosts_seo_image_responsiveImage {
+export interface ContentPostsByCategoryId_allContentPosts_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -20,23 +20,18 @@ export interface ContentPostsByCategoryId_allContentPosts_seo_image_responsiveIm
   readonly base64: string | null;
 }
 
-export interface ContentPostsByCategoryId_allContentPosts_seo_image {
+export interface ContentPostsByCategoryId_allContentPosts_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: ContentPostsByCategoryId_allContentPosts_seo_image_responsiveImage | null;
-}
-
-export interface ContentPostsByCategoryId_allContentPosts_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: ContentPostsByCategoryId_allContentPosts_seo_image | null;
+  readonly responsiveImage: ContentPostsByCategoryId_allContentPosts_previewImage_responsiveImage | null;
 }
 
 export interface ContentPostsByCategoryId_allContentPosts {
   readonly __typename: "ContentPostRecord";
   readonly id: any;
   readonly slug: string | null;
-  readonly seo: ContentPostsByCategoryId_allContentPosts_seo | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPostsByCategoryId_allContentPosts_previewImage | null;
 }
 
 export interface ContentPostsByCategoryId_allCategories {

@@ -55,69 +55,63 @@ export const primaryPageBySlug = gql`
             ... on PrimaryPageRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }
             ... on ContentPostRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }
             ... on ContentPageRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }

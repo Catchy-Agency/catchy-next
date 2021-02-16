@@ -7,7 +7,7 @@
 // GraphQL query operation: AllContentPosts
 // ====================================================
 
-export interface AllContentPosts_allContentPosts_seo_image_responsiveImage {
+export interface AllContentPosts_allContentPosts_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -20,23 +20,18 @@ export interface AllContentPosts_allContentPosts_seo_image_responsiveImage {
   readonly base64: string | null;
 }
 
-export interface AllContentPosts_allContentPosts_seo_image {
+export interface AllContentPosts_allContentPosts_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: AllContentPosts_allContentPosts_seo_image_responsiveImage | null;
-}
-
-export interface AllContentPosts_allContentPosts_seo {
-  readonly __typename: "SeoField";
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly image: AllContentPosts_allContentPosts_seo_image | null;
+  readonly responsiveImage: AllContentPosts_allContentPosts_previewImage_responsiveImage | null;
 }
 
 export interface AllContentPosts_allContentPosts {
   readonly __typename: "ContentPostRecord";
   readonly id: any;
   readonly slug: string | null;
-  readonly seo: AllContentPosts_allContentPosts_seo | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: AllContentPosts_allContentPosts_previewImage | null;
 }
 
 export interface AllContentPosts_allCategories {

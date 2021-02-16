@@ -8,6 +8,8 @@ $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 
 // Bulma theme & core
+// $widescreen-enabled: false;
+// $fullhd-enabled: false;
 @import './theme_variables.scss';
 @import '../node_modules/bulma/bulma.sass';
 @import './theme_overrides.scss';

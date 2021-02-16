@@ -50,10 +50,10 @@ const ContentPage: NextPage<{
           child && {
             id: child.id,
             url: `/pages/${child.slug || ''}`,
-            title: child.seo?.title || null,
-            description: child.seo?.description || null,
+            title: child.title,
+            description: child.description,
             image:
-              (child.seo?.image?.responsiveImage as ResponsiveImageType) ||
+              (child.previewImage?.responsiveImage as ResponsiveImageType) ||
               null,
             callToAction: 'Read More',
           },

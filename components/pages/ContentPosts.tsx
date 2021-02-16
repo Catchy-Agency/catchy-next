@@ -28,9 +28,10 @@ export const ContentPosts: NextPage<{
     data?.allContentPosts.map((post) => ({
       id: post.id,
       url: `/blog/${post.slug || ''}`,
-      title: post.seo?.title || null,
-      description: post.seo?.description || null,
-      image: (post.seo?.image?.responsiveImage as ResponsiveImageType) || null,
+      title: post.title,
+      description: post.description,
+      image:
+        (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
 

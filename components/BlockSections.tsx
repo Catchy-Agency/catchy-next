@@ -133,10 +133,10 @@ export const BlockSections: FC<{
             const links = block.links.map((link) => ({
               id: link.id,
               url: `${prefixByTypename[link.__typename]}${link.slug || ''}`,
-              title: link.seo?.title || null,
-              description: link.seo?.description || null,
+              title: link.title,
+              description: link.description,
               image:
-                (link.seo?.image?.responsiveImage as ResponsiveImageType) ||
+                (link.previewImage?.responsiveImage as ResponsiveImageType) ||
                 null,
               callToAction,
             }))

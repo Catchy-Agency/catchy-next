@@ -13,23 +13,21 @@ export const allContentPosts = gql`
     allContentPosts(orderBy: date_DESC) {
       id
       slug
-      seo {
-        title
-        description
-        image {
-          responsiveImage(
-            imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-          ) {
-            aspectRatio
-            height
-            width
-            sizes
-            src
-            srcSet
-            alt
-            title
-            base64
-          }
+      title
+      description
+      previewImage {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
         }
       }
     }
@@ -87,23 +85,21 @@ export const contentPostsByCategoryId = gql`
     allContentPosts(filter: { categories: { anyIn: [$id] } }) {
       id
       slug
-      seo {
-        title
-        description
-        image {
-          responsiveImage(
-            imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-          ) {
-            aspectRatio
-            height
-            width
-            sizes
-            src
-            srcSet
-            alt
-            title
-            base64
-          }
+      title
+      description
+      previewImage {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
         }
       }
     }
@@ -262,69 +258,63 @@ export const contentPostBySlug = gql`
             ... on PrimaryPageRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }
             ... on ContentPostRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }
             ... on ContentPageRecord {
               id
               slug
-              seo {
-                title
-                description
-                image {
-                  responsiveImage(
-                    imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-                  ) {
-                    aspectRatio
-                    height
-                    width
-                    sizes
-                    src
-                    srcSet
-                    alt
-                    title
-                    base64
-                  }
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
                 }
               }
             }
