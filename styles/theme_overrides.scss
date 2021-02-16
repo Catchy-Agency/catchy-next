@@ -17,6 +17,15 @@ h6 {
   background-color: $grey-dark;
 }
 
+.container {
+  padding: 2% 4% 4%;
+}
+
+.navbar .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 a {
   transition: all 200ms ease;
 }
