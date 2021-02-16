@@ -33,6 +33,43 @@
         "description": "The query root for this schema",
         "fields": [
           {
+            "name": "_allBlogPostsMeta",
+            "description": "Returns meta information regarding a record collection",
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "filter",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "BlogPostModelFilter",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "CollectionMetadata",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "_allCategoriesMeta",
             "description": "Returns meta information regarding a record collection",
             "args": [
@@ -163,43 +200,6 @@
                 "type": {
                   "kind": "INPUT_OBJECT",
                   "name": "ContentPageModelFilter",
-                  "ofType": null
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "CollectionMetadata",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "_allBlogPostsMeta",
-            "description": "Returns meta information regarding a record collection",
-            "args": [
-              {
-                "name": "locale",
-                "description": "The locale to use to fetch the field's content",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "SiteLocale",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "filter",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "BlogPostModelFilter",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -383,6 +383,85 @@
                 "kind": "OBJECT",
                 "name": "Site",
                 "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "allBlogPosts",
+            "description": "Returns a collection of records",
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "skip",
+                "description": "Skip the first results",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "IntType",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "first",
+                "description": "Limit the number of results",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "IntType",
+                  "ofType": null
+                },
+                "defaultValue": "20"
+              },
+              {
+                "name": "filter",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "BlogPostModelFilter",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "BlogPostModelOrderBy",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "BlogPostRecord",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -696,85 +775,6 @@
                   "ofType": {
                     "kind": "OBJECT",
                     "name": "ContentPageRecord",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "allBlogPosts",
-            "description": "Returns a collection of records",
-            "args": [
-              {
-                "name": "locale",
-                "description": "The locale to use to fetch the field's content",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "SiteLocale",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "skip",
-                "description": "Skip the first results",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "IntType",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "first",
-                "description": "Limit the number of results",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "IntType",
-                  "ofType": null
-                },
-                "defaultValue": "20"
-              },
-              {
-                "name": "filter",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "BlogPostModelFilter",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": null,
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "BlogPostModelOrderBy",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "BlogPostRecord",
                     "ofType": null
                   }
                 }
@@ -1100,6 +1100,53 @@
             "deprecationReason": null
           },
           {
+            "name": "blogPost",
+            "description": "Returns a specific record",
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "filter",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "BlogPostModelFilter",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": null,
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "BlogPostModelOrderBy",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "BlogPostRecord",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "category",
             "description": "Returns a specific record",
             "args": [
@@ -1282,53 +1329,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "ContentPageRecord",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "blogPost",
-            "description": "Returns a specific record",
-            "args": [
-              {
-                "name": "locale",
-                "description": "The locale to use to fetch the field's content",
-                "type": {
-                  "kind": "ENUM",
-                  "name": "SiteLocale",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "filter",
-                "description": null,
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "BlogPostModelFilter",
-                  "ofType": null
-                },
-                "defaultValue": null
-              },
-              {
-                "name": "orderBy",
-                "description": null,
-                "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "ENUM",
-                    "name": "BlogPostModelOrderBy",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "BlogPostRecord",
               "ofType": null
             },
             "isDeprecated": false,
@@ -1577,7 +1577,7 @@
       {
         "kind": "OBJECT",
         "name": "BlogPostRecord",
-        "description": "Record of type Content Post (content_post)",
+        "description": "Record of type Blog Post (blog_post)",
         "fields": [
           {
             "name": "_createdAt",
@@ -19047,7 +19047,11 @@
         "name": "include",
         "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
         "isRepeatable": false,
-        "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+        "locations": [
+          "FIELD",
+          "FRAGMENT_SPREAD",
+          "INLINE_FRAGMENT"
+        ],
         "args": [
           {
             "name": "if",
@@ -19069,7 +19073,11 @@
         "name": "skip",
         "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
         "isRepeatable": false,
-        "locations": ["FIELD", "FRAGMENT_SPREAD", "INLINE_FRAGMENT"],
+        "locations": [
+          "FIELD",
+          "FRAGMENT_SPREAD",
+          "INLINE_FRAGMENT"
+        ],
         "args": [
           {
             "name": "if",
@@ -19091,7 +19099,10 @@
         "name": "deprecated",
         "description": "Marks an element of a GraphQL schema as no longer supported.",
         "isRepeatable": false,
-        "locations": ["FIELD_DEFINITION", "ENUM_VALUE"],
+        "locations": [
+          "FIELD_DEFINITION",
+          "ENUM_VALUE"
+        ],
         "args": [
           {
             "name": "reason",

@@ -8,13 +8,13 @@
 // ====================================================
 
 export interface AllBlogPostSlugs_allBlogPosts {
-  readonly __typename: 'BlogPostRecord'
-  readonly slug: string | null
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
 }
 
 export interface AllBlogPostSlugs {
   /**
    * Returns a collection of records
    */
-  readonly allBlogPosts: ReadonlyArray<AllBlogPostSlugs_allBlogPosts>
+  readonly allBlogPosts: ReadonlyArray<AllBlogPostSlugs_allBlogPosts>;
 }
