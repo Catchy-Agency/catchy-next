@@ -1,15 +1,21 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const MediumLinks: FC<{ links: LinkData[] }> = ({ links }) => (
+export const MediumLinks: FC<{
+  links: LinkData[]
+  hasBackgroundColor?: boolean
+}> = ({ links, hasBackgroundColor }) => (
   <div className="medium-links">
     {links.map((link) => (
       <div
         key={link.id}
-        className="columns is-gapless has-background-grey-darker"
+        className={classNames('columns', 'is-gapless', {
+          'has-background-grey-darker': hasBackgroundColor,
+        })}
         style={{
           flexWrap: 'wrap',
           alignItems: 'stretch',

@@ -291,6 +291,7 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
   readonly displaySize: string | null;
   readonly callToActionLabel: string | null;
   readonly alternatingAlignments: any | null;
+  readonly hasBackgroundColor: any | null;
   readonly links: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links>;
 }
 

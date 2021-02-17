@@ -140,6 +140,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {
   readonly displaySize: string | null;
   readonly callToActionLabel: string | null;
   readonly alternatingAlignments: any | null;
+  readonly hasBackgroundColor: any | null;
   readonly links: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links>;
 }
 

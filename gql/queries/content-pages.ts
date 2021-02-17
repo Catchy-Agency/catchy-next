@@ -155,6 +155,7 @@ export const contentPageBySlug = gql`
           displaySize
           callToActionLabel
           alternatingAlignments
+          hasBackgroundColor
           links {
             __typename
             ... on PrimaryPageRecord {

@@ -59,7 +59,7 @@ export const BlockSections: FC<{
                       right: 0,
                       bottom: 0,
                     }}
-                   />
+                  />
                 )}
                 <div className={classNames('container', maxClass)}>
                   {block.title && (
@@ -125,6 +125,7 @@ export const BlockSections: FC<{
 
           case 'ContentLinkSetRecord': {
             const alternating = block.alternatingAlignments
+            const hasBackgroundColor = block.hasBackgroundColor
             const callToAction = block.callToActionLabel
             const links = block.links.map((link) => ({
               id: link.id,
@@ -144,7 +145,10 @@ export const BlockSections: FC<{
                     className="section ContentLinkSetRecord Card"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <CardLinks links={links} />
+                      <CardLinks
+                        links={links}
+                        hasBackgroundColor={hasBackgroundColor}
+                      />
                     </div>
                   </section>
                 )
@@ -159,7 +163,10 @@ export const BlockSections: FC<{
                         alternating,
                       })}
                     >
-                      <MediumLinks links={links} />
+                      <MediumLinks
+                        links={links}
+                        hasBackgroundColor={hasBackgroundColor}
+                      />
                     </div>
                   </section>
                 )
@@ -167,7 +174,12 @@ export const BlockSections: FC<{
                 return (
                   <section
                     key={block.id}
-                    className="section ContentLinkSetRecord Large has-background-grey-darker"
+                    className={classNames(
+                      'section',
+                      'ContentLinkSetRecord',
+                      'Large',
+                      { 'has-background-grey-darker': hasBackgroundColor },
+                    )}
                   >
                     <div
                       className={classNames('container', maxClass, {
