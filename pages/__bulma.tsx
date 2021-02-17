@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
 export const Bulma: NextPage = () => (
-  <div dangerouslySetInnerHTML={{ __html }}></div>
+  <div dangerouslySetInnerHTML={{ __html }} />
 )
 
 export default Bulma

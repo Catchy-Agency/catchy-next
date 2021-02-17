@@ -4,7 +4,7 @@ export default class extends Document {
   render(): JSX.Element {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head />
         <body className="has-navbar-fixed-top">
           <Main />
           <NextScript />

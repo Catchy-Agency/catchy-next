@@ -11,10 +11,10 @@ export const ServiceSet: FC<{
       <div key={service.id} className="column has-text-centered">
         <div className="title is-4">
           <span className="fa-stack fa-3x">
-            <i className="fas fa-circle fa-stack-2x has-text-grey-dark"></i>
+            <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
             <i
               className={`fas fa-${service.fontAwesomeIcon || ''} fa-stack-1x`}
-            ></i>
+             />
           </span>
         </div>
         {service.title && <div className="title is-5">{service.title}</div>}

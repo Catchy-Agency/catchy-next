@@ -41,9 +41,9 @@ export const Header: FC<{
             aria-expanded="false"
             onClick={toggleOpen}
           >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
           </a>
         </div>
 

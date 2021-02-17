@@ -44,7 +44,7 @@ const App: AppComponent = ({ Component, pageProps }) => {
         previewUrl={(loc) => `${loc.origin}/api/preview?slug=${loc.pathname}`}
         exitUrl={(loc) => `${loc.origin}/api/exit-preview?slug=${loc.pathname}`}
       />
-      <Component {...pageProps}></Component>
+      <Component {...pageProps} />
     </>
   )
 }

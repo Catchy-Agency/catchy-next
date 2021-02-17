@@ -27,7 +27,7 @@ export const Footer: FC<{
                       placeholder={footer.nameLabel || undefined}
                     />
                     <span className="icon is-small is-left">
-                      <i className="fas fa-user"></i>
+                      <i className="fas fa-user" />
                     </span>
                   </div>
                   <div className="control is-expanded has-icons-left">
@@ -38,7 +38,7 @@ export const Footer: FC<{
                       placeholder={footer.emailAddressLabel || undefined}
                     />
                     <span className="icon is-small is-left">
-                      <i className="fas fa-envelope"></i>
+                      <i className="fas fa-envelope" />
                     </span>
                   </div>
                 </div>
@@ -49,7 +49,7 @@ export const Footer: FC<{
                       name="message"
                       placeholder={footer.messageLabel || undefined}
                       rows={7}
-                    ></textarea>
+                     />
                   </div>
                 </div>
                 <div className="field is-grouped">
@@ -82,12 +82,12 @@ export const Footer: FC<{
                       className="title is-4"
                     >
                       <span className="fa-stack">
-                        <i className="fas fa-circle fa-stack-2x has-text-grey"></i>
+                        <i className="fas fa-circle fa-stack-2x has-text-grey" />
                         <i
                           className={`fab fa-${
                             link.fontAwesomeIcon || ''
                           } fa-stack-1x`}
-                        ></i>
+                         />
                       </span>
                     </a>
                   ),

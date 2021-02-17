@@ -22,5 +22,12 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     '@typescript-eslint/no-unsafe-assignment': 0, // Sad: severaly "any" in apollo codegen gql types
     '@typescript-eslint/no-unused-vars': [1, { argsIgnorePattern: '^_' }],
+    'react/self-closing-comp': [
+      'error',
+      {
+        component: true,
+        html: true,
+      },
+    ],
   },
 }

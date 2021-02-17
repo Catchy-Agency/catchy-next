@@ -58,7 +58,7 @@ export const BlogPosts: NextPage<{
                     <div className="tags are-medium has-addons">
                       <span className="tag is-primary">{cat.name}</span>
                       <Link href="/blog">
-                        <a className="tag is-primary is-delete"></a>
+                        <a className="tag is-primary is-delete" />
                       </Link>
                     </div>
                   ) : (

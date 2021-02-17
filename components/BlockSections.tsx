@@ -62,7 +62,7 @@ export const BlockSections: FC<{
                       right: 0,
                       bottom: 0,
                     }}
-                  ></div>
+                   />
                 )}
                 <div className={classNames('container', maxClass)}>
                   {block.title && (
