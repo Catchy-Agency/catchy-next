@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import ReactMarkdown from 'react-markdown'
 
 import { PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord } from '../../gql/types/PrimaryPageBySlug'
 
@@ -14,14 +13,15 @@ export const ServiceSet: FC<{
             <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
             <i
               className={`fas fa-${service.fontAwesomeIcon || ''} fa-stack-1x`}
-             />
+            />
           </span>
         </div>
         {service.title && <div className="title is-5">{service.title}</div>}
         {service.text && (
-          <div className="content">
-            <ReactMarkdown linkTarget="_blank">{service.text}</ReactMarkdown>
-          </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: service.text }}
+          />
         )}
       </div>
     ))}

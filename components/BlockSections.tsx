@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import ReactMarkdown from 'react-markdown'
 import classNames from 'classnames'
 import { ResponsiveImageType } from 'react-datocms'
 
@@ -27,9 +26,7 @@ export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
   textAlign?: string | null
   blocks: ReadonlyArray<
-    | PrimaryPageBySlug_primaryPage_blocks
-    | BlogPostBySlug_blogPost_blocks
-    | null
+    PrimaryPageBySlug_primaryPage_blocks | BlogPostBySlug_blogPost_blocks | null
   >
 }> = ({ blocks, containerMax, textAlign }) => {
   const alignClass = {
@@ -69,11 +66,10 @@ export const BlockSections: FC<{
                     <div className="title is-2">{block.title}</div>
                   )}
                   {block.text && (
-                    <div className="content">
-                      <ReactMarkdown linkTarget="_blank">
-                        {block.text}
-                      </ReactMarkdown>
-                    </div>
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{ __html: block.text }}
+                    />
                   )}
                 </div>
               </section>

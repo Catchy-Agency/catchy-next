@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import { FC } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
-import ReactMarkdown from 'react-markdown'
 
 import {
   BlogPostBySlug_blogPost_blocks_ColumnRowRecord,
@@ -46,9 +45,10 @@ export const ColumnRow: FC<{
           </figure>
         )}
         {column.text && (
-          <div className="content">
-            <ReactMarkdown linkTarget="_blank">{column.text}</ReactMarkdown>
-          </div>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{ __html: column.text }}
+          />
         )}
         <ColumnBlocks blocks={column.blocks} />
       </div>

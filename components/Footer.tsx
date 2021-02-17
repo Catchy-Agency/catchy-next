@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import ReactMarkdown from 'react-markdown'
 
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
 
@@ -49,7 +48,7 @@ export const Footer: FC<{
                       name="message"
                       placeholder={footer.messageLabel || undefined}
                       rows={7}
-                     />
+                    />
                   </div>
                 </div>
                 <div className="field is-grouped">
@@ -64,13 +63,12 @@ export const Footer: FC<{
               </form>
             </div>
             <div className="column is-one-third">
-              <div className="content">
-                {footer.contactText && (
-                  <ReactMarkdown linkTarget="_blank">
-                    {footer.contactText}
-                  </ReactMarkdown>
-                )}
-              </div>
+              {footer.contactText && (
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: footer.contactText || '' }}
+                />
+              )}
               {footer.socialLinks?.map(
                 (link) =>
                   link && (
@@ -87,7 +85,7 @@ export const Footer: FC<{
                           className={`fab fa-${
                             link.fontAwesomeIcon || ''
                           } fa-stack-1x`}
-                         />
+                        />
                       </span>
                     </a>
                   ),
