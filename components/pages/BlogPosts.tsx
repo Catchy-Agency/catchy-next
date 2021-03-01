@@ -65,17 +65,28 @@ export const BlogPosts: NextPage<{
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="columns">
-            <div className="column is-2">
+            <div className="column is-one-fifth">
               <h5 className="title is-5">Categories</h5>
               <hr />
               {data?.allCategories.map((cat) => (
                 <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
                   {cat.slug === router.query.slug ? (
                     <div className="tags are-medium has-addons">
-                      <span className="tag is-primary">{cat.name}</span>
-                      <Link href="/blog">
-                        <a className="tag is-primary is-delete" />
-                      </Link>
+                      <span className="tag is-primary">
+                        {cat.name}
+                        &nbsp; &nbsp;
+                        <Link href="/blog">
+                          <a
+                            className="has-text-white"
+                            style={{
+                              margin: '-0.33rem -1rem',
+                              padding: '0.33rem 1rem',
+                            }}
+                          >
+                            ✕
+                          </a>
+                        </Link>
+                      </span>
                     </div>
                   ) : (
                     <Link href={`/blog/category/${cat.slug || ''}`}>
@@ -85,7 +96,7 @@ export const BlogPosts: NextPage<{
                 </div>
               ))}
             </div>
-            <div className="column is-10">
+            <div className="column">
               <MediumLinks links={links} />
               {links.length === 0 && (
                 <div className="section is-size-3 is-italic has-text-centered">
