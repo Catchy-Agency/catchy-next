@@ -12,6 +12,7 @@ export const primaryPageBySlug = gql`
   query PrimaryPageBySlug($slug: String) {
     primaryPage(filter: { slug: { eq: $slug } }) {
       title
+      showBreadcrumbs
       textAlign
       blocks {
         __typename

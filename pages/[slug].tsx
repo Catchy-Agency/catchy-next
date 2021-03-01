@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 import Head from 'next/head'
+import Link from 'next/link'
 
 import {
   createSubscription,
@@ -33,6 +34,24 @@ const PrimaryPage: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
+      {data?.primaryPage?.showBreadcrumbs && (
+        <header className="section py-0 pt-5">
+          <div className="container is-max-widescreen">
+            <nav className="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <li>
+                  <Link href="/home">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li className="is-active">
+                  <a aria-current="page">{data?.primaryPage?.title}</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      )}
       <BlockSections
         blocks={data?.primaryPage?.blocks || []}
         textAlign={data?.primaryPage?.textAlign}

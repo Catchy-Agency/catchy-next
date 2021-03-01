@@ -46,6 +46,22 @@ export const BlogPosts: NextPage<{
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
+      <header className="section py-0 pt-5">
+        <div className="container is-max-widescreen">
+          <nav className="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li>
+                <Link href="/home">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="is-active">
+                <a aria-current="page">Blog</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="columns">
