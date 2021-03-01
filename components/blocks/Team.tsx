@@ -18,7 +18,7 @@ export const Team: FC<{
           </figure>
         )}
         {member.name && <h4 className="title is-4">{member.name}</h4>}
-        {member.title && <h6 className="subtitle is-6">{member.title}</h6>}
+        {member.title && <h5 className="subtitle is-5">{member.title}</h5>}
       </div>
     ))}
   </div>
