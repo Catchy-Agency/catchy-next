@@ -13,7 +13,6 @@ import { TitleText } from './blocks/TitleText'
 import { ViewMoreLink } from './blocks/ViewMoreLink'
 import { ImageSet } from './blocks/ImageSet'
 import { RichText } from './blocks/RichText'
-import { Title } from './blocks/Title'
 import { Video } from './blocks/Video'
 import { ButtonExternal } from './blocks/ButtonExternal'
 import { ButtonInternal } from './blocks/ButtonInternal'
@@ -236,15 +235,6 @@ export const BlockSections: FC<{
               <section key={block.id} className="section TeamRecord">
                 <div className={classNames('container', maxClass)}>
                   <Team block={block} />
-                </div>
-              </section>
-            )
-
-          case 'TitleRecord':
-            return (
-              <section key={block.id} className="section TitleRecord">
-                <div className={classNames('container', maxClass)}>
-                  <Title block={block} />
                 </div>
               </section>
             )

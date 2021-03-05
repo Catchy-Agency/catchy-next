@@ -247,10 +247,6 @@ export const contentPageBySlug = gql`
           id
           richText
         }
-        ... on TitleRecord {
-          id
-          title
-        }
         ... on VideoRecord {
           id
           video {

@@ -2119,11 +2119,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "TitleRecord",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "ButtonInternalRecord",
             "ofType": null
           }
@@ -10179,11 +10174,6 @@
           {
             "kind": "OBJECT",
             "name": "ColumnRowRecord",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "TitleRecord",
             "ofType": null
           },
           {
