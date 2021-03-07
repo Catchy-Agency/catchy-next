@@ -117,14 +117,19 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const subscription = await createSubscription<ContentPageBySlug>(
-    context,
-    contentPageBySlug,
-    { slug: context?.params?.slug },
-  )
-  return subscription.initialData.contentPage
-    ? { props: { subscription } }
-    : { notFound: true }
+  try {
+    return {
+      props: {
+        subscription: await createSubscription<ContentPageBySlug>(
+          context,
+          contentPageBySlug,
+          { slug: context?.params?.slug },
+        ),
+      },
+    }
+  } catch (_) {
+    return { notFound: true }
+  }
 }
 
 export default ContentPage

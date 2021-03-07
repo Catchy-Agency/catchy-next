@@ -15,16 +15,21 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slug = context?.params?.slug
-  if (typeof slug !== 'string') return { notFound: true }
-  const categoryId = await getCategoryIdBySlug(slug, context.preview)
-  if (!categoryId) return { notFound: true }
-  const subscription = await createSubscription<BlogPostsByCategoryId>(
-    context,
-    blogPostsByCategoryId,
-    { id: categoryId },
-  )
-  return { props: { subscription } }
+  try {
+    const slug = context?.params?.slug
+    if (typeof slug !== 'string') throw new Error('Bad slug')
+    return {
+      props: {
+        subscription: await createSubscription<BlogPostsByCategoryId>(
+          context,
+          blogPostsByCategoryId,
+          { id: await getCategoryIdBySlug(slug, context.preview) },
+        ),
+      },
+    }
+  } catch (_) {
+    return { notFound: true }
+  }
 }
 
 export default BlogPosts
