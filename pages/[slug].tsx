@@ -67,14 +67,15 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: {
-    subscription: await createSubscription<PrimaryPageBySlug>(
-      context,
-      primaryPageBySlug,
-      { slug: context?.params?.slug },
-    ),
-  },
-})
+export const getStaticProps: GetStaticProps = async (context) => {
+  const subscription = await createSubscription<PrimaryPageBySlug>(
+    context,
+    primaryPageBySlug,
+    { slug: context?.params?.slug },
+  )
+  return subscription.initialData.primaryPage
+    ? { props: { subscription } }
+    : { notFound: true }
+}
 
 export default PrimaryPage
