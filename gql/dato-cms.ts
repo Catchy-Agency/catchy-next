@@ -54,7 +54,12 @@ const client = new ApolloClient({
 
 const previewClient = new ApolloClient({
   link: authLink.concat(httpPreviewLink),
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    fragmentMatcher: new IntrospectionFragmentMatcher({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      introspectionQueryResultData: schema as any,
+    }),
+  }),
 })
 
 export type Subscription<ResultData> =
