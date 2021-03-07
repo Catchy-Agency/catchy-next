@@ -44,11 +44,6 @@ $cam-gray3: #56636b;
   padding-top: 0;
 }
 
-.section.ContentLinkSetRecord.Large.has-background-grey-darker {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
 .section.ViewMoreLinkRecord {
   padding-top: 0;
   position: relative;
@@ -64,9 +59,14 @@ footer.section {
   padding-bottom: 6rem;
 }
 
-.content-page section,
-.content-post section {
+.content-page section:not(.has-background-grey-darker),
+.content-post section:not(.has-background-grey-darker) {
   padding-top: 0;
+}
+
+.primary-page .section.ContentLinkSetRecord.Large.has-background-grey-darker {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 //

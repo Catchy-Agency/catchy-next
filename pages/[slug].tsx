@@ -24,7 +24,7 @@ const PrimaryPage: NextPage<{
   )
 
   return (
-    <>
+    <div className="primary-page">
       <Head>
         {renderMetaTags([
           ...(data?.primaryPage?._seoMetaTags || []),
@@ -58,7 +58,7 @@ const PrimaryPage: NextPage<{
         containerMax="widescreen"
       />
       {data?.footer && <Footer footer={data?.footer} />}
-    </>
+    </div>
   )
 }
 
