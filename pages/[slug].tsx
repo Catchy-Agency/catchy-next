@@ -64,7 +64,7 @@ const PrimaryPage: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getPrimaryPagePaths(),
-  fallback: true,
+  fallback: 'blocking',
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     primaryPageBySlug,
     { slug: context?.params?.slug },
   )
-  return subscription.initialData.primaryPage
+  return subscription.initialData?.primaryPage
     ? { props: { subscription } }
     : { notFound: true }
 }

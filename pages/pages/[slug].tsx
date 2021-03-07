@@ -116,14 +116,15 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: {
-    subscription: await createSubscription<ContentPageBySlug>(
-      context,
-      contentPageBySlug,
-      { slug: context?.params?.slug },
-    ),
-  },
-})
+export const getStaticProps: GetStaticProps = async (context) => {
+  const subscription = await createSubscription<ContentPageBySlug>(
+    context,
+    contentPageBySlug,
+    { slug: context?.params?.slug },
+  )
+  return subscription.initialData?.contentPage
+    ? { props: { subscription } }
+    : { notFound: true }
+}
 
 export default ContentPage

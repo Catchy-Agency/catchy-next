@@ -59,14 +59,14 @@ const previewClient = new ApolloClient({
 
 export type Subscription<ResultData> =
   | {
-      initialData: ResultData
+      initialData: ResultData | null
       preview: true
       query: string
       token: string
       variables?: { [key: string]: unknown }
     }
   | {
-      initialData: ResultData
+      initialData: ResultData | null
       preview: false
       enabled: false
     }
@@ -80,7 +80,7 @@ export const createSubscription = async <ResultData>(
   const result = isPreview
     ? await previewClient.query<ResultData>({ query, variables })
     : await client.query<ResultData>({ query, variables })
-  const initialData = result.data
+  const initialData = result.data || null
   return isPreview
     ? {
         initialData,
