@@ -113,17 +113,23 @@ const ContentPage: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getContentPagePaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: {
-    subscription: await createSubscription<ContentPageBySlug>(
-      context,
-      contentPageBySlug,
-      { slug: context?.params?.slug },
-    ),
-  },
-})
+export const getStaticProps: GetStaticProps = async (context) => {
+  try {
+    return {
+      props: {
+        subscription: await createSubscription<ContentPageBySlug>(
+          context,
+          contentPageBySlug,
+          { slug: context?.params?.slug },
+        ),
+      },
+    }
+  } catch (_) {
+    return { notFound: true }
+  }
+}
 
 export default ContentPage

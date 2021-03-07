@@ -74,17 +74,23 @@ const BlogPost: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getBlogPostPaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: {
-    subscription: await createSubscription<BlogPostBySlug>(
-      context,
-      blogPostBySlug,
-      { slug: context?.params?.slug },
-    ),
-  },
-})
+export const getStaticProps: GetStaticProps = async (context) => {
+  try {
+    return {
+      props: {
+        subscription: await createSubscription<BlogPostBySlug>(
+          context,
+          blogPostBySlug,
+          { slug: context?.params?.slug },
+        ),
+      },
+    }
+  } catch (_) {
+    return { notFound: true }
+  }
+}
 
 export default BlogPost

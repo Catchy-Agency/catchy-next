@@ -64,17 +64,23 @@ const PrimaryPage: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getPrimaryPagePaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => ({
-  props: {
-    subscription: await createSubscription<PrimaryPageBySlug>(
-      context,
-      primaryPageBySlug,
-      { slug: context?.params?.slug },
-    ),
-  },
-})
+export const getStaticProps: GetStaticProps = async (context) => {
+  try {
+    return {
+      props: {
+        subscription: await createSubscription<PrimaryPageBySlug>(
+          context,
+          primaryPageBySlug,
+          { slug: context?.params?.slug },
+        ),
+      },
+    }
+  } catch (_) {
+    return { notFound: true }
+  }
+}
 
 export default PrimaryPage
