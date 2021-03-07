@@ -58,7 +58,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image {
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord" | "TitleRecord";
+  readonly __typename: "ImageSetRecord";
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
