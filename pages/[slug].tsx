@@ -17,10 +17,10 @@ import { Footer } from '../components/Footer'
 import { BlockSections } from '../components/BlockSections'
 
 const PrimaryPage: NextPage<{
-  subscription: Subscription<PrimaryPageBySlug>
+  subscription?: Subscription<PrimaryPageBySlug>
 }> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
-    subscription,
+    subscription || { enabled: false },
   )
 
   return (
