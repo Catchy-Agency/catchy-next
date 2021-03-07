@@ -78,19 +78,14 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  try {
-    return {
-      props: {
-        subscription: await createSubscription<BlogPostBySlug>(
-          context,
-          blogPostBySlug,
-          { slug: context?.params?.slug },
-        ),
-      },
-    }
-  } catch (_) {
-    return { notFound: true }
-  }
+  const subscription = await createSubscription<BlogPostBySlug>(
+    context,
+    blogPostBySlug,
+    { slug: context?.params?.slug },
+  )
+  return subscription.initialData.blogPost
+    ? { props: { subscription } }
+    : { notFound: true }
 }
 
 export default BlogPost
