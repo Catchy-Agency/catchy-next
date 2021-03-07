@@ -64,7 +64,7 @@ const PrimaryPage: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getPrimaryPagePaths(),
-  fallback: 'blocking',
+  fallback: true,
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
