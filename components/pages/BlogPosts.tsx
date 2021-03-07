@@ -1,5 +1,6 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {
   useQuerySubscription,
@@ -14,7 +15,6 @@ import { PageError } from '../cms/PageError'
 import { Header } from '../Header'
 import { Footer } from '../Footer'
 import { MediumLinks } from '../content-links/MediumLinks'
-import Link from 'next/link'
 
 export const BlogPosts: NextPage<{
   subscription: Subscription<AllBlogPosts>
