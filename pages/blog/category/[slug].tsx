@@ -11,7 +11,7 @@ import { BlogPosts } from '../../../components/pages/BlogPosts'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getCategoryPaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {

@@ -74,7 +74,7 @@ const BlogPost: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getBlogPostPaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
 export const getStaticProps: GetStaticProps = async (context) => ({

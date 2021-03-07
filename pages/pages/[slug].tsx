@@ -113,7 +113,7 @@ const ContentPage: NextPage<{
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getContentPagePaths(),
-  fallback: false,
+  fallback: 'blocking',
 })
 
 export const getStaticProps: GetStaticProps = async (context) => ({
