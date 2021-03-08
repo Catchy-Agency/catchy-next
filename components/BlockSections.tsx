@@ -20,6 +20,11 @@ import { ColumnRow } from './blocks/ColumnRow'
 import { CardLinks } from './content-links/CardLinks'
 import { LargeLinks } from './content-links/LargeLinks'
 import { MediumLinks } from './content-links/MediumLinks'
+import { CardSmall } from './content-links/CardSmall'
+import { CardLarge } from './content-links/CardLarge'
+import { ThumbSmall } from './content-links/ThumbSmall'
+import { ThumbLarge } from './content-links/ThumbLarge'
+import { HeroLinks } from './content-links/HeroLinks'
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
@@ -189,6 +194,75 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
+
+              case 'Card: Small':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord"
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <CardSmall links={links} />
+                    </div>
+                  </section>
+                )
+              case 'Card: Large':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord"
+                  >
+                    <div
+                      className={classNames('container', maxClass, {
+                        alternating,
+                      })}
+                    >
+                      <CardLarge links={links} />
+                    </div>
+                  </section>
+                )
+              case 'Thumb: Small':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord"
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ThumbSmall links={links} />
+                    </div>
+                  </section>
+                )
+              case 'Thumb: Large':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord"
+                  >
+                    <div
+                      className={classNames('container', maxClass, {
+                        alternating,
+                      })}
+                    >
+                      <ThumbLarge links={links} />
+                    </div>
+                  </section>
+                )
+              case 'Hero':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord has-background-grey-darker"
+                  >
+                    <div
+                      className={classNames('container', maxClass, {
+                        alternating,
+                      })}
+                    >
+                      <HeroLinks links={links} />
+                    </div>
+                  </section>
+                )
+
               default:
                 return null
             }
