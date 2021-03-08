@@ -6181,7 +6181,7 @@
       {
         "kind": "OBJECT",
         "name": "ButtonExternalRecord",
-        "description": "Record of type Button (external) (button_external)",
+        "description": "Record of type Button (external link) (button_external)",
         "fields": [
           {
             "name": "_createdAt",
@@ -10789,7 +10789,7 @@
       {
         "kind": "OBJECT",
         "name": "ButtonInternalRecord",
-        "description": "Record of type Button (internal) (button_internal)",
+        "description": "Record of type Button (internal link) (button_internal)",
         "fields": [
           {
             "name": "_createdAt",
