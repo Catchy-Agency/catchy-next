@@ -70,6 +70,7 @@ export const allBlogPosts = gql`
       nameLabel
       emailAddressLabel
       messageLabel
+      destinationEmail
       contactText
       socialLinks {
         id
@@ -142,6 +143,7 @@ export const blogPostsByCategoryId = gql`
       nameLabel
       emailAddressLabel
       messageLabel
+      destinationEmail
       contactText
       socialLinks {
         id
@@ -394,6 +396,7 @@ export const blogPostBySlug = gql`
       nameLabel
       emailAddressLabel
       messageLabel
+      destinationEmail
       contactText
       socialLinks {
         id

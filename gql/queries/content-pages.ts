@@ -291,6 +291,7 @@ export const contentPageBySlug = gql`
       nameLabel
       emailAddressLabel
       messageLabel
+      destinationEmail
       contactText
       socialLinks {
         id

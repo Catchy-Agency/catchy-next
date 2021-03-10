@@ -14,7 +14,7 @@ export const Footer: FC<{
             <div className="column is-two-thirds">
               <form
                 id="contact-form"
-                action="https://formspree.io/gary@convoke.gg"
+                action={`https://formspree.io/${footer.destinationEmail || ''}`}
                 method="POST"
               >
                 <div className="field is-grouped">

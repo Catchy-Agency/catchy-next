@@ -244,6 +244,7 @@ export const primaryPageBySlug = gql`
       nameLabel
       emailAddressLabel
       messageLabel
+      destinationEmail
       contactText
       socialLinks {
         id

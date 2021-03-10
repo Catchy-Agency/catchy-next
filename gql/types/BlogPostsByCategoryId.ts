@@ -104,6 +104,7 @@ export interface BlogPostsByCategoryId_footer {
   readonly nameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
+  readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly socialLinks: ReadonlyArray<(BlogPostsByCategoryId_footer_socialLinks | null)> | null;
 }
