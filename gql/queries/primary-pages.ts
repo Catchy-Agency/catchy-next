@@ -51,8 +51,6 @@ export const primaryPageBySlug = gql`
           displaySize
           imageAlign
           callToActionLabel
-          alternatingAlignments
-          hasBackgroundColor
           links {
             __typename
             ... on PrimaryPageRecord {

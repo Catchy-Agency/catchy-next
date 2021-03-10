@@ -1,15 +1,13 @@
-import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const CardLinks: FC<{
+export const CardColumns: FC<{
   links: LinkData[]
-  hasBackgroundColor?: boolean
-}> = ({ links, hasBackgroundColor }) => (
-  <div className="card-links">
+}> = ({ links }) => (
+  <div className="card-columns">
     <div
       className="columns"
       style={{
@@ -20,9 +18,7 @@ export const CardLinks: FC<{
       {links.map((link) => (
         <div key={link.id} className="column">
           <div
-            className={classNames('card', {
-              'has-background-grey-darker': hasBackgroundColor,
-            })}
+            className="card has-background-grey-darker"
             style={{ height: '100%' }}
           >
             {link.image && (

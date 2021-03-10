@@ -81,15 +81,14 @@ footer.section {
 // Link hacks
 //
 
-.medium-links .column.is-5 *,
-.card-large .column.is-5 * {
+.card-rows .column.is-5 * {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.thumb-large > .columns:not(:last-child),
-.hero-links > .columns:not(:last-child) {
+.thumb-rows > .columns:not(:last-child),
+.hero-banner > .columns:not(:last-child) {
   padding-bottom: 3rem;
 }
 
@@ -104,11 +103,9 @@ footer.section {
 
 // Flip content link images on mobile
 @media screen and (max-width: 768px) {
-  .medium-links,
-  .large-links,
-  .card-large,
-  .thumb-large,
-  .hero-links {
+  .card-rows,
+  .thumb-rows,
+  .hero-banner {
     .columns {
       display: flex;
       flex-direction: column-reverse;

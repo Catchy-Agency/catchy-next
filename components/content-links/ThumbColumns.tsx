@@ -4,10 +4,10 @@ import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const ThumbSmall: FC<{
+export const ThumbColumns: FC<{
   links: LinkData[]
 }> = ({ links }) => (
-  <div className="thumb-small">
+  <div className="thumb-columns">
     <div
       className="columns"
       style={{

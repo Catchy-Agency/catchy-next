@@ -5,18 +5,18 @@ import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const ThumbLarge: FC<{
+export const HeroBanner: FC<{
   links: LinkData[]
   imageAlign?: string | null
 }> = ({ links, imageAlign }) => (
   <div
-    className={classNames('thumb-large', {
+    className={classNames('hero-banner', {
       'link-alternating': imageAlign === 'Alternating',
       'link-left': imageAlign === 'Left',
     })}
   >
     {links.map((link) => (
-      <div key={link.id} className="columns">
+      <div key={link.id} className="columns is-vcentered">
         <div className="column is-7">
           {link.title && <div className="title is-2">{link.title}</div>}
           {link.description && (

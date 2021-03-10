@@ -1,13 +1,22 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const LargeLinks: FC<{ links: LinkData[] }> = ({ links }) => (
-  <div className="large-links">
+export const ThumbRows: FC<{
+  links: LinkData[]
+  imageAlign?: string | null
+}> = ({ links, imageAlign }) => (
+  <div
+    className={classNames('thumb-rows', {
+      'link-alternating': imageAlign === 'Alternating',
+      'link-left': imageAlign === 'Left',
+    })}
+  >
     {links.map((link) => (
-      <div key={link.id} className="columns is-vcentered block-p">
+      <div key={link.id} className="columns">
         <div className="column is-7">
           {link.title && <div className="title is-2">{link.title}</div>}
           {link.description && (

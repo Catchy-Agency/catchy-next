@@ -5,12 +5,12 @@ import { Image } from 'react-datocms'
 
 import { LinkData } from './LinkData'
 
-export const CardLarge: FC<{
+export const CardRows: FC<{
   links: LinkData[]
   imageAlign?: string | null
 }> = ({ links, imageAlign }) => (
   <div
-    className={classNames('card-large', {
+    className={classNames('card-rows', {
       'link-alternating': imageAlign === 'Alternating',
       'link-left': imageAlign === 'Left',
     })}

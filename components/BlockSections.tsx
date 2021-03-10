@@ -17,14 +17,11 @@ import { Video } from './blocks/Video'
 import { ButtonExternal } from './blocks/ButtonExternal'
 import { ButtonInternal } from './blocks/ButtonInternal'
 import { ColumnRow } from './blocks/ColumnRow'
-import { CardLinks } from './content-links/CardLinks'
-import { LargeLinks } from './content-links/LargeLinks'
-import { MediumLinks } from './content-links/MediumLinks'
-import { CardSmall } from './content-links/CardSmall'
-import { CardLarge } from './content-links/CardLarge'
-import { ThumbSmall } from './content-links/ThumbSmall'
-import { ThumbLarge } from './content-links/ThumbLarge'
-import { HeroLinks } from './content-links/HeroLinks'
+import { CardColumns } from './content-links/CardColumns'
+import { CardRows } from './content-links/CardRows'
+import { ThumbColumns } from './content-links/ThumbColumns'
+import { ThumbRows } from './content-links/ThumbRows'
+import { HeroBanner } from './content-links/HeroBanner'
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
@@ -128,8 +125,6 @@ export const BlockSections: FC<{
             )
 
           case 'ContentLinkSetRecord': {
-            const alternating = block.alternatingAlignments
-            const hasBackgroundColor = block.hasBackgroundColor
             const callToAction = block.callToActionLabel
             const imageAlign = block.imageAlign
             const links = block.links.map((link) => ({
@@ -143,111 +138,58 @@ export const BlockSections: FC<{
               callToAction,
             }))
             switch (block.displaySize) {
-              case 'Card':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord Card"
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <CardLinks
-                        links={links}
-                        hasBackgroundColor={hasBackgroundColor}
-                      />
-                    </div>
-                  </section>
-                )
-              case 'Medium':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord Medium"
-                  >
-                    <div
-                      className={classNames('container', maxClass, {
-                        alternating,
-                      })}
-                    >
-                      <MediumLinks
-                        links={links}
-                        hasBackgroundColor={hasBackgroundColor}
-                      />
-                    </div>
-                  </section>
-                )
-              case 'Large':
-                return (
-                  <section
-                    key={block.id}
-                    className={classNames(
-                      'section',
-                      'ContentLinkSetRecord',
-                      'Large',
-                      { 'has-background-grey-darker': hasBackgroundColor },
-                    )}
-                  >
-                    <div
-                      className={classNames('container', maxClass, {
-                        alternating,
-                      })}
-                    >
-                      <LargeLinks links={links} />
-                    </div>
-                  </section>
-                )
-
-              case 'Card: Small':
+              case 'Card: Columns':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <CardSmall links={links} />
+                      <CardColumns links={links} />
                     </div>
                   </section>
                 )
-              case 'Card: Large':
+              case 'Card: Rows':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <CardLarge links={links} imageAlign={imageAlign} />
+                      <CardRows links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
-              case 'Thumb: Small':
+              case 'Thumb: Columns':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ThumbSmall links={links} />
+                      <ThumbColumns links={links} />
                     </div>
                   </section>
                 )
-              case 'Thumb: Large':
+              case 'Thumb: Rows':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ThumbLarge links={links} imageAlign={imageAlign} />
+                      <ThumbRows links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
-              case 'Hero':
+              case 'Hero Banner':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord has-background-grey-darker"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <HeroLinks links={links} imageAlign={imageAlign} />
+                      <HeroBanner links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
