@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { FC } from 'react'
 
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
@@ -82,9 +83,10 @@ export const Footer: FC<{
                       <span className="fa-stack">
                         <i className="fas fa-circle fa-stack-2x has-text-grey" />
                         <i
-                          className={`fab fa-${
-                            link.fontAwesomeIcon || ''
-                          } fa-stack-1x`}
+                          className={classNames(
+                            link.fontAwesomeIcon,
+                            'fa-stack-1x',
+                          )}
                         />
                       </span>
                     </a>
