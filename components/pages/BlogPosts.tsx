@@ -14,7 +14,7 @@ import { PreviewBanner } from '../cms/PreviewBanner'
 import { PageError } from '../cms/PageError'
 import { Header } from '../Header'
 import { Footer } from '../Footer'
-import { MediumLinks } from '../content-links/MediumLinks'
+import { ThumbLarge } from '../content-links/ThumbLarge'
 
 export const BlogPosts: NextPage<{
   subscription: Subscription<AllBlogPosts>
@@ -97,7 +97,7 @@ export const BlogPosts: NextPage<{
               ))}
             </div>
             <div className="column">
-              <MediumLinks links={links} />
+              <ThumbLarge links={links} imageAlign="Left" />
               {links.length === 0 && (
                 <div className="section is-size-3 is-italic has-text-centered">
                   No posts to show
