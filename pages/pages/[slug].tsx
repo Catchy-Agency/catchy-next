@@ -22,7 +22,7 @@ import { PageError } from '../../components/cms/PageError'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlockSections } from '../../components/BlockSections'
-import { MediumLinks } from '../../components/content-links/MediumLinks'
+import { CardRows } from '../../components/content-links/CardRows'
 
 type Parent = ContentPageBySlug_contentPage_parent
 const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
@@ -102,7 +102,7 @@ const ContentPage: NextPage<{
       {links.length > 0 && (
         <section className="section">
           <div className="container is-max-desktop">
-            <MediumLinks links={links} />{' '}
+            <CardRows links={links} />
           </div>
         </section>
       )}
