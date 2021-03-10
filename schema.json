@@ -6685,6 +6685,18 @@
             "deprecationReason": null
           },
           {
+            "name": "imageAlign",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "links",
             "description": null,
             "args": [],

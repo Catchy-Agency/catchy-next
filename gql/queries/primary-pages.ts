@@ -49,6 +49,7 @@ export const primaryPageBySlug = gql`
         ... on ContentLinkSetRecord {
           id
           displaySize
+          imageAlign
           callToActionLabel
           alternatingAlignments
           hasBackgroundColor

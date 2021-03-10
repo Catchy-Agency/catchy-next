@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
@@ -6,8 +7,14 @@ import { LinkData } from './LinkData'
 
 export const CardLarge: FC<{
   links: LinkData[]
-}> = ({ links }) => (
-  <div className="card-large">
+  imageAlign?: string | null
+}> = ({ links, imageAlign }) => (
+  <div
+    className={classNames('card-large', {
+      'link-alternating': imageAlign === 'Alternating',
+      'link-left': imageAlign === 'Left',
+    })}
+  >
     {links.map((link) => (
       <div
         key={link.id}

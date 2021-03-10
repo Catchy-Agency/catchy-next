@@ -131,6 +131,7 @@ export const BlockSections: FC<{
             const alternating = block.alternatingAlignments
             const hasBackgroundColor = block.hasBackgroundColor
             const callToAction = block.callToActionLabel
+            const imageAlign = block.imageAlign
             const links = block.links.map((link) => ({
               id: link.id,
               url: `${prefixByTypename[link.__typename]}${link.slug || ''}`,
@@ -212,12 +213,8 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
-                    <div
-                      className={classNames('container', maxClass, {
-                        alternating,
-                      })}
-                    >
-                      <CardLarge links={links} />
+                    <div className={classNames('container', maxClass)}>
+                      <CardLarge links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
@@ -238,12 +235,8 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
-                    <div
-                      className={classNames('container', maxClass, {
-                        alternating,
-                      })}
-                    >
-                      <ThumbLarge links={links} />
+                    <div className={classNames('container', maxClass)}>
+                      <ThumbLarge links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
@@ -253,12 +246,8 @@ export const BlockSections: FC<{
                     key={block.id}
                     className="section ContentLinkSetRecord has-background-grey-darker"
                   >
-                    <div
-                      className={classNames('container', maxClass, {
-                        alternating,
-                      })}
-                    >
-                      <HeroLinks links={links} />
+                    <div className={classNames('container', maxClass)}>
+                      <HeroLinks links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )

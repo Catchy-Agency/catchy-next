@@ -251,6 +251,7 @@ export const blogPostBySlug = gql`
         ... on ContentLinkSetRecord {
           id
           displaySize
+          imageAlign
           callToActionLabel
           alternatingAlignments
           hasBackgroundColor

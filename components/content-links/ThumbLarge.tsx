@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
@@ -6,8 +7,14 @@ import { LinkData } from './LinkData'
 
 export const ThumbLarge: FC<{
   links: LinkData[]
-}> = ({ links }) => (
-  <div className="thumb-large">
+  imageAlign?: string | null
+}> = ({ links, imageAlign }) => (
+  <div
+    className={classNames('thumb-large', {
+      'link-alternating': imageAlign === 'Alternating',
+      'link-left': imageAlign === 'Left',
+    })}
+  >
     {links.map((link) => (
       <div key={link.id} className="columns">
         <div className="column is-7">

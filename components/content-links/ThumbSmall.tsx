@@ -17,24 +17,19 @@ export const ThumbSmall: FC<{
     >
       {links.map((link) => (
         <div key={link.id} className="column">
-          <div className="card">
-            {link.image && (
-              <div className="card-image">
-                <Link href={link.url || ''}>
-                  <a>{link.image && <Image data={link.image} />}</a>
-                </Link>
-              </div>
-            )}
-            <div className="card-content">
-              {link.title && <h5 className="title is-5">{link.title}</h5>}
-              {link.description && (
-                <div className="content">{link.description}</div>
+          <Link href={link.url || ''}>
+            <a className="has-text-light">
+              {link.image && (
+                <div className="mb-4">
+                  {link.image && <Image data={link.image} />}
+                </div>
               )}
-              <Link href={link.url || ''}>
-                <a title={link.title || undefined}>{link.callToAction}</a>
-              </Link>
-            </div>
-          </div>
+              {link.title && <h5 className="title is-5 mb-2">{link.title}</h5>}
+              {link.description && (
+                <div className="content mb-2">{link.description}</div>
+              )}
+            </a>
+          </Link>
         </div>
       ))}
     </div>

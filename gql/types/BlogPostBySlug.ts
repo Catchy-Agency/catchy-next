@@ -223,6 +223,7 @@ export interface BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord {
   readonly __typename: "ContentLinkSetRecord";
   readonly id: any;
   readonly displaySize: string | null;
+  readonly imageAlign: string | null;
   readonly callToActionLabel: string | null;
   readonly alternatingAlignments: any | null;
   readonly hasBackgroundColor: any | null;

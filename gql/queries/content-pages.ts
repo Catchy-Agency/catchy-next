@@ -153,6 +153,7 @@ export const contentPageBySlug = gql`
         ... on ContentLinkSetRecord {
           id
           displaySize
+          imageAlign
           callToActionLabel
           alternatingAlignments
           hasBackgroundColor
