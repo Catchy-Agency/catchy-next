@@ -25,17 +25,20 @@ export const CardRows: FC<{
         }}
       >
         <div className="column is-7">
-          <div className="p-6">
-            {link.title && <div className="title is-2">{link.title}</div>}
-            {link.description && (
-              <div className="content">{link.description}</div>
-            )}
-            <Link href={link.url || ''}>
-              <a className="button is-primary" title={link.title || undefined}>
-                {link.callToAction}
-              </a>
-            </Link>
-          </div>
+          <Link href={link.url || ''}>
+            <a>
+              <div className="p-6">
+                {link.title && <div className="title is-2">{link.title}</div>}
+                {link.description && (
+                  <div className="content has-text-light">
+                    {link.description}
+                  </div>
+                )}
+
+                <a className="button is-primary">{link.callToAction}</a>
+              </div>
+            </a>
+          </Link>
         </div>
         <div className="column is-5">
           <Link href={link.url || ''}>

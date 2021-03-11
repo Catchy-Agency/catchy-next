@@ -17,39 +17,38 @@ export const CardColumns: FC<{
     >
       {links.map((link) => (
         <div key={link.id} className="column">
-          <div
-            className="card has-background-grey-darker"
-            style={{ height: '100%' }}
-          >
-            {link.image && (
-              <div className="card-image">
-                <Link href={link.url || ''}>
-                  <a>{link.image && <Image data={link.image} />}</a>
-                </Link>
+          <Link href={link.url || ''}>
+            <a>
+              <div
+                className="card has-background-grey-darker"
+                style={{ height: '100%' }}
+              >
+                {link.image && (
+                  <div className="card-image">
+                    {link.image && <Image data={link.image} />}
+                  </div>
+                )}
+                <div className="card-content">
+                  {link.title && <h5 className="title is-5">{link.title}</h5>}
+                  {link.description && (
+                    <div className="content">{link.description}</div>
+                  )}
+                  {/* Shadow link to take up space */}
+                  <a style={{ visibility: 'hidden' }}>{link.callToAction}</a>
+                  {/* Real link, pinned to bottom */}
+                  <a
+                    style={{
+                      position: 'absolute',
+                      bottom: '1.5rem',
+                      left: '1.5rem',
+                    }}
+                  >
+                    {link.callToAction}
+                  </a>
+                </div>
               </div>
-            )}
-            <div className="card-content">
-              {link.title && <h5 className="title is-5">{link.title}</h5>}
-              {link.description && (
-                <div className="content">{link.description}</div>
-              )}
-              {/* Shadow link to take up space */}
-              <a style={{ visibility: 'hidden' }}>{link.callToAction}</a>
-              {/* Real link, pinned to bottom */}
-              <Link href={link.url || ''}>
-                <a
-                  style={{
-                    position: 'absolute',
-                    bottom: '1.5rem',
-                    left: '1.5rem',
-                  }}
-                  title={link.title || undefined}
-                >
-                  {link.callToAction}
-                </a>
-              </Link>
-            </div>
-          </div>
+            </a>
+          </Link>
         </div>
       ))}
     </div>

@@ -18,13 +18,14 @@ export const HeroBanner: FC<{
     {links.map((link) => (
       <div key={link.id} className="columns is-vcentered">
         <div className="column is-7">
-          {link.title && <div className="title is-2">{link.title}</div>}
-          {link.description && (
-            <div className="content">{link.description}</div>
-          )}
           <Link href={link.url || ''}>
-            <a className="button is-primary" title={link.title || undefined}>
-              {link.callToAction}
+            <a>
+              {link.title && <div className="title is-2">{link.title}</div>}
+              {link.description && (
+                <div className="content has-text-light">{link.description}</div>
+              )}
+
+              <a className="button is-primary">{link.callToAction}</a>
             </a>
           </Link>
         </div>
