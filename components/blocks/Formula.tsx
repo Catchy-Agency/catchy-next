@@ -14,12 +14,19 @@ export const Formula: FC<{
             {i < steps.length - 1 && (
               <img className="arrow" src="https://i.imgur.com/YkHuAqc.png" />
             )}
-            {step.responsiveImage && (
-              <Image
-                lazyLoad={false}
-                data={step.responsiveImage as ResponsiveImageType}
-              />
-            )}
+            <div
+              style={{
+                maxWidth: '320px',
+                margin: 'auto',
+              }}
+            >
+              {step.responsiveImage && (
+                <Image
+                  lazyLoad={false}
+                  data={step.responsiveImage as ResponsiveImageType}
+                />
+              )}
+            </div>
           </div>
         ),
     )}
