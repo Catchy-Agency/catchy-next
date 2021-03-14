@@ -20,9 +20,26 @@ export const primaryPageBySlug = gql`
           id
           title
           text
+          foregroundImage {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 750, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
           backgroundImage {
             url
           }
+          showContactButton
+          contactButtonLabel
         }
         ... on ClientSetRecord {
           id

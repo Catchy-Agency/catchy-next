@@ -5,6 +5,7 @@ import { ResponsiveImageType } from 'react-datocms'
 import { prefixByTypename } from '../util/url'
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug'
+import { Banner } from './blocks/Banner'
 import { ClientSet } from './blocks/ClientSet'
 import { Formula } from './blocks/Formula'
 import { ServiceSet } from './blocks/ServiceSet'
@@ -63,15 +64,7 @@ export const BlockSections: FC<{
                   />
                 )}
                 <div className={classNames('container', maxClass)}>
-                  {block.title && (
-                    <div className="title is-2">{block.title}</div>
-                  )}
-                  {block.text && (
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{ __html: block.text }}
-                    />
-                  )}
+                  <Banner block={block} />
                 </div>
               </section>
             )

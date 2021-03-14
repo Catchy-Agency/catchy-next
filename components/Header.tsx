@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug'
+import { scrollToContact } from '../util/scrollToContact'
 
 export const Header: FC<{
   header: PrimaryPageBySlug_header
@@ -67,7 +68,7 @@ export const Header: FC<{
                 </Link>
               )
             })}
-            <a className="navbar-item is-tab" onClick={scrollToFooter}>
+            <a className="navbar-item is-tab" onClick={scrollToContact}>
               {header.contactLinkLabel}
             </a>
           </div>
@@ -76,8 +77,3 @@ export const Header: FC<{
     </nav>
   )
 }
-
-const scrollToFooter = () =>
-  document
-    .getElementById('contact-form')
-    ?.scrollIntoView({ behavior: 'smooth' })
