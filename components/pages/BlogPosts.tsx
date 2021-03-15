@@ -16,6 +16,8 @@ import { Header } from '../Header'
 import { Footer } from '../Footer'
 import { ThumbRows } from '../content-links/ThumbRows'
 
+const PAGE_SIZE = 10
+
 export const BlogPosts: NextPage<{
   subscription: Subscription<AllBlogPosts>
 }> = ({ subscription }) => {
@@ -34,6 +36,15 @@ export const BlogPosts: NextPage<{
         (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
+
+  const p = Number(router.query.p)
+  const pageNum = Number.isNaN(p) ? 1 : p
+  const pageCount = Math.ceil(links.length / PAGE_SIZE)
+  const pageIndex = pageNum - 1
+  const visibleLinks = links.slice(
+    pageIndex * PAGE_SIZE,
+    (pageIndex + 1) * PAGE_SIZE,
+  )
 
   return (
     <>
@@ -97,7 +108,7 @@ export const BlogPosts: NextPage<{
               ))}
             </div>
             <div className="column">
-              <ThumbRows links={links} imageAlign="Left" />
+              <ThumbRows links={visibleLinks} imageAlign="Left" />
               {links.length === 0 && (
                 <div className="section is-size-3 is-italic has-text-centered">
                   No posts to show
@@ -105,6 +116,26 @@ export const BlogPosts: NextPage<{
               )}
             </div>
           </div>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container is-max-widescreen has-text-centered">
+          <Link href={`?p=${pageNum - 1}`}>
+            <button className="button is-small" disabled={pageNum === 1}>
+              ←
+            </button>
+          </Link>
+          <span className="mx-5" style={{ verticalAlign: 'sub' }}>
+            Page {pageNum} of {pageCount}
+          </span>
+          <Link href={`?p=${pageNum + 1}`}>
+            <button
+              className="button is-small"
+              disabled={pageNum === pageCount}
+            >
+              →
+            </button>
+          </Link>
         </div>
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
