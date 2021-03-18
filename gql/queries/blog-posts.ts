@@ -77,6 +77,7 @@ export const allBlogPosts = gql`
         fontAwesomeIcon
         url
       }
+      richText
     }
   }
 `
@@ -150,6 +151,7 @@ export const blogPostsByCategoryId = gql`
         fontAwesomeIcon
         url
       }
+      richText
     }
   }
 `
@@ -403,6 +405,7 @@ export const blogPostBySlug = gql`
         fontAwesomeIcon
         url
       }
+      richText
     }
   }
 `

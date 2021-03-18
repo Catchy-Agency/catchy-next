@@ -414,6 +414,7 @@ export interface ContentPageBySlug_footer {
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly socialLinks: ReadonlyArray<(ContentPageBySlug_footer_socialLinks | null)> | null;
+  readonly richText: string | null;
 }
 
 export interface ContentPageBySlug {

@@ -538,6 +538,7 @@ export interface PrimaryPageBySlug_footer {
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly socialLinks: ReadonlyArray<(PrimaryPageBySlug_footer_socialLinks | null)> | null;
+  readonly richText: string | null;
 }
 
 export interface PrimaryPageBySlug {

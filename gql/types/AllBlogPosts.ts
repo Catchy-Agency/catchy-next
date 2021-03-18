@@ -107,6 +107,7 @@ export interface AllBlogPosts_footer {
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly socialLinks: ReadonlyArray<(AllBlogPosts_footer_socialLinks | null)> | null;
+  readonly richText: string | null;
 }
 
 export interface AllBlogPosts {

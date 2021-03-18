@@ -96,6 +96,12 @@ export const Footer: FC<{
           </div>
         </div>
       </div>
+      {footer.richText && (
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: footer.richText }}
+        />
+      )}
     </div>
   </footer>
 )

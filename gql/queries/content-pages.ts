@@ -298,6 +298,7 @@ export const contentPageBySlug = gql`
         fontAwesomeIcon
         url
       }
+      richText
     }
   }
 `

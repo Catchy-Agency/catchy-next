@@ -394,6 +394,7 @@ export const primaryPageBySlug = gql`
         fontAwesomeIcon
         url
       }
+      richText
     }
   }
 `
