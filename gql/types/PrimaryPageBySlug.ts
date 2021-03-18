@@ -25,9 +25,22 @@ export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundIma
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage {
   readonly __typename: "FileField";
-  readonly url: string;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord {

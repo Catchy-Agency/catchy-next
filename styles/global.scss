@@ -81,12 +81,6 @@ footer.section {
 // Link hacks
 //
 
-.card-rows .column.is-5 * {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .thumb-rows > .columns:not(:last-child),
 .hero-banner > .columns:not(:last-child) {
   padding-bottom: 3rem;
@@ -120,4 +114,10 @@ footer.section {
 .circle-crop {
   border-radius: 1000px;
   overflow: hidden;
+}
+
+.has-cover-image * {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

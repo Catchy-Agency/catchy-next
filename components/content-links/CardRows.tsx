@@ -40,7 +40,7 @@ export const CardRows: FC<{
             </a>
           </Link>
         </div>
-        <div className="column is-5">
+        <div className="column is-5 has-cover-image">
           <Link href={link.url || ''}>
             <a>{link.image && <Image data={link.image} />}</a>
           </Link>

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import classNames from 'classnames'
-import { ResponsiveImageType } from 'react-datocms'
+import { Image, ResponsiveImageType } from 'react-datocms'
 
 import { prefixByTypename } from '../util/url'
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
@@ -50,18 +50,24 @@ export const BlockSections: FC<{
                 key={block.id}
                 className="section BannerRecord hero is-dark is-relative"
               >
-                {block.backgroundImage?.url && (
+                {block.backgroundImage?.responsiveImage && (
                   <div
+                    className="has-cover-image"
                     style={{
-                      background: `url(${block.backgroundImage.url}) no-repeat center bottom`,
-                      backgroundSize: 'cover',
                       position: 'absolute',
                       top: 0,
                       left: 0,
                       right: 0,
                       bottom: 0,
                     }}
-                  />
+                  >
+                    <Image
+                      data={
+                        block.backgroundImage
+                          .responsiveImage as ResponsiveImageType
+                      }
+                    />
+                  </div>
                 )}
                 <div className={classNames('container', maxClass)}>
                   <Banner block={block} />

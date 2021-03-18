@@ -36,7 +36,19 @@ export const primaryPageBySlug = gql`
             }
           }
           backgroundImage {
-            url
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
           }
           showContactButton
           contactButtonLabel
