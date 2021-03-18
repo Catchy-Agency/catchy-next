@@ -41,6 +41,29 @@ export const primaryPageBySlug = gql`
           showContactButton
           contactButtonLabel
         }
+        __typename
+        ... on ButtonExternalRecord {
+          id
+          label
+          url
+          openInNewTab
+        }
+        ... on ButtonInternalRecord {
+          id
+          label
+          link {
+            __typename
+            ... on ContentPageRecord {
+              slug
+            }
+            ... on BlogPostRecord {
+              slug
+            }
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
+        }
         ... on ClientSetRecord {
           id
           clientSet {
@@ -135,6 +158,73 @@ export const primaryPageBySlug = gql`
             }
           }
         }
+        ... on ColumnRowRecord {
+          id
+          columns {
+            id
+            title
+            image {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1344, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            text
+            blocks {
+              __typename
+              ... on ButtonExternalRecord {
+                id
+                label
+                url
+                openInNewTab
+              }
+              ... on ButtonInternalRecord {
+                id
+                label
+                link {
+                  __typename
+                  ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on BlogPostRecord {
+                    slug
+                  }
+                  ... on PrimaryPageRecord {
+                    slug
+                  }
+                }
+              }
+              ... on RichTextRecord {
+                id
+                richText
+              }
+              ... on VideoRecord {
+                id
+                video {
+                  height
+                  provider
+                  providerUid
+                  thumbnailUrl
+                  title
+                  url
+                  width
+                }
+              }
+            }
+            textAlign
+            width
+          }
+          verticallyCenterAcrossColumns
+        }
         ... on FormulaRecord {
           id
           step1 {
@@ -186,6 +276,30 @@ export const primaryPageBySlug = gql`
             }
           }
         }
+        ... on ImageSetRecord {
+          id
+          imageSet {
+            id
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1344, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          verticallyCenterAcrossImages
+        }
+        ... on RichTextRecord {
+          id
+          richText
+        }
         ... on ServiceSetRecord {
           id
           services {
@@ -222,6 +336,18 @@ export const primaryPageBySlug = gql`
           id
           title
           text
+        }
+        ... on VideoRecord {
+          id
+          video {
+            height
+            provider
+            providerUid
+            thumbnailUrl
+            title
+            url
+            width
+          }
         }
         ... on ViewMoreLinkRecord {
           id
