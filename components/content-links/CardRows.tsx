@@ -35,7 +35,9 @@ export const CardRows: FC<{
                   </div>
                 )}
 
-                <a className="button is-primary">{link.callToAction}</a>
+                <button className="button is-primary">
+                  {link.callToAction}
+                </button>
               </div>
             </a>
           </Link>

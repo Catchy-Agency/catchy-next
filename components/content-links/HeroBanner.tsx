@@ -25,7 +25,7 @@ export const HeroBanner: FC<{
                 <div className="content has-text-light">{link.description}</div>
               )}
 
-              <a className="button is-primary">{link.callToAction}</a>
+              <button className="button is-primary">{link.callToAction}</button>
             </a>
           </Link>
         </div>
