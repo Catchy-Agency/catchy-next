@@ -42,6 +42,7 @@ export const ColumnRow: FC<{
             <Image
               data={column.image?.responsiveImage as ResponsiveImageType}
               explicitWidth={true}
+              lazyLoad={false}
             />
           </figure>
         )}

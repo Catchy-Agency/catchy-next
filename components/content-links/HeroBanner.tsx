@@ -31,7 +31,7 @@ export const HeroBanner: FC<{
         </div>
         <div className="column is-5">
           <Link href={link.url || ''}>
-            <a>{link.image && <Image data={link.image} />}</a>
+            <a>{link.image && <Image data={link.image} lazyLoad={false} />}</a>
           </Link>
         </div>
       </div>

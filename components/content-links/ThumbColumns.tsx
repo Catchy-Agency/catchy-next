@@ -21,7 +21,7 @@ export const ThumbColumns: FC<{
             <a className="has-text-light">
               {link.image && (
                 <div className="mb-4">
-                  {link.image && <Image data={link.image} />}
+                  {link.image && <Image data={link.image} lazyLoad={false} />}
                 </div>
               )}
               {link.title && <h5 className="title is-5 mb-2">{link.title}</h5>}

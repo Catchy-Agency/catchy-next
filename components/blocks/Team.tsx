@@ -14,7 +14,10 @@ export const Team: FC<{
       >
         {member.image?.responsiveImage && (
           <figure className="circle-crop mb-3">
-            <Image data={member.image.responsiveImage as ResponsiveImageType} />
+            <Image
+              data={member.image.responsiveImage as ResponsiveImageType}
+              lazyLoad={false}
+            />
           </figure>
         )}
         {member.name && <h4 className="title is-4">{member.name}</h4>}

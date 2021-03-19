@@ -25,7 +25,7 @@ export const CardColumns: FC<{
               >
                 {link.image && (
                   <div className="card-image">
-                    {link.image && <Image data={link.image} />}
+                    {link.image && <Image data={link.image} lazyLoad={false} />}
                   </div>
                 )}
                 <div className="card-content">

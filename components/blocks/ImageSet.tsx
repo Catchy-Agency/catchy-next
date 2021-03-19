@@ -14,7 +14,10 @@ export const ImageSet: FC<{
   >
     {block.imageSet.map((image) => (
       <div key={image.id} className="column">
-        <Image data={image.responsiveImage as ResponsiveImageType} />
+        <Image
+          data={image.responsiveImage as ResponsiveImageType}
+          lazyLoad={false}
+        />
       </div>
     ))}
   </div>

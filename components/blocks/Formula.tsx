@@ -22,8 +22,8 @@ export const Formula: FC<{
             >
               {step.responsiveImage && (
                 <Image
-                  lazyLoad={false}
                   data={step.responsiveImage as ResponsiveImageType}
+                  lazyLoad={false}
                 />
               )}
             </div>
