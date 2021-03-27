@@ -217,6 +217,33 @@ a.navbar-item.is-tab:hover {
   border-bottom-color: $navbar-item-active-color;
 }
 
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    box-shadow: none;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+  a.navbar-item.is-tab,
+  a.navbar-item.is-tab.is-active,
+  a.navbar-item.is-tab:hover {
+    border-bottom: none;
+    min-height: 0px;
+    padding-bottom: 0px;
+    padding: 1rem;
+  }
+  a.navbar-item.is-tab.is-active,
+  a.navbar-item.is-tab:hover {
+    background-color: transparentize(
+      $color: $navbar-item-active-color,
+      $amount: 0.95
+    );
+  }
+}
+
+.navbar-item {
+  font-weight: bold;
+}
+
 .hero .navbar,
 body > .navbar {
   border-radius: 0;
