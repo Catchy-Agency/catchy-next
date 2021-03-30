@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -121,7 +122,11 @@ export const BlogPosts: NextPage<{
       <section className="section">
         <div className="container is-max-widescreen has-text-centered">
           <Link href={`?p=${pageNum - 1}`}>
-            <button className="button is-small" disabled={pageNum === 1}>
+            <button
+              className="button is-small"
+              disabled={pageNum === 1}
+              onClick={buttonClickBlur}
+            >
               ←
             </button>
           </Link>
@@ -132,6 +137,7 @@ export const BlogPosts: NextPage<{
             <button
               className="button is-small"
               disabled={pageNum === pageCount}
+              onClick={buttonClickBlur}
             >
               →
             </button>
@@ -142,3 +148,6 @@ export const BlogPosts: NextPage<{
     </>
   )
 }
+
+const buttonClickBlur: MouseEventHandler<HTMLButtonElement> = (e) =>
+  e.currentTarget.blur()
