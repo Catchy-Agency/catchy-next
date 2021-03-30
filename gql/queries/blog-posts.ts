@@ -10,7 +10,7 @@ export const allBlogPostSlugs = gql`
 
 export const allBlogPosts = gql`
   query AllBlogPosts {
-    allBlogPosts(orderBy: date_DESC) {
+    allBlogPosts(first: 100, orderBy: date_DESC) {
       id
       slug
       title
@@ -84,7 +84,11 @@ export const allBlogPosts = gql`
 
 export const blogPostsByCategoryId = gql`
   query BlogPostsByCategoryId($id: ItemId) {
-    allBlogPosts(filter: { categories: { anyIn: [$id] } }) {
+    allBlogPosts(
+      first: 100
+      orderBy: date_DESC
+      filter: { categories: { anyIn: [$id] } }
+    ) {
       id
       slug
       title
