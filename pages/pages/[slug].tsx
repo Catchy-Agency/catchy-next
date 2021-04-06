@@ -23,16 +23,7 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlockSections } from '../../components/BlockSections'
 import { CardRows } from '../../components/content-links/CardRows'
-
-type Parent = ContentPageBySlug_contentPage_parent
-const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
-  if (parent === null) return list
-  else return extractAncestors(parent.parent as Parent, [...list, parent])
-}
-
-function notEmpty<T>(value: T | null | undefined): value is T {
-  return value !== null && value !== undefined
-}
+import { notEmpty } from '../../util/notEmpty'
 
 const ContentPage: NextPage<{
   subscription: Subscription<ContentPageBySlug>
@@ -109,6 +100,12 @@ const ContentPage: NextPage<{
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
   )
+}
+
+type Parent = ContentPageBySlug_contentPage_parent
+const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
+  if (parent === null) return list
+  else return extractAncestors(parent.parent as Parent, [...list, parent])
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
