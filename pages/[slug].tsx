@@ -7,7 +7,7 @@ import {
   createSubscription,
   getPrimaryPagePaths,
   Subscription,
-} from '../gql/dato-cms'
+} from '../util/dato-cms'
 import { primaryPageBySlug } from '../gql/queries/primary-pages'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
 import { PreviewBanner } from '../components/cms/PreviewBanner'

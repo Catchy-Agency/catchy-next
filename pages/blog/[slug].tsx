@@ -7,7 +7,7 @@ import {
   createSubscription,
   getBlogPostPaths,
   Subscription,
-} from '../../gql/dato-cms'
+} from '../../util/dato-cms'
 import { blogPostBySlug } from '../../gql/queries/blog-posts'
 import { BlogPostBySlug } from '../../gql/types/BlogPostBySlug'
 import { PreviewBanner } from '../../components/cms/PreviewBanner'

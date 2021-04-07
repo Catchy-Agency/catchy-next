@@ -9,7 +9,7 @@ import {
   ResponsiveImageType,
 } from 'react-datocms'
 
-import { Subscription } from '../../gql/dato-cms'
+import { Subscription } from '../../util/dato-cms'
 import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
 import { PreviewBanner } from '../cms/PreviewBanner'
 import { PageError } from '../cms/PageError'

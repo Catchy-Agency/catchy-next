@@ -11,7 +11,7 @@ import {
   createSubscription,
   getContentPagePaths,
   Subscription,
-} from '../../gql/dato-cms'
+} from '../../util/dato-cms'
 import { contentPageBySlug } from '../../gql/queries/content-pages'
 import {
   ContentPageBySlug,

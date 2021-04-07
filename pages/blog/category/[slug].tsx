@@ -4,7 +4,7 @@ import {
   createSubscription,
   getCategoryIdBySlug,
   getCategoryPaths,
-} from '../../../gql/dato-cms'
+} from '../../../util/dato-cms'
 import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
 import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
 import { BlogPosts } from '../../../components/pages/BlogPosts'
