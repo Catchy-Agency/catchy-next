@@ -1,81 +1,58 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { renderMetaTags, useQuerySubscription } from 'react-datocms'
-import Head from 'next/head'
-import Link from 'next/link'
 
 import {
   createSubscription,
-  getPrimaryPagePaths,
+  getPrimaryAndContentPagePaths,
   Subscription,
 } from '../util/dato-cms'
 import { primaryPageBySlug } from '../gql/queries/primary-pages'
 import { PrimaryPageBySlug } from '../gql/types/PrimaryPageBySlug'
-import { PreviewBanner } from '../components/cms/PreviewBanner'
-import { PageError } from '../components/cms/PageError'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
-import { BlockSections } from '../components/BlockSections'
+import { contentPageBySlug } from '../gql/queries/content-pages'
+import { ContentPageBySlug } from '../gql/types/ContentPageBySlug'
+import { PrimaryPage } from '../components/pages/PrimaryPage'
+import { ContentPage } from '../components/pages/ContentPage'
 
-const PrimaryPage: NextPage<{
-  subscription: Subscription<PrimaryPageBySlug>
-}> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
-    subscription,
-  )
-
-  return (
-    <div className="primary-page">
-      <Head>
-        {renderMetaTags([
-          ...(data?.primaryPage?._seoMetaTags || []),
-          ...(data?.site.faviconMetaTags || []),
-        ])}
-      </Head>
-      <PreviewBanner status={status} />
-      {error && <PageError error={error} />}
-      {data?.header && <Header header={data?.header} />}
-      {data?.primaryPage?.showBreadcrumbs && (
-        <header className="section py-0 pt-5">
-          <div className="container is-max-widescreen">
-            <nav className="breadcrumb" aria-label="breadcrumbs">
-              <ul>
-                <li>
-                  <Link href="/home">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                <li className="is-active">
-                  <a aria-current="page">{data?.primaryPage?.title}</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-      )}
-      <BlockSections
-        blocks={data?.primaryPage?.blocks || []}
-        textAlign={data?.primaryPage?.textAlign}
-        containerMax="widescreen"
-      />
-      {data?.footer && <Footer footer={data?.footer} />}
-    </div>
-  )
+const PrimaryOrContentPage: NextPage<{
+  primarySubscription?: Subscription<PrimaryPageBySlug>
+  contentSubscription?: Subscription<ContentPageBySlug>
+}> = (props) => {
+  if (props.primarySubscription) {
+    return <PrimaryPage subscription={props.primarySubscription} />
+  }
+  if (props.contentSubscription) {
+    return <ContentPage subscription={props.contentSubscription} />
+  }
+  return <>Impossible State </>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getPrimaryPagePaths(),
+  paths: await getPrimaryAndContentPagePaths(),
   fallback: 'blocking',
 })
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const subscription = await createSubscription<PrimaryPageBySlug>(
+  // Attempt primary page first
+  const primarySubscription = await createSubscription<PrimaryPageBySlug>(
     context,
     primaryPageBySlug,
     { slug: context?.params?.slug },
   )
-  return subscription.initialData?.primaryPage
-    ? { props: { subscription } }
-    : { notFound: true }
+  if (primarySubscription.initialData?.primaryPage) {
+    return { props: { primarySubscription } }
+  }
+
+  // Attempt content page second
+  const contentSubscription = await createSubscription<ContentPageBySlug>(
+    context,
+    contentPageBySlug,
+    { slug: context?.params?.slug },
+  )
+  if (contentSubscription.initialData?.contentPage) {
+    return { props: { contentSubscription } }
+  }
+
+  // 404
+  return { notFound: true }
 }
 
-export default PrimaryPage
+export default PrimaryOrContentPage

@@ -101,22 +101,20 @@ export const createSubscription = async <ResultData>(
       }
 }
 
-export const getPrimaryPagePaths = async (): Promise<string[]> => {
-  const result = await client.query<AllPrimaryPageSlugs>({
+export const getPrimaryAndContentPagePaths = async (): Promise<string[]> => {
+  const primaryResult = await client.query<AllPrimaryPageSlugs>({
     query: allPrimaryPageSlugs,
   })
-  // Filter out duplicate dynamic & static "blog" page
-  // https://github.com/vercel/next.js/issues/12717
-  return result.data.allPrimaryPages
-    .filter((page) => page.slug !== 'blog')
-    .map((page) => `/${page.slug || ''}`)
-}
-
-export const getContentPagePaths = async (): Promise<string[]> => {
-  const result = await client.query<AllContentPageSlugs>({
+  const contentResult = await client.query<AllContentPageSlugs>({
     query: allContentPageSlugs,
   })
-  return result.data.allContentPages.map((page) => `/pages/${page.slug || ''}`)
+  const pages = [
+    ...(primaryResult.data.allPrimaryPages || []),
+    ...(contentResult.data.allContentPages || []),
+  ]
+  const slugs = pages.map((page) => page.slug).filter((slug) => slug !== 'blog')
+  const paths = slugs.map((slug) => `/${slug || ''}`)
+  return paths
 }
 
 export const getBlogPostPaths = async (): Promise<string[]> => {

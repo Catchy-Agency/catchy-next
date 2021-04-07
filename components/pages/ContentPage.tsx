@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { NextPage } from 'next'
 import {
   useQuerySubscription,
   renderMetaTags,
@@ -7,25 +7,20 @@ import {
 import Head from 'next/head'
 import Link from 'next/link'
 
-import {
-  createSubscription,
-  getContentPagePaths,
-  Subscription,
-} from '../../util/dato-cms'
-import { contentPageBySlug } from '../../gql/queries/content-pages'
+import { Subscription } from '../../util/dato-cms'
 import {
   ContentPageBySlug,
   ContentPageBySlug_contentPage_parent,
 } from '../../gql/types/ContentPageBySlug'
-import { PreviewBanner } from '../../components/cms/PreviewBanner'
-import { PageError } from '../../components/cms/PageError'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { BlockSections } from '../../components/BlockSections'
-import { CardRows } from '../../components/content-links/CardRows'
+import { PreviewBanner } from '../cms/PreviewBanner'
+import { PageError } from '../cms/PageError'
+import { Header } from '../Header'
+import { Footer } from '../Footer'
+import { BlockSections } from '../BlockSections'
+import { CardRows } from '../content-links/CardRows'
 import { notEmpty } from '../../util/notEmpty'
 
-const ContentPage: NextPage<{
+export const ContentPage: NextPage<{
   subscription: Subscription<ContentPageBySlug>
 }> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription<ContentPageBySlug>(
@@ -40,7 +35,7 @@ const ContentPage: NextPage<{
         (child) =>
           child && {
             id: child.id,
-            url: `/pages/${child.slug || ''}`,
+            url: `/${child.slug || ''}`,
             title: child.title,
             description: child.description,
             image:
@@ -73,7 +68,7 @@ const ContentPage: NextPage<{
               </li>
               {ancestors.map((ancestor) => (
                 <li key={ancestor.id}>
-                  <Link href={`/pages/${ancestor.slug || ''}`}>
+                  <Link href={`/${ancestor.slug || ''}`}>
                     <a>{ancestor.title}</a>
                   </Link>
                 </li>
@@ -107,21 +102,3 @@ const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
   if (parent === null) return list
   else return extractAncestors(parent.parent as Parent, [...list, parent])
 }
-
-export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getContentPagePaths(),
-  fallback: 'blocking',
-})
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const subscription = await createSubscription<ContentPageBySlug>(
-    context,
-    contentPageBySlug,
-    { slug: context?.params?.slug },
-  )
-  return subscription.initialData?.contentPage
-    ? { props: { subscription } }
-    : { notFound: true }
-}
-
-export default ContentPage
