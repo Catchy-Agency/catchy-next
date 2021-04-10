@@ -12,17 +12,19 @@ import { ContentPageBySlug } from '../gql/types/ContentPageBySlug'
 import { PrimaryPage } from '../components/pages/PrimaryPage'
 import { ContentPage } from '../components/pages/ContentPage'
 
-const PrimaryOrContentPage: NextPage<{
-  primarySubscription?: Subscription<PrimaryPageBySlug>
-  contentSubscription?: Subscription<ContentPageBySlug>
-}> = (props) => {
-  if (props.primarySubscription) {
-    return <PrimaryPage subscription={props.primarySubscription} />
+type PageProps =
+  | { type: 'primary'; subscription: Subscription<PrimaryPageBySlug> }
+  | { type: 'content'; subscription: Subscription<ContentPageBySlug> }
+
+const PrimaryOrContentPage: NextPage<PageProps> = (props) => {
+  switch (props.type) {
+    case 'primary':
+      return <PrimaryPage subscription={props.subscription} />
+    case 'content':
+      return <ContentPage subscription={props.subscription} />
+    default:
+      return <>Impossible State </>
   }
-  if (props.contentSubscription) {
-    return <ContentPage subscription={props.contentSubscription} />
-  }
-  return <>Impossible State </>
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -30,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   // Attempt primary page first
   const primarySubscription = await createSubscription<PrimaryPageBySlug>(
     context,
@@ -38,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     { slug: context?.params?.slug },
   )
   if (primarySubscription.initialData?.primaryPage) {
-    return { props: { primarySubscription } }
+    return { props: { type: 'primary', subscription: primarySubscription } }
   }
 
   // Attempt content page second
@@ -48,7 +50,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     { slug: context?.params?.slug },
   )
   if (contentSubscription.initialData?.contentPage) {
-    return { props: { contentSubscription } }
+    return { props: { type: 'content', subscription: contentSubscription } }
   }
 
   // 404

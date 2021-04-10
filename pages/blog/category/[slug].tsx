@@ -7,14 +7,19 @@ import {
 } from '../../../util/dato-cms'
 import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
 import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
-import { BlogPosts } from '../../../components/pages/BlogPosts'
+import {
+  BlogPosts,
+  BlogPostsPageProps,
+} from '../../../components/pages/BlogPosts'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getCategoryPaths(),
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<BlogPostsPageProps> = async (
+  context,
+) => {
   const slug = context?.params?.slug
   if (typeof slug !== 'string') return { notFound: true }
   const categoryId = await getCategoryIdBySlug(slug, context.preview)

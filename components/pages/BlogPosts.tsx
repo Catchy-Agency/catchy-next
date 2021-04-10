@@ -19,9 +19,11 @@ import { ThumbRows } from '../content-links/ThumbRows'
 
 const PAGE_SIZE = 10
 
-export const BlogPosts: NextPage<{
+export interface BlogPostsPageProps {
   subscription: Subscription<AllBlogPosts>
-}> = ({ subscription }) => {
+}
+
+export const BlogPosts: NextPage<BlogPostsPageProps> = ({ subscription }) => {
   const router = useRouter()
   const { data, error, status } = useQuerySubscription<AllBlogPosts>(
     subscription,

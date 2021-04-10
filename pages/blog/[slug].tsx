@@ -16,9 +16,11 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlockSections } from '../../components/BlockSections'
 
-const BlogPost: NextPage<{
+interface PageProps {
   subscription: Subscription<BlogPostBySlug>
-}> = ({ subscription }) => {
+}
+
+const BlogPost: NextPage<PageProps> = ({ subscription }) => {
   const { data, error, status } = useQuerySubscription<BlogPostBySlug>(
     subscription,
   )
@@ -77,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   const subscription = await createSubscription<BlogPostBySlug>(
     context,
     blogPostBySlug,
