@@ -6,13 +6,14 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next",
-    "types": "tsc --watch --noEmit",
+    "types": "tsc --noEmit",
+    "types:watch": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "schema-download": "export $(cat .env.local | xargs) && apollo schema:download --endpoint=\"https://graphql.datocms.com/\" --header=\"Authorization: Bearer $DATOCMS_API_TOKEN\"",
     "schema-codegen": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --useReadOnlyTypes --includes=gql/queries/**/*.ts --tagName=gql --addTypename --outputFlat gql/types && rm ./gql/types/globalTypes.ts",
     "schema": "npm run schema-download && npm run schema-codegen",
-    "deploy-prod": "vercel --prod",
-    "deploy-dev": "vercel"
+    "deploy:prod": "vercel --prod",
+    "deploy:dev": "vercel"
   },
   "dependencies": {
     "apollo-cache-inmemory": "1.6.6",
