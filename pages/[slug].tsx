@@ -23,7 +23,7 @@ const PrimaryOrContentPage: NextPage<PageProps> = (props) => {
     case 'content':
       return <ContentPage subscription={props.subscription} />
     default:
-      return <>Impossible State </>
+      return <>Impossible State</>
   }
 }
 
