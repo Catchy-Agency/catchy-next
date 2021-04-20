@@ -65,7 +65,7 @@ export const BlogPosts: NextPage<BlogPostsPageProps> = ({ subscription }) => {
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <Link href="/home">
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>

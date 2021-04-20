@@ -26,7 +26,7 @@ export const Header: FC<{
     <nav className="navbar is-fixed-top">
       <div className="container is-max-widescreen">
         <div className="navbar-brand">
-          <Link href="/home">
+          <Link href="/">
             <a className="navbar-item">
               <img
                 src={header.logo?.url}

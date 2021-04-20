@@ -62,7 +62,7 @@ export const ContentPage: NextPage<{
           <nav className="breadcrumb" aria-label="breadcrumbs">
             <ul>
               <li>
-                <Link href="/home">
+                <Link href="/">
                   <a>Home</a>
                 </Link>
               </li>
