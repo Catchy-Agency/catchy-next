@@ -9,7 +9,7 @@ export const Banner: FC<{
 }> = ({ block }) => (
   <div className="columns">
     <div className="column">
-      {block.title && <div className="title is-2">{block.title}</div>}
+      {block.title && <h1 className="title is-1">{block.title}</h1>}
       {block.text && (
         <div
           className="content"
