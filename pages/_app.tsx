@@ -1,3 +1,7 @@
+import '../styles/global.scss'
+import '../styles/nprogress.scss'
+import '../styles/formula-arrows.scss'
+
 import { AppComponent } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
 import Router from 'next/router'
@@ -5,10 +9,6 @@ import NProgress from 'nprogress'
 
 import { pageview } from '../util/gtag'
 import { PreviewTrigger } from '../components/cms/PreviewTrigger'
-
-import '../styles/global.scss'
-import '../styles/nprogress.scss'
-import '../styles/formula-arrows.scss'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeError', () => NProgress.done())
@@ -30,14 +30,6 @@ const App: AppComponent = ({ Component, pageProps }) => {
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
-        />
-
-        {/* Font Awesome */}
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-          integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
-          crossOrigin="anonymous"
         />
       </Head>
       <PreviewTrigger
