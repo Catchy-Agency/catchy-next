@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 
+import { pageview } from '../util/gtag'
 import { PreviewTrigger } from '../components/cms/PreviewTrigger'
 
 import '../styles/global.scss'
@@ -11,9 +12,9 @@ import '../styles/formula-arrows.scss'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeError', () => NProgress.done())
-Router.events.on('routeChangeComplete', (_url) => {
+Router.events.on('routeChangeComplete', (path) => {
   NProgress.done()
-  // pageview(url) TODO
+  pageview(path)
 })
 
 const App: AppComponent = ({ Component, pageProps }) => {
