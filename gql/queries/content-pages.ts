@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export const allContentPageSlugs = gql`
   query AllContentPageSlugs {
-    allContentPages {
+    allContentPages(first: 100) {
       slug
     }
   }

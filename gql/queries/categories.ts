@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export const allCategorySlugs = gql`
   query AllCategorySlugs {
-    allCategories {
+    allCategories(first: 100) {
       slug
     }
   }

@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 export const allBlogPostSlugs = gql`
   query AllBlogPostSlugs {
-    allBlogPosts {
+    allBlogPosts(first: 100) {
       slug
     }
   }
