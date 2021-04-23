@@ -127,35 +127,35 @@ export const BlogPosts: NextPage<BlogPostsPageProps> = ({
       </section>
       <section className="section">
         <div className="container is-max-widescreen has-text-centered">
-          <Link href={`${path}?p=${pageNum - 1}`}>
-            {pageNum > 1 ? (
+          {pageNum > 1 ? (
+            <Link href={`${path}?p=${pageNum - 1}`}>
               <a>
                 <button className="button is-small" onClick={buttonClickBlur}>
                   ←
                 </button>
               </a>
-            ) : (
-              <button className="button is-small" disabled={true}>
-                ←
-              </button>
-            )}
-          </Link>
+            </Link>
+          ) : (
+            <button className="button is-small" disabled={true}>
+              ←
+            </button>
+          )}
           <span className="mx-5" style={{ verticalAlign: 'sub' }}>
             Page {pageNum} of {pageCount}
           </span>
-          <Link href={`${path}?p=${pageNum + 1}`}>
-            {pageNum < pageCount ? (
+          {pageNum < pageCount ? (
+            <Link href={`${path}?p=${pageNum + 1}`}>
               <a>
                 <button className="button is-small" onClick={buttonClickBlur}>
                   →
                 </button>
               </a>
-            ) : (
-              <button className="button is-small" disabled={true}>
-                →
-              </button>
-            )}
-          </Link>
+            </Link>
+          ) : (
+            <button className="button is-small" disabled={true}>
+              →
+            </button>
+          )}
         </div>
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
