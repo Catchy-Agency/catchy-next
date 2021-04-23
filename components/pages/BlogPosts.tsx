@@ -21,9 +21,13 @@ const PAGE_SIZE = 10
 
 export interface BlogPostsPageProps {
   subscription: Subscription<AllBlogPosts>
+  path: string
 }
 
-export const BlogPosts: NextPage<BlogPostsPageProps> = ({ subscription }) => {
+export const BlogPosts: NextPage<BlogPostsPageProps> = ({
+  subscription,
+  path,
+}) => {
   const router = useRouter()
   const { data, error, status } = useQuerySubscription<AllBlogPosts>(
     subscription,
@@ -123,26 +127,34 @@ export const BlogPosts: NextPage<BlogPostsPageProps> = ({ subscription }) => {
       </section>
       <section className="section">
         <div className="container is-max-widescreen has-text-centered">
-          <Link href={`?p=${pageNum - 1}`}>
-            <button
-              className="button is-small"
-              disabled={pageNum === 1}
-              onClick={buttonClickBlur}
-            >
-              ←
-            </button>
+          <Link href={`${path}?p=${pageNum - 1}`}>
+            {pageNum > 1 ? (
+              <a>
+                <button className="button is-small" onClick={buttonClickBlur}>
+                  ←
+                </button>
+              </a>
+            ) : (
+              <button className="button is-small" disabled={true}>
+                ←
+              </button>
+            )}
           </Link>
           <span className="mx-5" style={{ verticalAlign: 'sub' }}>
             Page {pageNum} of {pageCount}
           </span>
-          <Link href={`?p=${pageNum + 1}`}>
-            <button
-              className="button is-small"
-              disabled={pageNum === pageCount}
-              onClick={buttonClickBlur}
-            >
-              →
-            </button>
+          <Link href={`${path}?p=${pageNum + 1}`}>
+            {pageNum < pageCount ? (
+              <a>
+                <button className="button is-small" onClick={buttonClickBlur}>
+                  →
+                </button>
+              </a>
+            ) : (
+              <button className="button is-small" disabled={true}>
+                →
+              </button>
+            )}
           </Link>
         </div>
       </section>

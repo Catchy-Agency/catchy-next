@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<BlogPostsPageProps> = async (
     blogPostsByCategoryId,
     { id: categoryId },
   )
-  return { props: { subscription } }
+  return { props: { subscription, path: `/blog/category/${slug}` } }
 }
 
 export default BlogPosts
