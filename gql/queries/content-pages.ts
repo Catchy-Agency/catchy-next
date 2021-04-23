@@ -65,6 +65,7 @@ export const contentPageBySlug = gql`
           id
           label
           url
+          align
           openInNewTab
         }
         ... on ButtonInternalRecord {
@@ -82,6 +83,7 @@ export const contentPageBySlug = gql`
               slug
             }
           }
+          align
         }
         ... on ColumnRowRecord {
           id
@@ -110,6 +112,7 @@ export const contentPageBySlug = gql`
                 id
                 label
                 url
+                align
                 openInNewTab
               }
               ... on ButtonInternalRecord {
@@ -127,6 +130,7 @@ export const contentPageBySlug = gql`
                     slug
                   }
                 }
+                align
               }
               ... on RichTextRecord {
                 id

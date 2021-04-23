@@ -12,6 +12,7 @@ export interface BlogPostBySlug_blogPost_blocks_ButtonExternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
+  readonly align: string | null;
   readonly openInNewTab: any | null;
 }
 
@@ -37,6 +38,7 @@ export interface BlogPostBySlug_blogPost_blocks_ButtonInternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly link: BlogPostBySlug_blogPost_blocks_ButtonInternalRecord_link | null;
+  readonly align: string | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image_responsiveImage {
@@ -66,6 +68,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_B
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
+  readonly align: string | null;
   readonly openInNewTab: any | null;
 }
 
@@ -91,6 +94,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_B
   readonly id: any;
   readonly label: string | null;
   readonly link: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link | null;
+  readonly align: string | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_RichTextRecord {

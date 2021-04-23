@@ -66,13 +66,27 @@ const ColumnBlocks: FC<{
       switch (block?.__typename) {
         case 'ButtonExternalRecord':
           return (
-            <div key={block.id} className="has-text-centered">
+            <div
+              key={block.id}
+              className={classNames({
+                'has-text-left': block.align === 'Left',
+                'has-text-centered': block.align === 'Center',
+                'has-text-right': block.align === 'Right',
+              })}
+            >
               <ButtonExternal block={block} />
             </div>
           )
         case 'ButtonInternalRecord':
           return (
-            <div key={block.id} className="has-text-centered">
+            <div
+              key={block.id}
+              className={classNames({
+                'has-text-left': block.align === 'Left',
+                'has-text-centered': block.align === 'Center',
+                'has-text-right': block.align === 'Right',
+              })}
+            >
               <ButtonInternal block={block} />
             </div>
           )

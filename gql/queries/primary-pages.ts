@@ -58,6 +58,7 @@ export const primaryPageBySlug = gql`
           id
           label
           url
+          align
           openInNewTab
         }
         ... on ButtonInternalRecord {
@@ -75,6 +76,7 @@ export const primaryPageBySlug = gql`
               slug
             }
           }
+          align
         }
         ... on ClientSetRecord {
           id
@@ -197,6 +199,7 @@ export const primaryPageBySlug = gql`
                 id
                 label
                 url
+                align
                 openInNewTab
               }
               ... on ButtonInternalRecord {
@@ -214,6 +217,7 @@ export const primaryPageBySlug = gql`
                     slug
                   }
                 }
+                align
               }
               ... on RichTextRecord {
                 id

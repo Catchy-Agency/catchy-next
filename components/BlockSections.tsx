@@ -79,11 +79,11 @@ export const BlockSections: FC<{
             return (
               <section key={block.id} className="section ButtonExternalRecord">
                 <div
-                  className={classNames(
-                    'container',
-                    'has-text-centered',
-                    maxClass,
-                  )}
+                  className={classNames('container', maxClass, {
+                    'has-text-left': block.align === 'Left',
+                    'has-text-centered': block.align === 'Center',
+                    'has-text-right': block.align === 'Right',
+                  })}
                 >
                   <ButtonExternal block={block} />
                 </div>
@@ -94,11 +94,11 @@ export const BlockSections: FC<{
             return (
               <section key={block.id} className="section ButtonInternalRecord">
                 <div
-                  className={classNames(
-                    'container',
-                    'has-text-centered',
-                    maxClass,
-                  )}
+                  className={classNames('container', maxClass, {
+                    'has-text-left': block.align === 'Left',
+                    'has-text-centered': block.align === 'Center',
+                    'has-text-right': block.align === 'Right',
+                  })}
                 >
                   <ButtonInternal block={block} />
                 </div>

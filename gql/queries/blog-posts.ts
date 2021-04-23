@@ -171,6 +171,7 @@ export const blogPostBySlug = gql`
           id
           label
           url
+          align
           openInNewTab
         }
         ... on ButtonInternalRecord {
@@ -188,6 +189,7 @@ export const blogPostBySlug = gql`
               slug
             }
           }
+          align
         }
         ... on ColumnRowRecord {
           id
@@ -216,6 +218,7 @@ export const blogPostBySlug = gql`
                 id
                 label
                 url
+                align
                 openInNewTab
               }
               ... on ButtonInternalRecord {
@@ -233,6 +236,7 @@ export const blogPostBySlug = gql`
                     slug
                   }
                 }
+                align
               }
               ... on RichTextRecord {
                 id

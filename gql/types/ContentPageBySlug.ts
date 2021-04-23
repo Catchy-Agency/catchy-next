@@ -78,6 +78,7 @@ export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
+  readonly align: string | null;
   readonly openInNewTab: any | null;
 }
 
@@ -103,6 +104,7 @@ export interface ContentPageBySlug_contentPage_blocks_ButtonInternalRecord {
   readonly id: any;
   readonly label: string | null;
   readonly link: ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link | null;
+  readonly align: string | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_image_responsiveImage {
@@ -132,6 +134,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly id: any;
   readonly label: string | null;
   readonly url: string | null;
+  readonly align: string | null;
   readonly openInNewTab: any | null;
 }
 
@@ -157,6 +160,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly id: any;
   readonly label: string | null;
   readonly link: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link | null;
+  readonly align: string | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord {
