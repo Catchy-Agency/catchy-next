@@ -126,37 +126,47 @@ export const BlogPosts: NextPage<BlogPostsPageProps> = ({
         </div>
       </section>
       <section className="section">
-        <div className="container is-max-widescreen has-text-centered">
-          {pageNum > 1 ? (
-            <Link href={`${path}?p=${pageNum - 1}`}>
-              <a>
-                <button className="button is-small" onClick={buttonClickBlur}>
-                  ←
-                </button>
-              </a>
-            </Link>
-          ) : (
-            <button className="button is-small" disabled={true}>
-              ←
-            </button>
-          )}
-          <span className="mx-5" style={{ verticalAlign: 'sub' }}>
-            Page {pageNum} of {pageCount}
-          </span>
-          {pageNum < pageCount ? (
-            <Link href={`${path}?p=${pageNum + 1}`}>
-              <a>
-                <button className="button is-small" onClick={buttonClickBlur}>
-                  →
-                </button>
-              </a>
-            </Link>
-          ) : (
-            <button className="button is-small" disabled={true}>
-              →
-            </button>
-          )}
-        </div>
+        {pageCount > 1 && (
+          <div className="container is-max-widescreen has-text-centered">
+            {pageNum > 1 ? (
+              <Link href={`${path}?p=${pageNum - 1}`}>
+                <a>
+                  <button className="button is-small" onClick={buttonClickBlur}>
+                    ←
+                  </button>
+                </a>
+              </Link>
+            ) : (
+              <button
+                className="button is-small"
+                disabled={true}
+                style={{ visibility: 'hidden' }}
+              >
+                ←
+              </button>
+            )}
+            <span className="mx-5" style={{ verticalAlign: 'sub' }}>
+              Page {pageNum} of {pageCount}
+            </span>
+            {pageNum < pageCount ? (
+              <Link href={`${path}?p=${pageNum + 1}`}>
+                <a>
+                  <button className="button is-small" onClick={buttonClickBlur}>
+                    →
+                  </button>
+                </a>
+              </Link>
+            ) : (
+              <button
+                className="button is-small"
+                disabled={true}
+                style={{ visibility: 'hidden' }}
+              >
+                →
+              </button>
+            )}
+          </div>
+        )}
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
     </>
