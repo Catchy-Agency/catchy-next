@@ -15,8 +15,6 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   rules: {
     'react/prop-types': 0,
