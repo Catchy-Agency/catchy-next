@@ -1,7 +1,8 @@
+const { createSecureHeaders } = require('next-secure-headers')
+
 const redirects = require('./redirects/redirects')
 
 module.exports = {
-  async redirects() {
-    return redirects
-  },
+  headers: async () => [{ source: '/(.*)', headers: createSecureHeaders() }],
+  redirects: async () => redirects,
 }
