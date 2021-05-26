@@ -114,16 +114,16 @@ export const getPrimaryAndContentPagePaths = async (): Promise<string[]> => {
     ...(primaryResult.data.allPrimaryPages || []),
     ...(contentResult.data.allContentPages || []),
   ]
-  const slugs = pages.map((page) => page.slug).filter((slug) => slug !== 'blog')
-  const paths = slugs.map((slug) => `/${slug || ''}`)
-  return paths
+  return pages
+    .map(({ slug }) => `/${slug || ''}`)
+    .filter((slug) => slug !== '/blog') // Note: Reserved
 }
 
 export const getBlogPostPaths = async (): Promise<string[]> => {
   const result = await client.query<AllBlogPostSlugs>({
     query: allBlogPostSlugs,
   })
-  return result.data.allBlogPosts.map((post) => `/blog/${post.slug || ''}`)
+  return result.data.allBlogPosts.map(({ slug }) => `/blog/${slug || ''}`)
 }
 
 export const getCategoryPaths = async (): Promise<string[]> => {
@@ -131,7 +131,7 @@ export const getCategoryPaths = async (): Promise<string[]> => {
     query: allCategorySlugs,
   })
   return result.data.allCategories.map(
-    (cat) => `/blog/category/${cat.slug || ''}`,
+    ({ slug }) => `/blog/category/${slug || ''}`,
   )
 }
 
