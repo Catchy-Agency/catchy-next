@@ -39,6 +39,7 @@ export interface BlogPostBySlug_blogPost_blocks_ButtonInternalRecord {
   readonly label: string | null;
   readonly link: BlogPostBySlug_blogPost_blocks_ButtonInternalRecord_link | null;
   readonly align: string | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image_responsiveImage {
@@ -95,6 +96,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_B
   readonly label: string | null;
   readonly link: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link | null;
   readonly align: string | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_RichTextRecord {

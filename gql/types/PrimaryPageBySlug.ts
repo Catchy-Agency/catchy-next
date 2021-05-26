@@ -86,6 +86,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord {
   readonly label: string | null;
   readonly link: PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link | null;
   readonly align: string | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet_logo_responsiveImage {
@@ -265,6 +266,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
   readonly label: string | null;
   readonly link: PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link | null;
   readonly align: string | null;
+  readonly openInNewTab: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord {

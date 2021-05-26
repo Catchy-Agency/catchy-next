@@ -190,6 +190,7 @@ export const blogPostBySlug = gql`
             }
           }
           align
+          openInNewTab
         }
         ... on ColumnRowRecord {
           id
@@ -237,6 +238,7 @@ export const blogPostBySlug = gql`
                   }
                 }
                 align
+                openInNewTab
               }
               ... on RichTextRecord {
                 id

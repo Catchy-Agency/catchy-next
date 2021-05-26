@@ -13,6 +13,11 @@ export const ButtonInternal: FC<{
         block.link.slug || ''
       }`}
     >
-      <a className="button is-medium is-primary">{block.label}</a>
+      <a
+        className="button is-medium is-primary"
+        target={block.openInNewTab ? '_blank' : undefined}
+      >
+        {block.label}
+      </a>
     </Link>
   )

@@ -77,6 +77,7 @@ export const primaryPageBySlug = gql`
             }
           }
           align
+          openInNewTab
         }
         ... on ClientSetRecord {
           id
@@ -218,6 +219,7 @@ export const primaryPageBySlug = gql`
                   }
                 }
                 align
+                openInNewTab
               }
               ... on RichTextRecord {
                 id

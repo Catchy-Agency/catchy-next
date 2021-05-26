@@ -84,6 +84,7 @@ export const contentPageBySlug = gql`
             }
           }
           align
+          openInNewTab
         }
         ... on ColumnRowRecord {
           id
@@ -131,6 +132,7 @@ export const contentPageBySlug = gql`
                   }
                 }
                 align
+                openInNewTab
               }
               ... on RichTextRecord {
                 id
