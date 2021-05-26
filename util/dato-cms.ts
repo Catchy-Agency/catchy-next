@@ -18,6 +18,8 @@ import { AllContentPageSlugs } from '../gql/types/AllContentPageSlugs'
 import { AllBlogPostSlugs } from '../gql/types/AllBlogPostSlugs'
 import { AllCategorySlugs } from '../gql/types/AllCategorySlugs'
 import { CategoryIdBySlug } from '../gql/types/CategoryIdBySlug'
+import { AllDownloadPageSlugs } from '../gql/types/AllDownloadPageSlugs'
+import { allDownloadPageSlugs } from '../gql/queries/download-pages'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -117,6 +119,15 @@ export const getPrimaryAndContentPagePaths = async (): Promise<string[]> => {
   return pages
     .map(({ slug }) => `/${slug || ''}`)
     .filter((slug) => slug !== '/blog') // Note: Reserved
+}
+
+export const getDownloadPagePaths = async (): Promise<string[]> => {
+  const result = await client.query<AllDownloadPageSlugs>({
+    query: allDownloadPageSlugs,
+  })
+  return result.data.allDownloadPages.map(
+    ({ slug }) => `/downloads/${slug || ''}`,
+  )
 }
 
 export const getBlogPostPaths = async (): Promise<string[]> => {

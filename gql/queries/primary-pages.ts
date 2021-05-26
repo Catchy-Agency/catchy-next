@@ -75,6 +75,9 @@ export const primaryPageBySlug = gql`
             ... on PrimaryPageRecord {
               slug
             }
+            ... on DownloadPageRecord {
+              slug
+            }
           }
           align
           openInNewTab
@@ -215,6 +218,9 @@ export const primaryPageBySlug = gql`
                     slug
                   }
                   ... on PrimaryPageRecord {
+                    slug
+                  }
+                  ... on DownloadPageRecord {
                     slug
                   }
                 }
