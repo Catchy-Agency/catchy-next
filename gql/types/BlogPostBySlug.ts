@@ -111,6 +111,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_B
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;
@@ -297,6 +298,7 @@ export interface BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord {
 
 export interface BlogPostBySlug_blogPost_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;

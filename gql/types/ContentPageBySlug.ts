@@ -177,6 +177,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;
@@ -363,6 +364,7 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
 
 export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;

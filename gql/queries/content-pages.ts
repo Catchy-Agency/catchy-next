@@ -148,6 +148,7 @@ export const contentPageBySlug = gql`
                   action
                   method
                   formFields {
+                    id
                     label
                     fieldName
                     fieldType
@@ -279,6 +280,7 @@ export const contentPageBySlug = gql`
             action
             method
             formFields {
+              id
               label
               fieldName
               fieldType

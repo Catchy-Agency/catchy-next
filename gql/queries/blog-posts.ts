@@ -254,6 +254,7 @@ export const blogPostBySlug = gql`
                   action
                   method
                   formFields {
+                    id
                     label
                     fieldName
                     fieldType
@@ -385,6 +386,7 @@ export const blogPostBySlug = gql`
             action
             method
             formFields {
+              id
               label
               fieldName
               fieldType

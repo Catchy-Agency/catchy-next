@@ -256,6 +256,7 @@ export const primaryPageBySlug = gql`
                   action
                   method
                   formFields {
+                    id
                     label
                     fieldName
                     fieldType
@@ -294,6 +295,7 @@ export const primaryPageBySlug = gql`
             action
             method
             formFields {
+              id
               label
               fieldName
               fieldType

@@ -308,6 +308,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;
@@ -375,6 +376,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord {
 
 export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields {
   readonly __typename: "FormFieldRecord";
+  readonly id: any;
   readonly label: string | null;
   readonly fieldName: string | null;
   readonly fieldType: string | null;
