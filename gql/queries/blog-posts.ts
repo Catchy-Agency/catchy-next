@@ -338,6 +338,43 @@ export const blogPostBySlug = gql`
                 }
               }
             }
+            ... on DownloadPageRecord {
+              id
+              slug
+              title
+              description
+              previewImage {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+            }
+          }
+        }
+        ... on FormBlockRecord {
+          id
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+            }
           }
         }
         ... on ImageSetRecord {

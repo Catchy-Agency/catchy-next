@@ -78,7 +78,12 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_
   readonly slug: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link = PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_PrimaryPageRecord;
+export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly slug: string | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link = PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord_link_DownloadPageRecord;
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord {
   readonly __typename: "ButtonInternalRecord";
@@ -201,7 +206,34 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links = PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord;
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly id: any;
+  readonly slug: string | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links = PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord;
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {
   readonly __typename: "ContentLinkSetRecord";
@@ -230,8 +262,8 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_im
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_image_responsiveImage | null;
 }
 
-export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord {
+  readonly __typename: "FormBlockRecord" | "ImageSetRecord";
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -258,7 +290,12 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
   readonly slug: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link = PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_PrimaryPageRecord;
+export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly slug: string | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link = PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_DownloadPageRecord;
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord {
   readonly __typename: "ButtonInternalRecord";
@@ -292,7 +329,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
   readonly video: PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord_video | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks = PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord;
+export type PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks = PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord;
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -375,6 +412,30 @@ export interface PrimaryPageBySlug_primaryPage_blocks_FormulaRecord {
   readonly step1: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step1 | null;
   readonly step2: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step2 | null;
   readonly step3: PrimaryPageBySlug_primaryPage_blocks_FormulaRecord_step3 | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields {
+  readonly __typename: "FormFieldRecord";
+  readonly label: string | null;
+  readonly fieldName: string | null;
+  readonly fieldType: string | null;
+  readonly required: any | null;
+  readonly invisible: any | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form {
+  readonly __typename: "FormRecord";
+  readonly title: string | null;
+  readonly name: string | null;
+  readonly action: string | null;
+  readonly method: string | null;
+  readonly formFields: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields | null)> | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord {
+  readonly __typename: "FormBlockRecord";
+  readonly id: any;
+  readonly form: PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord_imageSet_responsiveImage {
@@ -486,7 +547,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";

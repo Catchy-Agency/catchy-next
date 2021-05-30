@@ -97,7 +97,12 @@ export interface ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_
   readonly slug: string | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link = ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_ContentPageRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_PrimaryPageRecord;
+export interface ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly slug: string | null;
+}
+
+export type ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link = ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_ContentPageRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_PrimaryPageRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord_link_DownloadPageRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ButtonInternalRecord {
   readonly __typename: "ButtonInternalRecord";
@@ -126,8 +131,8 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_im
   readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_image_responsiveImage | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord {
+  readonly __typename: "FormBlockRecord" | "ImageSetRecord";
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -154,7 +159,12 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly slug: string | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_ContentPageRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_PrimaryPageRecord;
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly slug: string | null;
+}
+
+export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_ContentPageRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_PrimaryPageRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord_link_DownloadPageRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord {
   readonly __typename: "ButtonInternalRecord";
@@ -188,7 +198,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly video: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord;
+export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -289,7 +299,34 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links = ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord;
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly id: any;
+  readonly slug: string | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage | null;
+}
+
+export type ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links = ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_ContentPageRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
   readonly __typename: "ContentLinkSetRecord";
@@ -298,6 +335,30 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
   readonly imageAlign: string | null;
   readonly callToActionLabel: string | null;
   readonly links: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links>;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formFields {
+  readonly __typename: "FormFieldRecord";
+  readonly label: string | null;
+  readonly fieldName: string | null;
+  readonly fieldType: string | null;
+  readonly required: any | null;
+  readonly invisible: any | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form {
+  readonly __typename: "FormRecord";
+  readonly title: string | null;
+  readonly name: string | null;
+  readonly action: string | null;
+  readonly method: string | null;
+  readonly formFields: ReadonlyArray<(ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formFields | null)> | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord {
+  readonly __typename: "FormBlockRecord";
+  readonly id: any;
+  readonly form: ContentPageBySlug_contentPage_blocks_FormBlockRecord_form | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ImageSetRecord_imageSet_responsiveImage {
@@ -349,7 +410,7 @@ export interface ContentPageBySlug_contentPage_blocks_VideoRecord {
   readonly video: ContentPageBySlug_contentPage_blocks_VideoRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord;
+export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord;
 
 export interface ContentPageBySlug_contentPage__seoMetaTags {
   readonly __typename: "Tag";
