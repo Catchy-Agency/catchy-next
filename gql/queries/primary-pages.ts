@@ -248,6 +248,22 @@ export const primaryPageBySlug = gql`
                 align
                 openInNewTab
               }
+              ... on FormBlockRecord {
+                id
+                form {
+                  title
+                  name
+                  action
+                  method
+                  formFields {
+                    label
+                    fieldName
+                    fieldType
+                    required
+                    invisible
+                  }
+                }
+              }
               ... on RichTextRecord {
                 id
                 richText
@@ -269,6 +285,22 @@ export const primaryPageBySlug = gql`
             width
           }
           verticallyCenterAcrossColumns
+        }
+        ... on FormBlockRecord {
+          id
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+            }
+          }
         }
         ... on FormulaRecord {
           id
@@ -318,22 +350,6 @@ export const primaryPageBySlug = gql`
               alt
               title
               base64
-            }
-          }
-        }
-        ... on FormBlockRecord {
-          id
-          form {
-            title
-            name
-            action
-            method
-            formFields {
-              label
-              fieldName
-              fieldType
-              required
-              invisible
             }
           }
         }

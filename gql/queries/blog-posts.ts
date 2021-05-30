@@ -246,6 +246,22 @@ export const blogPostBySlug = gql`
                 align
                 openInNewTab
               }
+              ... on FormBlockRecord {
+                id
+                form {
+                  title
+                  name
+                  action
+                  method
+                  formFields {
+                    label
+                    fieldName
+                    fieldType
+                    required
+                    invisible
+                  }
+                }
+              }
               ... on RichTextRecord {
                 id
                 richText
