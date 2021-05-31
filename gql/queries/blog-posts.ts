@@ -254,12 +254,14 @@ export const blogPostBySlug = gql`
                   action
                   method
                   formFields {
+                    __typename
                     id
                     label
                     fieldName
                     fieldType
                     required
                     invisible
+                    grouped
                   }
                 }
               }
@@ -386,12 +388,14 @@ export const blogPostBySlug = gql`
             action
             method
             formFields {
+              __typename
               id
               label
               fieldName
               fieldType
               required
               invisible
+              grouped
             }
           }
         }

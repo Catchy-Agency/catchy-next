@@ -314,6 +314,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form {
@@ -382,6 +383,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formF
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form {

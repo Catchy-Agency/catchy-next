@@ -183,6 +183,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form {
@@ -370,6 +371,7 @@ export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formF
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form {

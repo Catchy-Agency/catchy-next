@@ -117,6 +117,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_F
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form {
@@ -304,6 +305,7 @@ export interface BlogPostBySlug_blogPost_blocks_FormBlockRecord_form_formFields 
   readonly fieldType: string | null;
   readonly required: any | null;
   readonly invisible: any | null;
+  readonly grouped: any | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_FormBlockRecord_form {

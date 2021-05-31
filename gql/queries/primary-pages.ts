@@ -256,12 +256,14 @@ export const primaryPageBySlug = gql`
                   action
                   method
                   formFields {
+                    __typename
                     id
                     label
                     fieldName
                     fieldType
                     required
                     invisible
+                    grouped
                   }
                 }
               }
@@ -295,12 +297,14 @@ export const primaryPageBySlug = gql`
             action
             method
             formFields {
+              __typename
               id
               label
               fieldName
               fieldType
               required
               invisible
+              grouped
             }
           }
         }
