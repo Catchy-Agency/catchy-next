@@ -30,6 +30,53 @@ export default class extends Document {
             `,
             }}
           />
+
+          {/* LinkedIn */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                _linkedin_partner_id = "3206268";
+                window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+                window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+            `,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function(){var s = document.getElementsByTagName("script")[0];
+              var b = document.createElement("script");
+              b.type = "text/javascript";
+              b.async = true;
+              b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+              s.parentNode.insertBefore(b, s);})();
+            `,
+            }}
+          />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src="https://px.ads.linkedin.com/collect/?pid=3206268&fmt=gif"
+            />
+          </noscript>
+
+          {/* Twitter */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?
+                s.exe.apply(s,arguments):s.queue.push(arguments);
+                },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-
+                twitter.com/uwt.js',
+                a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+                // Insert Twitter Pixel ID and Standard Event data below
+                twq('init','o61ik');
+                twq('track','PageView');
+            `,
+            }}
+          />
         </Head>
         <body className="has-navbar-fixed-top">
           <Main />
