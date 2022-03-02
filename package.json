@@ -1,6 +1,10 @@
 {
   "name": "catchy-next",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
