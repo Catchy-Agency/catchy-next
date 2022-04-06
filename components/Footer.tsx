@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { FC } from 'react'
 
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
+import { pageview } from '../util/gtag'
 
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer
@@ -55,6 +56,7 @@ export const Footer: FC<{
                 <div className="field is-grouped">
                   <div className="control">
                     <input
+                      onClick={() => pageview('/contact')}
                       className="button is-primary"
                       type="submit"
                       value="Send"
