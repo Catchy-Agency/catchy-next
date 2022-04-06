@@ -11,6 +11,7 @@ import { ButtonInternal } from './ButtonInternal'
 import { FormBlock } from './FormBlock'
 import { RichText } from './RichText'
 import { Video } from './Video'
+import { VideoInternal } from './VideoInternal'
 
 export const ColumnRow: FC<{
   block: BlogPostBySlug_blogPost_blocks_ColumnRowRecord
@@ -97,6 +98,8 @@ const ColumnBlocks: FC<{
           return <RichText key={block.id} block={block} />
         case 'VideoRecord':
           return <Video key={block.id} block={block} />
+        case 'VideoInternalRecord':
+          return <VideoInternal key={block.id} block={block} />
         default:
           return null
       }

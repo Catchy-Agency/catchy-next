@@ -73,10 +73,6 @@ export interface ContentPageBySlug_contentPage_children {
   readonly previewImage: ContentPageBySlug_contentPage_children_previewImage | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord {
-  readonly __typename: "VideoInternalRecord";
-}
-
 export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -136,7 +132,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_im
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord" | "VideoInternalRecord";
+  readonly __typename: "ImageSetRecord";
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -228,7 +224,50 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly video: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord;
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_thumbnail_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_thumbnail {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly title: string | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_thumbnail_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video_video {
+  readonly __typename: "UploadVideoField";
+  readonly mp4Url: string | null;
+  readonly streamingUrl: string;
+  readonly thumbnailUrl: string;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video {
+  readonly __typename: "FileField";
+  readonly height: any | null;
+  readonly mimeType: string;
+  readonly title: string | null;
+  readonly video: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video_video | null;
+  readonly width: any | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord {
+  readonly __typename: "VideoInternalRecord";
+  readonly id: any;
+  readonly thumbnail: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_thumbnail | null;
+  readonly video: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video | null;
+}
+
+export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -442,7 +481,50 @@ export interface ContentPageBySlug_contentPage_blocks_VideoRecord {
   readonly video: ContentPageBySlug_contentPage_blocks_VideoRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_VideoInternalRecord | ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord;
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord_thumbnail_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord_thumbnail {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly title: string | null;
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_thumbnail_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video_video {
+  readonly __typename: "UploadVideoField";
+  readonly mp4Url: string | null;
+  readonly streamingUrl: string;
+  readonly thumbnailUrl: string;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video {
+  readonly __typename: "FileField";
+  readonly height: any | null;
+  readonly mimeType: string;
+  readonly title: string | null;
+  readonly video: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video_video | null;
+  readonly width: any | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord {
+  readonly __typename: "VideoInternalRecord";
+  readonly id: any;
+  readonly thumbnail: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_thumbnail | null;
+  readonly video: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video | null;
+}
+
+export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_VideoInternalRecord;
 
 export interface ContentPageBySlug_contentPage__seoMetaTags {
   readonly __typename: "Tag";

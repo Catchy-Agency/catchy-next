@@ -24,6 +24,7 @@ import { CardRows } from './content-links/CardRows'
 import { ThumbColumns } from './content-links/ThumbColumns'
 import { ThumbRows } from './content-links/ThumbRows'
 import { HeroBanner } from './content-links/HeroBanner'
+import { VideoInternal } from './blocks/VideoInternal'
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
@@ -267,6 +268,15 @@ export const BlockSections: FC<{
               <section key={block.id} className="section VideoRecord">
                 <div className={classNames('container', maxClass)}>
                   <Video block={block} />
+                </div>
+              </section>
+            )
+
+          case 'VideoInternalRecord':
+            return (
+              <section key={block.id} className="section VideoInternalRecord">
+                <div className={classNames('container', maxClass)}>
+                  <VideoInternal block={block} />
                 </div>
               </section>
             )

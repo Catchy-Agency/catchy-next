@@ -281,6 +281,37 @@ export const blogPostBySlug = gql`
                   width
                 }
               }
+              ... on VideoInternalRecord {
+                id
+                thumbnail {
+                  id
+                  title
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 1344, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
+                video {
+                  height
+                  mimeType
+                  title
+                  video {
+                    mp4Url
+                    streamingUrl
+                    thumbnailUrl
+                  }
+                  width
+                }
+              }
             }
             textAlign
             width
@@ -432,6 +463,37 @@ export const blogPostBySlug = gql`
             thumbnailUrl
             title
             url
+            width
+          }
+        }
+        ... on VideoInternalRecord {
+          id
+          thumbnail {
+            id
+            title
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1344, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          video {
+            height
+            mimeType
+            title
+            video {
+              mp4Url
+              streamingUrl
+              thumbnailUrl
+            }
             width
           }
         }
