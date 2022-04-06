@@ -7,6 +7,10 @@
 // GraphQL query operation: PrimaryPageBySlug
 // ====================================================
 
+export interface PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord {
+  readonly __typename: "VideoInternalRecord";
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -263,7 +267,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_im
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+  readonly __typename: "ImageSetRecord" | "VideoInternalRecord";
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -323,7 +327,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord {
@@ -363,7 +367,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns {
   readonly title: string | null;
   readonly image: PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_image | null;
   readonly text: string | null;
-  readonly blocks: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks>;
   readonly textAlign: string | null;
   readonly width: string | null;
 }
@@ -392,7 +396,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form {
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord {
@@ -575,7 +579,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -589,7 +593,7 @@ export interface PrimaryPageBySlug_primaryPage {
   readonly title: string | null;
   readonly showBreadcrumbs: any | null;
   readonly textAlign: string | null;
-  readonly blocks: ReadonlyArray<(PrimaryPageBySlug_primaryPage_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks>;
   readonly slug: string | null;
   /**
    * SEO meta tags
@@ -645,7 +649,7 @@ export interface PrimaryPageBySlug_footer {
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
-  readonly socialLinks: ReadonlyArray<(PrimaryPageBySlug_footer_socialLinks | null)> | null;
+  readonly socialLinks: ReadonlyArray<PrimaryPageBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }
 

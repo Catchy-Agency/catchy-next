@@ -364,6 +364,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "VideoInternalRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "VideoRecord",
             "ofType": null
           }
@@ -969,12 +974,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "UNION",
-                "name": "BlogPostModelBlocksField",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "BlogPostModelBlocksField",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -3427,6 +3440,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "VideoInternalRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "VideoRecord",
             "ofType": null
           }
@@ -4008,12 +4026,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "UNION",
-                "name": "ColumnModelBlocksField",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "ColumnModelBlocksField",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -4771,6 +4797,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "VideoInternalRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "VideoRecord",
             "ofType": null
           }
@@ -5376,12 +5407,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "UNION",
-                "name": "ContentPageModelBlocksField",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "ContentPageModelBlocksField",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -5575,7 +5614,7 @@
         "inputFields": [
           {
             "name": "gt",
-            "description": "Filter records with a value that's strictly greater than the one specified",
+            "description": "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -5587,7 +5626,7 @@
           },
           {
             "name": "lt",
-            "description": "Filter records with a value that's less than the one specified",
+            "description": "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -5599,7 +5638,7 @@
           },
           {
             "name": "gte",
-            "description": "Filter records with a value that's greater than or equal to than the one specified",
+            "description": "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -5611,7 +5650,31 @@
           },
           {
             "name": "lte",
-            "description": "Filter records with a value that's less or equal than the one specified",
+            "description": "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "eq",
+            "description": "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "neq",
+            "description": "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -5627,30 +5690,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "BooleanType",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "eq",
-            "description": "Search for records with an exact match (seconds are truncated)",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "neq",
-            "description": "Exclude records with an exact match",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
               "ofType": null
             },
             "defaultValue": null,
@@ -6716,6 +6755,26 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -6874,6 +6933,26 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -6923,6 +7002,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -6982,6 +7081,22 @@
             "deprecationReason": null
           },
           {
+            "name": "md5",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "mimeType",
             "description": null,
             "args": [],
@@ -7032,6 +7147,38 @@
                   "kind": "SCALAR",
                   "name": "String",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -7113,6 +7260,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -7594,12 +7761,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "SocialLinkRecord",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "SocialLinkRecord",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -8777,12 +8952,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "FormFieldRecord",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "FormFieldRecord",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -9738,7 +9921,7 @@
         "inputFields": [
           {
             "name": "ar",
-            "description": "Aspect Ratio\n\nSpecifies an aspect ratio to maintain when resizing and cropping the image\n\nDepends on: `fit=crop`",
+            "description": "Aspect Ratio\n\nSpecifies an aspect ratio to maintain when resizing and cropping the image\n\nDepends on: `fit=crop`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/size/ar)",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -9966,7 +10149,7 @@
           },
           {
             "name": "borderBottom",
-            "description": "Border Bottom\n\nSets bottom border of an image.\n\nDepends on: `border`",
+            "description": "Border Bottom\n\nSets bottom border of an image.\n\nDepends on: `border`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-bottom)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -9978,7 +10161,7 @@
           },
           {
             "name": "borderLeft",
-            "description": "Border Left\n\nSets left border of an image.\n\nDepends on: `border`",
+            "description": "Border Left\n\nSets left border of an image.\n\nDepends on: `border`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-left)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10014,7 +10197,7 @@
           },
           {
             "name": "borderRight",
-            "description": "Border Right\n\nSets right border of an image.\n\nDepends on: `border`",
+            "description": "Border Right\n\nSets right border of an image.\n\nDepends on: `border`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-right)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10026,7 +10209,7 @@
           },
           {
             "name": "borderTop",
-            "description": "Border Top\n\nSets top border of an image.\n\nDepends on: `border`",
+            "description": "Border Top\n\nSets top border of an image.\n\nDepends on: `border`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-top)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10393,7 +10576,7 @@
             "description": "Focal Point Zoom\n\nSets the relative zoom value for the focal point of an image\n\nDepends on: `fit=crop`, `crop=focalpoint`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)",
             "type": {
               "kind": "SCALAR",
-              "name": "IntType",
+              "name": "FloatType",
               "ofType": null
             },
             "defaultValue": null,
@@ -10497,6 +10680,18 @@
             "deprecationReason": null
           },
           {
+            "name": "iptc",
+            "description": "Iptc Passthrough\n\nDetermine if IPTC data should be passed for JPEG images.",
+            "type": {
+              "kind": "ENUM",
+              "name": "ImgixParamsIptc",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "lossless",
             "description": "Lossless Compression\n\nSpecifies that the output image should be a lossless variant.\n\nDepends on: `fm=webp`, `fm=jxr`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/format/lossless)",
             "type": {
@@ -10589,11 +10784,35 @@
             "deprecationReason": null
           },
           {
+            "name": "markRot",
+            "description": "Watermark Rotation\n\nRotates a watermark or tiled watermarks by a specified number of degrees.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-rot)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "FloatType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "markScale",
             "description": "Watermark Scale\n\nAdjusts the scale of the watermark image.\n\nDepends on: `mark`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "markTile",
+            "description": "Watermark Tile\n\nAdds tiled watermark.\n\nDepends on: `mark`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-tile)",
+            "type": {
+              "kind": "ENUM",
+              "name": "ImgixParamsMarkTile",
               "ofType": null
             },
             "defaultValue": null,
@@ -10770,7 +10989,7 @@
           },
           {
             "name": "padBottom",
-            "description": "Padding Bottom\n\nSets bottom padding of an image.",
+            "description": "Padding Bottom\n\nSets bottom padding of an image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10782,7 +11001,7 @@
           },
           {
             "name": "padLeft",
-            "description": "Padding Left\n\nSets left padding of an image.",
+            "description": "Padding Left\n\nSets left padding of an image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-left)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10794,7 +11013,7 @@
           },
           {
             "name": "padRight",
-            "description": "Padding Right\n\nSets right padding of an image.",
+            "description": "Padding Right\n\nSets right padding of an image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-right)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10806,7 +11025,7 @@
           },
           {
             "name": "padTop",
-            "description": "Padding Top\n\nSets top padding of an image.",
+            "description": "Padding Top\n\nSets top padding of an image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-top)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10830,7 +11049,7 @@
           },
           {
             "name": "page",
-            "description": "Pdf Page Number\n\nSelects a page from a PDF for display.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/pdf-page-number)",
+            "description": "Pdf Page Number\n\nSelects a page from a PDF for display.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/page)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -10846,6 +11065,18 @@
             "type": {
               "kind": "ENUM",
               "name": "ImgixParamsPalette",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pdfAnnotation",
+            "description": "Pdf Annotation\n\nEnables or disables PDF annotation.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/pdf-annotation)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
               "ofType": null
             },
             "defaultValue": null,
@@ -10962,7 +11193,7 @@
           },
           {
             "name": "transparency",
-            "description": "Transparency\n\nAdds checkerboard behind images which support transparency.",
+            "description": "Transparency\n\nAdds checkerboard behind images which support transparency.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)",
             "type": {
               "kind": "ENUM",
               "name": "ImgixParamsTransparency",
@@ -11913,6 +12144,42 @@
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "blurhash",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "avif",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsIptc",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "allow",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "block",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -12000,6 +12267,24 @@
           },
           {
             "name": "scale",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsMarkTile",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "grid",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -13352,6 +13637,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "VideoInternalRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "VideoRecord",
             "ofType": null
           },
@@ -13974,12 +14264,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "UNION",
-                "name": "PrimaryPageModelBlocksField",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "PrimaryPageModelBlocksField",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -14157,7 +14455,7 @@
         "inputFields": [
           {
             "name": "gt",
-            "description": "Filter records with a value that's strictly greater than the one specified",
+            "description": "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -14169,7 +14467,7 @@
           },
           {
             "name": "lt",
-            "description": "Filter records with a value that's less than the one specified",
+            "description": "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -14181,7 +14479,7 @@
           },
           {
             "name": "gte",
-            "description": "Filter records with a value that's greater than or equal to than the one specified",
+            "description": "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -14193,7 +14491,31 @@
           },
           {
             "name": "lte",
-            "description": "Filter records with a value that's less or equal than the one specified",
+            "description": "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "eq",
+            "description": "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "neq",
+            "description": "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -14209,30 +14531,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "BooleanType",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "eq",
-            "description": "Search for records with an exact match (seconds are truncated)",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "neq",
-            "description": "Exclude records with an exact match",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
               "ofType": null
             },
             "defaultValue": null,
@@ -14261,6 +14559,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14308,6 +14626,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -14343,6 +14681,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14390,6 +14748,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -14425,6 +14803,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14472,6 +14870,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -14507,6 +14925,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14554,6 +14992,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -14595,6 +15053,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -14630,6 +15108,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14712,6 +15210,26 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -14737,6 +15255,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -14832,6 +15370,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "skip",
                 "description": "Skip the first results",
                 "type": {
@@ -14915,6 +15473,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15010,6 +15588,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "skip",
                 "description": "Skip the first results",
                 "type": {
@@ -15093,6 +15691,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15188,6 +15806,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "skip",
                 "description": "Skip the first results",
                 "type": {
@@ -15271,6 +15909,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15366,6 +16024,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "skip",
                 "description": "Skip the first results",
                 "type": {
@@ -15449,6 +16127,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15544,6 +16242,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "skip",
                 "description": "Skip the first results",
                 "type": {
@@ -15627,6 +16345,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15722,6 +16460,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -15769,6 +16527,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15828,6 +16606,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -15875,6 +16673,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -15934,6 +16752,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -15981,6 +16819,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -16038,6 +16896,26 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -16059,6 +16937,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -16116,6 +17014,26 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
@@ -16137,6 +17055,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -16196,6 +17134,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -16249,6 +17207,26 @@
                 "deprecationReason": null
               },
               {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "filter",
                 "description": null,
                 "type": {
@@ -16296,6 +17274,26 @@
                   "kind": "ENUM",
                   "name": "SiteLocale",
                   "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
                 },
                 "defaultValue": null,
                 "isDeprecated": false,
@@ -17915,12 +18913,56 @@
                 "defaultValue": null,
                 "isDeprecated": false,
                 "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
               }
             ],
             "type": {
               "kind": "OBJECT",
               "name": "GlobalSeoField",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "locales",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "SiteLocale",
+                    "ofType": null
+                  }
+                }
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -19213,7 +20255,7 @@
         "inputFields": [
           {
             "name": "gt",
-            "description": "Filter records with a value that's strictly greater than the one specified",
+            "description": "Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -19225,7 +20267,7 @@
           },
           {
             "name": "lt",
-            "description": "Filter records with a value that's less than the one specified",
+            "description": "Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -19237,7 +20279,7 @@
           },
           {
             "name": "gte",
-            "description": "Filter records with a value that's greater than or equal to than the one specified",
+            "description": "Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -19249,7 +20291,31 @@
           },
           {
             "name": "lte",
-            "description": "Filter records with a value that's less or equal than the one specified",
+            "description": "Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "eq",
+            "description": "Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "neq",
+            "description": "Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument.",
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
@@ -19265,30 +20331,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "BooleanType",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "eq",
-            "description": "Search for records with an exact match (seconds are truncated)",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "neq",
-            "description": "Exclude records with an exact match",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
               "ofType": null
             },
             "defaultValue": null,
@@ -19944,6 +20986,18 @@
             "deprecationReason": null
           },
           {
+            "name": "md5",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "UploadMd5Filter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "author",
             "description": null,
             "type": {
@@ -20269,6 +21323,74 @@
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "UploadMd5Filter",
+        "description": "Specifies how to filter by MD5",
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "eq",
+            "description": "Search the asset with the specified MD5",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "neq",
+            "description": "Exclude the asset with the specified MD5",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "in",
+            "description": "Search assets with the specified MD5s",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "notIn",
+            "description": "Search assets that do not have the specified MD5s",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "UploadMimeTypeFilter",
         "description": "Specifies how to filter by mime type",
         "specifiedByUrl": null,
@@ -20566,7 +21688,7 @@
         "inputFields": [
           {
             "name": "gt",
-            "description": "Search all assets larger than the specified size",
+            "description": "Search all assets larger than the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -20578,7 +21700,7 @@
           },
           {
             "name": "lt",
-            "description": "Search all assets smaller than the specified size",
+            "description": "Search all assets smaller than the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -20590,7 +21712,7 @@
           },
           {
             "name": "gte",
-            "description": "Search all assets larger or equal to the specified size",
+            "description": "Search all assets larger or equal to the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -20602,7 +21724,7 @@
           },
           {
             "name": "lte",
-            "description": "Search all assets larger or equal to the specified size",
+            "description": "Search all assets larger or equal to the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -20614,7 +21736,7 @@
           },
           {
             "name": "eq",
-            "description": "Search assets with the specified size",
+            "description": "Search assets with the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -20626,7 +21748,7 @@
           },
           {
             "name": "neq",
-            "description": "Search assets that do not have the specified size",
+            "description": "Search assets that do not have the specified size (in bytes)",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -21316,6 +22438,255 @@
         "possibleTypes": null
       },
       {
+        "kind": "OBJECT",
+        "name": "VideoInternalRecord",
+        "description": "Record of type Video (Internal) (video_internal)",
+        "specifiedByUrl": null,
+        "fields": [
+          {
+            "name": "_createdAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_firstPublishedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_isValid",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "BooleanType",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_modelApiKey",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_publicationScheduledAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_publishedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_seoMetaTags",
+            "description": "SEO meta tags",
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "Tag",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_status",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ItemStatus",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_unpublishingScheduledAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "_updatedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ItemId",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thumbnail",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "FileField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updatedAt",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "video",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "FileField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "ENUM",
         "name": "VideoMp4Res",
         "description": null,
@@ -21348,7 +22719,7 @@
       {
         "kind": "OBJECT",
         "name": "VideoRecord",
-        "description": "Record of type Video (video)",
+        "description": "Record of type Video (external) (video)",
         "specifiedByUrl": null,
         "fields": [
           {

@@ -76,7 +76,7 @@ export interface DownloadPageBySlug_footer {
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
-  readonly socialLinks: ReadonlyArray<(DownloadPageBySlug_footer_socialLinks | null)> | null;
+  readonly socialLinks: ReadonlyArray<DownloadPageBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }
 

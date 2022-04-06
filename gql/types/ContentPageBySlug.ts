@@ -73,6 +73,10 @@ export interface ContentPageBySlug_contentPage_children {
   readonly previewImage: ContentPageBySlug_contentPage_children_previewImage | null;
 }
 
+export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord {
+  readonly __typename: "VideoInternalRecord";
+}
+
 export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -132,7 +136,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_im
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+  readonly __typename: "ImageSetRecord" | "VideoInternalRecord";
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -192,7 +196,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord {
@@ -232,7 +236,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
   readonly title: string | null;
   readonly image: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_image | null;
   readonly text: string | null;
-  readonly blocks: ReadonlyArray<(ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks>;
   readonly textAlign: string | null;
   readonly width: string | null;
 }
@@ -380,7 +384,7 @@ export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord_form {
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<ContentPageBySlug_contentPage_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_FormBlockRecord {
@@ -438,7 +442,7 @@ export interface ContentPageBySlug_contentPage_blocks_VideoRecord {
   readonly video: ContentPageBySlug_contentPage_blocks_VideoRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord;
+export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_VideoInternalRecord | ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord;
 
 export interface ContentPageBySlug_contentPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -452,7 +456,7 @@ export interface ContentPageBySlug_contentPage {
   readonly title: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent | null;
   readonly children: ReadonlyArray<(ContentPageBySlug_contentPage_children | null)> | null;
-  readonly blocks: ReadonlyArray<(ContentPageBySlug_contentPage_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<ContentPageBySlug_contentPage_blocks>;
   readonly slug: string | null;
   /**
    * SEO meta tags
@@ -508,7 +512,7 @@ export interface ContentPageBySlug_footer {
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
-  readonly socialLinks: ReadonlyArray<(ContentPageBySlug_footer_socialLinks | null)> | null;
+  readonly socialLinks: ReadonlyArray<ContentPageBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }
 

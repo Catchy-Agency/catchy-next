@@ -7,6 +7,10 @@
 // GraphQL query operation: BlogPostBySlug
 // ====================================================
 
+export interface BlogPostBySlug_blogPost_blocks_VideoInternalRecord {
+  readonly __typename: "VideoInternalRecord";
+}
+
 export interface BlogPostBySlug_blogPost_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -66,7 +70,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image {
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+  readonly __typename: "ImageSetRecord" | "VideoInternalRecord";
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -126,7 +130,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_F
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord {
@@ -166,7 +170,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns {
   readonly title: string | null;
   readonly image: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image | null;
   readonly text: string | null;
-  readonly blocks: ReadonlyArray<(BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks>;
   readonly textAlign: string | null;
   readonly width: string | null;
 }
@@ -314,7 +318,7 @@ export interface BlogPostBySlug_blogPost_blocks_FormBlockRecord_form {
   readonly name: string | null;
   readonly action: string | null;
   readonly method: string | null;
-  readonly formFields: ReadonlyArray<(BlogPostBySlug_blogPost_blocks_FormBlockRecord_form_formFields | null)> | null;
+  readonly formFields: ReadonlyArray<BlogPostBySlug_blogPost_blocks_FormBlockRecord_form_formFields>;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_FormBlockRecord {
@@ -372,7 +376,7 @@ export interface BlogPostBySlug_blogPost_blocks_VideoRecord {
   readonly video: BlogPostBySlug_blogPost_blocks_VideoRecord_video | null;
 }
 
-export type BlogPostBySlug_blogPost_blocks = BlogPostBySlug_blogPost_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord | BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord | BlogPostBySlug_blogPost_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ImageSetRecord | BlogPostBySlug_blogPost_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_VideoRecord;
+export type BlogPostBySlug_blogPost_blocks = BlogPostBySlug_blogPost_blocks_VideoInternalRecord | BlogPostBySlug_blogPost_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord | BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord | BlogPostBySlug_blogPost_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ImageSetRecord | BlogPostBySlug_blogPost_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_VideoRecord;
 
 export interface BlogPostBySlug_blogPost_categories {
   readonly __typename: "CategoryRecord";
@@ -392,7 +396,7 @@ export interface BlogPostBySlug_blogPost {
   readonly __typename: "BlogPostRecord";
   readonly title: string | null;
   readonly date: any | null;
-  readonly blocks: ReadonlyArray<(BlogPostBySlug_blogPost_blocks | null)> | null;
+  readonly blocks: ReadonlyArray<BlogPostBySlug_blogPost_blocks>;
   readonly categories: ReadonlyArray<BlogPostBySlug_blogPost_categories>;
   readonly slug: string | null;
   /**
@@ -449,7 +453,7 @@ export interface BlogPostBySlug_footer {
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
-  readonly socialLinks: ReadonlyArray<(BlogPostBySlug_footer_socialLinks | null)> | null;
+  readonly socialLinks: ReadonlyArray<BlogPostBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }
 
