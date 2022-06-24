@@ -19,6 +19,17 @@ https://catchyagency.com/
 
 # Development
 
+## DatoCMS API Token
+
+This token is protected/private, to prevent unauthorized use of our API.
+
+It's already added to Vercel for deployments, but we also need it locally for development:
+
+1. Copy `.env.local.sample` to `.env.local` (will by ignored by git)
+2. Update `DATOCMS_API_TOKEN` with our [Read-only API token](https://catchy.admin.datocms.com/admin/access_tokens/84520/edit) value
+
+## NPM Scripts
+
 ```sh
 # Installation
 npm run i # install dependencies
@@ -56,7 +67,7 @@ These tools help protect us from ourselves:
 - Prettier for formatting (`.prettierrc`)
 - ESLint for linting (`.eslintrc.js`)
 
-They can be run from `npm` scripts, but it's easiest if you install corresponding editor plugins for each.
+They can be run from `npm` scripts, but it's easier if you install corresponding editor plugins for each.
 
 This repo also has `.vscode` files to recommend & configure extensions, if you're using that editor:
 
