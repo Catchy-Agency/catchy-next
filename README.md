@@ -17,7 +17,6 @@ https://catchyagency.com/
   - [Bulma CSS](https://bulma.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-
 # Development
 
 ```sh
@@ -26,9 +25,12 @@ npm run i # install dependencies
 
 # Development
 npm run dev # start development server
-npm run types # start typescript compiler --watch
 
-# Linting/formatting
+# Type-checking
+npm run types # start typescript compiler --watch
+npm run types:once # run typescript compiler once
+
+# Linting / Formatting
 npm run format # run prettier
 npm run lint # run eslint --fix
 npm run fix # run format & lint
@@ -36,15 +38,30 @@ npm run fix # run format & lint
 # Updating generated GraphQL types
 npm run schema # download graphql schema & codegen types
 
-# Manually building/deploying (not required)
+# Manually building / deploying
 npm run build # write production version to ./build
 npm run start # start production server
 npm run deploy:prod # deploy to prod
 npm run deploy:dev # deploy to dev
 
-# Debugging
+# Debugging dev/build
 npm run clean # removes .next cache
 ```
+
+## Developer Environment
+
+These tools help protect us from ourselves:
+
+- TypeScript for type checking (`tsconfig.json`)
+- Prettier for formatting (`.prettierrc`)
+- ESLint for linting (`.eslintrc.js`)
+
+They can be run from `npm` scripts, but it's easiest if you install corresponding editor plugins for each.
+
+This repo also has `.vscode` files to recommend & configure extensions, if you're using that editor:
+
+- `.vscode/extensions.json`
+- `.vscode/settings.json`
 
 ## Code Overview
 
