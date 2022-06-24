@@ -2,34 +2,6 @@
 
 https://catchyagency.com/
 
-## JAMstack architecture
-
-### `data` — Headless CMS
-
-- [DatoCMS](https://datocms.com/) (with [GraphQL API](https://www.datocms.com/docs/content-delivery-api))
-
-### `view` — Frontend Site
-
-- [Vercel](https://vercel.com/) — _hosting, deployment_
-- [Next.js](https://nextjs.org/) — _build, server, routes_
-- [React](https://reactjs.org/)
-  - [Apollo GraphQL](https://www.apollographql.com/)
-  - [Bulma CSS](https://bulma.io/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-# Development
-
-## DatoCMS API Token
-
-This token is protected/private, to prevent unauthorized use of our API.
-
-It's already added to Vercel for deployments, but we also need it locally for development:
-
-1. Copy `.env.local.sample` to `.env.local` (will by ignored by git)
-2. Update `DATOCMS_API_TOKEN` with our [Read-only API token](https://catchy.admin.datocms.com/admin/access_tokens/84520/edit) value
-
-## NPM Scripts
-
 ```sh
 # Installation
 npm run i # install dependencies
@@ -59,41 +31,71 @@ npm run deploy:dev # deploy to dev
 npm run clean # removes .next cache
 ```
 
-## Node.js & NPM versions
+# Overview
 
-The `node` and `npm` versions for this project are defined by the `engines` field in `package.json`. Their use is enforced with `engine-strict=true` in `.npmrc`. This helps prevent compatibility issues with the Next.js build.
+## JAMstack architecture
 
-If you're running this locally on your machine, it's recommended to use a tool like `nvm` or `n` to help manage installed `node` versions.
+### `data` — Headless CMS
 
-## Developer Environment
+- [DatoCMS](https://datocms.com/) (with [GraphQL API](https://www.datocms.com/docs/content-delivery-api))
 
-These tools help protect us from ourselves:
+### `view` — Frontend Site
 
-- TypeScript for type checking (`tsconfig.json`)
-- Prettier for formatting (`.prettierrc`)
-- ESLint for linting (`.eslintrc.js`)
+- [Vercel](https://vercel.com/) — _hosting, deployment_
+- [Next.js](https://nextjs.org/) — _build, server, routes_
+- [React](https://reactjs.org/)
+  - [Apollo GraphQL](https://www.apollographql.com/)
+  - [Bulma CSS](https://bulma.io/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-They can be run from `npm` scripts, but it's easier if you install corresponding editor plugins for each.
-
-This repo also has `.vscode` files to recommend & configure extensions, if you're using that editor:
-
-- `.vscode/extensions.json`
-- `.vscode/settings.json`
-
-## Code Overview
+## Frontend Code
 
 - Next.js routes — `pages/*`
 - React components — `components/*`
 - Apollo queries — `gql/*`
 - Bulma styles — `styles/*`
 
-## Site Pages & Components
+# Initial Setup
 
-When changes involve both DatoCMS and the frontend site.
+## DatoCMS API Token
+
+This token is protected/private, to prevent unauthorized use of our API.
+
+It's already added to Vercel for deployments, but we also need it locally for development:
+
+1. Copy `.env.local.sample` to `.env.local` (will by ignored by git)
+2. Update `DATOCMS_API_TOKEN` with our [Read-only API token](https://catchy.admin.datocms.com/admin/access_tokens/84520/edit) value
+
+## Node.js & NPM versions
+
+The `node` and `npm` versions for this project are defined by the `engines` field in `package.json`. Their use is enforced with `engine-strict=true` in `.npmrc`. This helps prevent compatibility issues with the Next.js build.
+
+If you're running this locally on your machine, it's recommended to use a tool like `nvm` or `n` to help manage installed versions.
+
+## Dev Environment
+
+These tools help protect us from ourselves:
+
+- [TypeScript](https://www.typescriptlang.org/) for type checking (`tsconfig.json`)
+- [Prettier](https://prettier.io/) for formatting (`.prettierrc`)
+- [ESLint](https://eslint.org/) for linting (`.eslintrc.js`)
+
+They can be run from `npm` scripts, but it's easier if you install corresponding editor plugins for each.
+
+This repo also has `.vscode` files to [recommend](https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions) & [configure](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settings) extensions, if you're using that editor:
+
+- `.vscode/extensions.json`
+- `.vscode/settings.json`
+
+# Common Workflows
+
+## Updating Site Pages & Components
+
+These changes involve both DatoCMS and the frontend site.
 
 First, in the DatoCMS Admin UI:
 
-1. Update/add models & blocks in `Settings`
+1. Update models & blocks in `Settings`
    - _[Models](https://www.datocms.com/docs/content-modelling) — independent schemas (pages, posts, categories)_
    - _[Blocks](https://www.datocms.com/docs/content-modelling/blocks) — child components (sections, cards, rich text, images)_
    - _[When to use blocks instead of models?](https://www.datocms.com/docs/content-modelling/blocks#when-to-use-blocks-instead-of-models)_
@@ -101,14 +103,14 @@ First, in the DatoCMS Admin UI:
 
 Then, on your computer:
 
-1. Update/add GraphQL queries (in `gql/queries/*`)
-1. Update/add TS GraphQL types (run `npm run schema`)
+1. Update GraphQL queries (in `gql/queries/*`)
+1. Update TS GraphQL types (run `npm run schema`)
    - _downloads latest schema from DatoCMS_
    - _constructs types based on `gql/queries/*`_
    - _writes type definitions to `gql/types/*`_
-1. Update/add corresponding `pages/*` and/or `components/*`
+1. Update corresponding `pages/*` and/or `components/*`
 
-## Site Styles
+## Updating Site Styles
 
 The frontend site uses Bulma, plus a modified version of the [Darkly theme](https://jenil.github.io/bulmaswatch/darkly/).
 
@@ -121,7 +123,7 @@ Site-specific styles are in:
 
 - `styles/global.scss`
 
-## Social Media Trackers
+## Updating Social Media Trackers
 
 - Social tracking tags (Google, LinkedIn, Twitter) are injected in `pages/_document.tsx`.
 - Route changes in `pages/_app.tsx` trigger `util/gtag` tracking.
