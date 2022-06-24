@@ -93,7 +93,7 @@ This repo also has `.vscode` files to [recommend](https://code.visualstudio.com/
 
 These changes involve both DatoCMS and the frontend site.
 
-First, in the DatoCMS Admin UI:
+First, in the [DatoCMS Admin UI](https://catchy.admin.datocms.com/):
 
 1. Update models & blocks in `Settings`
    - _[Models](https://www.datocms.com/docs/content-modelling) — independent schemas (pages, posts, categories)_
