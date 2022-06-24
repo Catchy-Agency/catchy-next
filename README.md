@@ -59,6 +59,12 @@ npm run deploy:dev # deploy to dev
 npm run clean # removes .next cache
 ```
 
+## Node.js & NPM versions
+
+The `node` and `npm` versions for this project are defined by the `engines` field in `package.json`. Their use is enforced with `engine-strict=true` in `.npmrc`. This helps prevent compatibility issues with the Next.js build.
+
+If you're running this locally on your machine, it's recommended to use a tool like `nvm` or `n` to help manage installed `node` versions.
+
 ## Developer Environment
 
 These tools help protect us from ourselves:
