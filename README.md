@@ -50,7 +50,7 @@ npm run clean # removes .next cache
 
 ## Frontend Code
 
-- Next.js routes — `pages/*`
+- Next.js routes/pages — `pages/*`
 - React components — `components/*`
 - Apollo queries — `gql/*`
 - Bulma styles — `styles/*`
@@ -99,6 +99,7 @@ First, in the [DatoCMS Admin UI](https://catchy.admin.datocms.com/):
    - _[Models](https://www.datocms.com/docs/content-modelling) — independent schemas (pages, posts, categories)_
    - _[Blocks](https://www.datocms.com/docs/content-modelling/blocks) — child components (sections, cards, rich text, images)_
    - _[When to use blocks instead of models?](https://www.datocms.com/docs/content-modelling/blocks#when-to-use-blocks-instead-of-models)_
+   - _Note: Some of our models could've been blocks, but [they didn't have Nested Blocks](https://community.datocms.com/t/nested-blocks/283/37) when we created them. Newer additions [do leverage Nested Blocks](https://community.datocms.com/t/nested-blocks/283/58) (yay!). Someday, it would be nice to take the time and fully migrate over._
 1. Test your GraphQL queries in `API Explorer`
 
 Then, on your computer:
