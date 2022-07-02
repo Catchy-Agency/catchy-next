@@ -127,7 +127,7 @@ Site-specific styles are in:
 ## Updating Social Media Trackers
 
 - Social tracking tags (Google, LinkedIn, Twitter) are injected in `pages/_document.tsx`.
-- Route changes in `pages/_app.tsx` trigger `util/gtag` tracking.
+- Route changes in `pages/_app.tsx` trigger `util/gtag.ts` tracking.
 
 # Deployment
 
@@ -148,10 +148,10 @@ Automatic deployments are triggered by integrations
 
 ## Manually / Locally
 
-- Write build — `npm run build`
-- Serve build — `npm run start`
-- Deploy dev — `npm run deploy:dev`
-- Deploy prod — `npm run deploy:prod`
+- Write build locally — `npm run build`
+- Serve build locally — `npm run start`
+- Deploy local to dev — `npm run deploy:dev`
+- Deploy local to prod — `npm run deploy:prod`
 
 # Previewing CMS updates
 
