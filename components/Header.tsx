@@ -1,7 +1,7 @@
-import { FC, useState } from 'react'
+import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
+import { FC, useState } from 'react'
 
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug'
 import { scrollToContact } from '../util/scrollToContact'

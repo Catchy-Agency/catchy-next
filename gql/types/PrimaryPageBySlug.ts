@@ -7,6 +7,10 @@
 // GraphQL query operation: PrimaryPageBySlug
 // ====================================================
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ServicePanelSetRecord {
+  readonly __typename: "ServicePanelSetRecord";
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -340,13 +344,13 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_bl
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
-  readonly height: any | null;
-  readonly provider: string | null;
-  readonly providerUid: string | null;
-  readonly thumbnailUrl: string | null;
-  readonly title: string | null;
-  readonly url: string | null;
-  readonly width: any | null;
+  readonly height: any;
+  readonly provider: string;
+  readonly providerUid: string;
+  readonly thumbnailUrl: string;
+  readonly title: string;
+  readonly url: string;
+  readonly width: any;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord {
@@ -596,13 +600,13 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
 
 export interface PrimaryPageBySlug_primaryPage_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
-  readonly height: any | null;
-  readonly provider: string | null;
-  readonly providerUid: string | null;
-  readonly thumbnailUrl: string | null;
-  readonly title: string | null;
-  readonly url: string | null;
-  readonly width: any | null;
+  readonly height: any;
+  readonly provider: string;
+  readonly providerUid: string;
+  readonly thumbnailUrl: string;
+  readonly title: string;
+  readonly url: string;
+  readonly width: any;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_VideoRecord {
@@ -661,7 +665,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_ServicePanelSetRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";

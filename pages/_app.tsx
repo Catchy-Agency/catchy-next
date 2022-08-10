@@ -1,18 +1,18 @@
+import '../styles/formula-arrows.scss'
 import '../styles/global.scss'
 import '../styles/nprogress.scss'
-import '../styles/formula-arrows.scss'
 
-import { AppComponent } from 'next/dist/next-server/lib/router/router'
 import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 
-import { pageview } from '../util/gtag'
+import { AppComponent } from 'next/dist/shared/lib/router/router'
 import { PreviewTrigger } from '../components/cms/PreviewTrigger'
+import { pageview } from '../util/gtag'
 
 Router.events.on('routeChangeStart', () => NProgress.start())
 Router.events.on('routeChangeError', () => NProgress.done())
-Router.events.on('routeChangeComplete', (path) => {
+Router.events.on('routeChangeComplete', (path: string) => {
   NProgress.done()
   pageview(path)
 })

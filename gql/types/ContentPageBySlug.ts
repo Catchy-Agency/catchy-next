@@ -209,13 +209,13 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
-  readonly height: any | null;
-  readonly provider: string | null;
-  readonly providerUid: string | null;
-  readonly thumbnailUrl: string | null;
-  readonly title: string | null;
-  readonly url: string | null;
-  readonly width: any | null;
+  readonly height: any;
+  readonly provider: string;
+  readonly providerUid: string;
+  readonly thumbnailUrl: string;
+  readonly title: string;
+  readonly url: string;
+  readonly width: any;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord {
@@ -466,13 +466,13 @@ export interface ContentPageBySlug_contentPage_blocks_RichTextRecord {
 
 export interface ContentPageBySlug_contentPage_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
-  readonly height: any | null;
-  readonly provider: string | null;
-  readonly providerUid: string | null;
-  readonly thumbnailUrl: string | null;
-  readonly title: string | null;
-  readonly url: string | null;
-  readonly width: any | null;
+  readonly height: any;
+  readonly provider: string;
+  readonly providerUid: string;
+  readonly thumbnailUrl: string;
+  readonly title: string;
+  readonly url: string;
+  readonly width: any;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_VideoRecord {
