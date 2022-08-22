@@ -7,6 +7,31 @@
 // GraphQL query operation: BlogPostBySlug
 // ====================================================
 
+export interface BlogPostBySlug_blogPost_author_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostBySlug_blogPost_author_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostBySlug_blogPost_author_image_responsiveImage | null;
+}
+
+export interface BlogPostBySlug_blogPost_author {
+  readonly __typename: "MemberRecord";
+  readonly name: string | null;
+  readonly title: string | null;
+  readonly image: BlogPostBySlug_blogPost_author_image | null;
+}
+
 export interface BlogPostBySlug_blogPost_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -478,6 +503,7 @@ export interface BlogPostBySlug_blogPost {
   readonly __typename: "BlogPostRecord";
   readonly title: string | null;
   readonly date: any | null;
+  readonly author: BlogPostBySlug_blogPost_author | null;
   readonly blocks: ReadonlyArray<BlogPostBySlug_blogPost_blocks>;
   readonly categories: ReadonlyArray<BlogPostBySlug_blogPost_categories>;
   readonly slug: string | null;

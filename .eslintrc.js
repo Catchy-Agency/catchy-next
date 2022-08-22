@@ -18,6 +18,7 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    '@next/next/no-img-element': 0,
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     '@typescript-eslint/no-unsafe-assignment': 0, // Sad: severaly "any" in apollo codegen gql types

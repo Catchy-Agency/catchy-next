@@ -165,6 +165,25 @@ export const blogPostBySlug = gql`
     blogPost(filter: { slug: { eq: $slug } }) {
       title
       date
+      author {
+        name
+        title
+        image {
+          responsiveImage(
+            imgixParams: { fit: crop, ar: "1:1", w: 96, auto: format }
+          ) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
+      }
       blocks {
         __typename
         ... on ButtonExternalRecord {

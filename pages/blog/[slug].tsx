@@ -1,29 +1,32 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
-import { useQuerySubscription, renderMetaTags } from 'react-datocms'
 import Head from 'next/head'
 import Link from 'next/link'
+import { FC } from 'react'
+import { renderMetaTags, useQuerySubscription } from 'react-datocms'
 
+import { BlockSections } from '../../components/BlockSections'
+import { PageError } from '../../components/cms/PageError'
+import { PreviewBanner } from '../../components/cms/PreviewBanner'
+import { Footer } from '../../components/Footer'
+import { Header } from '../../components/Header'
+import { blogPostBySlug } from '../../gql/queries/blog-posts'
+import {
+  BlogPostBySlug,
+  BlogPostBySlug_blogPost_author,
+} from '../../gql/types/BlogPostBySlug'
 import {
   createSubscription,
   getBlogPostPaths,
   Subscription,
 } from '../../util/dato-cms'
-import { blogPostBySlug } from '../../gql/queries/blog-posts'
-import { BlogPostBySlug } from '../../gql/types/BlogPostBySlug'
-import { PreviewBanner } from '../../components/cms/PreviewBanner'
-import { PageError } from '../../components/cms/PageError'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { BlockSections } from '../../components/BlockSections'
 
 interface PageProps {
   subscription: Subscription<BlogPostBySlug>
 }
 
 const BlogPost: NextPage<PageProps> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<BlogPostBySlug>(
-    subscription,
-  )
+  const { data, error, status } =
+    useQuerySubscription<BlogPostBySlug>(subscription)
 
   return (
     <div className="content-post">
@@ -56,6 +59,7 @@ const BlogPost: NextPage<PageProps> = ({ subscription }) => {
             </ul>
           </nav>
           <h1 className="title is-1">{data?.blogPost?.title}</h1>
+          {data?.blogPost?.author && <ByLine author={data.blogPost.author} />}
           <div className="tags are-medium">
             {data?.blogPost?.categories.map((cat) => (
               <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
@@ -73,6 +77,22 @@ const BlogPost: NextPage<PageProps> = ({ subscription }) => {
     </div>
   )
 }
+
+const ByLine: FC<{ author: BlogPostBySlug_blogPost_author }> = ({ author }) => (
+  <div className="media is-align-items-center mb-5">
+    {author.image?.responsiveImage?.src && (
+      <div className="media-left">
+        <figure className="image is-48x48">
+          <img className="is-rounded" src={author.image.responsiveImage.src} />
+        </figure>
+      </div>
+    )}
+    <div className="media-content">
+      <p className="title is-6">{author.name}</p>
+      <p className="subtitle is-6">{author.title}</p>
+    </div>
+  </div>
+)
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getBlogPostPaths(),
