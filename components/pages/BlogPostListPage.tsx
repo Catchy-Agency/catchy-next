@@ -1,21 +1,21 @@
-import { MouseEventHandler } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { MouseEventHandler } from 'react'
 import {
-  useQuerySubscription,
   renderMetaTags,
   ResponsiveImageType,
+  useQuerySubscription,
 } from 'react-datocms'
 
-import { Subscription } from '../../util/dato-cms'
 import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
-import { PreviewBanner } from '../cms/PreviewBanner'
+import { Subscription } from '../../util/dato-cms'
 import { PageError } from '../cms/PageError'
-import { Header } from '../Header'
-import { Footer } from '../Footer'
+import { PreviewBanner } from '../cms/PreviewBanner'
 import { ThumbRows } from '../content-links/ThumbRows'
+import { Footer } from '../Footer'
+import { Header } from '../Header'
 
 const PAGE_SIZE = 10
 
@@ -24,14 +24,13 @@ export interface BlogPostsPageProps {
   path: string
 }
 
-export const BlogPosts: NextPage<BlogPostsPageProps> = ({
+export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
   subscription,
   path,
 }) => {
   const router = useRouter()
-  const { data, error, status } = useQuerySubscription<AllBlogPosts>(
-    subscription,
-  )
+  const { data, error, status } =
+    useQuerySubscription<AllBlogPosts>(subscription)
 
   const links =
     data?.allBlogPosts.map((post) => ({

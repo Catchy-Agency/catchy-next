@@ -24,7 +24,7 @@ interface PageProps {
   subscription: Subscription<BlogPostBySlug>
 }
 
-const BlogPost: NextPage<PageProps> = ({ subscription }) => {
+const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
   const { data, error, status } =
     useQuerySubscription<BlogPostBySlug>(subscription)
 
@@ -110,4 +110,4 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
     : { notFound: true }
 }
 
-export default BlogPost
+export default BlogPostPage

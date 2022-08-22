@@ -1,16 +1,16 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 import {
+  BlogPostListPage,
+  BlogPostsPageProps,
+} from '../../../components/pages/BlogPostListPage'
+import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
+import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
+import {
   createSubscription,
   getCategoryIdBySlug,
   getCategoryPaths,
 } from '../../../util/dato-cms'
-import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
-import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
-import {
-  BlogPosts,
-  BlogPostsPageProps,
-} from '../../../components/pages/BlogPosts'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: await getCategoryPaths(),
@@ -32,4 +32,4 @@ export const getStaticProps: GetStaticProps<BlogPostsPageProps> = async (
   return { props: { subscription, path: `/blog/category/${slug}` } }
 }
 
-export default BlogPosts
+export default BlogPostListPage
