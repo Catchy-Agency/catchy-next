@@ -69,12 +69,14 @@ export const allBlogPosts = gql`
       title
       formTitle
       formNotice
-      nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
       contactEmail
+      directionsUrl
       footerLogo {
         url
         title
@@ -156,11 +158,14 @@ export const blogPostsByCategoryId = gql`
       formTitle
       formNotice
       nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
       contactEmail
+      directionsUrl
       footerLogo {
         url
         title
@@ -572,11 +577,14 @@ export const blogPostBySlug = gql`
       formTitle
       formNotice
       nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
       contactEmail
+      directionsUrl
       footerLogo {
         url
         title

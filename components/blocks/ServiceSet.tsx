@@ -10,7 +10,7 @@ export const ServiceSet: FC<{
   <div className="columns is-multiline">
     {block.services.map((service) => (
       <div key={service.id} className="column is-one-quarter">
-        <div className="title is-4 has-text-centered">
+        <div className="title is-4 ">
           {service.serviceImage?.responsiveImage ? (
             <figure className="image _mb-2">
               <Image
@@ -22,7 +22,6 @@ export const ServiceSet: FC<{
             </figure>
           ) : (
             <span className="fa-stack fa-3x">
-              {/* TODO */}
               <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
               <i
                 className={classNames(service.fontAwesomeIcon, 'fa-stack-1x')}
@@ -32,7 +31,7 @@ export const ServiceSet: FC<{
         </div>
         <div className="content-wrap">
           {service.title && <div className="title is-5">{service.title}</div>}
-          {service.text && (
+          {!block.hideTextContent && service.text && (
             <div
               className="content"
               dangerouslySetInnerHTML={{ __html: service.text }}

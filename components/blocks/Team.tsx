@@ -8,7 +8,7 @@ export const Team: FC<{
 }> = ({ block }) => (
   <>
     <h3 className="title has-text-primary team-title">{block.teamTitle}</h3>
-    <div className="columns is-mobile is-multiline _is-centered">
+    <div className="columns is-mobile is-multiline">
       {block.members.map((member) => (
         <div
           key={member.id}

@@ -44,9 +44,9 @@ $body-background-color: $grey-darkest;
 $body-size: 17px;
 
 $background: $grey-darker;
-$footer-background-color: $primary; //$background;
-$button-background-color: transparent; //$background;
-$button-border-color: $primary; //!lighten($button-background-color, 15);
+$footer-background-color: $primary;
+$button-background-color: transparent;
+$button-border-color: $primary;
 
 $title-color: #fff;
 $subtitle-color: $grey-light;
@@ -55,7 +55,7 @@ $subtitle-strong-color: $grey-light;
 $text: #fff;
 $text-light: lighten($text, 10);
 $text-strong: darken($text, 5);
-$text-dark: $grey-darkest; //darken($text, 5); // text-dark //red; //! has-dark-text
+$text-dark: $grey-darkest;
 
 $box-color: $text;
 $box-background-color: $grey-dark;
@@ -96,7 +96,7 @@ $navbar-height: 4rem;
 
 $navbar-background-color: $grey-darkest;
 $navbar-item-color: $text;
-$navbar-item-hover-color: $primary; //$grey-darker;
+$navbar-item-hover-color: $primary;
 $navbar-item-hover-background-color: transparent;
 $navbar-item-active-color: $navbar-item-hover-color;
 $navbar-dropdown-arrow: #fff;
@@ -121,7 +121,5 @@ $progress-bar-background-color: $grey-dark;
 
 $panel-heading-background-color: $grey-dark;
 
-$column-gap: 0.75rem; //default
-
-//breakpoints
-$mobile: 576px;
+//additional breakpoints
+$mobile: 576px; //bulma mobile is anything under 769px

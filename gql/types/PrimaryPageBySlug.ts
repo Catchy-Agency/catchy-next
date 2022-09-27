@@ -621,6 +621,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services 
 export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
   readonly __typename: "ServiceSetRecord";
   readonly id: any;
+  readonly hideTextContent: any | null;
   readonly services: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
@@ -805,12 +806,14 @@ export interface PrimaryPageBySlug_footer {
   readonly title: string | null;
   readonly formTitle: string | null;
   readonly formNotice: string | null;
-  readonly nameLabel: string | null;
+  readonly firstNameLabel: string | null;
+  readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly contactEmail: string | null;
+  readonly directionsUrl: string | null;
   readonly footerLogo: PrimaryPageBySlug_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<PrimaryPageBySlug_footer_socialLinks>;
   readonly richText: string | null;

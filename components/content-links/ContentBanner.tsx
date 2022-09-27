@@ -42,11 +42,9 @@ export const ContentBanner: FC<{
         }}
         loop
         centeredSlides={false}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {links.map((link) => (
-          <SwiperSlide key={link.id}>
+          <SwiperSlide key={link.id} style={{ height: 'unset' }}>
             <div
               className={classNames(
                 'columns is-vcentered position-relative is-justify-content-space-between',

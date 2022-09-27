@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { FC } from 'react'
 
-// PrimaryPageBySlug_header,
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug'
 import { pageview } from '../util/gtag'
 
@@ -34,7 +33,6 @@ export const Footer: FC<{
                     className="is-size-3"
                   >
                     <span className="fa-stack">
-                      {/* <i className="fas fa-circle fa-stack-2x has-text-turquoise" /> */}
                       <i
                         className={classNames(
                           link.fontAwesomeIcon,
@@ -57,11 +55,13 @@ export const Footer: FC<{
               />
             )}
           </div>
-          <div className="mt-5">
-            <a href="#TODO" rel="noreferrer">
-              directions
-            </a>
-          </div>
+          {footer.directionsUrl && (
+            <div className="mt-5">
+              <a href={footer.directionsUrl} rel="noreferrer">
+                directions
+              </a>
+            </div>
+          )}
         </div>
         <div className="column mt-3">
           {footer.formTitle && (
@@ -78,22 +78,16 @@ export const Footer: FC<{
                   className="input"
                   type="text"
                   name="firstname"
-                  placeholder={footer.nameLabel || undefined}
+                  placeholder={footer.firstNameLabel || 'First Name'}
                 />
-                {/* <span className="icon is-small is-left">
-                  <i className="fas fa-user" />
-                </span> */}
               </div>
               <div className="control is-expanded _has-icons-left">
                 <input
                   className="input"
                   type="text"
                   name="lastname"
-                  placeholder={footer.nameLabel || 'last'}
+                  placeholder={footer.lastNameLabel || 'Last Name'}
                 />
-                {/* <span className="icon is-small is-left">
-                  <i className="fas fa-user" />
-                </span> */}
               </div>
             </div>
             <div className="field">
@@ -104,9 +98,6 @@ export const Footer: FC<{
                   name="_replyto"
                   placeholder={footer.emailAddressLabel || undefined}
                 />
-                {/* <span className="icon is-small is-left">
-                  <i className="fas fa-envelope" />
-                </span> */}
               </div>
             </div>
             <div className="field">
@@ -150,35 +141,6 @@ export const Footer: FC<{
                   </svg>
                 </span>
               </label>
-              {/* <div className="is-flex pt-5 pb-5">
-                <div className="is-flex _is-align-items-center mr-4">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="16"
-                      cy="16"
-                      r="15.5"
-                      fill="#1DBC83"
-                      stroke="#1DBC83"
-                    />
-                    <path
-                      d="M12.727 20.075L8.427 15.687L7 17.149L12.727 23L25 10.463L23.568 9L12.727 20.075Z"
-                      fill="#0D202C"
-                    />
-                  </svg>
-                </div>
-                {footer.formNotice && (
-                  <span
-                    className="content"
-                    dangerouslySetInnerHTML={{ __html: footer.formNotice }}
-                  />
-                )}
-              </div> */}
             </div>
             <div className="field is-grouped">
               <div className="control submit-btn">

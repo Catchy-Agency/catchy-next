@@ -111,11 +111,14 @@ export interface BlogPostsByCategoryId_footer {
   readonly formTitle: string | null;
   readonly formNotice: string | null;
   readonly nameLabel: string | null;
+  readonly firstNameLabel: string | null;
+  readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
   readonly contactEmail: string | null;
+  readonly directionsUrl: string | null;
   readonly footerLogo: BlogPostsByCategoryId_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<BlogPostsByCategoryId_footer_socialLinks>;
   readonly richText: string | null;

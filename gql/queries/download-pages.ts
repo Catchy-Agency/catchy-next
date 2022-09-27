@@ -47,12 +47,14 @@ export const downloadPageBySlug = gql`
       title
       formTitle
       formNotice
-      nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
       contactEmail
+      directionsUrl
       footerLogo {
         url
         title

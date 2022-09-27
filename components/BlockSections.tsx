@@ -132,7 +132,7 @@ export const BlockSections: FC<{
             return (
               <section
                 key={block.id}
-                className="section ColumnRowRecord has-background-grey-darker"
+                className="section has-background-grey-darker ColumnRowRecord"
               >
                 <div className={classNames('container', maxClass)}>
                   <ColumnRow block={block} />
@@ -203,7 +203,9 @@ export const BlockSections: FC<{
                 return (
                   <section
                     key={block.id}
-                    className="section ContentLinkSetRecord has-background-grey-darker"
+                    className={classNames(
+                      'section ContentLinkSetRecord has-background-grey-darker',
+                    )}
                   >
                     <div className={classNames('container', maxClass)}>
                       <ContentBanner
@@ -215,8 +217,8 @@ export const BlockSections: FC<{
                   </section>
                 )
 
-              case '2-Column':
-              case '3-Column':
+              case 'Two-Column':
+              case 'Three-Column':
               case 'Thumb: Columns':
               case 'Card: Columns':
               case 'Thumb: Row':
@@ -224,7 +226,10 @@ export const BlockSections: FC<{
                 return (
                   <section
                     key={block.id}
-                    className="section ContentLinkSetRecord"
+                    className={classNames(
+                      'section ContentLinkSetRecord',
+                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                    )}
                   >
                     <div className={classNames('container', maxClass)}>
                       <ContentTile
@@ -296,7 +301,11 @@ export const BlockSections: FC<{
           case 'ServiceSetRecord':
             return (
               <section key={block.id} className="section ServiceSetRecord">
-                <div className={classNames('container', maxClass)}>
+                <div
+                  className={classNames('container', maxClass, {
+                    'has-text-centered': textAlign === 'Center',
+                  })}
+                >
                   <ServiceSet block={block} />
                 </div>
               </section>

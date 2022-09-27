@@ -450,6 +450,7 @@ export const primaryPageBySlug = gql`
         }
         ... on ServiceSetRecord {
           id
+          hideTextContent
           services {
             id
             title
@@ -581,12 +582,14 @@ export const primaryPageBySlug = gql`
       title
       formTitle
       formNotice
-      nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
       contactEmail
+      directionsUrl
       footerLogo {
         url
         title

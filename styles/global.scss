@@ -7,6 +7,8 @@ $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 
+$border-color-gray: #444f57;
+
 // Bulma theme & core
 // $widescreen-enabled: false;
 // $fullhd-enabled: false;
@@ -84,8 +86,10 @@ footer.section {
 // More fragile hacks
 //
 
-.section.ServiceSetRecord .title.is-5 {
-  margin-bottom: 0.5rem;
+.section.ServiceSetRecord {
+  .title.is-5 {
+    margin-bottom: 0.5rem;
+  }
 }
 
 //
@@ -163,7 +167,7 @@ footer.section {
 
   .title {
     display: inline-block;
-    max-width: 12.75em; //! home passionate
+    max-width: 12.75em;
   }
 
   $bottom: 1.5rem;
@@ -171,15 +175,6 @@ footer.section {
     position: relative;
     margin-bottom: $bottom;
     @include green-line(1rem);
-    // &:before {
-    //   //!greenline
-    //   content: '';
-    //   position: absolute;
-    //   left: 0;
-    //   width: 76px; //!varies
-    //   height: $height;
-    //   background-color: #1dbc83;
-    // }
   }
   @media (max-width: $mobile) {
     .title {
@@ -195,13 +190,16 @@ footer.section {
     }
     .title {
       &:before {
-        bottom: calc(-#{$bottom} - #{$height} - 1px); //font-size varies
-        transform: translateY(0.5rem); //varies
+        bottom: calc(-#{$bottom} - #{$height} - 1px);
+        transform: translateY(0.5rem);
         margin-right: 1.5rem;
       }
-      //! &:has(~ .content h3) {
-      //   transform: translateY(0);
-      // }
+    }
+  }
+  .has-text-centered {
+    h2:before {
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
@@ -210,10 +208,6 @@ footer.section {
   > .container {
     width: 100%;
   }
-  // .column:first-child {
-  //   flex-grow: 0;
-  //   flex-basis: 50%;
-  // }
   .column:last-child {
     display: flex;
     justify-content: center;
@@ -229,7 +223,7 @@ footer.section {
   }
 }
 
-$ttr-green-line-width: 83px; //!::root {} responsive
+$ttr-green-line-width: 83px;
 $ttr-green-line-mr: 24px;
 .AgencyModelRecord {
   padding-top: 100px;
@@ -241,26 +235,11 @@ $ttr-green-line-mr: 24px;
     }
   }
   .columns {
-    &.mx-0 {
-      // margin-left: -1rem!important;
-      // margin-right: -1rem!important;
-    }
     flex-wrap: wrap;
-    // margin-left: calc(#{$ttr-green-line-width} + #{$ttr-green-line-mr});
     margin: 0 -2rem;
     @media (min-width: calc($tablet + 1px)) {
       padding-left: 100px;
     }
-    @media (max-width: $fullhd) and (min-width: 991px) {
-      // margin-left: calc(76px + #{$ttr-green-line-mr} - 2rem); //!match 1 //?
-    }
-    @media (min-width: calc(1px + #{$fullhd})) {
-      // transform: translateX(
-      //   calc(76px + #{$ttr-green-line-mr} - 1rem)
-      // ); //!match 1 //?
-    }
-    // margin-right: calc(-50vw + 50%); //!match 1 //?
-    // margin: -1rem;
   }
   .column {
     padding: 0;
@@ -271,7 +250,7 @@ $ttr-green-line-mr: 24px;
   }
   ._column {
     &:not(:nth-child(3)) {
-      border-top: 1px solid #444f57;
+      border-top: 1px solid $border-color-gray;
       padding-top: 1.5rem;
     }
     padding-bottom: 1.5rem;
@@ -282,7 +261,7 @@ $ttr-green-line-mr: 24px;
 }
 
 .ClientSetRecord {
-  $border: 1px solid #444f57; //! color extraction
+  $border: 1px solid $border-color-gray;
   .column {
     @for $i from 1 through 6 {
       &:nth-child(#{$i}) {
@@ -348,7 +327,6 @@ $ttr-green-line-mr: 24px;
     @include hdl1();
   }
   .container > .columns > .column:last-child {
-    //! toggle
     padding-top: 28px;
     @include green-line();
     &:before {
@@ -371,19 +349,19 @@ $ttr-green-line-mr: 24px;
   }
 }
 
-// .swiper-wrapper {
-//   margin: 0 1px; //green border //!var
-// }
 div[class^='swiper-button-'] {
-  // background: #fff;
   border-radius: 50%;
   display: inline-flex;
   position: absolute;
   top: 50%;
   z-index: 5;
 
-  height: max(1.5rem, min(7vw, 84px));
-  width: max(1.5rem, min(7vw, 84px));
+  height: max(2.5rem, min(5vw, 84px));
+  width: max(2.5rem, min(5vw, 84px));
+  @media (max-width: $desktop) {
+    height: max(2.5rem, min(7vw, 84px));
+    width: max(2.5rem, min(7vw, 84px));
+  }
 
   svg {
     @include fillall;
@@ -414,18 +392,25 @@ div[class^='swiper-button-'] {
   right: 0;
   transform: translate(50%, -50%);
 }
-//div:has(> .swiper-pagination-bullet)) {
+
 .swiper-pagination-container {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 2rem; //!
+  margin-top: 2rem;
+  @media (max-width: $desktop) {
+    gap: 0.5rem;
+    .swiper-pagination-bullet {
+      height: 14px !important;
+      width: 14px !important;
+    }
+  }
 }
 .swiper-pagination-bullet {
   border: 1px solid #fff;
   background-color: transparent;
-  height: 1.125rem !important;
-  width: 1.125rem !important;
+  height: 1.0625rem !important;
+  width: 1.0625rem !important;
   transition: 0.1s;
   &:hover {
     background-color: $primary-trans;
@@ -483,7 +468,7 @@ div[class^='swiper-button-'] {
       // &[class*='image-'] {
       //   max-height: 466px;
       // }
-      > * {
+      > *:not(.button) {
         max-height: 100%;
         @media (max-width: $tablet) {
           box-sizing: content-box;
@@ -502,9 +487,7 @@ div[class^='swiper-button-'] {
     }
     &.is-large {
       img {
-        //max-
-        // height: 466px; //500px;
-        object-fit: cover; //!crop
+        object-fit: cover;
       }
       .button.is-primary {
         min-width: unset;
@@ -557,6 +540,9 @@ $ssr-spacing: var(--ssr-spacing);
   .columns {
     margin: calc(-#{$ssr-spacing} * 2);
   }
+  .has-text-centered .columns {
+    justify-content: center;
+  }
   .column {
     display: flex;
     flex-flow: column;
@@ -572,9 +558,13 @@ $ssr-spacing: var(--ssr-spacing);
     }
   }
   .content-wrap {
+    min-height: 7rem;
     border-top: unset;
     padding: 6%;
     border-top: 1px solid $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .is-5 {
       @include bulletList();
     }
@@ -594,59 +584,29 @@ $ssr-spacing: var(--ssr-spacing);
       margin-bottom: 0;
     }
   }
-
-  .__service-img {
-    //!integrations
-    @extend .has-background-grey-darker; //!
-    border: 1px solid $primary;
-    flex: 0 0 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0 !important;
-    height: 275px;
-    padding: 3rem;
-    > div {
-      height: 100%;
-      width: 100%;
-    }
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-  ._service-img {
-    //! ^
-    min-height: 50px;
-    // @extend .has-background-grey-darker; //!
-    border: 1px solid $primary;
-    flex: 0 0 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0 !important;
-    height: 275px;
-    padding: 3rem;
-    > div {
-      height: 100%;
-      width: 100%;
-    }
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
 }
 
 @media screen and (max-width: $fullhd) {
   .ServiceSetRecord {
     .column {
-      // @extend .is-half;
+      flex-basis: calc(33% - #{$ssr-spacing} * 2);
+    }
+  }
+}
+@media screen and (max-width: $desktop) {
+  .ServiceSetRecord {
+    .column {
       flex-basis: calc(50% - #{$ssr-spacing} * 2);
+    }
+  }
+}
+@media screen and (min-width: $tablet) {
+  .ServiceSetRecord {
+    .content {
+      //@see typography defs in theme_override
+      $line-height: 25.5px;
+      $num-lines: 3;
+      min-height: calc($line-height * $num-lines);
     }
   }
 }
@@ -655,16 +615,7 @@ $ssr-spacing: var(--ssr-spacing);
     max-width: 1440px;
   }
 }
-@media screen and (min-width: $tablet) {
-  .ServiceSetRecord {
-    .content {
-      //single headline, 3 content lines
-      $line-height: 25.5px;
-      $num-lines: 3;
-      min-height: calc($line-height * $num-lines);
-    }
-  }
-}
+
 // @media screen and (max-width: $widescreen) and (min-width: $tablet) {
 //   .fa-3x {
 //     font-size: 2em;

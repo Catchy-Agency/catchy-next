@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import { FC } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
@@ -9,9 +8,8 @@ export const AgencyModel: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord
 }> = ({ block }) => (
   <>
-    {/* DeCouple */}
     <section key={block.id} className="_section TitleTextRecord">
-      <div className={classNames('_container', 'TODO_maxClass')}>
+      <div>
         <TitleText
           block={{
             __typename: 'TitleTextRecord',

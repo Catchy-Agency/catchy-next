@@ -41,14 +41,6 @@ export const CardColumns: FC<{
               {link.description && (
                 <div className="content">{link.description}</div>
               )}
-              {/* Shadow link to take up space //! */}
-              {/* <button
-                className="button is-ghost"
-                style={{ visibility: 'hidden', padding: 0 }}
-              >
-                {link.callToAction}
-              </button> */}
-              {/* Real link, pinned to bottom */}
               <Link href={link.url || ''}>
                 <a>
                   <button
