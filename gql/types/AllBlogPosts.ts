@@ -91,6 +91,13 @@ export interface AllBlogPosts_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface AllBlogPosts_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface AllBlogPosts_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -101,11 +108,15 @@ export interface AllBlogPosts_footer_socialLinks {
 export interface AllBlogPosts_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
+  readonly formTitle: string | null;
+  readonly formNotice: string | null;
   readonly nameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly footerLogo: AllBlogPosts_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<AllBlogPosts_footer_socialLinks>;
   readonly richText: string | null;
 }

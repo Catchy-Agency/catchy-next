@@ -1,30 +1,31 @@
-import { FC } from 'react'
 import classNames from 'classnames'
+import { FC } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
-import { prefixByTypename } from '../util/url'
-import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug'
+import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
+import { prefixByTypename } from '../util/url'
+import { AgencyModel } from './blocks/AgencyModel'
 import { Banner } from './blocks/Banner'
+import { ButtonExternal } from './blocks/ButtonExternal'
+import { ButtonInternal } from './blocks/ButtonInternal'
 import { ClientSet } from './blocks/ClientSet'
+import { ColumnRow } from './blocks/ColumnRow'
 import { FormBlock } from './blocks/FormBlock'
 import { Formula } from './blocks/Formula'
+import { ImageSet } from './blocks/ImageSet'
+import { RichText } from './blocks/RichText'
 import { ServiceSet } from './blocks/ServiceSet'
 import { Team } from './blocks/Team'
 import { TitleText } from './blocks/TitleText'
-import { ViewMoreLink } from './blocks/ViewMoreLink'
-import { ImageSet } from './blocks/ImageSet'
-import { RichText } from './blocks/RichText'
 import { Video } from './blocks/Video'
-import { ButtonExternal } from './blocks/ButtonExternal'
-import { ButtonInternal } from './blocks/ButtonInternal'
-import { ColumnRow } from './blocks/ColumnRow'
+import { VideoInternal } from './blocks/VideoInternal'
+import { ViewMoreLink } from './blocks/ViewMoreLink'
 import { CardColumns } from './content-links/CardColumns'
 import { CardRows } from './content-links/CardRows'
+import { ContentBanner } from './content-links/ContentBanner'
+import { ContentTile } from './content-links/ContentTiles' //ContentTileM,
 import { ThumbColumns } from './content-links/ThumbColumns'
-import { ThumbRows } from './content-links/ThumbRows'
-import { HeroBanner } from './content-links/HeroBanner'
-import { VideoInternal } from './blocks/VideoInternal'
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
@@ -46,11 +47,22 @@ export const BlockSections: FC<{
     <>
       {blocks?.map((block) => {
         switch (block?.__typename) {
+          case 'AgencyModelRecord':
+            return (
+              <section
+                key={block.id}
+                className="section has-background-grey-darker AgencyModelRecord"
+              >
+                <div className={classNames('container', maxClass)}>
+                  <AgencyModel block={block} />
+                </div>
+              </section>
+            )
           case 'BannerRecord':
             return (
               <section
                 key={block.id}
-                className="section BannerRecord hero is-dark is-relative"
+                className="section BannerRecord hero has-background-grey-darkest is-relative"
               >
                 {block.backgroundImage?.responsiveImage && (
                   <div
@@ -118,7 +130,10 @@ export const BlockSections: FC<{
 
           case 'ColumnRowRecord':
             return (
-              <section key={block.id} className="section ColumnRowRecord">
+              <section
+                key={block.id}
+                className="section ColumnRowRecord has-background-grey-darker"
+              >
                 <div className={classNames('container', maxClass)}>
                   <ColumnRow block={block} />
                 </div>
@@ -139,7 +154,7 @@ export const BlockSections: FC<{
               callToAction,
             }))
             switch (block.displaySize) {
-              case 'Card: Columns':
+              case '_Card: Columns':
                 return (
                   <section
                     key={block.id}
@@ -150,7 +165,7 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case 'Card: Rows':
+              case '_Card: Rows':
                 return (
                   <section
                     key={block.id}
@@ -161,7 +176,7 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case 'Thumb: Columns':
+              case '_Thumb: Columns':
                 return (
                   <section
                     key={block.id}
@@ -172,14 +187,15 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case 'Thumb: Rows':
+              case '_Thumb: Rows':
                 return (
                   <section
                     key={block.id}
                     className="section ContentLinkSetRecord"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ThumbRows links={links} imageAlign={imageAlign} />
+                      {/* <ThumbRows links={links} imageAlign={imageAlign} /> */}
+                      <CardRows links={links} imageAlign={imageAlign} />
                     </div>
                   </section>
                 )
@@ -190,10 +206,51 @@ export const BlockSections: FC<{
                     className="section ContentLinkSetRecord has-background-grey-darker"
                   >
                     <div className={classNames('container', maxClass)}>
-                      <HeroBanner links={links} imageAlign={imageAlign} />
+                      <ContentBanner
+                        links={links}
+                        imageAlign={imageAlign}
+                        heroBannerImageSize={block.heroBannerImageSize}
+                      />
                     </div>
                   </section>
                 )
+
+              case '2-Column':
+              case '3-Column':
+              case 'Thumb: Columns':
+              case 'Card: Columns':
+              case 'Thumb: Row':
+              case 'Card: Row':
+                return (
+                  <section
+                    key={block.id}
+                    className="section ContentLinkSetRecord"
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ContentTile
+                        displaySize={block.displaySize}
+                        links={links}
+                        isSlider={block.isSlider}
+                      />
+                    </div>
+                  </section>
+                )
+              // case '_Hero Banner':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className="section ContentLinkSetRecord ContentTileL has-background-grey-darker"
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         {/* <ContentTileM //ContentFeatured
+              //           links={links}
+              //           imageAlign={imageAlign}
+              //           isSlider={block.isSlider}
+              //           heroBannerImageSize={ block.heroBannerImageSize }
+              //         /> */}
+              //       </div>
+              //     </section>
+              //   )
 
               default:
                 return null
@@ -287,7 +344,7 @@ export const BlockSections: FC<{
                 <div
                   className={classNames(
                     'container',
-                    'has-text-right',
+                    'has-text-centered',
                     maxClass,
                   )}
                 >

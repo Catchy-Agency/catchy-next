@@ -216,6 +216,8 @@ export const contentPageBySlug = gql`
           id
           displaySize
           imageAlign
+          isSlider
+          heroBannerImageSize
           callToActionLabel
           links {
             __typename
@@ -421,11 +423,19 @@ export const contentPageBySlug = gql`
     }
     footer {
       title
+      formTitle
+      formNotice
       nameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

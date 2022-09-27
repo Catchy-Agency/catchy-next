@@ -90,8 +90,8 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image {
   readonly responsiveImage: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_image_responsiveImage | null;
 }
 
-export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_AgencyModelRecord {
+  readonly __typename: "AgencyModelRecord" | "ImageSetRecord";
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -226,7 +226,7 @@ export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_V
   readonly video: BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video | null;
 }
 
-export type BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks = BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_VideoRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord;
+export type BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks = BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_AgencyModelRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_VideoRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord;
 
 export interface BlogPostBySlug_blogPost_blocks_ColumnRowRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -361,6 +361,8 @@ export interface BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord {
   readonly id: any;
   readonly displaySize: string | null;
   readonly imageAlign: string | null;
+  readonly isSlider: any | null;
+  readonly heroBannerImageSize: string | null;
   readonly callToActionLabel: string | null;
   readonly links: ReadonlyArray<BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links>;
 }
@@ -546,6 +548,13 @@ export interface BlogPostBySlug_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface BlogPostBySlug_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface BlogPostBySlug_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -556,11 +565,15 @@ export interface BlogPostBySlug_footer_socialLinks {
 export interface BlogPostBySlug_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
+  readonly formTitle: string | null;
+  readonly formNotice: string | null;
   readonly nameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly footerLogo: BlogPostBySlug_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<BlogPostBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }

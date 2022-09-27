@@ -16,9 +16,41 @@ export const primaryPageBySlug = gql`
       textAlign
       blocks {
         __typename
+        ... on AgencyModelRecord {
+          id
+          text
+          title
+          columns {
+            id
+            image {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 200, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            title
+            services {
+              id
+              title
+              text
+            }
+          }
+        }
         ... on BannerRecord {
           id
+          titleOverline
           title
+          addGreenLine
+          subTitle
           text
           foregroundImage {
             responsiveImage(
@@ -109,6 +141,8 @@ export const primaryPageBySlug = gql`
           displaySize
           imageAlign
           callToActionLabel
+          isSlider
+          heroBannerImageSize
           links {
             __typename
             ... on PrimaryPageRecord {
@@ -118,7 +152,7 @@ export const primaryPageBySlug = gql`
               description
               previewImage {
                 responsiveImage(
-                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  imgixParams: { fit: crop, ar: "7:8", auto: format }
                 ) {
                   aspectRatio
                   height
@@ -139,7 +173,7 @@ export const primaryPageBySlug = gql`
               description
               previewImage {
                 responsiveImage(
-                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  imgixParams: { fit: crop, ar: "7:8", auto: format }
                 ) {
                   aspectRatio
                   height
@@ -160,7 +194,7 @@ export const primaryPageBySlug = gql`
               description
               previewImage {
                 responsiveImage(
-                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  imgixParams: { fit: crop, ar: "7:8", auto: format }
                 ) {
                   aspectRatio
                   height
@@ -181,7 +215,7 @@ export const primaryPageBySlug = gql`
               description
               previewImage {
                 responsiveImage(
-                  imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                  imgixParams: { fit: crop, ar: "7:8", auto: format }
                 ) {
                   aspectRatio
                   height
@@ -421,10 +455,26 @@ export const primaryPageBySlug = gql`
             title
             text
             fontAwesomeIcon
+            serviceImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 750, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
           }
         }
         ... on TeamRecord {
           id
+          teamTitle
           members {
             id
             name
@@ -529,11 +579,19 @@ export const primaryPageBySlug = gql`
     }
     footer {
       title
+      formTitle
+      formNotice
       nameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

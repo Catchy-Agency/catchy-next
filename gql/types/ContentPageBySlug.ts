@@ -131,8 +131,8 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_im
   readonly responsiveImage: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_image_responsiveImage | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_AgencyModelRecord {
+  readonly __typename: "AgencyModelRecord" | "ImageSetRecord";
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord {
@@ -267,7 +267,7 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_bl
   readonly video: ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord;
+export type ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks = ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_AgencyModelRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns_blocks_VideoInternalRecord;
 
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
   readonly __typename: "ColumnRecord";
@@ -402,6 +402,8 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
   readonly id: any;
   readonly displaySize: string | null;
   readonly imageAlign: string | null;
+  readonly isSlider: any | null;
+  readonly heroBannerImageSize: string | null;
   readonly callToActionLabel: string | null;
   readonly links: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links>;
 }
@@ -579,6 +581,13 @@ export interface ContentPageBySlug_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface ContentPageBySlug_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface ContentPageBySlug_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -589,11 +598,15 @@ export interface ContentPageBySlug_footer_socialLinks {
 export interface ContentPageBySlug_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
+  readonly formTitle: string | null;
+  readonly formNotice: string | null;
   readonly nameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly footerLogo: ContentPageBySlug_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<ContentPageBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }

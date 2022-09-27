@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import { FC } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
@@ -9,7 +10,19 @@ export const Banner: FC<{
 }> = ({ block }) => (
   <div className="columns">
     <div className="column">
-      {block.title && <h1 className="title is-1">{block.title}</h1>}
+      {block.titleOverline && <p className="overline">{block.titleOverline}</p>}
+      {block.title && (
+        <h1
+          className={classNames('title is-1', {
+            'has-green-line': block.addGreenLine,
+          })}
+        >
+          {block.title}
+        </h1>
+      )}
+      {block.subTitle && (
+        <h2 className="title is-3 has-text-primary">{block.subTitle}</h2>
+      )}
       {block.text && (
         <div
           className="content"
@@ -18,7 +31,7 @@ export const Banner: FC<{
       )}
       {block.showContactButton === true && (
         <button
-          className="button is-primary is-medium mt-4"
+          className="button is-primary _is-medium mt-4"
           onClick={scrollToContact}
         >
           {block.contactButtonLabel}
