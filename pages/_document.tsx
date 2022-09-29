@@ -15,7 +15,7 @@ export default class extends Document {
             crossOrigin={'true'}
           /> */}
           <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
             rel="stylesheet"
           />
           {/* Font Awesome */}
