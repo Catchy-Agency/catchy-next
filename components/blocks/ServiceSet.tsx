@@ -10,9 +10,9 @@ export const ServiceSet: FC<{
   <div className="columns is-multiline">
     {block.services.map((service) => (
       <div key={service.id} className="column is-one-quarter">
-        <div className="title is-4 ">
+        <div className="title is-4 py-6">
           {service.serviceImage?.responsiveImage ? (
-            <figure className="image _mb-2">
+            <figure className="image">
               <Image
                 data={
                   service.serviceImage?.responsiveImage as ResponsiveImageType
@@ -29,7 +29,15 @@ export const ServiceSet: FC<{
             </span>
           )}
         </div>
-        <div className="content-wrap">
+        <div
+          className={classNames('content-wrap', {
+            'has-text-right': block.textAlignment === 'Right',
+            'has-text-centered': block.textAlignment === 'Center',
+            'has-text-left':
+              block.textAlignment !== 'Right' &&
+              block.textAlignment !== 'Center',
+          })}
+        >
           {service.title && <div className="title is-5">{service.title}</div>}
           {!block.hideTextContent && service.text && (
             <div

@@ -23,7 +23,7 @@ import { VideoInternal } from './blocks/VideoInternal'
 import { ViewMoreLink } from './blocks/ViewMoreLink'
 import { CardColumns } from './content-links/CardColumns'
 import { CardRows } from './content-links/CardRows'
-import { ContentBanner } from './content-links/ContentBanner'
+import { ContentBanner } from './content-links/ContentBanners'
 import { ContentTile } from './content-links/ContentTiles' //ContentTileM,
 import { ThumbColumns } from './content-links/ThumbColumns'
 
@@ -199,6 +199,7 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
+
               case 'Hero Banner':
                 return (
                   <section
@@ -221,8 +222,8 @@ export const BlockSections: FC<{
               case 'Three-Column':
               case 'Thumb: Columns':
               case 'Card: Columns':
-              case 'Thumb: Row':
-              case 'Card: Row':
+              case 'Thumb: Rows':
+              case 'Card: Rows':
                 return (
                   <section
                     key={block.id}
@@ -256,6 +257,48 @@ export const BlockSections: FC<{
               //       </div>
               //     </section>
               //   )
+
+              case '__Banner:Large':
+              case '__Banner:Medium':
+              case '__Banner:Small':
+                return null
+
+              case '__Cards: Medium':
+                return (
+                  <section
+                    key={block.id}
+                    className={classNames(
+                      'section ContentLinkSetRecord',
+                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                    )}
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ContentTile
+                        displaySize={block.displaySize}
+                        links={links}
+                        isSlider={block.isSlider}
+                      />
+                    </div>
+                  </section>
+                )
+              case '__Cards: Small':
+                return (
+                  <section
+                    key={block.id}
+                    className={classNames(
+                      'section ContentLinkSetRecord',
+                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                    )}
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ContentTile
+                        displaySize={block.displaySize}
+                        links={links}
+                        isSlider={block.isSlider}
+                      />
+                    </div>
+                  </section>
+                )
 
               default:
                 return null

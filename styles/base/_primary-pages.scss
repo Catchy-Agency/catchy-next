@@ -1,0 +1,417 @@
+:root {
+  --ssr-spacing: 12px;
+}
+@media (max-width: $desktop) {
+  :root {
+    --ssr-spacing: 8px;
+  }
+}
+@media (max-width: $mobile) {
+  :root {
+    --ssr-spacing: 8px;
+  }
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@import '../components/_title-text';
+@import '../components/_agency-model';
+
+.primary-page {
+  @media (max-width: $mobile) {
+    //TODO test
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .BannerRecord {
+    > .container {
+      width: 100%;
+    }
+    .column:last-child {
+      display: flex;
+      justify-content: center;
+      margin-right: calc((min(770px, 50vw) * -1) + 50%);
+    }
+    .has-green-line {
+      margin-bottom: 1em;
+      &:before {
+        width: 85px;
+        top: unset;
+        bottom: calc(-0.5em - 5px);
+      }
+    }
+  }
+
+  .ClientSetRecord {
+    $border: 1px solid $border-color-gray;
+    .column {
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          border-bottom: $border;
+        }
+      }
+      &.is-one-fifth-desktop {
+        // @media screen and (min-width: 1216px) {
+        @media screen and (min-width: 1024px) {
+          width: calc(100% / 6);
+        }
+      }
+    }
+    @media screen and (max-width: calc(#{$tablet} - 1px)) {
+      .column {
+        &:nth-child(9) {
+          border-bottom: $border;
+        }
+        &:not(:nth-child(3n)) {
+          border-right: $border;
+        }
+      }
+    }
+    @media screen and (min-width: $tablet)  and (max-width: calc(#{$desktop} - 1px)) {
+      .column {
+        &:not(:nth-child(4n)) {
+          border-right: $border;
+        }
+      }
+    }
+    @media screen and (max-width: calc(#{$desktop} - 1px)) {
+      .column {
+        @each $i in 7, 8 {
+          &:nth-child(#{$i}) {
+            border-bottom: $border;
+          }
+        }
+      }
+    }
+    @media screen and (min-width: $desktop) {
+      .column {
+        &:not(:nth-child(6n)) {
+          border-right: $border;
+        }
+      }
+    }
+  }
+
+  .TeamRecord {
+    .is-4 {
+      margin-top: 1.25em;
+    }
+  }
+
+  div[class^='swiper-button-'] {
+    border-radius: 50%;
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+
+    height: max(2.5rem, min(5vw, 84px));
+    width: max(2.5rem, min(5vw, 84px));
+    @media (max-width: $desktop) {
+      height: max(2.5rem, min(7vw, 84px));
+      width: max(2.5rem, min(7vw, 84px));
+    }
+
+    svg {
+      @include fillall;
+    }
+
+    path,
+    circle {
+      transition: 0.2s fill ease-out;
+    }
+    &:hover {
+      path {
+        fill: $grey-darkest;
+      }
+      circle {
+        fill: $primary;
+        fill-opacity: 1;
+      }
+    }
+  }
+  .swiper-button-prev-btn {
+    align-items: center;
+    left: 0;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+  .swiper-button-next-btn {
+    right: 0;
+    transform: translate(50%, -50%);
+  }
+
+  .swiper-pagination-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    @media (max-width: $desktop) {
+      gap: 0.5rem;
+      .swiper-pagination-bullet {
+        height: 14px !important;
+        width: 14px !important;
+      }
+    }
+  }
+  .swiper-pagination-bullet {
+    border: 1px solid #fff;
+    background-color: transparent;
+    height: 1.0625rem !important;
+    width: 1.0625rem !important;
+    transition: 0.1s;
+    &:hover {
+      background-color: $primary-trans;
+      border-color: $turquoise-interact;
+    }
+    &-active {
+      background: $primary !important;
+      border-color: transparent;
+    }
+  }
+
+  .ContentLinkSetRecord {
+    &.section.has-background-grey-darker {
+      margin: 120px 0;
+    }
+    @media (max-width: $tablet) {
+      .column {
+        width: 100%;
+      }
+    }
+    .card-columns {
+      position: relative;
+      .column {
+        //non-slider
+        max-height: 600px;
+        > * {
+          max-height: 100%;
+        }
+      }
+    }
+    .swiper-slide {
+      position: relative;
+      .columns {
+        box-sizing: border-box;
+      }
+      &:before {
+        content: '';
+        @include fillall;
+        z-index: 10;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+    }
+    *:not(.swiper-slide) > .card,
+    .swiper-slide:before {
+      border: 1px solid $primary;
+    }
+
+    .hero-banner {
+      padding: 80px 0;
+      // .swiper-wrapper {
+      //   margin: 0 0.75rem;
+      // }
+      .column {
+        // &[class*='image-'] {
+        //   max-height: 466px;
+        // }
+        > *:not(.button) {
+          max-height: 100%;
+          @media (max-width: $tablet) {
+            box-sizing: content-box;
+          }
+        }
+      }
+      &.is-large {
+        .column {
+          box-sizing: content-box;
+        }
+      }
+      .swiper-slide {
+        &:before {
+          content: unset;
+        }
+      }
+      &.is-large {
+        img {
+          object-fit: cover;
+        }
+        .button.is-primary {
+          min-width: unset;
+        }
+        .hero-banner-content a {
+          display: flex;
+          justify-content: space-between;
+          gap: 1.5rem;
+        }
+        .content {
+          @include bdy-com;
+        }
+        .is-vcentered {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+      }
+      .link-left {
+        display: flex;
+      }
+    }
+    .image-sm {
+      img {
+        max-width: calc(100% - 1.5rem);
+        max-height: calc(100% - 1.5rem);
+        margin: 0.75rem;
+      }
+      div {
+        // padding: 0.75rem;
+        position: relative;
+        box-sizing: border-box;
+        max-width: 100%;
+        max-height: 100%;
+        &:before {
+          //dup
+          content: '';
+          @include fillall;
+          width: calc(100% - 2px);
+          height: calc(100% - 2px);
+          z-index: 10;
+          pointer-events: none;
+          border: 1px solid $primary;
+        }
+      }
+    }
+  }
+
+  $ssr-spacing: var(--ssr-spacing);
+  .ServiceSetRecord {
+    .columns {
+      margin: calc(-#{$ssr-spacing} * 2);
+    }
+    .has-text-centered .columns {
+      justify-content: center;
+    }
+    .column {
+      display: flex;
+      flex-flow: column;
+      background: rgba(68, 79, 87, 0.2);
+      border: 1px solid $primary;
+      margin: $ssr-spacing;
+      padding: 0;
+      @media (min-width: $fullhd) {
+        &.is-one-quarter {
+          flex-basis: calc(25% - #{$ssr-spacing} * 2);
+          width: calc(25% - #{$ssr-spacing} * 2);
+        }
+      }
+    }
+    .content-wrap {
+      min-height: 7rem;
+      border-top: unset;
+      padding: 6%;
+      border-top: 1px solid $primary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .is-5 {
+        @include bulletList();
+      }
+    }
+
+    //image
+    .title.is-4 {
+      margin-bottom: 0;
+      padding: 1rem 0;
+      display: grid;
+      place-items: center;
+    }
+    figure {
+      &.image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $fullhd) {
+    .ServiceSetRecord {
+      .column {
+        flex-basis: calc(33% - #{$ssr-spacing} * 2);
+      }
+    }
+  }
+  @media screen and (max-width: $desktop) {
+    .ServiceSetRecord {
+      .column {
+        flex-basis: calc(50% - #{$ssr-spacing} * 2);
+      }
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    .ServiceSetRecord {
+      .content {
+        //@see typography defs in theme_override
+        $line-height: 25.5px;
+        $num-lines: 3;
+        min-height: calc($line-height * $num-lines);
+      }
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    .primary-page .container {
+      max-width: 1440px;
+    }
+  }
+
+  // @media screen and (max-width: $widescreen) and (min-width: $tablet) {
+  //   .fa-3x {
+  //     font-size: 2em;
+  //   }
+  // }
+}
+
+//call to action join
+//.primary-page
+.section.ColumnRowRecord {
+  padding: 120px 6%;
+  box-sizing: border-box;
+  .title.is-1,
+    //.container > .columns > .column:first-child, //affects - /blog/meet-the-team-tom-williams
+    h2 {
+    // only 1 h1 per page -> hero title
+    @include hdl1();
+  }
+  .container > .columns > .column:last-child {
+    padding-top: 28px;
+    h3 {
+      @include green-line(); //TODO apply to h3s only
+      &:before {
+        top: -1em;
+      }
+    }
+    &:before {
+      top: 0;
+    }
+  }
+  @media (max-width: $tablet) {
+    padding: 80px max(6%, 1.5rem);
+
+    .title.is-1,
+    h2,
+    .container > .columns > .column:first-child {
+      @include font-size(42px !important);
+    }
+  }
+  .container > .columns > .column .content {
+    h3 {
+      font-size: 1.5em !important;
+    }
+  }
+}

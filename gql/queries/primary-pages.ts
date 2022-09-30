@@ -451,6 +451,7 @@ export const primaryPageBySlug = gql`
         ... on ServiceSetRecord {
           id
           hideTextContent
+          textAlignment
           services {
             id
             title
@@ -501,6 +502,7 @@ export const primaryPageBySlug = gql`
           id
           title
           text
+          maxWidth
         }
         ... on VideoRecord {
           id

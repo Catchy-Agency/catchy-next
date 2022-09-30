@@ -1,0 +1,61 @@
+.section.TitleTextRecord {
+  padding-top: 100px;
+
+  @media (max-width: $tablet) {
+    padding-top: 80px;
+  }
+}
+
+.section.AgencyModelRecord .TitleTextRecord,
+.section.TitleTextRecord {
+  $height: 5px;
+  $bottom: 1.5rem;
+
+  padding-bottom: 0;
+
+  // + .section {
+  //   margin-top: 0;
+  //   // padding-top: 0;
+  // }
+
+  .title {
+    display: inline-block;
+    max-width: 12.75em;
+  }
+
+  .title {
+    position: relative;
+    margin-bottom: $bottom;
+    @include green-line(1rem);
+  }
+  .content {
+    @include hdl4;
+  }
+
+  .has-text-centered {
+    h2:before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  @media (max-width: $mobile) {
+    .title {
+      padding-bottom: 1.5rem;
+      &:before {
+        bottom: -$height;
+      }
+    }
+  }
+  @media (min-width: calc(#{$mobile} + 1px)) {
+    .content {
+      padding-left: 96px;
+    }
+    .title {
+      &:before {
+        bottom: calc(-#{$bottom} - #{$height} - 1px);
+        transform: translateY(0.5rem);
+        margin-right: 1.5rem;
+      }
+    }
+  }
+}

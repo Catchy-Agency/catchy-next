@@ -1,0 +1,45 @@
+.AgencyModelRecord {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  .image {
+    img {
+      object-fit: contain;
+      object-position: left center;
+    }
+  }
+  $shift: 2rem;
+  .columns {
+    flex-wrap: wrap;
+    margin: 0 #{-$shift};
+    @media (min-width: calc($tablet + 1px)) {
+      padding-left: 100px;
+    }
+  }
+  .column {
+    padding: 0;
+    margin: 0 $shift;
+    @media (max-width: 991px) {
+      flex-basis: 100%;
+    }
+  }
+  ._column {
+    &:not(:nth-child(3)) {
+      border-top: 1px solid $border-color-gray;
+      padding-top: 1.5rem;
+    }
+    padding-bottom: 1.5rem;
+    h5 {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @media (min-width: $fullhd) {
+    $shift: 4rem;
+    .columns {
+      margin: 0 #{-$shift};
+    }
+    .column {
+      margin: 0 $shift;
+    }
+  }
+}

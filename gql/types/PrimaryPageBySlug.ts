@@ -622,6 +622,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
   readonly __typename: "ServiceSetRecord";
   readonly id: any;
   readonly hideTextContent: any | null;
+  readonly textAlignment: string | null;
   readonly services: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
@@ -663,6 +664,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
   readonly id: any;
   readonly title: string | null;
   readonly text: string | null;
+  readonly maxWidth: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_VideoRecord_video {

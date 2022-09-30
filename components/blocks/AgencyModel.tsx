@@ -16,6 +16,7 @@ export const AgencyModel: FC<{
             id: block.id,
             title: block.title,
             text: block.text,
+            maxWidth: 40,
           }}
         />
       </div>
