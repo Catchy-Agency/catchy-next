@@ -21,6 +21,7 @@ import { TitleText } from './blocks/TitleText'
 import { Video } from './blocks/Video'
 import { VideoInternal } from './blocks/VideoInternal'
 import { ViewMoreLink } from './blocks/ViewMoreLink'
+import { ContentBannerLarge } from './content-links/banners/Large'
 import { CardColumns } from './content-links/CardColumns'
 import { CardRows } from './content-links/CardRows'
 import { ContentBanner } from './content-links/ContentBanners'
@@ -151,6 +152,12 @@ export const BlockSections: FC<{
               image:
                 (link.previewImage?.responsiveImage as ResponsiveImageType) ||
                 null,
+              imageLg:
+                (link.previewImageLg?.responsiveImage as ResponsiveImageType) ||
+                null,
+              imageSm:
+                (link.previewImageSm?.responsiveImage as ResponsiveImageType) ||
+                null,
               callToAction,
             }))
             switch (block.displaySize) {
@@ -200,6 +207,7 @@ export const BlockSections: FC<{
                   </section>
                 )
 
+              case '_Banner (Large)':
               case 'Hero Banner':
                 return (
                   <section
@@ -213,6 +221,7 @@ export const BlockSections: FC<{
                         links={links}
                         imageAlign={imageAlign}
                         heroBannerImageSize={block.heroBannerImageSize}
+                        displaySize={block.displaySize}
                       />
                     </div>
                   </section>
@@ -229,7 +238,9 @@ export const BlockSections: FC<{
                     key={block.id}
                     className={classNames(
                       'section ContentLinkSetRecord',
-                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                      block.displaySize
+                        .replace(/(\s*:\s+)/g, '-')
+                        .toLowerCase(),
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
@@ -258,12 +269,49 @@ export const BlockSections: FC<{
               //     </section>
               //   )
 
-              case '__Banner:Large':
-              case '__Banner:Medium':
-              case '__Banner:Small':
+              /**
+               *  card: column → Content Tile S
+               *  card: row → Content Tile M
+               *  thumb: column → Content Tile S
+               *  thumb: row → Content Tile M
+               *  hero banner → Content Tile L
+               */
+              case 'Banner (Large)':
+                return (
+                  <section
+                    key={block.id}
+                    className={classNames(
+                      'section ContentLinkSetRecord has-background-grey-darker',
+                    )}
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ContentBannerLarge links={links} />
+                    </div>
+                  </section>
+                )
+              case 'Banner (Medium)':
+              case 'Banner (Small)':
+                return (
+                  <section
+                    key={block.id}
+                    className={classNames(
+                      'section ContentLinkSetRecord has-background-grey-darker',
+                    )}
+                  >
+                    <div className={classNames('container', maxClass)}>
+                      <ContentBanner
+                        links={links}
+                        imageAlign={imageAlign}
+                        heroBannerImageSize={block.heroBannerImageSize}
+                        displaySize={block.displaySize}
+                      />
+                    </div>
+                  </section>
+                )
+              case '__Banner: Small':
                 return null
 
-              case '__Cards: Medium':
+              case '__Cards: Halves':
                 return (
                   <section
                     key={block.id}
@@ -281,7 +329,7 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case '__Cards: Small':
+              case '__Cards: Thirds':
                 return (
                   <section
                     key={block.id}

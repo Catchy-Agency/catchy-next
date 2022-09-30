@@ -58,6 +58,34 @@ export const contentPageBySlug = gql`
             base64
           }
         }
+        previewImageLg {
+          responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
+        previewImageSm {
+          responsiveImage(
+            imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+          ) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
       }
       blocks {
         __typename
@@ -241,6 +269,36 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on BlogPostRecord {
               id
@@ -250,6 +308,36 @@ export const contentPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -283,6 +371,36 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on DownloadPageRecord {
               id
@@ -292,6 +410,36 @@ export const contentPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
                 ) {
                   aspectRatio
                   height

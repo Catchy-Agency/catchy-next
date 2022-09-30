@@ -385,12 +385,7 @@ a {
   }
 }
 
-.image-lg {
-  margin-bottom: 1rem;
-  max-height: 466px;
-  overflow: hidden;
-}
-
+.section.ContentLinkSetRecord.thumb-rows,
 .section.ContentLinkSetRecord.two-column {
   .card-columns .column {
     height: unset;
@@ -487,7 +482,7 @@ a {
 }
 
 .navbar {
-  padding: 0 3rem;
+  padding-left: 0.75rem;
 
   &.is-transparent {
     background: none;
@@ -678,10 +673,9 @@ body > .navbar {
   background-color: rgba(68, 79, 87, 0.2) !important;
 }
 
-// default bulma container.scss breakpoint
 @media screen and (min-width: 1024px) {
-  // .container:not(.is-desktop):not(.is-widescreen),
-  .container {
-    max-width: 1408px;
+  .navbar {
+    padding: 0 3rem;
+    padding-left: 3rem;
   }
 }

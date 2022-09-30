@@ -1,31 +1,30 @@
 import { NextPage } from 'next'
-import {
-  useQuerySubscription,
-  renderMetaTags,
-  ResponsiveImageType,
-} from 'react-datocms'
 import Head from 'next/head'
 import Link from 'next/link'
+import {
+  renderMetaTags,
+  ResponsiveImageType,
+  useQuerySubscription,
+} from 'react-datocms'
 
-import { Subscription } from '../../util/dato-cms'
 import {
   ContentPageBySlug,
   ContentPageBySlug_contentPage_parent,
 } from '../../gql/types/ContentPageBySlug'
-import { PreviewBanner } from '../cms/PreviewBanner'
-import { PageError } from '../cms/PageError'
-import { Header } from '../Header'
-import { Footer } from '../Footer'
-import { BlockSections } from '../BlockSections'
-import { CardRows } from '../content-links/CardRows'
+import { Subscription } from '../../util/dato-cms'
 import { notEmpty } from '../../util/notEmpty'
+import { BlockSections } from '../BlockSections'
+import { PageError } from '../cms/PageError'
+import { PreviewBanner } from '../cms/PreviewBanner'
+import { CardRows } from '../content-links/CardRows'
+import { Footer } from '../Footer'
+import { Header } from '../Header'
 
 export const ContentPage: NextPage<{
   subscription: Subscription<ContentPageBySlug>
 }> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<ContentPageBySlug>(
-    subscription,
-  )
+  const { data, error, status } =
+    useQuerySubscription<ContentPageBySlug>(subscription)
 
   const ancestors = extractAncestors(data?.contentPage?.parent || null, [])
 
@@ -40,6 +39,12 @@ export const ContentPage: NextPage<{
             description: child.description,
             image:
               (child.previewImage?.responsiveImage as ResponsiveImageType) ||
+              null,
+            imageLg:
+              (child.previewImageLg?.responsiveImage as ResponsiveImageType) ||
+              null,
+            imageSm:
+              (child.previewImageSm?.responsiveImage as ResponsiveImageType) ||
               null,
             callToAction: 'Read More',
           },

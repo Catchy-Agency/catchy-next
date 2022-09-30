@@ -25,6 +25,42 @@ export interface AllBlogPosts_allBlogPosts_previewImage {
   readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImage_responsiveImage | null;
 }
 
+export interface AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageLg {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage | null;
+}
+
 export interface AllBlogPosts_allBlogPosts {
   readonly __typename: "BlogPostRecord";
   readonly id: any;
@@ -32,6 +68,8 @@ export interface AllBlogPosts_allBlogPosts {
   readonly title: string | null;
   readonly description: string | null;
   readonly previewImage: AllBlogPosts_allBlogPosts_previewImage | null;
+  readonly previewImageLg: AllBlogPosts_allBlogPosts_previewImageLg | null;
+  readonly previewImageSm: AllBlogPosts_allBlogPosts_previewImageSm | null;
 }
 
 export interface AllBlogPosts_allCategories {

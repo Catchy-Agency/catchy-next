@@ -43,6 +43,11 @@ $border-color-gray: #444f57;
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
   padding-top: 0;
 }
+.section.TeamRecord {
+  .is-4 {
+    margin-top: 1.25em;
+  }
+}
 
 .section.ViewMoreLinkRecord {
   padding-top: 0;
@@ -128,4 +133,5 @@ footer.section {
   object-fit: cover;
 }
 
-@import 'base/_primary-pages';
+@import 'components/_content-links';
+@import 'pages/_primary-pages';

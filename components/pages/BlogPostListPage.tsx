@@ -40,6 +40,10 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
       description: post.description,
       image:
         (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
+      imageLg:
+        (post.previewImageLg?.responsiveImage as ResponsiveImageType) || null,
+      imageSm:
+        (post.previewImageSm?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
 
@@ -82,7 +86,7 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="columns">
-            <div className="column is-one-fifth">
+            <div className="column is-one-fifth-desktop is-flex-grow-0">
               <h5 className="title is-5">Categories</h5>
               <hr />
               {data?.allCategories.map((cat) => (

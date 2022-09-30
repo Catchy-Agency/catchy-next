@@ -4,12 +4,13 @@ $font-open: 'Open Sans', san-serif;
 @mixin hdl-com() {
   font-weight: 700;
   letter-spacing: 0;
+  line-height: 1.2 !important;
 }
 // styleName: Headline1;
 @mixin hdl1() {
   @include hdl-com;
   font-family: $font-montserrat !important;
-  line-height: 1.2258 !important; //76/62;
+  // line-height: 1.2258 !important; //76/62;
   @include font-size(62px, !important);
   // @media (min-width: $tablet) {
   // }
@@ -23,21 +24,21 @@ $font-open: 'Open Sans', san-serif;
   font-family: $font-montserrat !important;
   @include font-size(46px, !important);
   font-weight: 700;
-  line-height: 1.21739 !important; //56/46;
+  // line-height: 1.21739 !important; //56/46;
 }
 // styleName: Headline3;
 @mixin hdl3() {
   @include hdl-com;
   font-family: $font-montserrat !important;
   @include font-size(34px, !important);
-  line-height: 1.647 !important; //56/34
+  // line-height: 1.647 !important; //56/34
 }
 // styleName: Headline4;
 @mixin hdl4() {
   @include hdl-com();
   font-family: $font-open !important;
   @include font-size(24px, !important);
-  line-height: 1.4166666 !important; //34/24;
+  // line-height: 1.4166666 !important; //34/24;
 }
 // styleName: Headline5;
 @mixin hdl5() {
@@ -45,7 +46,7 @@ $font-open: 'Open Sans', san-serif;
   font-family: $font-open !important;
   @include font-size(18px, !important);
   font-weight: 700 !important;
-  line-height: 1.3889 !important; //25px;
+  // line-height: 1.3889 !important; //25px;
   letter-spacing: 0em !important;
 }
 // styleName: bullet list;
