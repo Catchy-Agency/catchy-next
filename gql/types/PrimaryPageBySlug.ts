@@ -227,6 +227,24 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageSm_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageCol_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
@@ -236,6 +254,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageLg | null;
   readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImageCol | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage_responsiveImage {
@@ -292,6 +311,24 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageSm_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageCol_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord {
   readonly __typename: "BlogPostRecord";
   readonly id: any;
@@ -301,6 +338,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
   readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageCol | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage_responsiveImage {
@@ -357,6 +395,24 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageSm_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageCol_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord {
   readonly __typename: "ContentPageRecord";
   readonly id: any;
@@ -366,6 +422,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageLg | null;
   readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImageCol | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage_responsiveImage {
@@ -422,6 +479,24 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageSm_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageCol_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord {
   readonly __typename: "DownloadPageRecord";
   readonly id: any;
@@ -431,6 +506,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageLg | null;
   readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageCol | null;
 }
 
 export type PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links = PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord;

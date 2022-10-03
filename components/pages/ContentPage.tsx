@@ -46,6 +46,9 @@ export const ContentPage: NextPage<{
             imageSm:
               (child.previewImageSm?.responsiveImage as ResponsiveImageType) ||
               null,
+            imageCol:
+              (child.previewImageCol?.responsiveImage as ResponsiveImageType) ||
+              null,
             callToAction: 'Read More',
           },
       )

@@ -195,6 +195,21 @@ export const primaryPageBySlug = gql`
                   base64
                 }
               }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on BlogPostRecord {
               id
@@ -234,6 +249,21 @@ export const primaryPageBySlug = gql`
               previewImageSm {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -297,6 +327,21 @@ export const primaryPageBySlug = gql`
                   base64
                 }
               }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on DownloadPageRecord {
               id
@@ -336,6 +381,21 @@ export const primaryPageBySlug = gql`
               previewImageSm {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height

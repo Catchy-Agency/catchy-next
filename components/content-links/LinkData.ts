@@ -9,4 +9,5 @@ export interface LinkData {
   image: ResponsiveImageType | null
   imageLg: ResponsiveImageType | null
   imageSm: ResponsiveImageType | null
+  imageCol: ResponsiveImageType | null
 }

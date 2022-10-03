@@ -21,12 +21,14 @@ import { TitleText } from './blocks/TitleText'
 import { Video } from './blocks/Video'
 import { VideoInternal } from './blocks/VideoInternal'
 import { ViewMoreLink } from './blocks/ViewMoreLink'
-import { ContentBannerLarge } from './content-links/banners/Large'
-import { CardColumns } from './content-links/CardColumns'
-import { CardRows } from './content-links/CardRows'
-import { ContentBanner } from './content-links/ContentBanners'
-import { ContentTile } from './content-links/ContentTiles' //ContentTileM,
-import { ThumbColumns } from './content-links/ThumbColumns'
+// import { CardColumns } from './content-links/CardColumns'
+// import { CardRows } from './content-links/CardRows'
+// import { HeroBanner } from './content-links/HeroBanner'
+// import { ThumbColumns } from './content-links/ThumbColumns'
+import { ContentBannerL } from './content-links/banners/ContentBannerL'
+import { ContentBannerMS } from './content-links/banners/ContentBannerMS'
+import { ContentTileM } from './content-links/cards/ContentTileM'
+import { ContentTile } from './content-links/cards/ContentTileS'
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen'
@@ -158,100 +160,103 @@ export const BlockSections: FC<{
               imageSm:
                 (link.previewImageSm?.responsiveImage as ResponsiveImageType) ||
                 null,
+              imageCol:
+                (link.previewImageCol
+                  ?.responsiveImage as ResponsiveImageType) || null,
               callToAction,
             }))
             switch (block.displaySize) {
-              case '_Card: Columns':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord"
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <CardColumns links={links} />
-                    </div>
-                  </section>
-                )
-              case '_Card: Rows':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord"
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <CardRows links={links} imageAlign={imageAlign} />
-                    </div>
-                  </section>
-                )
-              case '_Thumb: Columns':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord"
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <ThumbColumns links={links} />
-                    </div>
-                  </section>
-                )
-              case '_Thumb: Rows':
-                return (
-                  <section
-                    key={block.id}
-                    className="section ContentLinkSetRecord"
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      {/* <ThumbRows links={links} imageAlign={imageAlign} /> */}
-                      <CardRows links={links} imageAlign={imageAlign} />
-                    </div>
-                  </section>
-                )
+              /* Legacy - remove leading underscore */
+              // case '_Card: Columns':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className="section ContentLinkSetRecord"
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         <CardColumns links={links} />
+              //       </div>
+              //     </section>
+              //   )
+              // case '_Card: Rows':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className="section ContentLinkSetRecord"
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         <CardRows links={links} imageAlign={imageAlign} />
+              //       </div>
+              //     </section>
+              //   )
+              // case '_Thumb: Columns':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className="section ContentLinkSetRecord"
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         <ThumbColumns links={links} />
+              //       </div>
+              //     </section>
+              //   )
+              // case '_Thumb: Rows':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className="section ContentLinkSetRecord"
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         {/* <ThumbRows links={links} imageAlign={imageAlign} /> */}
+              //         <CardRows links={links} imageAlign={imageAlign} />
+              //       </div>
+              //     </section>
+              //   )
+              // case '_Hero Banner':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className={classNames(
+              //         'section ContentLinkSetRecord has-background-grey-darker',
+              //       )}
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         <ContentBanner
+              //           links={links}
+              //           imageAlign={imageAlign}
+              //           heroBannerImageSize={block.heroBannerImageSize}
+              //           displaySize={block.displaySize}
+              //         />
+              //       </div>
+              //     </section>
+              //   )
 
-              case '_Banner (Large)':
-              case 'Hero Banner':
-                return (
-                  <section
-                    key={block.id}
-                    className={classNames(
-                      'section ContentLinkSetRecord has-background-grey-darker',
-                    )}
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <ContentBanner
-                        links={links}
-                        imageAlign={imageAlign}
-                        heroBannerImageSize={block.heroBannerImageSize}
-                        displaySize={block.displaySize}
-                      />
-                    </div>
-                  </section>
-                )
-
-              case 'Two-Column':
-              case 'Three-Column':
-              case 'Thumb: Columns':
-              case 'Card: Columns':
-              case 'Thumb: Rows':
-              case 'Card: Rows':
-                return (
-                  <section
-                    key={block.id}
-                    className={classNames(
-                      'section ContentLinkSetRecord',
-                      block.displaySize
-                        .replace(/(\s*:\s+)/g, '-')
-                        .toLowerCase(),
-                    )}
-                  >
-                    <div className={classNames('container', maxClass)}>
-                      <ContentTile
-                        displaySize={block.displaySize}
-                        links={links}
-                        isSlider={block.isSlider}
-                      />
-                    </div>
-                  </section>
-                )
+              // case 'xTwo-Column':
+              // case 'xThree-Column':
+              // case 'xThumb: Columns':
+              // case 'xCard: Columns':
+              // case 'xThumb: Rows':
+              // case 'xCard: Rows':
+              //   return (
+              //     <section
+              //       key={block.id}
+              //       className={classNames(
+              //         'section ContentLinkSetRecord',
+              //         block.displaySize
+              //           .replace(/(\s*:\s+)/g, '-')
+              //           .toLowerCase(),
+              //       )}
+              //     >
+              //       <div className={classNames('container', maxClass)}>
+              //         <ContentTile
+              //           contentSize={block.displaySize}
+              //           displaySize={block.displaySize}
+              //           links={links}
+              //           isSlider={block.isSlider}
+              //         />
+              //       </div>
+              //     </section>
+              //   )
               // case '_Hero Banner':
               //   return (
               //     <section
@@ -269,13 +274,14 @@ export const BlockSections: FC<{
               //     </section>
               //   )
 
-              /**
+              /** Integrations/Re-Design - NEW
                *  card: column → Content Tile S
                *  card: row → Content Tile M
                *  thumb: column → Content Tile S
                *  thumb: row → Content Tile M
                *  hero banner → Content Tile L
                */
+              case 'Hero Banner':
               case 'Banner (Large)':
                 return (
                   <section
@@ -285,7 +291,7 @@ export const BlockSections: FC<{
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ContentBannerLarge links={links} />
+                      <ContentBannerL links={links} />
                     </div>
                   </section>
                 )
@@ -299,7 +305,7 @@ export const BlockSections: FC<{
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ContentBanner
+                      <ContentBannerMS
                         links={links}
                         imageAlign={imageAlign}
                         heroBannerImageSize={block.heroBannerImageSize}
@@ -308,20 +314,28 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case '__Banner: Small':
-                return null
 
-              case '__Cards: Halves':
+              case 'Card: Rows':
+              case 'Cards (Two-Col)':
+              case 'Thumb: Rows':
                 return (
                   <section
                     key={block.id}
                     className={classNames(
                       'section ContentLinkSetRecord',
-                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                      block.displaySize
+                        .replace(':', '-')
+                        .replace(/(\s+\(*)/g, '-')
+                        .replace(/\)/g, '')
+                        .toLowerCase(),
+                      {
+                        'is-slider': block.isSlider,
+                      },
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ContentTile
+                      <ContentTileM
+                        contentSize={'Medium'}
                         displaySize={block.displaySize}
                         links={links}
                         isSlider={block.isSlider}
@@ -329,17 +343,27 @@ export const BlockSections: FC<{
                     </div>
                   </section>
                 )
-              case '__Cards: Thirds':
+              case 'Card: Columns':
+              case 'Cards (Three-Col)':
+              case 'Thumb: Columns':
                 return (
                   <section
                     key={block.id}
                     className={classNames(
                       'section ContentLinkSetRecord',
-                      block.displaySize.replace(/(\s+)/g, '-').toLowerCase(),
+                      block.displaySize
+                        .replace(':', '-')
+                        .replace(/(\s+\(*)/g, '-')
+                        .replace(/\)/g, '')
+                        .toLowerCase(),
+                      {
+                        'is-slider': block.isSlider,
+                      },
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
                       <ContentTile
+                        contentSize={'Small'}
                         displaySize={block.displaySize}
                         links={links}
                         isSlider={block.isSlider}

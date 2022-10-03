@@ -258,119 +258,10 @@ a {
   box-shadow: none;
   background-color: $grey-darker;
   border-radius: 0;
-  position: relative;
-  overflow: hidden;
-  .fillall {
-    display: none;
-  }
-
-  .card-title {
-    pointer-events: none;
-    position: absolute;
-    padding: 1rem 1.64706rem;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box;
-    > * {
-      //.title
-      position: relative;
-      z-index: 1;
-      min-height: calc(1em * 1.3889 * 3);
-
-      display: flex;
-      align-items: center;
-      // justify-content: center;
-      // text-align: center;
-    }
-    svg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translate(100%, -60%);
-    }
-  }
 
   .card-image {
-    @include fillall;
-    // position: relative;
-    z-index: -1;
-    img,
-    > * {
-      @include fillall;
-      object-fit: cover;
-    }
     img {
       border-radius: 0;
-    }
-  }
-  &:after {
-    opacity: 0;
-  }
-  &:after,
-  .card-title:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background: #193858;
-    mix-blend-mode: multiply;
-  }
-  .card-title:after {
-    opacity: 1;
-  }
-  .card-content {
-    pointer-events: none;
-    // position: absolute;
-    // height: 100%;
-    box-sizing: border-box;
-    bottom: 0;
-    opacity: 0;
-    z-index: 1;
-    padding: 7rem 1.5rem 3rem;
-    > * {
-      position: relative;
-      z-index: 2;
-    }
-    a:has(.button) {
-      margin-top: auto;
-    }
-    .button {
-      text-decoration: underline;
-    }
-  }
-
-  .icon-dash-wrap {
-    position: absolute;
-    top: 0.25rem;
-    right: 0.75rem;
-  }
-
-  // // &:hover,
-  // &:focus,
-  // &:focus-within,
-  &.isActive {
-    .card-content,
-    .card-title {
-      // transition: opacity 0.35s ease-out;
-      &:after {
-        transition: opacity 0;
-      }
-    }
-    .card-title {
-      opacity: 0;
-    }
-    .card-content {
-      opacity: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; //remove dup buttons
-      justify-content: center;
-      pointer-events: initial;
-    }
-    &:after {
-      opacity: 1;
     }
   }
 
@@ -382,58 +273,6 @@ a {
 
   .card-footer {
     background-color: rgba($black-bis, 0.2);
-  }
-}
-
-.section.ContentLinkSetRecord.thumb-rows,
-.section.ContentLinkSetRecord.two-column {
-  .card-columns .column {
-    height: unset;
-    max-height: unset;
-    .card-content {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-  }
-  .card {
-    display: flex;
-    flex-direction: column;
-    &:after {
-      content: unset;
-    }
-    .fillall {
-      position: absolute;
-      display: block;
-      z-index: 10;
-    }
-    .card-image {
-      position: relative;
-      top: unset;
-      left: unset;
-      // height: unset;
-      z-index: initial;
-      padding-bottom: 50%;
-      > div {
-        position: absolute !important;
-      }
-    }
-    .icon-dash-wrap,
-    .card-title {
-      display: none;
-    }
-    .card-image,
-    .card-content {
-      position: relative;
-    }
-    .card-content {
-      opacity: 1;
-      pointer-events: initial;
-      background: $grey-darkest;
-      a:not(.fillall) {
-        z-index: 20;
-      }
-    }
   }
 }
 
@@ -674,6 +513,9 @@ body > .navbar {
 }
 
 @media screen and (min-width: 1024px) {
+  .primary-page .container {
+    max-width: 1440px;
+  }
   .navbar {
     padding: 0 3rem;
     padding-left: 3rem;

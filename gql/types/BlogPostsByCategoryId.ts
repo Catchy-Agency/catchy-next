@@ -61,6 +61,24 @@ export interface BlogPostsByCategoryId_allBlogPosts_previewImageSm {
   readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImageSm_responsiveImage | null;
 }
 
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImageCol_responsiveImage | null;
+}
+
 export interface BlogPostsByCategoryId_allBlogPosts {
   readonly __typename: "BlogPostRecord";
   readonly id: any;
@@ -70,6 +88,7 @@ export interface BlogPostsByCategoryId_allBlogPosts {
   readonly previewImage: BlogPostsByCategoryId_allBlogPosts_previewImage | null;
   readonly previewImageLg: BlogPostsByCategoryId_allBlogPosts_previewImageLg | null;
   readonly previewImageSm: BlogPostsByCategoryId_allBlogPosts_previewImageSm | null;
+  readonly previewImageCol: BlogPostsByCategoryId_allBlogPosts_previewImageCol | null;
 }
 
 export interface BlogPostsByCategoryId_allCategories {

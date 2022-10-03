@@ -3,8 +3,13 @@ import Link from 'next/link'
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { Image } from 'react-datocms'
 
-import { IconDash, IconPlus, LeftSliderArrow, RightSliderArrow } from '../icons'
-import { LinkData } from './LinkData'
+import {
+  IconDash,
+  IconPlus,
+  LeftSliderArrow,
+  RightSliderArrow,
+} from '../../icons'
+import { LinkData } from '../LinkData'
 
 import { Navigation } from 'swiper' //Pagination
 import 'swiper/css'
@@ -12,13 +17,15 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
 interface CardProps {
   link: LinkData
   contentKey: string
   setActiveCard: Dispatch<SetStateAction<string>>
   activeCard: string | null
+  contentSize: string | null
+  deviceSize: string | null
 }
 
 const CardContent: FC<CardProps> = ({
@@ -26,6 +33,8 @@ const CardContent: FC<CardProps> = ({
   contentKey,
   activeCard,
   setActiveCard,
+  contentSize,
+  deviceSize,
 }) => {
   const [isActive, setIsActive] = useState(false)
 
@@ -49,28 +58,36 @@ const CardContent: FC<CardProps> = ({
     >
       {link.image && (
         <div className="card-image">
-          <Link href={link.url || ''}>
-            <a className="fillall">
-              <span className="is-sr-only">View</span>
-            </a>
-          </Link>
-          {link.image && <Image data={link.image} lazyLoad={false} />}
+          {(contentSize === 'Small' ||
+            deviceSize === 'tablet' ||
+            deviceSize === 'mobile') &&
+            link.imageCol && (
+              <Image
+                data={link.imageCol}
+                lazyLoad={false}
+                layout="responsive"
+                objectFit="cover"
+              />
+            )}
+          {link.image && contentSize == 'Medium' && (
+            <Image
+              data={link.image}
+              lazyLoad={false}
+              layout="responsive"
+              objectFit="cover"
+            />
+          )}
         </div>
       )}
       <div className="card-title">
         {link.title && (
-          <h5 className="title is-5">
-            {link.title}
+          <>
+            <h5 className="title is-5">{link.title}</h5>
             <IconPlus />
-          </h5>
+          </>
         )}
       </div>
       <div className="card-content">
-        <Link href={link.url || ''}>
-          <a className="fillall">
-            <span className="is-sr-only">View</span>
-          </a>
-        </Link>
         <div
           className="icon-dash-wrap"
           onClick={() => {
@@ -102,8 +119,9 @@ const CardContent: FC<CardProps> = ({
 export const ContentTile: FC<{
   links: LinkData[]
   isSlider: boolean
+  contentSize: string | null
   displaySize: string | null
-}> = ({ links, isSlider, displaySize }) => {
+}> = ({ links, isSlider, contentSize = 'Small' }) => {
   const [activeCard, setActiveCard] = useState('')
   const deviceSize = useMediaQuery()
 
@@ -114,17 +132,13 @@ export const ContentTile: FC<{
           <Swiper
             modules={[Navigation]}
             spaceBetween={24}
-            // allowTouchMove={false}
-            // preventClicks={true}
             threshold={50}
             slidesPerView={
               deviceSize == 'mobile'
                 ? 1
                 : deviceSize == 'tablet' ||
-                  (displaySize &&
-                    ['Two-Column', 'Thumb: Row', 'Card: Row'].includes(
-                      displaySize,
-                    ))
+                  deviceSize == 'desktop' ||
+                  contentSize == 'Medium'
                 ? 2
                 : 3
             }
@@ -141,6 +155,8 @@ export const ContentTile: FC<{
                   contentKey={link.id}
                   setActiveCard={setActiveCard}
                   activeCard={activeCard}
+                  contentSize={contentSize}
+                  deviceSize={deviceSize}
                 />
               </SwiperSlide>
             ))}
@@ -172,10 +188,7 @@ export const ContentTile: FC<{
             <div
               key={link.id}
               className={classNames('column is-half', {
-                'is-one-third-desktop':
-                  displaySize === 'Three-Column' ||
-                  displaySize === 'Card: Columns' ||
-                  displaySize == 'Thumb: Columns',
+                'is-one-third-fullhd': contentSize === 'Small',
               })}
             >
               <CardContent
@@ -183,6 +196,8 @@ export const ContentTile: FC<{
                 contentKey={link.id}
                 setActiveCard={setActiveCard}
                 activeCard={activeCard}
+                contentSize={contentSize}
+                deviceSize={deviceSize}
               />
             </div>
           ))}

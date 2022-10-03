@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { useMediaQuery } from '../../hooks/useMediaQuery'
 
-export const ContentBannerLarge: FC<{
+export const ContentBannerL: FC<{
   links: LinkData[]
 }> = ({ links }) => {
   const deviceSize = useMediaQuery()

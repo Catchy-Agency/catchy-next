@@ -86,6 +86,21 @@ export const contentPageBySlug = gql`
             base64
           }
         }
+        previewImageCol {
+          responsiveImage(
+            imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+          ) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
       }
       blocks {
         __typename
@@ -299,6 +314,21 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on BlogPostRecord {
               id
@@ -338,6 +368,21 @@ export const contentPageBySlug = gql`
               previewImageSm {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -401,6 +446,21 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on DownloadPageRecord {
               id
@@ -440,6 +500,21 @@ export const contentPageBySlug = gql`
               previewImageSm {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height

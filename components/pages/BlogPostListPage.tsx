@@ -44,6 +44,8 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
         (post.previewImageLg?.responsiveImage as ResponsiveImageType) || null,
       imageSm:
         (post.previewImageSm?.responsiveImage as ResponsiveImageType) || null,
+      imageCol:
+        (post.previewImageCol?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
 

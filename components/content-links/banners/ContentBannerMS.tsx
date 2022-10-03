@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
-import { LinkData } from './LinkData'
+import { LinkData } from '../LinkData'
 
 import { EffectFade, Pagination } from 'swiper'
 import 'swiper/css'
@@ -10,9 +10,9 @@ import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { useMediaQuery } from '../../hooks/useMediaQuery'
 
-export const ContentBanner: FC<{
+export const ContentBannerMS: FC<{
   heroBannerImageSize?: string | null
   imageAlign?: string | null
   links: LinkData[]
@@ -48,7 +48,16 @@ export const ContentBanner: FC<{
       >
         {links.map((link) => (
           <SwiperSlide key={link.id} style={{ height: 'unset' }}>
-            <div className="columns is-vcentered position-relative is-justify-content-space-between">
+            <div
+              className={classNames(
+                'columns is-vcentered position-relative is-justify-content-space-between',
+                {
+                  'is-flex-direction-row-reverse':
+                    imageAlign !== 'Right' &&
+                    (deviceSize == 'desktop' || deviceSize == 'fullhd'),
+                },
+              )}
+            >
               <div
                 className={classNames(
                   'column hero-banner-content is-flex-grow-0',
