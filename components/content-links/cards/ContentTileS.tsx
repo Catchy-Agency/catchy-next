@@ -116,7 +116,7 @@ const CardContent: FC<CardProps> = ({
   )
 }
 
-export const ContentTile: FC<{
+export const ContentTileS: FC<{
   links: LinkData[]
   isSlider: boolean
   contentSize: string | null

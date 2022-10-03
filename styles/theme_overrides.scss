@@ -25,9 +25,6 @@ h6 {
 a {
   color: $primary;
   transition: color 200ms ease;
-  // &:visited {
-  //   color: #39b1b9;
-  // }
   &:hover,
   &.has-text-primary:hover {
     color: $turquoise-interact !important;
@@ -164,13 +161,6 @@ a {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230d202c%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
     }
   }
-  // &.is-primary:focus {
-  //   background-color: transparent;
-  //   border-color: $primary;
-  //   color: $primary;
-  //   &:after {
-  //     content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%231dbc83%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-  //   }
   // }
 }
 @media (min-width: calc($desktop + 1px)) {
@@ -181,10 +171,12 @@ a {
 }
 @media (max-width: $desktop) {
   .button:not(.is-ghost).is-primary.navbar-item {
-    margin-top: -1px;
-    max-width: 177px;
-    margin-left: auto;
-    margin-right: auto;
+    //     margin-top: -1px;
+    //     max-width: 177px;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    display: flex;
+    align-items: center;
   }
 }
 @media (max-width: $mobile) {
@@ -343,11 +335,11 @@ a {
   }
 }
 
-.navbar-burger:hover, //TODO
+.navbar-burger:hover,
 a.navbar-item.is-tab.is-active:not(.button),
 a.navbar-item.is-tab:not(.button):hover {
   color: $navbar-item-active-color;
-  border-bottom-color: $navbar-item-active-color; //$navbar-item-active-color;
+  border-bottom-color: $navbar-item-active-color;
 }
 
 @media screen and (max-width: 1023px) {
@@ -378,7 +370,6 @@ a.navbar-item.is-tab:not(.button):hover {
 }
 
 .navbar-item {
-  // padding: 0.5rem 1.5rem;
   min-width: 105px;
   text-align: center;
   justify-content: center;

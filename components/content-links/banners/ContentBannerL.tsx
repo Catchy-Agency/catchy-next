@@ -63,11 +63,7 @@ export const ContentBannerL: FC<{
                       </div>
                     )}
                     {link.description && (
-                      <div
-                        className={classNames('column content has-text-light', {
-                          // 'is-6': deviceSize == 'fullhd',
-                        })}
-                      >
+                      <div className="column content has-text-light">
                         {link.description}
                       </div>
                     )}
@@ -94,23 +90,8 @@ export const ContentBannerL: FC<{
                     objectPosition="50% 50%"
                   />
                 )}
-                {/* {!link.imageLg && link.image && (
-                  <Image
-                    data={link.image}
-                    lazyLoad={false}
-                    layout="responsive"
-                    objectFit="cover"
-                    objectPosition="50% 50%"
-                  />
-                )} */}
               </div>
             </div>
-
-            {/* <Link href={link.url || ''}>
-              <a className="fillall">
-                <span className="is-sr-only">View</span>
-              </a>
-            </Link> */}
           </SwiperSlide>
         ))}
       </Swiper>

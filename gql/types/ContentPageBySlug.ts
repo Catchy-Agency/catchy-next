@@ -688,7 +688,6 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord {
   readonly displaySize: string | null;
   readonly imageAlign: string | null;
   readonly isSlider: any | null;
-  readonly heroBannerImageSize: string | null;
   readonly callToActionLabel: string | null;
   readonly links: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links>;
 }

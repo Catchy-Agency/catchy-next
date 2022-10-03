@@ -260,7 +260,6 @@ export const contentPageBySlug = gql`
           displaySize
           imageAlign
           isSlider
-          heroBannerImageSize
           callToActionLabel
           links {
             __typename

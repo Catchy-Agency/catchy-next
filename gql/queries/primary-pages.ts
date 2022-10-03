@@ -142,7 +142,6 @@ export const primaryPageBySlug = gql`
           imageAlign
           callToActionLabel
           isSlider
-          heroBannerImageSize
           links {
             __typename
             ... on PrimaryPageRecord {

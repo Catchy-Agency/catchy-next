@@ -518,7 +518,6 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord {
   readonly imageAlign: string | null;
   readonly callToActionLabel: string | null;
   readonly isSlider: any | null;
-  readonly heroBannerImageSize: string | null;
   readonly links: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links>;
 }
 

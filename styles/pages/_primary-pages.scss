@@ -21,7 +21,6 @@
 
 .primary-page {
   @media (max-width: $mobile) {
-    //TODO test
     .container {
       padding-left: 0;
       padding-right: 0;
@@ -191,15 +190,13 @@
   padding: 120px 6%;
   box-sizing: border-box;
   .title.is-1,
-    //.container > .columns > .column:first-child, //affects - /blog/meet-the-team-tom-williams
-    h2 {
-    // only 1 h1 per page -> hero title
+  h2 {
     @include hdl1();
   }
   .container > .columns > .column:last-child {
     padding-top: 28px;
     h3 {
-      @include green-line(); //TODO apply to h3s only
+      @include green-line();
       &:before {
         top: -1em;
       }

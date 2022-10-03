@@ -449,7 +449,6 @@ export const blogPostBySlug = gql`
           displaySize
           imageAlign
           isSlider
-          heroBannerImageSize
           callToActionLabel
           links {
             __typename
