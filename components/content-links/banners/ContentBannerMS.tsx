@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import Link from 'next/link'
 import { FC } from 'react'
 import { Image } from 'react-datocms'
 
@@ -84,9 +85,13 @@ export const ContentBannerMS: FC<{
                     )}
                   </div>
                   <div className="column">
-                    <button className="button is-primary">
-                      {link.callToAction}
-                    </button>
+                    <Link href={link.url || ''}>
+                      <a>
+                        <button className="button is-primary">
+                          {link.callToAction}
+                        </button>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
