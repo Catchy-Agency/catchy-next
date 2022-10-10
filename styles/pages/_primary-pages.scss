@@ -186,6 +186,19 @@
 
 //call to action join
 //.primary-page
+.primary-pages {
+  //patch for developer-marketing-guide-introduction - green link on icons
+  .section.ColumnRowRecord {
+    .container > .columns > .column:last-child {
+      h3 {
+        @include green-line();
+        &:before {
+          top: -1em;
+        }
+      }
+    }
+  }
+}
 .section.ColumnRowRecord {
   padding: 120px 6%;
   box-sizing: border-box;
@@ -195,12 +208,6 @@
   }
   .container > .columns > .column:last-child {
     padding-top: 28px;
-    h3 {
-      @include green-line();
-      &:before {
-        top: -1em;
-      }
-    }
     &:before {
       top: 0;
     }
