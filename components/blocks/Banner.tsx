@@ -10,7 +10,9 @@ export const Banner: FC<{
 }> = ({ block }) => (
   <div className="columns is-vcentered">
     <div className="column">
-      {block.titleOverline && <p className="overline">{block.titleOverline}</p>}
+      {block.titleOverline && (
+        <p className="overline mb-2">{block.titleOverline}</p>
+      )}
       {block.title && (
         <h1
           className={classNames('title is-1', {

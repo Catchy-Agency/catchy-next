@@ -11,7 +11,7 @@ $font-open: 'Open Sans', san-serif;
   @include hdl-com;
   font-family: $font-montserrat !important;
   // line-height: 1.2258 !important; //76/62;
-  @include font-size(62px, !important);
+  @include font-size(56px, !important);
   // @media (min-width: $tablet) {
   // }
   // @media (max-width: calc($tablet - 1px)) {
@@ -22,7 +22,7 @@ $font-open: 'Open Sans', san-serif;
 @mixin hdl2() {
   @include hdl-com;
   font-family: $font-montserrat !important;
-  @include font-size(46px, !important);
+  @include font-size(40px, !important);
   font-weight: 700;
   // line-height: 1.21739 !important; //56/46;
 }

@@ -38,7 +38,7 @@ export const ColumnRow: FC<{
           },
         )}
       >
-        {column.title && <div className="title is-1">{column.title}</div>}
+        {column.title && <div className="title is-2">{column.title}</div>}
         {column.image?.responsiveImage && (
           <figure className="image mb-2">
             <Image

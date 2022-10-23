@@ -202,10 +202,7 @@
 .section.ColumnRowRecord {
   padding: 120px 6%;
   box-sizing: border-box;
-  .title.is-1,
-  h2 {
-    @include hdl1();
-  }
+
   .container > .columns > .column:last-child {
     padding-top: 28px;
     &:before {
@@ -221,18 +218,6 @@
   }
   @media (max-width: $tablet) {
     padding: 80px max(6%, 1.5rem);
-
-    .title.is-1,
-    h2,
-    .primary-page .container > .columns > .column:first-child {
-      //TODO h2
-      @include font-size(42px !important);
-    }
-  }
-  .container > .columns > .column .content {
-    h3 {
-      font-size: 1.5em !important;
-    }
   }
 }
 
