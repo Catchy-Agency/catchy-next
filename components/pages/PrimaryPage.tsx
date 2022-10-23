@@ -14,9 +14,8 @@ import { BlockSections } from '../BlockSections'
 export const PrimaryPage: NextPage<{
   subscription: Subscription<PrimaryPageBySlug>
 }> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<PrimaryPageBySlug>(
-    subscription,
-  )
+  const { data, error, status } =
+    useQuerySubscription<PrimaryPageBySlug>(subscription)
 
   return (
     <div className="primary-page">
