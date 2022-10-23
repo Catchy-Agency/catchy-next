@@ -762,7 +762,6 @@ export const primaryPageBySlug = gql`
     footer {
       title
       formTitle
-      formNotice
       firstNameLabel
       lastNameLabel
       emailAddressLabel

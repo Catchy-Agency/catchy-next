@@ -111,7 +111,6 @@ export const allBlogPosts = gql`
     footer {
       title
       formTitle
-      formNotice
       firstNameLabel
       lastNameLabel
       emailAddressLabel
@@ -242,7 +241,6 @@ export const blogPostsByCategoryId = gql`
     footer {
       title
       formTitle
-      formNotice
       nameLabel
       firstNameLabel
       lastNameLabel
@@ -840,7 +838,6 @@ export const blogPostBySlug = gql`
     footer {
       title
       formTitle
-      formNotice
       nameLabel
       firstNameLabel
       lastNameLabel

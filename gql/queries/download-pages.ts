@@ -46,7 +46,6 @@ export const downloadPageBySlug = gql`
     footer {
       title
       formTitle
-      formNotice
       firstNameLabel
       lastNameLabel
       emailAddressLabel

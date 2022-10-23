@@ -646,7 +646,6 @@ export const contentPageBySlug = gql`
     footer {
       title
       formTitle
-      formNotice
       firstNameLabel
       lastNameLabel
       emailAddressLabel

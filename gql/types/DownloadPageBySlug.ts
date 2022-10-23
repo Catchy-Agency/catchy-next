@@ -79,7 +79,6 @@ export interface DownloadPageBySlug_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
   readonly formTitle: string | null;
-  readonly formNotice: string | null;
   readonly firstNameLabel: string | null;
   readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;

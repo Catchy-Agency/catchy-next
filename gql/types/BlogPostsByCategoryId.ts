@@ -166,7 +166,6 @@ export interface BlogPostsByCategoryId_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
   readonly formTitle: string | null;
-  readonly formNotice: string | null;
   readonly nameLabel: string | null;
   readonly firstNameLabel: string | null;
   readonly lastNameLabel: string | null;

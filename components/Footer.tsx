@@ -110,39 +110,7 @@ export const Footer: FC<{
                 />
               </div>
             </div>
-            <div className="field form-notice my-5">
-              <label className="wrap">
-                {footer.formNotice && (
-                  <span
-                    className="content"
-                    dangerouslySetInnerHTML={{ __html: footer.formNotice }}
-                  />
-                )}
-                <input type="checkbox" />
-                <span className="checkmark">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="16"
-                      cy="16"
-                      r="15.5"
-                      fill="#1DBC83"
-                      stroke="#1DBC83"
-                    />
-                    <path
-                      d="M12.727 20.075L8.427 15.687L7 17.149L12.727 23L25 10.463L23.568 9L12.727 20.075Z"
-                      fill="#0D202C"
-                    />
-                  </svg>
-                </span>
-              </label>
-            </div>
-            <div className="field is-grouped">
+            <div className="field is-grouped pt-2">
               <div className="control submit-btn">
                 <input
                   onClick={() => pageview('/contact')}
@@ -177,9 +145,12 @@ export const Footer: FC<{
             />
           </a>
         </Link>
-        <p className="mb-0">
-          © {new Date().getFullYear()}. All rights reserved
-        </p>
+        {footer.richText && (
+          <div
+            className="mb-0 content"
+            dangerouslySetInnerHTML={{ __html: footer.richText }}
+          />
+        )}
       </div>
     </div>
   </footer>

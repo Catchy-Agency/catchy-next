@@ -68,54 +68,6 @@ footer {
   }
 }
 
-.form-notice {
-  /* Customize the label (the container) */
-  .wrap {
-    display: block;
-    position: relative;
-    padding-left: 2.5em;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    /* Hide the browser's default checkbox */
-    input {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
-    }
-  }
-
-  /* Create a custom checkbox */
-  .checkmark {
-    position: absolute;
-    top: -0.15em;
-    left: 0;
-    height: 1.85em;
-    width: 1.85em;
-    border-radius: 50%;
-    transition: 0.1s ease-out;
-  }
-
-  .wrap input:not(:checked) ~ .checkmark {
-    border: 1px solid $primary;
-    &:hover {
-      background-color: $primary-trans;
-    }
-  }
-
-  .checkmark svg {
-    @include fillall;
-    display: none;
-  }
-
-  .wrap input:checked ~ .checkmark svg {
-    display: block;
-  }
-}
 .submit-btn {
   min-width: 178px;
   position: relative;
