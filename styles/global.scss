@@ -25,6 +25,15 @@ $border-color-gray: #444f57;
 //   border: 1px dotted red;
 // }
 
+section:not(.has-background-grey-darker) {
+  padding: 0 3rem;
+  margin: 3rem 0;
+}
+
+section:last-of-type {
+  margin-bottom: 0;
+}
+
 .section.BannerRecord {
   padding-top: 6em;
   padding-bottom: 6em;
@@ -58,9 +67,9 @@ $border-color-gray: #444f57;
     padding-bottom: 0;
   }
 }
+
 .section.ContentLinkSetRecord + .section.ViewMoreLinkRecord {
   top: -8px;
-  padding-bottom: 120px;
 }
 
 .content-page section:not(.has-background-grey-darker),

@@ -200,15 +200,8 @@
   }
 }
 .section.ColumnRowRecord {
-  padding: 120px 6%;
+  padding: 80px 4%;
   box-sizing: border-box;
-
-  .container > .columns > .column:last-child {
-    padding-top: 28px;
-    &:before {
-      top: 0;
-    }
-  }
 
   @media screen and (min-width: calc(#{$desktop} + 1px)) {
     // .container:not(.is-desktop):not(.is-widescreen),
@@ -217,7 +210,7 @@
     }
   }
   @media (max-width: $tablet) {
-    padding: 80px max(6%, 1.5rem);
+    padding: 60px max(4%, 1.5rem);
   }
 }
 
