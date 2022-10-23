@@ -90,7 +90,10 @@ export const BlockSections: FC<{
 
           case 'ButtonExternalRecord':
             return (
-              <section key={block.id} className="section ButtonExternalRecord">
+              <section
+                key={block.id}
+                className="section ButtonExternalRecord pt-0 mb-4"
+              >
                 <div
                   className={classNames('container', maxClass, {
                     'has-text-left': block.align === 'Left',
