@@ -315,6 +315,8 @@ a {
 .navbar {
   padding-left: 0.75rem;
 
+  border-bottom: 1px solid $grey-dark;
+
   &.is-transparent {
     background: none;
   }

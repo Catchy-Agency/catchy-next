@@ -3,6 +3,8 @@
  *
  */
 footer {
+  border-top: 1px solid $grey-dark;
+
   a {
     @include btn-link;
     text-decoration: underline;
