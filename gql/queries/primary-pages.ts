@@ -682,6 +682,7 @@ export const primaryPageBySlug = gql`
           title
           text
           maxWidth
+          addLightBackground
         }
         ... on VideoRecord {
           id

@@ -892,6 +892,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
   readonly title: string | null;
   readonly text: string | null;
   readonly maxWidth: any | null;
+  readonly addLightBackground: any | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_VideoRecord_video {

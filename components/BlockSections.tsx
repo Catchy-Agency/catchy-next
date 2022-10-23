@@ -329,7 +329,12 @@ export const BlockSections: FC<{
 
           case 'TitleTextRecord':
             return (
-              <section key={block.id} className="section TitleTextRecord">
+              <section
+                key={block.id}
+                className={classNames('section', 'TitleTextRecord', {
+                  'has-background-grey-darker': block.addLightBackground,
+                })}
+              >
                 <div className={classNames('container', maxClass, alignClass)}>
                   <TitleText block={block} />
                 </div>
