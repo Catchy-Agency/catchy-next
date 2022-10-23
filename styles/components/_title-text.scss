@@ -34,8 +34,10 @@
 
   .has-text-centered {
     h2:before {
-      left: 50%;
-      transform: translateX(-50%);
+      display: none;
+    }
+    .content {
+      padding-left: 0;
     }
   }
   @media (max-width: $mobile) {
