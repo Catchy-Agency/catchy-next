@@ -8,7 +8,7 @@ import { scrollToContact } from '../../util/scrollToContact'
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord
 }> = ({ block }) => (
-  <div className="columns">
+  <div className="columns is-vcentered">
     <div className="column">
       {block.titleOverline && <p className="overline">{block.titleOverline}</p>}
       {block.title && (
