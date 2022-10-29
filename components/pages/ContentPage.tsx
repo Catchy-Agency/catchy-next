@@ -55,53 +55,55 @@ export const ContentPage: NextPage<{
       .filter(notEmpty) || []
 
   return (
-    <div className="content-page">
-      <Head>
-        {renderMetaTags([
-          ...(data?.contentPage?._seoMetaTags || []),
-          ...(data?.site.faviconMetaTags || []),
-        ])}
-      </Head>
-      <PreviewBanner status={status} />
-      {error && <PageError error={error} />}
-      {data?.header && <Header header={data?.header} />}
-      <header className="section">
-        <div className="container is-max-desktop">
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              {ancestors.map((ancestor) => (
-                <li key={ancestor.id}>
-                  <Link href={`/${ancestor.slug || ''}`}>
-                    <a>{ancestor.title}</a>
+    <>
+      <div className="content-page">
+        <Head>
+          {renderMetaTags([
+            ...(data?.contentPage?._seoMetaTags || []),
+            ...(data?.site.faviconMetaTags || []),
+          ])}
+        </Head>
+        <PreviewBanner status={status} />
+        {error && <PageError error={error} />}
+        {data?.header && <Header header={data?.header} />}
+        <header className="section">
+          <div className="container is-max-desktop">
+            <nav className="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <li>
+                  <Link href="/">
+                    <a>Home</a>
                   </Link>
                 </li>
-              ))}
-              <li className="is-active">
-                <a aria-current="page">{data?.contentPage?.title}</a>
-              </li>
-            </ul>
-          </nav>
-          <h1 className="title is-1">{data?.contentPage?.title}</h1>
-        </div>
-      </header>
-      <BlockSections
-        blocks={data?.contentPage?.blocks || []}
-        containerMax="desktop"
-      />
-      {links.length > 0 && (
-        <section className="section">
-          <div className="container is-max-desktop">
-            <CardRows links={links} />
+                {ancestors.map((ancestor) => (
+                  <li key={ancestor.id}>
+                    <Link href={`/${ancestor.slug || ''}`}>
+                      <a>{ancestor.title}</a>
+                    </Link>
+                  </li>
+                ))}
+                <li className="is-active">
+                  <a aria-current="page">{data?.contentPage?.title}</a>
+                </li>
+              </ul>
+            </nav>
+            <h1 className="title is-1">{data?.contentPage?.title}</h1>
           </div>
-        </section>
-      )}
+        </header>
+        <BlockSections
+          blocks={data?.contentPage?.blocks || []}
+          containerMax="desktop"
+        />
+        {links.length > 0 && (
+          <section className="section">
+            <div className="container is-max-desktop">
+              <CardRows links={links} />
+            </div>
+          </section>
+        )}
+      </div>
       {data?.footer && <Footer footer={data?.footer} />}
-    </div>
+    </>
   )
 }
 

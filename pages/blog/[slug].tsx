@@ -29,52 +29,54 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
     useQuerySubscription<BlogPostBySlug>(subscription)
 
   return (
-    <div className="content-post">
-      <Head>
-        {renderMetaTags([
-          ...(data?.blogPost?._seoMetaTags || []),
-          ...(data?.site.faviconMetaTags || []),
-        ])}
-      </Head>
-      <PreviewBanner status={status} />
-      {error && <PageError error={error} />}
-      {data?.header && <Header header={data?.header} />}
-      <header className="section">
-        <div className="container is-max-desktop">
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <Link href="/">
-                  <a>Home</a>
+    <>
+      <div className="content-post">
+        <Head>
+          {renderMetaTags([
+            ...(data?.blogPost?._seoMetaTags || []),
+            ...(data?.site.faviconMetaTags || []),
+          ])}
+        </Head>
+        <PreviewBanner status={status} />
+        {error && <PageError error={error} />}
+        {data?.header && <Header header={data?.header} />}
+        <header className="section">
+          <div className="container is-max-desktop">
+            <nav className="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <li>
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog">
+                    <a>Blog</a>
+                  </Link>
+                </li>
+                <li className="is-active">
+                  <a aria-current="page">{data?.blogPost?.title}</a>
+                </li>
+              </ul>
+            </nav>
+            <h1 className="title is-1">{data?.blogPost?.title}</h1>
+            {data?.blogPost?.author && <ByLine author={data.blogPost.author} />}
+            <div className="tags are-medium">
+              {data?.blogPost?.categories.map((cat) => (
+                <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
+                  <a className="tag">{cat.name}</a>
                 </Link>
-              </li>
-              <li>
-                <Link href="/blog">
-                  <a>Blog</a>
-                </Link>
-              </li>
-              <li className="is-active">
-                <a aria-current="page">{data?.blogPost?.title}</a>
-              </li>
-            </ul>
-          </nav>
-          <h1 className="title is-1">{data?.blogPost?.title}</h1>
-          {data?.blogPost?.author && <ByLine author={data.blogPost.author} />}
-          <div className="tags are-medium">
-            {data?.blogPost?.categories.map((cat) => (
-              <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
-                <a className="tag">{cat.name}</a>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </header>
-      <BlockSections
-        blocks={data?.blogPost?.blocks || []}
-        containerMax="desktop"
-      />
+        </header>
+        <BlockSections
+          blocks={data?.blogPost?.blocks || []}
+          containerMax="desktop"
+        />
+      </div>
       {data?.footer && <Footer footer={data?.footer} />}
-    </div>
+    </>
   )
 }
 
