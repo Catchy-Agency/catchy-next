@@ -1,9 +1,5 @@
 .section.TitleTextRecord {
-  margin-top: 100px;
-
-  @media (max-width: $tablet) {
-    padding-top: 80px;
-  }
+  padding-top: 6%;
 }
 
 .section.AgencyModelRecord .TitleTextRecord,
@@ -12,11 +8,6 @@
   $bottom: 1.5rem;
 
   padding-bottom: 0;
-
-  // + .section {
-  //   margin-top: 0;
-  //   // padding-top: 0;
-  // }
 
   .title {
     display: inline-block;

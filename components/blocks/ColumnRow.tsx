@@ -17,7 +17,7 @@ export const ColumnRow: FC<{
   block: BlogPostBySlug_blogPost_blocks_ColumnRowRecord
 }> = ({ block }) => (
   <div
-    className={classNames('columns', {
+    className={classNames('columns is-variable is-4', {
       'is-vcentered': block.verticallyCenterAcrossColumns,
     })}
   >
