@@ -130,20 +130,23 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section pt-4 pb-6">
         {pageCount > 1 && (
           <div className="container is-max-widescreen has-text-centered">
             {pageNum > 1 ? (
               <Link href={`${path}?p=${pageNum - 1}`}>
                 <a>
-                  <button className="button is-small" onClick={buttonClickBlur}>
+                  <button
+                    className="button is-small avoid-tf"
+                    onClick={buttonClickBlur}
+                  >
                     ←
                   </button>
                 </a>
               </Link>
             ) : (
               <button
-                className="button is-small"
+                className="button is-small avoid-tf"
                 disabled={true}
                 style={{ visibility: 'hidden' }}
               >
@@ -156,14 +159,17 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
             {pageNum < pageCount ? (
               <Link href={`${path}?p=${pageNum + 1}`}>
                 <a>
-                  <button className="button is-small" onClick={buttonClickBlur}>
+                  <button
+                    className="button is-small avoid-tf"
+                    onClick={buttonClickBlur}
+                  >
                     →
                   </button>
                 </a>
               </Link>
             ) : (
               <button
-                className="button is-small"
+                className="button is-small avoid-tf"
                 disabled={true}
                 style={{ visibility: 'hidden' }}
               >

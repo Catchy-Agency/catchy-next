@@ -60,7 +60,7 @@ a {
     box-shadow: none !important;
   }
 }
-.button:not(.is-ghost) {
+.button:not(.is-ghost, .avoid-tf) {
   transition: color 200ms ease, background-color 200ms ease-out;
   border-width: $border-width;
   color: $button-color;
