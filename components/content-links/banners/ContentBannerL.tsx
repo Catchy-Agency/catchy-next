@@ -17,43 +17,53 @@ let count = 0
 
 export const ContentBannerL: FC<{
   links: LinkData[]
-}> = ({ links }) => {
+  isSlider: boolean
+}> = ({ links, isSlider }) => {
   const deviceSize = useMediaQuery()
 
   // Update pagination ID if props change
   const paginationID = useMemo(() => {
     // Force props as dependencies
     links
+    isSlider
     return `ContentBannerL${count++}`
-  }, [links])
+  }, [links, isSlider])
 
   const paginationClass = `swiper-pagination-container-${paginationID}`
 
   return (
     <div className="hero-banner is-large">
-      <Swiper
-        modules={[Pagination, EffectFade]}
-        spaceBetween={0}
-        slidesPerView={1}
-        pagination={{
-          clickable: true,
-          el: '.' + paginationClass,
-          type: 'bullets',
-        }}
-        effect="fade"
-        fadeEffect={{
-          crossFade: true,
-        }}
-        loop
-        centeredSlides={false}
-      >
-        {links.map((link) => (
-          <SwiperSlide key={link.id} style={{ height: 'unset' }}>
-            <ContentLink link={link} deviceSize={deviceSize} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className={paginationClass} />
+      {isSlider ? (
+        <>
+          <Swiper
+            modules={[Pagination, EffectFade]}
+            spaceBetween={0}
+            slidesPerView={1}
+            pagination={{
+              clickable: true,
+              el: '.' + paginationClass,
+              type: 'bullets',
+            }}
+            effect="fade"
+            fadeEffect={{
+              crossFade: true,
+            }}
+            loop
+            centeredSlides={false}
+          >
+            {links.map((link) => (
+              <SwiperSlide key={link.id} style={{ height: 'unset' }}>
+                <ContentLink link={link} deviceSize={deviceSize} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className={paginationClass} />
+        </>
+      ) : (
+        links.map((link) => (
+          <ContentLink key={link.id} link={link} deviceSize={deviceSize} />
+        ))
+      )}
     </div>
   )
 }

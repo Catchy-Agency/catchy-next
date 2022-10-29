@@ -181,7 +181,7 @@ export const BlockSections: FC<{
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ContentBannerL links={links} />
+                      <ContentBannerL links={links} isSlider={block.isSlider} />
                     </div>
                   </section>
                 )
@@ -197,6 +197,7 @@ export const BlockSections: FC<{
                     <div className={classNames('container', maxClass)}>
                       <ContentBannerMS
                         links={links}
+                        isSlider={block.isSlider}
                         imageAlign={imageAlign}
                         contentSize={
                           block.displaySize == 'Banner (Medium)'

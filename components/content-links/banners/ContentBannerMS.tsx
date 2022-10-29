@@ -18,20 +18,22 @@ let count = 0
 export const ContentBannerMS: FC<{
   imageAlign?: string | null
   links: LinkData[]
+  isSlider: boolean
   displaySize: string | null
   contentSize: string | null
-}> = ({ links, imageAlign, contentSize, displaySize }) => {
+}> = ({ links, isSlider, imageAlign, contentSize, displaySize }) => {
   const deviceSize = useMediaQuery()
 
   // Update pagination ID if props change
   const paginationID = useMemo(() => {
     // Force props as dependencies
     links
+    isSlider
     imageAlign
     contentSize
     displaySize
     return `ContentBannerMS${count++}`
-  }, [links, imageAlign, contentSize, displaySize])
+  }, [links, isSlider, imageAlign, contentSize, displaySize])
 
   const paginationClass = `swiper-pagination-container-${paginationID}`
 
@@ -44,35 +46,50 @@ export const ContentBannerMS: FC<{
         'is-small': displaySize !== 'Banner (Medium)',
       })}
     >
-      <Swiper
-        modules={[Pagination, EffectFade]}
-        spaceBetween={0} //0.75rem * 2
-        slidesPerView={1}
-        pagination={{
-          clickable: true,
-          el: '.' + paginationClass,
-          type: 'bullets',
-        }}
-        effect="fade"
-        fadeEffect={{
-          crossFade: true,
-        }}
-        loop
-        centeredSlides={false}
-      >
-        {links.map((link) => (
-          <SwiperSlide key={link.id} style={{ height: 'unset' }}>
-            <ContentLink
-              link={link}
-              deviceSize={deviceSize}
-              imageAlign={imageAlign}
-              displaySize={displaySize}
-              contentSize={contentSize}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className={paginationClass} />
+      {isSlider ? (
+        <>
+          <Swiper
+            modules={[Pagination, EffectFade]}
+            spaceBetween={0} //0.75rem * 2
+            slidesPerView={1}
+            pagination={{
+              clickable: true,
+              el: '.' + paginationClass,
+              type: 'bullets',
+            }}
+            effect="fade"
+            fadeEffect={{
+              crossFade: true,
+            }}
+            loop
+            centeredSlides={false}
+          >
+            {links.map((link) => (
+              <SwiperSlide key={link.id} style={{ height: 'unset' }}>
+                <ContentLink
+                  link={link}
+                  deviceSize={deviceSize}
+                  imageAlign={imageAlign}
+                  displaySize={displaySize}
+                  contentSize={contentSize}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className={paginationClass} />
+        </>
+      ) : (
+        links.map((link) => (
+          <ContentLink
+            key={link.id}
+            link={link}
+            deviceSize={deviceSize}
+            imageAlign={imageAlign}
+            displaySize={displaySize}
+            contentSize={contentSize}
+          />
+        ))
+      )}
     </div>
   )
 }
