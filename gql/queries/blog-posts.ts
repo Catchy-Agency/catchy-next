@@ -321,6 +321,8 @@ export const blogPostBySlug = gql`
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -440,7 +442,6 @@ export const blogPostBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on ContentLinkSetRecord {
           id

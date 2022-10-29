@@ -5120,6 +5120,18 @@
             "deprecationReason": null
           },
           {
+            "name": "addLightBackground",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "columns",
             "description": null,
             "args": [],

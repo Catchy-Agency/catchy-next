@@ -131,7 +131,9 @@ export const BlockSections: FC<{
             return (
               <section
                 key={block.id}
-                className="section has-background-grey-darker ColumnRowRecord"
+                className={classNames('section', 'ColumnRowRecord', {
+                  'has-background-grey-darker': block.addLightBackground,
+                })}
               >
                 <div className={classNames('container', maxClass)}>
                   <ColumnRow block={block} />

@@ -340,8 +340,9 @@ export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns {
 export interface ContentPageBySlug_contentPage_blocks_ColumnRowRecord {
   readonly __typename: "ColumnRowRecord";
   readonly id: any;
-  readonly columns: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns>;
   readonly verticallyCenterAcrossColumns: any | null;
+  readonly addLightBackground: any | null;
+  readonly columns: ReadonlyArray<ContentPageBySlug_contentPage_blocks_ColumnRowRecord_columns>;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage_responsiveImage {

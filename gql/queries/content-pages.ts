@@ -134,6 +134,8 @@ export const contentPageBySlug = gql`
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -253,7 +255,6 @@ export const contentPageBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on ContentLinkSetRecord {
           id

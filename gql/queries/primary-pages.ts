@@ -412,6 +412,8 @@ export const primaryPageBySlug = gql`
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -531,7 +533,6 @@ export const primaryPageBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on FormBlockRecord {
           id

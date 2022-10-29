@@ -691,8 +691,9 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns {
 export interface PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord {
   readonly __typename: "ColumnRowRecord";
   readonly id: any;
-  readonly columns: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns>;
   readonly verticallyCenterAcrossColumns: any | null;
+  readonly addLightBackground: any | null;
+  readonly columns: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord_columns>;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields {

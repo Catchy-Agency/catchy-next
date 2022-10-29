@@ -31,7 +31,7 @@ section:not(.has-background-grey-darker) {
 }
 
 section:last-of-type {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .section.BannerRecord {
@@ -80,6 +80,13 @@ section:last-of-type {
 .primary-page .section.ContentLinkSetRecord.Large.has-background-grey-darker {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+
+.content-page,
+.content-post {
+  header.section {
+    padding-bottom: 0;
+  }
 }
 
 //

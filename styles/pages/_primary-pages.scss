@@ -176,50 +176,19 @@
       max-width: 1440px;
     }
   }
-
-  // @media screen and (max-width: $widescreen) and (min-width: $tablet) {
-  //   .fa-3x {
-  //     font-size: 2em;
-  //   }
-  // }
 }
 
-//call to action join
-//.primary-page
-.primary-pages {
-  //patch for developer-marketing-guide-introduction - green link on icons
-  .section.ColumnRowRecord {
-    .container > .columns > .column:last-child {
-      h3 {
-        @include green-line();
-        &:before {
-          top: -1em;
-        }
-      }
-    }
-  }
-}
-.section.ColumnRowRecord {
+.primary-page .section.ColumnRowRecord.has-background-grey-darker {
+  margin: 6% 0;
   padding: 80px 4%;
   box-sizing: border-box;
 
   @media screen and (min-width: calc(#{$desktop} + 1px)) {
-    // .container:not(.is-desktop):not(.is-widescreen),
     .parimary-page .container {
       max-width: 1408px;
     }
   }
   @media (max-width: $tablet) {
     padding: 60px max(4%, 1.5rem);
-  }
-}
-
-.content-post {
-  .has-background-grey-darker.ColumnRowRecord {
-    background-color: transparent !important;
-    padding: 0 1.5rem 3rem;
-  }
-  @media screen and (min-width: 1024px) {
-    padding: 0 3rem 3rem;
   }
 }
