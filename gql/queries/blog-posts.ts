@@ -275,7 +275,7 @@ export const blogPostBySlug = gql`
         title
         image {
           responsiveImage(
-            imgixParams: { fit: crop, ar: "1:1", w: 96, auto: format }
+            imgixParams: { fit: crop, ar: "1:1", w: 128, auto: format }
           ) {
             aspectRatio
             height

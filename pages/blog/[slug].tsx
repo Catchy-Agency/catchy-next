@@ -84,7 +84,7 @@ const ByLine: FC<{ author: BlogPostBySlug_blogPost_author }> = ({ author }) => (
   <div className="media is-align-items-center mb-5">
     {author.image?.responsiveImage?.src && (
       <div className="media-left">
-        <figure className="image is-48x48">
+        <figure className="image is-64x64">
           <img className="is-rounded" src={author.image.responsiveImage.src} />
         </figure>
       </div>
