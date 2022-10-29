@@ -1,6 +1,13 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { Image } from 'react-datocms'
 
 import {
@@ -116,6 +123,8 @@ const CardContent: FC<CardProps> = ({
   )
 }
 
+let count = 0
+
 export const ContentTileS: FC<{
   links: LinkData[]
   isSlider: boolean
@@ -124,6 +133,18 @@ export const ContentTileS: FC<{
 }> = ({ links, isSlider, contentSize = 'Small' }) => {
   const [activeCard, setActiveCard] = useState('')
   const deviceSize = useMediaQuery()
+
+  // Update pagination ID if props change
+  const paginationID = useMemo(() => {
+    // Force props as dependencies
+    links
+    isSlider
+    contentSize
+    return `ContentTileS${count++}`
+  }, [links, isSlider, contentSize])
+
+  const paginationNextClass = `swiper-button-next-btn-${paginationID}`
+  const paginationPrevClass = `swiper-button-prev-btn-${paginationID}`
 
   return (
     <div className={classNames('card-columns', deviceSize.toLowerCase())}>
@@ -143,8 +164,8 @@ export const ContentTileS: FC<{
                 : 3
             }
             navigation={{
-              nextEl: '.swiper-button-next-btn',
-              prevEl: '.swiper-button-prev-btn',
+              nextEl: '.' + paginationNextClass,
+              prevEl: '.' + paginationPrevClass,
             }}
             loop
           >
@@ -162,14 +183,14 @@ export const ContentTileS: FC<{
             ))}
           </Swiper>
           <div
-            className="swiper-button-prev-btn"
+            className={`swiper-button-prev-btn ${paginationPrevClass}`}
             onClick={() => setActiveCard('')}
           >
             <span className="is-sr-only">Previous</span>
             <LeftSliderArrow />
           </div>
           <div
-            className="swiper-button-next-btn"
+            className={`swiper-button-next-btn ${paginationNextClass}`}
             onClick={() => setActiveCard('')}
           >
             <span className="is-sr-only">Next</span>
