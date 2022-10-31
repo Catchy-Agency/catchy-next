@@ -7,9 +7,12 @@ import { PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord } from '../../gql
 export const ServiceSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord
 }> = ({ block }) => (
-  <div className="columns is-multiline">
+  <div className="columns is-multiline is-mobile">
     {block.services.map((service) => (
-      <div key={service.id} className="column is-one-quarter">
+      <div
+        key={service.id}
+        className="column is-half-tablet is-one-quarter-desktop"
+      >
         <div className="title is-4 py-6">
           {service.serviceImage?.responsiveImage ? (
             <figure className="image">
