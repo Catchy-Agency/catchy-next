@@ -11,43 +11,45 @@ export const ServiceSet: FC<{
     {block.services.map((service) => (
       <div
         key={service.id}
-        className="column is-half-tablet is-one-quarter-desktop"
+        className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop"
       >
-        <div className="title is-4 py-6">
-          {service.serviceImage?.responsiveImage ? (
-            <figure className="image">
-              <Image
-                data={
-                  service.serviceImage?.responsiveImage as ResponsiveImageType
-                }
-                lazyLoad={false}
+        <div className="service-item">
+          <div className="title is-4 py-6">
+            {service.serviceImage?.responsiveImage ? (
+              <figure className="image">
+                <Image
+                  data={
+                    service.serviceImage?.responsiveImage as ResponsiveImageType
+                  }
+                  lazyLoad={false}
+                />
+              </figure>
+            ) : (
+              <span className="fa-stack fa-3x">
+                <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
+                <i
+                  className={classNames(service.fontAwesomeIcon, 'fa-stack-1x')}
+                />
+              </span>
+            )}
+          </div>
+          <div
+            className={classNames('content-wrap', {
+              'has-text-right': block.textAlignment === 'Right',
+              'has-text-centered': block.textAlignment === 'Center',
+              'has-text-left':
+                block.textAlignment !== 'Right' &&
+                block.textAlignment !== 'Center',
+            })}
+          >
+            {service.title && <div className="title is-5">{service.title}</div>}
+            {!block.hideTextContent && service.text && (
+              <div
+                className="content"
+                dangerouslySetInnerHTML={{ __html: service.text }}
               />
-            </figure>
-          ) : (
-            <span className="fa-stack fa-3x">
-              <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
-              <i
-                className={classNames(service.fontAwesomeIcon, 'fa-stack-1x')}
-              />
-            </span>
-          )}
-        </div>
-        <div
-          className={classNames('content-wrap', {
-            'has-text-right': block.textAlignment === 'Right',
-            'has-text-centered': block.textAlignment === 'Center',
-            'has-text-left':
-              block.textAlignment !== 'Right' &&
-              block.textAlignment !== 'Center',
-          })}
-        >
-          {service.title && <div className="title is-5">{service.title}</div>}
-          {!block.hideTextContent && service.text && (
-            <div
-              className="content"
-              dangerouslySetInnerHTML={{ __html: service.text }}
-            />
-          )}
+            )}
+          </div>
         </div>
       </div>
     ))}

@@ -98,25 +98,10 @@
 
   $ssr-spacing: var(--ssr-spacing);
   .ServiceSetRecord {
-    .columns {
-      margin: calc(-#{$ssr-spacing} * 2);
-    }
-    .has-text-centered .columns {
-      justify-content: center;
-    }
-    .column {
-      display: flex;
-      flex-flow: column;
+    .service-item {
       background: rgba(68, 79, 87, 0.2);
       border: 1px solid $primary;
-      margin: $ssr-spacing;
-      padding: 0;
-      @media (min-width: $fullhd) {
-        &.is-one-quarter {
-          flex-basis: calc(25% - #{$ssr-spacing} * 2);
-          width: calc(25% - #{$ssr-spacing} * 2);
-        }
-      }
+      height: 100%;
     }
     .content-wrap {
       min-height: 7rem;
@@ -147,20 +132,6 @@
     }
   }
 
-  @media screen and (max-width: $fullhd) {
-    .ServiceSetRecord {
-      .column {
-        flex-basis: calc(33% - #{$ssr-spacing} * 2);
-      }
-    }
-  }
-  @media screen and (max-width: $desktop) {
-    .ServiceSetRecord {
-      .column {
-        flex-basis: calc(50% - #{$ssr-spacing} * 2);
-      }
-    }
-  }
   @media screen and (min-width: $tablet) {
     .ServiceSetRecord {
       .content {
