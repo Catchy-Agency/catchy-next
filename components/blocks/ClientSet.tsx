@@ -10,7 +10,7 @@ export const ClientSet: FC<{
     {block.clientSet.map((client) => (
       <div
         key={client.id}
-        className="column is-4-mobile is-3-tablet is-one-fifth-desktop"
+        className="column is-4-mobile is-3-tablet is-2-desktop"
       >
         {client.logo?.responsiveImage && (
           <Image

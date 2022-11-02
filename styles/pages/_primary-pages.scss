@@ -46,56 +46,6 @@
     }
   }
 
-  .ClientSetRecord {
-    $border: 1px solid $border-color-gray;
-    .column {
-      @for $i from 1 through 6 {
-        &:nth-child(#{$i}) {
-          border-bottom: $border;
-        }
-      }
-      &.is-one-fifth-desktop {
-        // @media screen and (min-width: 1216px) {
-        @media screen and (min-width: 1024px) {
-          width: calc(100% / 6);
-        }
-      }
-    }
-    @media screen and (max-width: calc(#{$tablet} - 1px)) {
-      .column {
-        &:nth-child(9) {
-          border-bottom: $border;
-        }
-        &:not(:nth-child(3n)) {
-          border-right: $border;
-        }
-      }
-    }
-    @media screen and (min-width: $tablet)  and (max-width: calc(#{$desktop} - 1px)) {
-      .column {
-        &:not(:nth-child(4n)) {
-          border-right: $border;
-        }
-      }
-    }
-    @media screen and (max-width: calc(#{$desktop} - 1px)) {
-      .column {
-        @each $i in 7, 8 {
-          &:nth-child(#{$i}) {
-            border-bottom: $border;
-          }
-        }
-      }
-    }
-    @media screen and (min-width: $desktop) {
-      .column {
-        &:not(:nth-child(6n)) {
-          border-right: $border;
-        }
-      }
-    }
-  }
-
   $ssr-spacing: var(--ssr-spacing);
   .ServiceSetRecord {
     .service-item {
