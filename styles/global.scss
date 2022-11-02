@@ -97,7 +97,7 @@ section:last-of-type {
 //
 
 .section.ServiceSetRecord {
-  .title.is-5 {
+  .title.is-5:not(:last-child) {
     margin-bottom: 0.5rem;
   }
 }
