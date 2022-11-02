@@ -42,7 +42,9 @@ export const ServiceSet: FC<{
                 block.textAlignment !== 'Center',
             })}
           >
-            {service.title && <div className="title is-5">{service.title}</div>}
+            {service.title && (
+              <div className="has-text-centered is-size-5">{service.title}</div>
+            )}
             {!block.hideTextContent && service.text && (
               <div
                 className="content"
