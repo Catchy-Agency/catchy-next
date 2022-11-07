@@ -40,6 +40,12 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
       description: post.description,
       image:
         (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
+      imageLg:
+        (post.previewImageLg?.responsiveImage as ResponsiveImageType) || null,
+      imageSm:
+        (post.previewImageSm?.responsiveImage as ResponsiveImageType) || null,
+      imageCol:
+        (post.previewImageCol?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
     })) || []
 
@@ -82,7 +88,7 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="columns">
-            <div className="column is-one-fifth">
+            <div className="column is-one-fifth-desktop is-flex-grow-0">
               <h5 className="title is-5">Categories</h5>
               <hr />
               {data?.allCategories.map((cat) => (
@@ -124,20 +130,23 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section pt-4 pb-6">
         {pageCount > 1 && (
           <div className="container is-max-widescreen has-text-centered">
             {pageNum > 1 ? (
               <Link href={`${path}?p=${pageNum - 1}`}>
                 <a>
-                  <button className="button is-small" onClick={buttonClickBlur}>
+                  <button
+                    className="button is-small avoid-tf"
+                    onClick={buttonClickBlur}
+                  >
                     ←
                   </button>
                 </a>
               </Link>
             ) : (
               <button
-                className="button is-small"
+                className="button is-small avoid-tf"
                 disabled={true}
                 style={{ visibility: 'hidden' }}
               >
@@ -150,14 +159,17 @@ export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
             {pageNum < pageCount ? (
               <Link href={`${path}?p=${pageNum + 1}`}>
                 <a>
-                  <button className="button is-small" onClick={buttonClickBlur}>
+                  <button
+                    className="button is-small avoid-tf"
+                    onClick={buttonClickBlur}
+                  >
                     →
                   </button>
                 </a>
               </Link>
             ) : (
               <button
-                className="button is-small"
+                className="button is-small avoid-tf"
                 disabled={true}
                 style={{ visibility: 'hidden' }}
               >

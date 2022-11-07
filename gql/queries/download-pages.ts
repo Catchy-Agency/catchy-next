@@ -45,11 +45,20 @@ export const downloadPageBySlug = gql`
     }
     footer {
       title
-      nameLabel
+      formTitle
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

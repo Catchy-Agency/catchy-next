@@ -25,6 +25,60 @@ export interface AllBlogPosts_allBlogPosts_previewImage {
   readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImage_responsiveImage | null;
 }
 
+export interface AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageLg {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllBlogPosts_allBlogPosts_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageCol_responsiveImage | null;
+}
+
 export interface AllBlogPosts_allBlogPosts {
   readonly __typename: "BlogPostRecord";
   readonly id: any;
@@ -32,6 +86,9 @@ export interface AllBlogPosts_allBlogPosts {
   readonly title: string | null;
   readonly description: string | null;
   readonly previewImage: AllBlogPosts_allBlogPosts_previewImage | null;
+  readonly previewImageLg: AllBlogPosts_allBlogPosts_previewImageLg | null;
+  readonly previewImageSm: AllBlogPosts_allBlogPosts_previewImageSm | null;
+  readonly previewImageCol: AllBlogPosts_allBlogPosts_previewImageCol | null;
 }
 
 export interface AllBlogPosts_allCategories {
@@ -91,6 +148,13 @@ export interface AllBlogPosts_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface AllBlogPosts_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface AllBlogPosts_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -101,11 +165,16 @@ export interface AllBlogPosts_footer_socialLinks {
 export interface AllBlogPosts_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
-  readonly nameLabel: string | null;
+  readonly formTitle: string | null;
+  readonly firstNameLabel: string | null;
+  readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly directionsUrl: string | null;
+  readonly footerLogo: AllBlogPosts_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<AllBlogPosts_footer_socialLinks>;
   readonly richText: string | null;
 }

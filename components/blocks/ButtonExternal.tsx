@@ -6,7 +6,7 @@ export const ButtonExternal: FC<{
   block: BlogPostBySlug_blogPost_blocks_ButtonExternalRecord
 }> = ({ block }) => (
   <a
-    className="button is-medium is-primary"
+    className="button is-primary"
     href={block.url || undefined}
     target={block.openInNewTab ? '_blank' : undefined}
     rel="noreferrer"

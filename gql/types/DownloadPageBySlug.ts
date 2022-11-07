@@ -61,6 +61,13 @@ export interface DownloadPageBySlug_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface DownloadPageBySlug_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface DownloadPageBySlug_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -71,11 +78,16 @@ export interface DownloadPageBySlug_footer_socialLinks {
 export interface DownloadPageBySlug_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
-  readonly nameLabel: string | null;
+  readonly formTitle: string | null;
+  readonly firstNameLabel: string | null;
+  readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly directionsUrl: string | null;
+  readonly footerLogo: DownloadPageBySlug_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<DownloadPageBySlug_footer_socialLinks>;
   readonly richText: string | null;
 }

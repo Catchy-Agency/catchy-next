@@ -16,9 +16,41 @@ export const primaryPageBySlug = gql`
       textAlign
       blocks {
         __typename
+        ... on AgencyModelRecord {
+          id
+          text
+          title
+          columns {
+            id
+            image {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 200, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            title
+            services {
+              id
+              title
+              text
+            }
+          }
+        }
         ... on BannerRecord {
           id
+          titleOverline
           title
+          addGreenLine
+          subTitle
           text
           foregroundImage {
             responsiveImage(
@@ -109,6 +141,7 @@ export const primaryPageBySlug = gql`
           displaySize
           imageAlign
           callToActionLabel
+          isSlider
           links {
             __typename
             ... on PrimaryPageRecord {
@@ -119,6 +152,51 @@ export const primaryPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -152,6 +230,51 @@ export const primaryPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on ContentPageRecord {
               id
@@ -161,6 +284,51 @@ export const primaryPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -194,11 +362,58 @@ export const primaryPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
           }
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -318,7 +533,6 @@ export const primaryPageBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on FormBlockRecord {
           id
@@ -416,15 +630,33 @@ export const primaryPageBySlug = gql`
         }
         ... on ServiceSetRecord {
           id
+          hideTextContent
+          textAlignment
           services {
             id
             title
             text
             fontAwesomeIcon
+            serviceImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 750, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
           }
         }
         ... on TeamRecord {
           id
+          teamTitle
           members {
             id
             name
@@ -450,6 +682,8 @@ export const primaryPageBySlug = gql`
           id
           title
           text
+          maxWidth
+          addLightBackground
         }
         ... on VideoRecord {
           id
@@ -529,11 +763,20 @@ export const primaryPageBySlug = gql`
     }
     footer {
       title
-      nameLabel
+      formTitle
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

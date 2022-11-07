@@ -20,9 +20,8 @@ interface PageProps {
 }
 
 const DownloadPage: NextPage<PageProps> = ({ subscription }) => {
-  const { data, error, status } = useQuerySubscription<DownloadPageBySlug>(
-    subscription,
-  )
+  const { data, error, status } =
+    useQuerySubscription<DownloadPageBySlug>(subscription)
 
   const clickLink = useCallback<(link: HTMLAnchorElement | null) => void>(
     (link) => link && link.click(),

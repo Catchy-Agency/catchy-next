@@ -7,11 +7,14 @@ $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 
+$border-color-gray: #444f57;
+
 // Bulma theme & core
 // $widescreen-enabled: false;
 // $fullhd-enabled: false;
 @import './theme_variables.scss';
 @import '../node_modules/bulma/bulma.sass';
+@import './vendor/rfs';
 @import './theme_overrides.scss';
 
 //
@@ -22,26 +25,38 @@ $cam-gray3: #56636b;
 //   border: 1px dotted red;
 // }
 
-.section.BannerRecord {
-  padding-top: 6em;
-  padding-bottom: 6em;
+section:not(.has-background-grey-darker) {
+  padding: 0 3%;
+  margin: 3% 0;
 }
 
-.section.TitleTextRecord {
-  padding-top: 4rem;
-  padding-bottom: 0;
+section:last-of-type {
+  margin-bottom: 0 !important;
+}
 
-  &:first-of-type {
-    padding-top: 3rem;
+.section.BannerRecord {
+  padding-top: 2%;
+  padding-bottom: 4%;
+
+  .column {
+    img {
+      object-fit: contain;
+    }
   }
 }
 
 .section.ClientSetRecord {
-  padding-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
   padding-top: 0;
+}
+.section.TeamRecord {
+  .is-4 {
+    margin-top: 1.25em;
+  }
 }
 
 .section.ViewMoreLinkRecord {
@@ -54,9 +69,8 @@ $cam-gray3: #56636b;
   }
 }
 
-footer.section {
-  margin-top: 3rem;
-  padding-bottom: 12rem;
+.section.ContentLinkSetRecord + .section.ViewMoreLinkRecord {
+  top: -8px;
 }
 
 .content-page section:not(.has-background-grey-darker),
@@ -69,12 +83,23 @@ footer.section {
   margin-bottom: 3rem;
 }
 
+.content-page,
+.content-post {
+  padding-bottom: 6%;
+
+  header.section {
+    padding-bottom: 0;
+  }
+}
+
 //
 // More fragile hacks
 //
 
-.section.ServiceSetRecord .title.is-5 {
-  margin-bottom: 0.5rem;
+.section.ServiceSetRecord {
+  .title.is-5:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
 }
 
 //
@@ -121,3 +146,7 @@ footer.section {
   height: 100%;
   object-fit: cover;
 }
+
+@import 'components/_content-links';
+@import 'pages/_primary-pages';
+@import 'pages/_content-pages';

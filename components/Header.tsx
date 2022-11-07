@@ -68,7 +68,10 @@ export const Header: FC<{
                 </Link>
               )
             })}
-            <a className="navbar-item is-tab" onClick={scrollToContact}>
+            <a
+              className="navbar-item is-tab button is-primary"
+              onClick={scrollToContact}
+            >
               {header.contactLinkLabel}
             </a>
           </div>

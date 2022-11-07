@@ -58,6 +58,49 @@ export const contentPageBySlug = gql`
             base64
           }
         }
+        previewImageLg {
+          responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
+        previewImageSm {
+          responsiveImage(
+            imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+          ) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
+        previewImageCol {
+          responsiveImage(
+            imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+          ) {
+            aspectRatio
+            height
+            width
+            sizes
+            src
+            srcSet
+            alt
+            title
+            base64
+          }
+        }
       }
       blocks {
         __typename
@@ -91,6 +134,8 @@ export const contentPageBySlug = gql`
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -210,12 +255,12 @@ export const contentPageBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on ContentLinkSetRecord {
           id
           displaySize
           imageAlign
+          isSlider
           callToActionLabel
           links {
             __typename
@@ -227,6 +272,51 @@ export const contentPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -260,6 +350,51 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on ContentPageRecord {
               id
@@ -281,6 +416,51 @@ export const contentPageBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on DownloadPageRecord {
               id
@@ -290,6 +470,51 @@ export const contentPageBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -421,11 +646,20 @@ export const contentPageBySlug = gql`
     }
     footer {
       title
-      nameLabel
+      formTitle
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

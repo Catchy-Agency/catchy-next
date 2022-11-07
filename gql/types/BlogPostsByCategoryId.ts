@@ -25,6 +25,60 @@ export interface BlogPostsByCategoryId_allBlogPosts_previewImage {
   readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImage_responsiveImage | null;
 }
 
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageLg_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageLg {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImageLg_responsiveImage | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImageSm_responsiveImage | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostsByCategoryId_allBlogPosts_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostsByCategoryId_allBlogPosts_previewImageCol_responsiveImage | null;
+}
+
 export interface BlogPostsByCategoryId_allBlogPosts {
   readonly __typename: "BlogPostRecord";
   readonly id: any;
@@ -32,6 +86,9 @@ export interface BlogPostsByCategoryId_allBlogPosts {
   readonly title: string | null;
   readonly description: string | null;
   readonly previewImage: BlogPostsByCategoryId_allBlogPosts_previewImage | null;
+  readonly previewImageLg: BlogPostsByCategoryId_allBlogPosts_previewImageLg | null;
+  readonly previewImageSm: BlogPostsByCategoryId_allBlogPosts_previewImageSm | null;
+  readonly previewImageCol: BlogPostsByCategoryId_allBlogPosts_previewImageCol | null;
 }
 
 export interface BlogPostsByCategoryId_allCategories {
@@ -91,6 +148,13 @@ export interface BlogPostsByCategoryId_header {
   readonly contactLinkLabel: string | null;
 }
 
+export interface BlogPostsByCategoryId_footer_footerLogo {
+  readonly __typename: "FileField";
+  readonly url: string;
+  readonly title: string | null;
+  readonly alt: string | null;
+}
+
 export interface BlogPostsByCategoryId_footer_socialLinks {
   readonly __typename: "SocialLinkRecord";
   readonly id: any;
@@ -101,11 +165,17 @@ export interface BlogPostsByCategoryId_footer_socialLinks {
 export interface BlogPostsByCategoryId_footer {
   readonly __typename: "FooterRecord";
   readonly title: string | null;
+  readonly formTitle: string | null;
   readonly nameLabel: string | null;
+  readonly firstNameLabel: string | null;
+  readonly lastNameLabel: string | null;
   readonly emailAddressLabel: string | null;
   readonly messageLabel: string | null;
   readonly destinationEmail: string | null;
   readonly contactText: string | null;
+  readonly contactEmail: string | null;
+  readonly directionsUrl: string | null;
+  readonly footerLogo: BlogPostsByCategoryId_footer_footerLogo | null;
   readonly socialLinks: ReadonlyArray<BlogPostsByCategoryId_footer_socialLinks>;
   readonly richText: string | null;
 }

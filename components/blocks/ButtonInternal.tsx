@@ -14,7 +14,7 @@ export const ButtonInternal: FC<{
       }`}
     >
       <a
-        className="button is-medium is-primary"
+        className="button is-primary"
         target={block.openInNewTab ? '_blank' : undefined}
       >
         {block.label}

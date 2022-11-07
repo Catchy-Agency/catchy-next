@@ -5,7 +5,8 @@ import {
   PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields,
 } from '../../gql/types/PrimaryPageBySlug'
 
-type Field = PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields | null
+type Field =
+  PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord_form_formFields | null
 
 interface Group {
   readonly __typename: 'Group'

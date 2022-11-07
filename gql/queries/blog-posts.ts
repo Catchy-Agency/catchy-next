@@ -30,72 +30,37 @@ export const allBlogPosts = gql`
           base64
         }
       }
-    }
-    allCategories {
-      id
-      name
-      slug
-    }
-    primaryPage(filter: { slug: { eq: "blog" } }) {
-      id
-      title
-      _seoMetaTags {
-        attributes
-        content
-        tag
+      previewImageLg {
+        responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
       }
-    }
-    site: _site {
-      faviconMetaTags {
-        attributes
-        content
-        tag
-      }
-    }
-    header {
-      logo {
-        url
-        title
-        alt
-      }
-      links {
-        id
-        title
-        slug
-      }
-      contactLinkLabel
-    }
-    footer {
-      title
-      nameLabel
-      emailAddressLabel
-      messageLabel
-      destinationEmail
-      contactText
-      socialLinks {
-        id
-        fontAwesomeIcon
-        url
-      }
-      richText
-    }
-  }
-`
-
-export const blogPostsByCategoryId = gql`
-  query BlogPostsByCategoryId($id: ItemId) {
-    allBlogPosts(
-      first: 100
-      orderBy: date_DESC
-      filter: { categories: { anyIn: [$id] } }
-    ) {
-      id
-      slug
-      title
-      description
-      previewImage {
+      previewImageSm {
         responsiveImage(
-          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+          imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageCol {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
         ) {
           aspectRatio
           height
@@ -145,11 +110,151 @@ export const blogPostsByCategoryId = gql`
     }
     footer {
       title
-      nameLabel
+      formTitle
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
+      socialLinks {
+        id
+        fontAwesomeIcon
+        url
+      }
+      richText
+    }
+  }
+`
+
+export const blogPostsByCategoryId = gql`
+  query BlogPostsByCategoryId($id: ItemId) {
+    allBlogPosts(
+      first: 100
+      orderBy: date_DESC
+      filter: { categories: { anyIn: [$id] } }
+    ) {
+      id
+      slug
+      title
+      description
+      previewImage {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageLg {
+        responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageSm {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageCol {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+    }
+    allCategories {
+      id
+      name
+      slug
+    }
+    primaryPage(filter: { slug: { eq: "blog" } }) {
+      id
+      title
+      _seoMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+    site: _site {
+      faviconMetaTags {
+        attributes
+        content
+        tag
+      }
+    }
+    header {
+      logo {
+        url
+        title
+        alt
+      }
+      links {
+        id
+        title
+        slug
+      }
+      contactLinkLabel
+    }
+    footer {
+      title
+      formTitle
+      nameLabel
+      firstNameLabel
+      lastNameLabel
+      emailAddressLabel
+      messageLabel
+      destinationEmail
+      contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon
@@ -170,7 +275,7 @@ export const blogPostBySlug = gql`
         title
         image {
           responsiveImage(
-            imgixParams: { fit: crop, ar: "1:1", w: 96, auto: format }
+            imgixParams: { fit: crop, ar: "1:1", w: 128, auto: format }
           ) {
             aspectRatio
             height
@@ -216,6 +321,8 @@ export const blogPostBySlug = gql`
         }
         ... on ColumnRowRecord {
           id
+          verticallyCenterAcrossColumns
+          addLightBackground
           columns {
             id
             title
@@ -335,12 +442,12 @@ export const blogPostBySlug = gql`
             textAlign
             width
           }
-          verticallyCenterAcrossColumns
         }
         ... on ContentLinkSetRecord {
           id
           displaySize
           imageAlign
+          isSlider
           callToActionLabel
           links {
             __typename
@@ -352,6 +459,51 @@ export const blogPostBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -385,6 +537,51 @@ export const blogPostBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on ContentPageRecord {
               id
@@ -406,6 +603,51 @@ export const blogPostBySlug = gql`
                   base64
                 }
               }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
             }
             ... on DownloadPageRecord {
               id
@@ -415,6 +657,51 @@ export const blogPostBySlug = gql`
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageLg {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "3:1", auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageSm {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              previewImageCol {
+                responsiveImage(
+                  imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
                 ) {
                   aspectRatio
                   height
@@ -551,11 +838,21 @@ export const blogPostBySlug = gql`
     }
     footer {
       title
+      formTitle
       nameLabel
+      firstNameLabel
+      lastNameLabel
       emailAddressLabel
       messageLabel
       destinationEmail
       contactText
+      contactEmail
+      directionsUrl
+      footerLogo {
+        url
+        title
+        alt
+      }
       socialLinks {
         id
         fontAwesomeIcon

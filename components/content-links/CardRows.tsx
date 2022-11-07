@@ -28,7 +28,7 @@ export const CardRows: FC<{
           <Link href={link.url || ''}>
             <a>
               <div className="p-6">
-                {link.title && <div className="title is-2">{link.title}</div>}
+                {link.title && <div className="title is-4">{link.title}</div>}
                 {link.description && (
                   <div className="content has-text-light">
                     {link.description}

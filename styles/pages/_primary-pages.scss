@@ -1,0 +1,115 @@
+:root {
+  --ssr-spacing: 12px;
+}
+@media (max-width: $desktop) {
+  :root {
+    --ssr-spacing: 8px;
+  }
+}
+@media (max-width: $mobile) {
+  :root {
+    --ssr-spacing: 8px;
+  }
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@import '../components/_title-text';
+@import '../components/_agency-model';
+
+.primary-page {
+  @media (max-width: $mobile) {
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .BannerRecord {
+    > .container {
+      width: 100%;
+    }
+    .column:last-child {
+      display: flex;
+      justify-content: center;
+      margin-right: calc((min(770px, 50vw) * -1) + 50%);
+    }
+    .has-green-line {
+      margin-bottom: 1em;
+      &:before {
+        width: 85px;
+        top: unset;
+        bottom: calc(-0.5em - 5px);
+      }
+    }
+  }
+
+  $ssr-spacing: var(--ssr-spacing);
+  .ServiceSetRecord {
+    .service-item {
+      background: rgba(68, 79, 87, 0.2);
+      border: 1px solid $primary;
+      height: 100%;
+    }
+    .content-wrap {
+      min-height: 7rem;
+      border-top: unset;
+      padding: 6%;
+      border-top: 1px solid $primary;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .is-5 {
+        @include bulletList();
+      }
+    }
+
+    //image
+    .title.is-4 {
+      margin-bottom: 0;
+      padding: 1rem 0;
+      display: grid;
+      place-items: center;
+    }
+    figure {
+      &.image {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    .ServiceSetRecord {
+      .content {
+        //@see typography defs in theme_override
+        $line-height: 25.5px;
+        $num-lines: 3;
+        min-height: calc($line-height * $num-lines);
+      }
+    }
+  }
+  @media screen and (min-width: $desktop) {
+    .primary-page .container {
+      max-width: 1440px;
+    }
+  }
+}
+
+.primary-page .section.ColumnRowRecord.has-background-grey-darker {
+  margin: 6% 0;
+  padding: 80px 4%;
+  box-sizing: border-box;
+
+  @media screen and (min-width: calc(#{$desktop} + 1px)) {
+    .parimary-page .container {
+      max-width: 1408px;
+    }
+  }
+  @media (max-width: $tablet) {
+    padding: 60px max(4%, 1.5rem);
+  }
+}

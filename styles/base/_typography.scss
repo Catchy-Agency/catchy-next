@@ -1,0 +1,132 @@
+$font-montserrat: 'Montserrat', san-serif;
+$font-open: 'Open Sans', san-serif;
+
+@mixin hdl-com() {
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2 !important;
+}
+// styleName: Headline1;
+@mixin hdl1() {
+  @include hdl-com;
+  font-family: $font-montserrat !important;
+  // line-height: 1.2258 !important; //76/62;
+  @include font-size(56px, !important);
+  // @media (min-width: $tablet) {
+  // }
+  // @media (max-width: calc($tablet - 1px)) {
+  //   @include font-size(48px);
+  // }
+}
+// styleName: Headline2;
+@mixin hdl2() {
+  @include hdl-com;
+  font-family: $font-montserrat !important;
+  @include font-size(40px, !important);
+  font-weight: 700;
+  // line-height: 1.21739 !important; //56/46;
+}
+// styleName: Headline3;
+@mixin hdl3() {
+  @include hdl-com;
+  font-family: $font-montserrat !important;
+  @include font-size(34px, !important);
+  // line-height: 1.647 !important; //56/34
+}
+// styleName: Headline4;
+@mixin hdl4() {
+  @include hdl-com();
+  font-family: $font-open !important;
+  @include font-size(24px, !important);
+  // line-height: 1.4166666 !important; //34/24;
+}
+// styleName: Headline5;
+@mixin hdl5() {
+  @include hdl-com();
+  font-family: $font-open !important;
+  @include font-size(18px, !important);
+  font-weight: 700 !important;
+  // line-height: 1.3889 !important; //25px;
+  letter-spacing: 0em !important;
+}
+// styleName: bullet list;
+@mixin bulletList() {
+  font-family: $font-open !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 1.41667 !important; //34/24;
+  letter-spacing: 0em !important;
+}
+@mixin bdy-com {
+  font-family: $font-open !important;
+  @include clamp('font-size', 14px, 3vw, 16px);
+  line-height: 1.5 !important;
+  letter-spacing: 0em !important;
+}
+// styleName: Body copy;
+@mixin bdy-md() {
+  @include bdy-com;
+  font-weight: 400;
+}
+//styleName: Overline;
+.overline,
+.pre-headline {
+  font-family: $font-open;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.375; //22/16;
+  letter-spacing: 0.05em;
+
+  text-transform: uppercase;
+  color: $primary;
+}
+//styleName: Buttons and Links;
+@mixin btn-link() {
+  @include bdy-com;
+  font-weight: 700;
+}
+// caption/citation
+@mixin caption() {
+  font-family: Open Sans;
+  font-size: 14px;
+  line-height: 1.2857; //18px;
+}
+
+h1 {
+  @include hdl1();
+}
+h2 {
+  @include hdl2();
+}
+h3 {
+  @include hdl3();
+}
+h4 {
+  @include hdl4();
+}
+h5 {
+  @include hdl5();
+}
+
+.subtitle,
+.title {
+  //responsive
+  font-family: $font-montserrat;
+  font-weight: 700;
+  &.is-1 {
+    // font-size: 4rem;
+    @include hdl1();
+  }
+  &.is-2 {
+    @include hdl2();
+  }
+  &.is-3 {
+    @include hdl3();
+  }
+  &.is-4 {
+    @include hdl4();
+  }
+  &.is-5 {
+    @include hdl5();
+  }
+}

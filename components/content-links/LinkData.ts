@@ -7,4 +7,7 @@ export interface LinkData {
   description: string | null
   callToAction: string | null
   image: ResponsiveImageType | null
+  imageLg: ResponsiveImageType | null
+  imageSm: ResponsiveImageType | null
+  imageCol: ResponsiveImageType | null
 }
