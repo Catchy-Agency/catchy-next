@@ -150,3 +150,16 @@ section:last-of-type {
 @import 'components/_content-links';
 @import 'pages/_primary-pages';
 @import 'pages/_content-pages';
+
+//
+// "content" adjustments
+// https://bulma.io/documentation/elements/content
+//
+
+.content table {
+  border-color: transparent;
+}
+
+.content table td:not(:last-of-type) {
+  border-right-width: 1px;
+}
