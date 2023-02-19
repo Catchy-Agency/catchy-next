@@ -13,7 +13,7 @@ import { Subscription } from '../../util/dato-cms'
 import { BlockSections } from '../BlockSections'
 import { PageError } from '../cms/PageError'
 import { PreviewBanner } from '../cms/PreviewBanner'
-import { ThumbRows } from '../content-links/ThumbRows'
+import { ContentTileS } from '../content-links/cards/ContentTileS'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
 
@@ -59,7 +59,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
   )
 
   return (
-    <>
+    <div className="primary-page">
       <Head>
         {renderMetaTags([
           ...(data?.primaryPage?._seoMetaTags || []),
@@ -92,38 +92,52 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
-      <section className="section">
-        <div className="container is-max-widescreen">
-          <hr />
-          {data?.allWorkCategories.map((cat) => (
-            <div key={cat.id} className="mb-2 mr-2 is-inline-block">
-              {cat.slug === router.query.slug ? (
-                <div className="tags are-medium has-addons">
-                  <span className="tag is-primary">
-                    {cat.name}
-                    &nbsp; &nbsp;
-                    <Link href="/work">
-                      <a
-                        className="has-text-white"
-                        style={{
-                          margin: '-0.33rem -1rem',
-                          padding: '0.33rem 1rem',
-                        }}
-                      >
-                        ✕
-                      </a>
+      <section className="section TitleTextRecord" style={{ paddingTop: '0' }}>
+        <div className="container is-max-widescreen has-text-left">
+          <h2 className="title is-2" style={{ maxWidth: '100%' }}>
+            Behold our case studies!
+          </h2>
+          <div className="content">
+            <div>
+              {data?.allWorkCategories.map((cat) => (
+                <div key={cat.id} className="mb-2 mr-2 is-inline-block">
+                  {cat.slug === router.query.slug ? (
+                    <div className="tags are-medium has-addons">
+                      <span className="tag is-primary">
+                        {cat.name}
+                        &nbsp; &nbsp;
+                        <Link href="/work">
+                          <a
+                            className="has-text-white"
+                            style={{
+                              margin: '-0.33rem -1rem',
+                              padding: '0.33rem 1rem',
+                            }}
+                          >
+                            ✕
+                          </a>
+                        </Link>
+                      </span>
+                    </div>
+                  ) : (
+                    <Link href={`/work/category/${cat.slug || ''}`}>
+                      <a className="tag is-medium">{cat.name}</a>
                     </Link>
-                  </span>
+                  )}
                 </div>
-              ) : (
-                <Link href={`/work/category/${cat.slug || ''}`}>
-                  <a className="tag is-medium">{cat.name}</a>
-                </Link>
-              )}
+              ))}
             </div>
-          ))}
-          <hr />
-          <ThumbRows links={visibleLinks} imageAlign="Left" />
+          </div>
+        </div>
+      </section>
+      <section className="ContentLinkSetRecord card--columns">
+        <div className="container is-max-widescreen">
+          <ContentTileS
+            contentSize={'Small'}
+            displaySize={null}
+            links={visibleLinks}
+            isSlider={false}
+          />
           {links.length === 0 && (
             <div className="section is-size-3 is-italic has-text-centered">
               No posts to show
@@ -181,7 +195,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         )}
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
-    </>
+    </div>
   )
 }
 
