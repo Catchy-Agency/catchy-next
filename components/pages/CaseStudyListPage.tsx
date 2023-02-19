@@ -8,7 +8,7 @@ import {
   ResponsiveImageType,
   useQuerySubscription,
 } from 'react-datocms'
-import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
+import { AllCaseStudies } from '../../gql/types/AllCaseStudies'
 import { Subscription } from '../../util/dato-cms'
 import { PageError } from '../cms/PageError'
 import { PreviewBanner } from '../cms/PreviewBanner'
@@ -19,7 +19,7 @@ import { Header } from '../Header'
 const PAGE_SIZE = 10
 
 export interface CaseStudyListPageProps {
-  subscription: Subscription<AllBlogPosts>
+  subscription: Subscription<AllCaseStudies>
   path: string
 }
 
@@ -29,12 +29,12 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
 }) => {
   const router = useRouter()
   const { data, error, status } =
-    useQuerySubscription<AllBlogPosts>(subscription)
+    useQuerySubscription<AllCaseStudies>(subscription)
 
   const links =
-    data?.allBlogPosts.map((post) => ({
+    data?.allCaseStudies.map((post) => ({
       id: post.id,
-      url: `/blog/${post.slug || ''}`,
+      url: `/work/${post.slug || ''}`,
       title: post.title,
       description: post.description,
       image:
@@ -68,36 +68,20 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
-      <header className="section py-0 pt-5">
-        <div className="container is-max-widescreen">
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li className="is-active">
-                <a aria-current="page">Blog</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="columns">
             <div className="column is-one-fifth-desktop is-flex-grow-0">
               <h5 className="title is-5">Categories</h5>
               <hr />
-              {data?.allCategories.map((cat) => (
+              {data?.allWorkCategories.map((cat) => (
                 <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
                   {cat.slug === router.query.slug ? (
                     <div className="tags are-medium has-addons">
                       <span className="tag is-primary">
                         {cat.name}
                         &nbsp; &nbsp;
-                        <Link href="/blog">
+                        <Link href="/work">
                           <a
                             className="has-text-white"
                             style={{
@@ -111,7 +95,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
                       </span>
                     </div>
                   ) : (
-                    <Link href={`/blog/category/${cat.slug || ''}`}>
+                    <Link href={`/work/category/${cat.slug || ''}`}>
                       <a className="tag is-medium">{cat.name}</a>
                     </Link>
                   )}

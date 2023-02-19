@@ -4,21 +4,21 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: CategoryIdBySlug
+// GraphQL query operation: WorkCategoryIdBySlug
 // ====================================================
 
-export interface CategoryIdBySlug_category {
-  readonly __typename: "CategoryRecord";
+export interface WorkCategoryIdBySlug_workCategory {
+  readonly __typename: "WorkCategoryRecord";
   readonly id: any;
 }
 
-export interface CategoryIdBySlug {
+export interface WorkCategoryIdBySlug {
   /**
    * Returns a specific record
    */
-  readonly category: CategoryIdBySlug_category | null;
+  readonly workCategory: WorkCategoryIdBySlug_workCategory | null;
 }
 
-export interface CategoryIdBySlugVariables {
+export interface WorkCategoryIdBySlugVariables {
   readonly slug?: string | null;
 }

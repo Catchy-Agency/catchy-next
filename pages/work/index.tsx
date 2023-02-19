@@ -4,18 +4,18 @@ import {
   CaseStudyListPageProps,
 } from '../../components/pages/CaseStudyListPage'
 import { allCaseStudies } from '../../gql/queries/case-studies'
-import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
+import { AllCaseStudies } from '../../gql/types/AllCaseStudies'
 import { createSubscription } from '../../util/dato-cms'
 
 export const getStaticProps: GetStaticProps<CaseStudyListPageProps> = async (
   context,
 ) => ({
   props: {
-    subscription: await createSubscription<AllBlogPosts>(
+    subscription: await createSubscription<AllCaseStudies>(
       context,
       allCaseStudies,
     ),
-    path: '/blog',
+    path: '/work',
   },
 })
 

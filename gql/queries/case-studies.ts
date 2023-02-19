@@ -139,7 +139,7 @@ export const caseStudiesByCategoryId = gql`
     allCaseStudies(
       first: 100
       orderBy: date_DESC
-      filter: { workCategories: { anyIn: [$id] } }
+      filter: { categories: { anyIn: [$id] } }
     ) {
       id
       slug
@@ -270,25 +270,6 @@ export const caseStudyBySlug = gql`
     caseStudy(filter: { slug: { eq: $slug } }) {
       title
       date
-      author {
-        name
-        title
-        image {
-          responsiveImage(
-            imgixParams: { fit: crop, ar: "1:1", w: 128, auto: format }
-          ) {
-            aspectRatio
-            height
-            width
-            sizes
-            src
-            srcSet
-            alt
-            title
-            base64
-          }
-        }
-      }
       blocks {
         __typename
         ... on ButtonExternalRecord {
@@ -804,7 +785,7 @@ export const caseStudyBySlug = gql`
           }
         }
       }
-      workCategories {
+      categories {
         id
         name
         slug

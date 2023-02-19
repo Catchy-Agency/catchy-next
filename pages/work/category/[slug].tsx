@@ -4,7 +4,7 @@ import {
   CaseStudyListPageProps,
 } from '../../../components/pages/CaseStudyListPage'
 import { caseStudiesByCategoryId } from '../../../gql/queries/case-studies'
-import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
+import { CaseStudiesByCategoryId } from '../../../gql/types/CaseStudiesByCategoryId'
 import {
   createSubscription,
   getWorkCategoryIdBySlug,
@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps<CaseStudyListPageProps> = async (
   if (typeof slug !== 'string') return { notFound: true }
   const categoryId = await getWorkCategoryIdBySlug(slug, context.preview)
   if (!categoryId) return { notFound: true }
-  const subscription = await createSubscription<BlogPostsByCategoryId>(
+  const subscription = await createSubscription<CaseStudiesByCategoryId>(
     context,
     caseStudiesByCategoryId,
     { id: categoryId },

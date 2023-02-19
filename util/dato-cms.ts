@@ -21,12 +21,14 @@ import {
 import { allContentPageSlugs } from '../gql/queries/content-pages'
 import { allDownloadPageSlugs } from '../gql/queries/download-pages'
 import { allPrimaryPageSlugs } from '../gql/queries/primary-pages'
+import { AllBlogCategorySlugs } from '../gql/types/AllBlogCategorySlugs'
 import { AllBlogPostSlugs } from '../gql/types/AllBlogPostSlugs'
-import { AllCategorySlugs } from '../gql/types/AllCategorySlugs'
 import { AllContentPageSlugs } from '../gql/types/AllContentPageSlugs'
 import { AllDownloadPageSlugs } from '../gql/types/AllDownloadPageSlugs'
 import { AllPrimaryPageSlugs } from '../gql/types/AllPrimaryPageSlugs'
-import { CategoryIdBySlug } from '../gql/types/CategoryIdBySlug'
+import { AllWorkCategorySlugs } from '../gql/types/AllWorkCategorySlugs'
+import { BlogCategoryIdBySlug } from '../gql/types/BlogCategoryIdBySlug'
+import { WorkCategoryIdBySlug } from '../gql/types/WorkCategoryIdBySlug'
 import schema from '../schema.json'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
@@ -146,7 +148,7 @@ export const getBlogPostPaths = async (): Promise<string[]> => {
 }
 
 export const getBlogCategoryPaths = async (): Promise<string[]> => {
-  const result = await client.query<AllCategorySlugs>({
+  const result = await client.query<AllBlogCategorySlugs>({
     query: allBlogCategorySlugs,
   })
   return result.data.allCategories.map(
@@ -161,8 +163,8 @@ export const getBlogCategoryIdBySlug = async (
   const query = blogCategoryIdBySlug
   const variables = { slug }
   const result = isPreview
-    ? await previewClient.query<CategoryIdBySlug>({ query, variables })
-    : await client.query<CategoryIdBySlug>({ query, variables })
+    ? await previewClient.query<BlogCategoryIdBySlug>({ query, variables })
+    : await client.query<BlogCategoryIdBySlug>({ query, variables })
   return (result.data.category?.id as string) || null
 }
 
@@ -174,10 +176,10 @@ export const getCaseStudyPaths = async (): Promise<string[]> => {
 }
 
 export const getWorkCategoryPaths = async (): Promise<string[]> => {
-  const result = await client.query<AllCategorySlugs>({
+  const result = await client.query<AllWorkCategorySlugs>({
     query: allWorkCategorySlugs,
   })
-  return result.data.allCategories.map(
+  return result.data.allWorkCategories.map(
     ({ slug }) => `/work/category/${slug || ''}`,
   )
 }
@@ -189,7 +191,7 @@ export const getWorkCategoryIdBySlug = async (
   const query = workCategoryIdBySlug
   const variables = { slug }
   const result = isPreview
-    ? await previewClient.query<CategoryIdBySlug>({ query, variables })
-    : await client.query<CategoryIdBySlug>({ query, variables })
-  return (result.data.category?.id as string) || null
+    ? await previewClient.query<WorkCategoryIdBySlug>({ query, variables })
+    : await client.query<WorkCategoryIdBySlug>({ query, variables })
+  return (result.data.workCategory?.id as string) || null
 }

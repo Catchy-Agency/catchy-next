@@ -8,7 +8,7 @@ import { PreviewBanner } from '../../components/cms/PreviewBanner'
 import { Footer } from '../../components/Footer'
 import { Header } from '../../components/Header'
 import { caseStudyBySlug } from '../../gql/queries/case-studies'
-import { BlogPostBySlug } from '../../gql/types/BlogPostBySlug'
+import { CaseStudyBySlug } from '../../gql/types/CaseStudyBySlug'
 import {
   createSubscription,
   getCaseStudyPaths,
@@ -16,19 +16,19 @@ import {
 } from '../../util/dato-cms'
 
 interface PageProps {
-  subscription: Subscription<BlogPostBySlug>
+  subscription: Subscription<CaseStudyBySlug>
 }
 
 const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
   const { data, error, status } =
-    useQuerySubscription<BlogPostBySlug>(subscription)
+    useQuerySubscription<CaseStudyBySlug>(subscription)
 
   return (
     <>
       <div className="content-post">
         <Head>
           {renderMetaTags([
-            ...(data?.blogPost?._seoMetaTags || []),
+            ...(data?.caseStudy?._seoMetaTags || []),
             ...(data?.site.faviconMetaTags || []),
           ])}
         </Head>
@@ -50,14 +50,14 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
                   </Link>
                 </li>
                 <li className="is-active">
-                  <a aria-current="page">{data?.blogPost?.title}</a>
+                  <a aria-current="page">{data?.caseStudy?.title}</a>
                 </li>
               </ul>
             </nav>
-            <h1 className="title is-1">{data?.blogPost?.title}</h1>
+            <h1 className="title is-1">{data?.caseStudy?.title}</h1>
             <div className="tags are-medium">
-              {data?.blogPost?.categories.map((cat) => (
-                <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
+              {data?.caseStudy?.categories.map((cat) => (
+                <Link key={cat.id} href={`/work/category/${cat.slug || ''}`}>
                   <a className="tag">{cat.name}</a>
                 </Link>
               ))}
@@ -65,7 +65,7 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
           </div>
         </header>
         <BlockSections
-          blocks={data?.blogPost?.blocks || []}
+          blocks={data?.caseStudy?.blocks || []}
           containerMax="desktop"
         />
       </div>
@@ -80,12 +80,12 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 })
 
 export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
-  const subscription = await createSubscription<BlogPostBySlug>(
+  const subscription = await createSubscription<CaseStudyBySlug>(
     context,
     caseStudyBySlug,
     { slug: context?.params?.slug },
   )
-  return subscription.initialData?.blogPost
+  return subscription.initialData?.caseStudy
     ? { props: { subscription } }
     : { notFound: true }
 }
