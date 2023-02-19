@@ -92,6 +92,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
+      <div className="is-hidden-touch" style={{ margin: '-4%' }} />
       <section className="section TitleTextRecord" style={{ paddingTop: '0' }}>
         <div className="container is-max-widescreen has-text-left">
           <h2 className="title is-2" style={{ maxWidth: '100%' }}>
