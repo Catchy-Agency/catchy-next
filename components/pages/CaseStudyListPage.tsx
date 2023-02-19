@@ -70,47 +70,41 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       {data?.header && <Header header={data?.header} />}
       <section className="section">
         <div className="container is-max-widescreen">
-          <div className="columns">
-            <div className="column is-one-fifth-desktop is-flex-grow-0">
-              <h5 className="title is-5">Categories</h5>
-              <hr />
-              {data?.allWorkCategories.map((cat) => (
-                <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
-                  {cat.slug === router.query.slug ? (
-                    <div className="tags are-medium has-addons">
-                      <span className="tag is-primary">
-                        {cat.name}
-                        &nbsp; &nbsp;
-                        <Link href="/work">
-                          <a
-                            className="has-text-white"
-                            style={{
-                              margin: '-0.33rem -1rem',
-                              padding: '0.33rem 1rem',
-                            }}
-                          >
-                            ✕
-                          </a>
-                        </Link>
-                      </span>
-                    </div>
-                  ) : (
-                    <Link href={`/work/category/${cat.slug || ''}`}>
-                      <a className="tag is-medium">{cat.name}</a>
+          <hr />
+          {data?.allWorkCategories.map((cat) => (
+            <div key={cat.id} className="mb-2 mr-2 is-inline-block">
+              {cat.slug === router.query.slug ? (
+                <div className="tags are-medium has-addons">
+                  <span className="tag is-primary">
+                    {cat.name}
+                    &nbsp; &nbsp;
+                    <Link href="/work">
+                      <a
+                        className="has-text-white"
+                        style={{
+                          margin: '-0.33rem -1rem',
+                          padding: '0.33rem 1rem',
+                        }}
+                      >
+                        ✕
+                      </a>
                     </Link>
-                  )}
+                  </span>
                 </div>
-              ))}
-            </div>
-            <div className="column">
-              <ThumbRows links={visibleLinks} imageAlign="Left" />
-              {links.length === 0 && (
-                <div className="section is-size-3 is-italic has-text-centered">
-                  No posts to show
-                </div>
+              ) : (
+                <Link href={`/work/category/${cat.slug || ''}`}>
+                  <a className="tag is-medium">{cat.name}</a>
+                </Link>
               )}
             </div>
-          </div>
+          ))}
+          <hr />
+          <ThumbRows links={visibleLinks} imageAlign="Left" />
+          {links.length === 0 && (
+            <div className="section is-size-3 is-italic has-text-centered">
+              No posts to show
+            </div>
+          )}
         </div>
       </section>
       <section className="section pt-4 pb-6">
