@@ -9,10 +9,15 @@ import { DocumentNode } from 'graphql'
 import { GetStaticPropsContext } from 'next'
 
 import { allBlogPostSlugs } from '../gql/queries/blog-posts'
+import { allCaseStudySlugs } from '../gql/queries/case-studies'
 import {
   allBlogCategorySlugs,
   blogCategoryIdBySlug,
 } from '../gql/queries/categories-blog'
+import {
+  allWorkCategorySlugs,
+  workCategoryIdBySlug,
+} from '../gql/queries/categories-work'
 import { allContentPageSlugs } from '../gql/queries/content-pages'
 import { allDownloadPageSlugs } from '../gql/queries/download-pages'
 import { allPrimaryPageSlugs } from '../gql/queries/primary-pages'
@@ -154,6 +159,34 @@ export const getBlogCategoryIdBySlug = async (
   isPreview?: boolean,
 ): Promise<string | null> => {
   const query = blogCategoryIdBySlug
+  const variables = { slug }
+  const result = isPreview
+    ? await previewClient.query<CategoryIdBySlug>({ query, variables })
+    : await client.query<CategoryIdBySlug>({ query, variables })
+  return (result.data.category?.id as string) || null
+}
+
+export const getCaseStudyPaths = async (): Promise<string[]> => {
+  const result = await client.query<AllBlogPostSlugs>({
+    query: allCaseStudySlugs,
+  })
+  return result.data.allBlogPosts.map(({ slug }) => `/work/${slug || ''}`)
+}
+
+export const getWorkCategoryPaths = async (): Promise<string[]> => {
+  const result = await client.query<AllCategorySlugs>({
+    query: allWorkCategorySlugs,
+  })
+  return result.data.allCategories.map(
+    ({ slug }) => `/work/category/${slug || ''}`,
+  )
+}
+
+export const getWorkCategoryIdBySlug = async (
+  slug: string,
+  isPreview?: boolean,
+): Promise<string | null> => {
+  const query = workCategoryIdBySlug
   const variables = { slug }
   const result = isPreview
     ? await previewClient.query<CategoryIdBySlug>({ query, variables })
