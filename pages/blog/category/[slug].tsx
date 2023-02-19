@@ -8,12 +8,12 @@ import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
 import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
 import {
   createSubscription,
-  getCategoryIdBySlug,
-  getCategoryPaths,
+  getBlogCategoryIdBySlug,
+  getBlogCategoryPaths,
 } from '../../../util/dato-cms'
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: await getCategoryPaths(),
+  paths: await getBlogCategoryPaths(),
   fallback: 'blocking',
 })
 
@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<BlogPostListPageProps> = async (
 ) => {
   const slug = context?.params?.slug
   if (typeof slug !== 'string') return { notFound: true }
-  const categoryId = await getCategoryIdBySlug(slug, context.preview)
+  const categoryId = await getBlogCategoryIdBySlug(slug, context.preview)
   if (!categoryId) return { notFound: true }
   const subscription = await createSubscription<BlogPostsByCategoryId>(
     context,

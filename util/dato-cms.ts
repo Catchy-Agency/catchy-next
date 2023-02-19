@@ -1,25 +1,28 @@
-import { ApolloClient, OperationVariables } from 'apollo-client'
-import { createHttpLink } from 'apollo-link-http'
-import { setContext } from 'apollo-link-context'
 import {
   InMemoryCache,
   IntrospectionFragmentMatcher,
 } from 'apollo-cache-inmemory'
-import { GetStaticPropsContext } from 'next'
+import { ApolloClient, OperationVariables } from 'apollo-client'
+import { setContext } from 'apollo-link-context'
+import { createHttpLink } from 'apollo-link-http'
 import { DocumentNode } from 'graphql'
+import { GetStaticPropsContext } from 'next'
 
-import schema from '../schema.json'
-import { allPrimaryPageSlugs } from '../gql/queries/primary-pages'
-import { allContentPageSlugs } from '../gql/queries/content-pages'
 import { allBlogPostSlugs } from '../gql/queries/blog-posts'
-import { allCategorySlugs, categoryIdBySlug } from '../gql/queries/categories'
-import { AllPrimaryPageSlugs } from '../gql/types/AllPrimaryPageSlugs'
-import { AllContentPageSlugs } from '../gql/types/AllContentPageSlugs'
+import {
+  allBlogCategorySlugs,
+  blogCategoryIdBySlug,
+} from '../gql/queries/categories-blog'
+import { allContentPageSlugs } from '../gql/queries/content-pages'
+import { allDownloadPageSlugs } from '../gql/queries/download-pages'
+import { allPrimaryPageSlugs } from '../gql/queries/primary-pages'
 import { AllBlogPostSlugs } from '../gql/types/AllBlogPostSlugs'
 import { AllCategorySlugs } from '../gql/types/AllCategorySlugs'
-import { CategoryIdBySlug } from '../gql/types/CategoryIdBySlug'
+import { AllContentPageSlugs } from '../gql/types/AllContentPageSlugs'
 import { AllDownloadPageSlugs } from '../gql/types/AllDownloadPageSlugs'
-import { allDownloadPageSlugs } from '../gql/queries/download-pages'
+import { AllPrimaryPageSlugs } from '../gql/types/AllPrimaryPageSlugs'
+import { CategoryIdBySlug } from '../gql/types/CategoryIdBySlug'
+import schema from '../schema.json'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -137,20 +140,20 @@ export const getBlogPostPaths = async (): Promise<string[]> => {
   return result.data.allBlogPosts.map(({ slug }) => `/blog/${slug || ''}`)
 }
 
-export const getCategoryPaths = async (): Promise<string[]> => {
+export const getBlogCategoryPaths = async (): Promise<string[]> => {
   const result = await client.query<AllCategorySlugs>({
-    query: allCategorySlugs,
+    query: allBlogCategorySlugs,
   })
   return result.data.allCategories.map(
     ({ slug }) => `/blog/category/${slug || ''}`,
   )
 }
 
-export const getCategoryIdBySlug = async (
+export const getBlogCategoryIdBySlug = async (
   slug: string,
   isPreview?: boolean,
 ): Promise<string | null> => {
-  const query = categoryIdBySlug
+  const query = blogCategoryIdBySlug
   const variables = { slug }
   const result = isPreview
     ? await previewClient.query<CategoryIdBySlug>({ query, variables })
