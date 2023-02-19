@@ -23,6 +23,7 @@ import { allDownloadPageSlugs } from '../gql/queries/download-pages'
 import { allPrimaryPageSlugs } from '../gql/queries/primary-pages'
 import { AllBlogCategorySlugs } from '../gql/types/AllBlogCategorySlugs'
 import { AllBlogPostSlugs } from '../gql/types/AllBlogPostSlugs'
+import { AllCaseStudySlugs } from '../gql/types/AllCaseStudySlugs'
 import { AllContentPageSlugs } from '../gql/types/AllContentPageSlugs'
 import { AllDownloadPageSlugs } from '../gql/types/AllDownloadPageSlugs'
 import { AllPrimaryPageSlugs } from '../gql/types/AllPrimaryPageSlugs'
@@ -169,10 +170,10 @@ export const getBlogCategoryIdBySlug = async (
 }
 
 export const getCaseStudyPaths = async (): Promise<string[]> => {
-  const result = await client.query<AllBlogPostSlugs>({
+  const result = await client.query<AllCaseStudySlugs>({
     query: allCaseStudySlugs,
   })
-  return result.data.allBlogPosts.map(({ slug }) => `/work/${slug || ''}`)
+  return result.data.allCaseStudies.map(({ slug }) => `/work/${slug || ''}`)
 }
 
 export const getWorkCategoryPaths = async (): Promise<string[]> => {
