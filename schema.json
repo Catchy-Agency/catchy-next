@@ -7789,9 +7789,13 @@
                 "name": "punch",
                 "description": "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Float",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "1",
                 "isDeprecated": false,
@@ -7801,9 +7805,13 @@
                 "name": "size",
                 "description": "Maximum image dimension (defaults to 24px)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "24",
                 "isDeprecated": false,
@@ -7813,9 +7821,13 @@
                 "name": "quality",
                 "description": "JPEG quality (defaults to 70%)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "70",
                 "isDeprecated": false,
@@ -8466,9 +8478,13 @@
                 "name": "punch",
                 "description": "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Float",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "1",
                 "isDeprecated": false,
@@ -8478,9 +8494,13 @@
                 "name": "size",
                 "description": "Maximum image dimension (defaults to 24px)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "24",
                 "isDeprecated": false,
@@ -8490,9 +8510,13 @@
                 "name": "quality",
                 "description": "JPEG quality (defaults to 70%)",
                 "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
                 },
                 "defaultValue": "70",
                 "isDeprecated": false,
