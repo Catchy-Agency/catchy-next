@@ -10,6 +10,7 @@ import {
 } from 'react-datocms'
 import { AllCaseStudies } from '../../gql/types/AllCaseStudies'
 import { Subscription } from '../../util/dato-cms'
+import { BlockSections } from '../BlockSections'
 import { PageError } from '../cms/PageError'
 import { PreviewBanner } from '../cms/PreviewBanner'
 import { ThumbRows } from '../content-links/ThumbRows'
@@ -68,6 +69,29 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
+      {data?.primaryPage?.showBreadcrumbs && (
+        <header className="section py-0 pt-5">
+          <div className="container is-max-widescreen">
+            <nav className="breadcrumb" aria-label="breadcrumbs">
+              <ul>
+                <li>
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li className="is-active">
+                  <a aria-current="page">Work</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      )}
+      <BlockSections
+        blocks={data?.primaryPage?.blocks || []}
+        textAlign={data?.primaryPage?.textAlign}
+        containerMax="widescreen"
+      />
       <section className="section">
         <div className="container is-max-widescreen">
           <hr />
