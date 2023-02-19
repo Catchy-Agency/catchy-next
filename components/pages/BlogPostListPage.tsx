@@ -19,12 +19,12 @@ import { Header } from '../Header'
 
 const PAGE_SIZE = 10
 
-export interface BlogPostsPageProps {
+export interface BlogPostListPageProps {
   subscription: Subscription<AllBlogPosts>
   path: string
 }
 
-export const BlogPostListPage: NextPage<BlogPostsPageProps> = ({
+export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
   subscription,
   path,
 }) => {

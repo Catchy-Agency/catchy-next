@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 
 import {
   BlogPostListPage,
-  BlogPostsPageProps,
+  BlogPostListPageProps,
 } from '../../../components/pages/BlogPostListPage'
 import { blogPostsByCategoryId } from '../../../gql/queries/blog-posts'
 import { BlogPostsByCategoryId } from '../../../gql/types/BlogPostsByCategoryId'
@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
   fallback: 'blocking',
 })
 
-export const getStaticProps: GetStaticProps<BlogPostsPageProps> = async (
+export const getStaticProps: GetStaticProps<BlogPostListPageProps> = async (
   context,
 ) => {
   const slug = context?.params?.slug
