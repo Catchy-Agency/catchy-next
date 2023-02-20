@@ -269,10 +269,6 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord {
   readonly clientSet: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord {
-  readonly __typename: "CaseStudyRecord";
-}
-
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -439,6 +435,90 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord
   readonly previewImageLg: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
   readonly previewImageSm: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageSm | null;
   readonly previewImageCol: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageCol | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageCol_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord {
+  readonly __typename: "CaseStudyRecord";
+  readonly id: any;
+  readonly slug: string | null;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly previewImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
+  readonly previewImageLg: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
+  readonly previewImageSm: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm | null;
+  readonly previewImageCol: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageCol | null;
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord_previewImage_responsiveImage {
@@ -609,15 +689,15 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord
   readonly previewImageCol: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord_previewImageCol | null;
 }
 
-export type CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links = CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord;
+export type CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links = CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_PrimaryPageRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_ContentPageRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_DownloadPageRecord;
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord {
   readonly __typename: "ContentLinkSetRecord";
   readonly id: any;
   readonly displaySize: string | null;
   readonly imageAlign: string | null;
-  readonly callToActionLabel: string | null;
   readonly isSlider: any | null;
+  readonly callToActionLabel: string | null;
   readonly links: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links>;
 }
 
