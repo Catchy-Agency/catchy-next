@@ -93,45 +93,47 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         containerMax="widescreen"
       />
       <div className="is-hidden-touch" style={{ margin: '-4%' }} />
-      <section className="section TitleTextRecord" style={{ paddingTop: '0' }}>
+      <section
+        className="section"
+        style={{ paddingTop: '0', marginBottom: '1.5rem' }}
+      >
         <div className="container is-max-widescreen has-text-left">
           <h2 className="title is-2" style={{ maxWidth: '100%' }}>
             Behold our case studies!
           </h2>
-          <div className="content">
-            <div>
-              {data?.allWorkCategories.map((cat) => (
-                <div key={cat.id} className="mb-2 mr-2 is-inline-block">
-                  {cat.slug === router.query.slug ? (
-                    <div className="tags are-medium has-addons">
-                      <span className="tag is-primary">
-                        {cat.name}
-                        &nbsp; &nbsp;
-                        <Link href="/work">
-                          <a
-                            className="has-text-white"
-                            style={{
-                              margin: '-0.33rem -1rem',
-                              padding: '0.33rem 1rem',
-                            }}
-                          >
-                            ✕
-                          </a>
-                        </Link>
-                      </span>
-                    </div>
-                  ) : (
-                    <Link href={`/work/category/${cat.slug || ''}`}>
-                      <a className="tag is-medium">{cat.name}</a>
+          {data?.allWorkCategories.map((cat) => (
+            <div key={cat.id} className="mb-2 mr-2 is-inline-block">
+              {cat.slug === router.query.slug ? (
+                <div className="tags are-medium has-addons">
+                  <span className="tag is-primary">
+                    {cat.name}
+                    &nbsp; &nbsp;
+                    <Link href="/work">
+                      <a
+                        className="has-text-white"
+                        style={{
+                          margin: '-0.33rem -1rem',
+                          padding: '0.33rem 1rem',
+                        }}
+                      >
+                        ✕
+                      </a>
                     </Link>
-                  )}
+                  </span>
                 </div>
-              ))}
+              ) : (
+                <Link href={`/work/category/${cat.slug || ''}`}>
+                  <a className="tag is-medium">{cat.name}</a>
+                </Link>
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </section>
-      <section className="ContentLinkSetRecord card--columns">
+      <section
+        className="ContentLinkSetRecord card--columns"
+        style={{ marginTop: '0' }}
+      >
         <div className="container is-max-widescreen">
           <ContentTileS
             contentSize={'Small'}
