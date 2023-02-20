@@ -17,7 +17,7 @@ import { ContentTileS } from '../content-links/cards/ContentTileS'
 import { Footer } from '../Footer'
 import { Header } from '../Header'
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 9
 
 export interface CaseStudyListPageProps {
   subscription: Subscription<AllCaseStudies>
