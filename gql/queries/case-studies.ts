@@ -171,6 +171,9 @@ export const allCaseStudies = gql`
             ... on ContentPageRecord {
               slug
             }
+            ... on CaseStudyRecord {
+              slug
+            }
             ... on BlogPostRecord {
               slug
             }
@@ -518,6 +521,9 @@ export const allCaseStudies = gql`
                 link {
                   __typename
                   ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on CaseStudyRecord {
                     slug
                   }
                   ... on BlogPostRecord {
@@ -1023,6 +1029,9 @@ export const caseStudiesByCategoryId = gql`
             ... on ContentPageRecord {
               slug
             }
+            ... on CaseStudyRecord {
+              slug
+            }
             ... on BlogPostRecord {
               slug
             }
@@ -1370,6 +1379,9 @@ export const caseStudiesByCategoryId = gql`
                 link {
                   __typename
                   ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on CaseStudyRecord {
                     slug
                   }
                   ... on BlogPostRecord {
@@ -1731,6 +1743,9 @@ export const caseStudyBySlug = gql`
             ... on ContentPageRecord {
               slug
             }
+            ... on CaseStudyRecord {
+              slug
+            }
             ... on BlogPostRecord {
               slug
             }
@@ -1782,6 +1797,9 @@ export const caseStudyBySlug = gql`
                 link {
                   __typename
                   ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on CaseStudyRecord {
                     slug
                   }
                   ... on BlogPostRecord {

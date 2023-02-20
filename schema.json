@@ -2225,6 +2225,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "CaseStudyRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ContentPageRecord",
             "ofType": null
           },
@@ -6169,6 +6174,11 @@
           {
             "kind": "OBJECT",
             "name": "BlogPostRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CaseStudyRecord",
             "ofType": null
           },
           {

@@ -101,6 +101,9 @@ export const primaryPageBySlug = gql`
             ... on ContentPageRecord {
               slug
             }
+            ... on CaseStudyRecord {
+              slug
+            }
             ... on BlogPostRecord {
               slug
             }
@@ -448,6 +451,9 @@ export const primaryPageBySlug = gql`
                 link {
                   __typename
                   ... on ContentPageRecord {
+                    slug
+                  }
+                  ... on CaseStudyRecord {
                     slug
                   }
                   ... on BlogPostRecord {
