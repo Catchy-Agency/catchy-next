@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, useMemo } from 'react'
 import {
   renderMetaTags,
   ResponsiveImageType,
@@ -58,6 +58,13 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     (pageIndex + 1) * PAGE_SIZE,
   )
 
+  const sortedCategories = useMemo(() => {
+    if (!data?.allCategories) return undefined
+    return [...data.allCategories].sort(
+      (a, b) => a.name?.localeCompare(b.name ?? '') ?? 0,
+    )
+  }, [data?.allCategories])
+
   return (
     <>
       <Head>
@@ -91,7 +98,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
             <div className="column is-one-fifth-desktop is-flex-grow-0">
               <h5 className="title is-5">Categories</h5>
               <hr />
-              {data?.allCategories.map((cat) => (
+              {sortedCategories?.map((cat) => (
                 <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
                   {cat.slug === router.query.slug ? (
                     <div className="tags are-medium has-addons">

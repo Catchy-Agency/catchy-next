@@ -2,7 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { MouseEventHandler } from 'react'
+import { MouseEventHandler, useMemo } from 'react'
 import {
   renderMetaTags,
   ResponsiveImageType,
@@ -58,6 +58,13 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
     (pageIndex + 1) * PAGE_SIZE,
   )
 
+  const sortedCategories = useMemo(() => {
+    if (!data?.allWorkCategories) return undefined
+    return [...data.allWorkCategories].sort(
+      (a, b) => a.name?.localeCompare(b.name ?? '') ?? 0,
+    )
+  }, [data?.allWorkCategories])
+
   return (
     <div className="primary-page">
       <Head>
@@ -101,7 +108,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
           <h2 className="title is-2" style={{ maxWidth: '100%' }}>
             Behold our case studies!
           </h2>
-          {data?.allWorkCategories.map((cat) => (
+          {sortedCategories?.map((cat) => (
             <div key={cat.id} className="mb-2 mr-2 is-inline-block">
               {cat.slug === router.query.slug ? (
                 <div className="tags are-medium has-addons">
@@ -143,7 +150,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
           />
           {links.length === 0 && (
             <div className="section is-size-3 is-italic has-text-centered">
-              No posts to show
+              No work to show
             </div>
           )}
         </div>
