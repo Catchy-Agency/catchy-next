@@ -114,7 +114,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
                   <span className="tag is-primary">
                     {cat.name}
                     &nbsp; &nbsp;
-                    <Link href="/work">
+                    <Link href="/work" scroll={false}>
                       <a
                         className="has-text-white"
                         style={{
@@ -128,7 +128,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
                   </span>
                 </div>
               ) : (
-                <Link href={`/work/category/${cat.slug || ''}`}>
+                <Link href={`/work/category/${cat.slug || ''}`} scroll={false}>
                   <a className="tag is-medium">{cat.name}</a>
                 </Link>
               )}

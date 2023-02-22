@@ -105,7 +105,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
                       <span className="tag is-primary">
                         {cat.name}
                         &nbsp; &nbsp;
-                        <Link href="/blog">
+                        <Link href="/blog" scroll={false}>
                           <a
                             className="has-text-white"
                             style={{
@@ -119,7 +119,10 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
                       </span>
                     </div>
                   ) : (
-                    <Link href={`/blog/category/${cat.slug || ''}`}>
+                    <Link
+                      href={`/blog/category/${cat.slug || ''}`}
+                      scroll={false}
+                    >
                       <a className="tag is-medium">{cat.name}</a>
                     </Link>
                   )}
