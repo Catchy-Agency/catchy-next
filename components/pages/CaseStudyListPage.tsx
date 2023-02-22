@@ -99,14 +99,13 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
-      <div className="is-hidden-touch" style={{ margin: '-4%' }} />
       <section
         className="section"
         style={{ paddingTop: '0', marginBottom: '1.5rem' }}
       >
         <div className="container is-max-widescreen has-text-left">
           <h2 className="title is-2" style={{ maxWidth: '100%' }}>
-            Behold our case studies!
+            Check out our work
           </h2>
           {sortedCategories?.map((cat) => (
             <div key={cat.id} className="mb-2 mr-2 is-inline-block">
