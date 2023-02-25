@@ -19,7 +19,7 @@ export const ThumbRows: FC<{
       <div key={link.id} className="columns">
         <div className="column is-7">
           <Link href={link.url || ''}>
-            <a>
+            <a className="is-block-link">
               {link.title && <div className="title is-2">{link.title}</div>}
               {link.description && (
                 <div className="content has-text-light">{link.description}</div>
