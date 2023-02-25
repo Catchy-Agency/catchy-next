@@ -92,24 +92,26 @@ const CardContent: FC<CardProps> = ({
           </>
         )}
       </div>
-      <div className="card-content">
-        {/* {link.title && <h5 className="title is-5">{link.title}</h5>} */}
-        {link.description && <div className="content">{link.description}</div>}
-        <Link href={link.url || ''}>
-          <a>
+      <Link href={link.url || ''}>
+        <a className="is-block-link">
+          <div className="card-content">
+            {/* {link.title && <h5 className="title is-5">{link.title}</h5>} */}
+            {link.description && (
+              <div className="content">{link.description}</div>
+            )}
+
             <button
-              className="button is-ghost mt-3"
+              className="button is-ghost mt-3 mr-auto"
               style={{
                 padding: 0,
               }}
             >
               {link.callToAction}
             </button>
-          </a>
-        </Link>
-      </div>
+          </div>
+        </a>
+      </Link>
     </div>
-    // </Link>
   )
 }
 

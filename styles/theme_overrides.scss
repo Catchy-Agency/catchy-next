@@ -27,12 +27,22 @@ a {
   transition: color 200ms ease;
   &:hover,
   &.has-text-primary:hover {
-    color: $turquoise-interact !important;
+    color: $turquoise-interact;
   }
   &:focus,
   &.has-text-primary:focus {
     text-decoration: underline;
   }
+}
+
+a.is-block-link,
+a.is-block-link:hover,
+a.is-block-link:active,
+a.is-block-link:focus {
+  display: block;
+  color: $text;
+  text-decoration: none;
+  transition: none;
 }
 
 .button {
