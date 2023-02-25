@@ -88,9 +88,9 @@
       overflow: hidden;
     }
     .content {
-      height: calc(1em * 1.5 * 9);
+      height: calc(1em * 1.5 * 12);
       display: -webkit-box;
-      -webkit-line-clamp: 9;
+      -webkit-line-clamp: 12;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -117,17 +117,12 @@
         opacity: 0;
       }
       &:after {
-        transition: 0.1s ease-out;
         height: 100%;
       }
       &:after,
       .card-content {
         pointer-events: initial;
         opacity: 1;
-      }
-      .card-content {
-        transition: 0.5s ease-out;
-        transition-delay: 0.1s;
       }
     }
   }

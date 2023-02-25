@@ -10,12 +10,7 @@ import {
 } from 'react'
 import { Image } from 'react-datocms'
 
-import {
-  IconDash,
-  IconPlus,
-  LeftSliderArrow,
-  RightSliderArrow,
-} from '../../icons'
+import { IconPlus, LeftSliderArrow, RightSliderArrow } from '../../icons'
 import { LinkData } from '../LinkData'
 
 import { Navigation } from 'swiper' //Pagination
@@ -56,11 +51,14 @@ const CardContent: FC<CardProps> = ({
       })}
       style={{ height: '100%' }}
       tabIndex={1}
-      onClick={() => {
+      onMouseEnter={() => {
         setActiveCard(contentKey)
         if (!isActive) {
           setIsActive(true)
         }
+      }}
+      onMouseLeave={() => {
+        setIsActive(false)
       }}
     >
       {link.image && (
@@ -95,15 +93,7 @@ const CardContent: FC<CardProps> = ({
         )}
       </div>
       <div className="card-content">
-        <div
-          className="icon-dash-wrap"
-          onClick={() => {
-            setIsActive(false)
-          }}
-        >
-          <IconDash />
-        </div>
-        {link.title && <h5 className="title is-5">{link.title}</h5>}
+        {/* {link.title && <h5 className="title is-5">{link.title}</h5>} */}
         {link.description && <div className="content">{link.description}</div>}
         <Link href={link.url || ''}>
           <a>
