@@ -22,7 +22,8 @@ h6 {
   padding-right: $padding_horizontal;
 }
 
-a {
+a,
+.breadcrumb a {
   color: $primary;
   transition: color 200ms ease;
   &:hover,
