@@ -82,15 +82,17 @@
     .title {
       margin-top: auto;
       height: calc(1em * 1.2 * 2);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
       overflow: hidden;
-      text-overflow: ellipsis;
-      line-clamp: 2;
     }
     .content {
       height: calc(1em * 1.5 * 9);
-      line-clamp: 9;
-      overflow: scroll;
-      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 9;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     > a {
       margin-top: auto;
