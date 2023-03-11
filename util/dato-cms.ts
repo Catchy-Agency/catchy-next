@@ -31,6 +31,7 @@ import { AllWorkCategorySlugs } from '../gql/types/AllWorkCategorySlugs'
 import { BlogCategoryIdBySlug } from '../gql/types/BlogCategoryIdBySlug'
 import { WorkCategoryIdBySlug } from '../gql/types/WorkCategoryIdBySlug'
 import schema from '../schema.json'
+import { reservedPaths } from './url'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
 
@@ -129,7 +130,7 @@ export const getPrimaryAndContentPagePaths = async (): Promise<string[]> => {
   ]
   return pages
     .map(({ slug }) => `/${slug || ''}`)
-    .filter((slug) => slug !== '/blog') // Note: Reserved
+    .filter((slug) => !reservedPaths.has(slug))
 }
 
 export const getDownloadPagePaths = async (): Promise<string[]> => {
