@@ -1,7 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
-import { GA_TRACKING_ID } from '../util/gtag'
-
 export default class extends Document {
   render(): JSX.Element {
     return (
@@ -27,7 +25,7 @@ export default class extends Document {
           />
 
           {/* Google Analytics */}
-          <script
+          {/* <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -40,10 +38,10 @@ export default class extends Document {
                 gtag('config', '${GA_TRACKING_ID}');
             `,
             }}
-          />
+          /> */}
 
           {/* LinkedIn */}
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
                 _linkedin_partner_id = "3206268";
@@ -71,10 +69,10 @@ export default class extends Document {
               style={{ display: 'none' }}
               src="https://px.ads.linkedin.com/collect/?pid=3206268&fmt=gif"
             />
-          </noscript>
+          </noscript> */}
 
           {/* Twitter */}
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
                 !function(e,t,n,s,u,a){
@@ -98,7 +96,7 @@ export default class extends Document {
                 twq('track','PageView');
             `,
             }}
-          />
+          /> */}
         </Head>
         <body className="has-navbar-fixed-top">
           <Main />
