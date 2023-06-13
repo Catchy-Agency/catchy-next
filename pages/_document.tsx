@@ -120,14 +120,11 @@ export default class extends Document {
         </Head>
         <body className="has-navbar-fixed-top">
           {/* Google Tag Manager (second half) */}
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-WTSH8X9"
-              height="0"
-              width="0"
-              style={{ display: 'none', visibility: 'hidden' }}
-            />
-          </noscript>
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTSH8X9" height="0" width="0" style="display: none; visibility: hidden;" />`,
+            }}
+          />
           <Main />
           <NextScript />
         </body>
