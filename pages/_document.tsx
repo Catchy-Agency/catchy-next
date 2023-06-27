@@ -24,6 +24,14 @@ export default class extends Document {
             crossOrigin="anonymous"
           />
 
+          {/* Cooki Eyes */}
+          <script
+            id="cookieyes"
+            type="text/javascript"
+            src="https://cdn-cookieyes.com/client_data/6d54aa79ad27159ee90827eb/script.js"
+            async
+          />
+
           {/* Google Tag Manager (first half) */}
           {/* eslint-disable @next/next/next-script-for-ga */}
           <script
