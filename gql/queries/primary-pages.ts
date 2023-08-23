@@ -85,7 +85,6 @@ export const primaryPageBySlug = gql`
           showContactButton
           contactButtonLabel
         }
-        __typename
         ... on ButtonExternalRecord {
           id
           label

@@ -1,0 +1,18 @@
+.BannerRecord {
+  > .container {
+    width: 100%;
+  }
+  .column:last-child {
+    display: flex;
+    justify-content: center;
+    margin-right: calc((min(770px, 50vw) * -1) + 50%);
+  }
+  .has-green-line {
+    margin-bottom: 1em;
+    &:before {
+      width: 85px;
+      top: unset;
+      bottom: calc(-0.5em - 5px);
+    }
+  }
+}

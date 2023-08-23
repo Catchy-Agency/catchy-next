@@ -130,6 +130,56 @@ export interface ContentPageBySlug_contentPage_children {
   readonly previewImageCol: ContentPageBySlug_contentPage_children_previewImageCol | null;
 }
 
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord {
+  readonly __typename: "BannerRecord";
+  readonly id: any;
+  readonly titleOverline: string | null;
+  readonly title: string | null;
+  readonly addGreenLine: any | null;
+  readonly subTitle: string | null;
+  readonly text: string | null;
+  readonly foregroundImage: ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage | null;
+  readonly backgroundImage: ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage | null;
+  readonly showContactButton: any | null;
+  readonly contactButtonLabel: string | null;
+}
+
 export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -905,7 +955,7 @@ export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord {
   readonly video: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_VideoInternalRecord;
+export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_BannerRecord | ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_VideoInternalRecord;
 
 export interface ContentPageBySlug_contentPage__seoMetaTags {
   readonly __typename: "Tag";

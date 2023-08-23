@@ -291,6 +291,46 @@ export const blogPostBySlug = gql`
       }
       blocks {
         __typename
+        ... on BannerRecord {
+          id
+          titleOverline
+          title
+          addGreenLine
+          subTitle
+          text
+          foregroundImage {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 750, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          backgroundImage {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          showContactButton
+          contactButtonLabel
+        }
         ... on ButtonExternalRecord {
           id
           label
