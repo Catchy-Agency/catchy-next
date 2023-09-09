@@ -699,6 +699,30 @@ export const primaryPageBySlug = gql`
           id
           richText
         }
+        ... on ServicePaneRecord {
+          id
+          services {
+            id
+            title
+            text
+            fontAwesomeIcon
+            serviceImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 750, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
+        }
         ... on ServiceSetRecord {
           id
           hideTextContent
