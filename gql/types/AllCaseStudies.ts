@@ -1196,10 +1196,18 @@ export interface AllCaseStudies_header_links {
   readonly slug: string | null;
 }
 
+export interface AllCaseStudies_header_serviceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface AllCaseStudies_header {
   readonly __typename: "HeaderRecord";
   readonly logo: AllCaseStudies_header_logo | null;
   readonly links: ReadonlyArray<AllCaseStudies_header_links>;
+  readonly serviceLinks: ReadonlyArray<AllCaseStudies_header_serviceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

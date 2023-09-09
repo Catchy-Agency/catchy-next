@@ -1105,10 +1105,18 @@ export interface PrimaryPageBySlug_header_links {
   readonly slug: string | null;
 }
 
+export interface PrimaryPageBySlug_header_serviceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface PrimaryPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: PrimaryPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<PrimaryPageBySlug_header_links>;
+  readonly serviceLinks: ReadonlyArray<PrimaryPageBySlug_header_serviceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

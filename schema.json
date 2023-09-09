@@ -978,6 +978,11 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
+            "name": "BannerRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ButtonExternalRecord",
             "ofType": null
           },
@@ -12815,6 +12820,30 @@
             "deprecationReason": null
           },
           {
+            "name": "serviceLinks",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "PrimaryPageRecord",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatedAt",
             "description": null,
             "args": [],
@@ -17161,6 +17190,30 @@
             "deprecationReason": null
           },
           {
+            "name": "parent",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ParentFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "PositionFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "_publicationScheduledAt",
             "description": null,
             "type": {
@@ -17466,6 +17519,18 @@
           },
           {
             "name": "_firstPublishedAt_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -17801,6 +17866,22 @@
             "deprecationReason": null
           },
           {
+            "name": "children",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "PrimaryPageRecord",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -17853,6 +17934,30 @@
                 "name": "ItemId",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parent",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PrimaryPageRecord",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "position",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -19994,7 +20099,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[_updatedAt_DESC]",
+                "defaultValue": "[position_ASC]",
                 "isDeprecated": false,
                 "deprecationReason": null
               }
@@ -21153,7 +21258,7 @@
                     "ofType": null
                   }
                 },
-                "defaultValue": "[_updatedAt_DESC]",
+                "defaultValue": "[position_ASC]",
                 "isDeprecated": false,
                 "deprecationReason": null
               }

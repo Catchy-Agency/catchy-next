@@ -900,6 +900,11 @@ export const allCaseStudies = gql`
         title
         slug
       }
+      serviceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {
@@ -1824,6 +1829,11 @@ export const caseStudiesByCategoryId = gql`
         title
         slug
       }
+      serviceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {
@@ -2471,6 +2481,11 @@ export const caseStudyBySlug = gql`
         alt
       }
       links {
+        id
+        title
+        slug
+      }
+      serviceLinks {
         id
         title
         slug

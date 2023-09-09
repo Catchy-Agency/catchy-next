@@ -32,6 +32,56 @@ export interface BlogPostBySlug_blogPost_author {
   readonly image: BlogPostBySlug_blogPost_author_image | null;
 }
 
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage_responsiveImage | null;
+}
+
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage_responsiveImage | null;
+}
+
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord {
+  readonly __typename: "BannerRecord";
+  readonly id: any;
+  readonly titleOverline: string | null;
+  readonly title: string | null;
+  readonly addGreenLine: any | null;
+  readonly subTitle: string | null;
+  readonly text: string | null;
+  readonly foregroundImage: BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage | null;
+  readonly backgroundImage: BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage | null;
+  readonly showContactButton: any | null;
+  readonly contactButtonLabel: string | null;
+}
+
 export interface BlogPostBySlug_blogPost_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -807,7 +857,7 @@ export interface BlogPostBySlug_blogPost_blocks_VideoInternalRecord {
   readonly video: BlogPostBySlug_blogPost_blocks_VideoInternalRecord_video | null;
 }
 
-export type BlogPostBySlug_blogPost_blocks = BlogPostBySlug_blogPost_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord | BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord | BlogPostBySlug_blogPost_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ImageSetRecord | BlogPostBySlug_blogPost_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_VideoRecord | BlogPostBySlug_blogPost_blocks_VideoInternalRecord;
+export type BlogPostBySlug_blogPost_blocks = BlogPostBySlug_blogPost_blocks_BannerRecord | BlogPostBySlug_blogPost_blocks_ButtonExternalRecord | BlogPostBySlug_blogPost_blocks_ButtonInternalRecord | BlogPostBySlug_blogPost_blocks_ColumnRowRecord | BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord | BlogPostBySlug_blogPost_blocks_FormBlockRecord | BlogPostBySlug_blogPost_blocks_ImageSetRecord | BlogPostBySlug_blogPost_blocks_RichTextRecord | BlogPostBySlug_blogPost_blocks_VideoRecord | BlogPostBySlug_blogPost_blocks_VideoInternalRecord;
 
 export interface BlogPostBySlug_blogPost_categories {
   readonly __typename: "CategoryRecord";
@@ -863,10 +913,18 @@ export interface BlogPostBySlug_header_links {
   readonly slug: string | null;
 }
 
+export interface BlogPostBySlug_header_serviceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface BlogPostBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: BlogPostBySlug_header_logo | null;
   readonly links: ReadonlyArray<BlogPostBySlug_header_links>;
+  readonly serviceLinks: ReadonlyArray<BlogPostBySlug_header_serviceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

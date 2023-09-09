@@ -41,6 +41,11 @@ export const downloadPageBySlug = gql`
         title
         slug
       }
+      serviceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {

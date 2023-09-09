@@ -346,6 +346,20 @@ a.is-block-link:focus {
       border-radius: 0 0 $radius $radius;
     }
   }
+
+  .navbar-dropdown {
+    border: $border-width solid $border;
+
+    .navbar-item {
+      justify-content: start; // left-align
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+
+      &.is-active {
+        background-color: $navbar-dropdown-item-active-background-color !important; // !important to override bulma nav-item defaults, sad trombone
+      }
+    }
+  }
 }
 
 .navbar-burger:hover,
@@ -372,7 +386,7 @@ a.navbar-item.is-tab:not(.button):hover {
   a.navbar-item.is-tab.is-active:not(.button),
   a.navbar-item.is-tab:not(.button):hover {
     background-color: transparentize(
-      $color: $navbar-item-active-color,
+      $color: $navbar-item-active-background-color-mobile,
       $amount: 0.95
     );
   }
@@ -492,7 +506,7 @@ body > .navbar {
   }
 }
 
-/** 
+/**
  *
  * TF Integrations
  *

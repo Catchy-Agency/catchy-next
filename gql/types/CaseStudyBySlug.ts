@@ -837,10 +837,18 @@ export interface CaseStudyBySlug_header_links {
   readonly slug: string | null;
 }
 
+export interface CaseStudyBySlug_header_serviceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface CaseStudyBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: CaseStudyBySlug_header_logo | null;
   readonly links: ReadonlyArray<CaseStudyBySlug_header_links>;
+  readonly serviceLinks: ReadonlyArray<CaseStudyBySlug_header_serviceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

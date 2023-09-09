@@ -830,6 +830,11 @@ export const primaryPageBySlug = gql`
         title
         slug
       }
+      serviceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {
