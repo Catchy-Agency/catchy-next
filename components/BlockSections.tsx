@@ -15,6 +15,7 @@ import { FormBlock } from './blocks/FormBlock'
 import { Formula } from './blocks/Formula'
 import { ImageSet } from './blocks/ImageSet'
 import { RichText } from './blocks/RichText'
+import { ServicePane } from './blocks/ServicePane'
 import { ServiceSet } from './blocks/ServiceSet'
 import { Team } from './blocks/Team'
 import { TitleText } from './blocks/TitleText'
@@ -304,6 +305,19 @@ export const BlockSections: FC<{
               <section key={block.id} className="section RichTextRecord">
                 <div className={classNames('container', maxClass)}>
                   <RichText block={block} />
+                </div>
+              </section>
+            )
+
+          case 'ServicePaneRecord':
+            return (
+              <section key={block.id} className="section ServicePaneRecord">
+                <div
+                  className={classNames('container', maxClass, {
+                    'has-text-centered': textAlign === 'Center',
+                  })}
+                >
+                  <ServicePane block={block} />
                 </div>
               </section>
             )
