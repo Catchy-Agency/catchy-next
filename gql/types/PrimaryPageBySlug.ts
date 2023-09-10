@@ -927,13 +927,32 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_serviceImage_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_detailImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly webpSrcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_detailImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_detailImage_responsiveImage | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services {
   readonly __typename: "ServiceRecord";
   readonly id: any;
   readonly title: string | null;
   readonly text: string | null;
-  readonly fontAwesomeIcon: string | null;
   readonly serviceImage: PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_serviceImage | null;
+  readonly detailImage: PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord_services_detailImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord {

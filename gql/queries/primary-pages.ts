@@ -705,10 +705,24 @@ export const primaryPageBySlug = gql`
             id
             title
             text
-            fontAwesomeIcon
             serviceImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1200, auto: format }
               ) {
                 aspectRatio
                 height
