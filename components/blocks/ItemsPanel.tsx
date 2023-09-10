@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
+import Link from 'next/link'
 import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug'
 
 const ICON_SIZE = '60px'
@@ -96,18 +97,34 @@ export const ItemsPanel: FC<{
         key={activeItem.id}
       >
         {activeItem.detailImage?.responsiveImage && (
-          <figure className="image">
-            <Image
-              data={
-                activeItem.detailImage.responsiveImage as ResponsiveImageType
-              }
-              lazyLoad={false}
-            />
-          </figure>
+          <div style={{ margin: '-0.75rem' }}>
+            <figure className="image">
+              <Image
+                data={
+                  activeItem.detailImage.responsiveImage as ResponsiveImageType
+                }
+                lazyLoad={false}
+              />
+            </figure>
+          </div>
         )}
-        <div
-          dangerouslySetInnerHTML={{ __html: activeItem.detailText ?? '' }}
-        />
+        <div className="p-6">
+          <div className="has-text-weight-bold is-size-5 mb-3">
+            {activeItem.detailTitle ?? activeItem.listTitle}
+          </div>
+          <div
+            dangerouslySetInnerHTML={{ __html: activeItem.detailText ?? '' }}
+          />
+          {activeItem.detailLink?.slug && (
+            <Link href={`/${activeItem.detailLink.slug}`}>
+              <a className="button is-primary mt-6">
+                {activeItem.detailLinkLabel ??
+                  activeItem.detailLink.title ??
+                  'Learn More'}
+              </a>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   )

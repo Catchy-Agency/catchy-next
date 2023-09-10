@@ -17380,6 +17380,18 @@
             "deprecationReason": null
           },
           {
+            "name": "detailLinkLabel",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "detailText",
             "description": null,
             "type": {
@@ -17601,6 +17613,18 @@
           },
           {
             "name": "_isValid_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailLinkLabel_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailLinkLabel_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -17850,6 +17874,18 @@
             "type": {
               "kind": "UNION",
               "name": "PanelItemModelDetailLinkField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailLinkLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,

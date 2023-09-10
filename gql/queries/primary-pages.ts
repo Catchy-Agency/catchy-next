@@ -736,20 +736,26 @@ export const primaryPageBySlug = gql`
               __typename
               ... on ContentPageRecord {
                 slug
+                title
               }
               ... on CaseStudyRecord {
                 slug
+                title
               }
               ... on BlogPostRecord {
                 slug
+                title
               }
               ... on PrimaryPageRecord {
                 slug
+                title
               }
               ... on DownloadPageRecord {
                 slug
+                title
               }
             }
+            detailLinkLabel
           }
         }
         ... on RichTextRecord {
