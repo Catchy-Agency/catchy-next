@@ -12,6 +12,7 @@ export const ItemsPanel: FC<{
   const [activeIndex, setActiveIndex] = useState(0)
   const activeItem = block.panelItems[activeIndex]
   if (!activeItem) return null
+  console.log(block)
   return (
     <div className="columns has-text-left">
       {/* List */}
@@ -110,7 +111,7 @@ export const ItemsPanel: FC<{
         )}
         <div className="p-6">
           <div className="has-text-weight-bold is-size-5 mb-3">
-            {activeItem.detailTitle ?? activeItem.listTitle}
+            {activeItem.detailTitle || activeItem.listTitle}
           </div>
           <div
             dangerouslySetInnerHTML={{ __html: activeItem.detailText ?? '' }}
@@ -118,9 +119,7 @@ export const ItemsPanel: FC<{
           {activeItem.detailLink?.slug && (
             <Link href={`/${activeItem.detailLink.slug}`}>
               <a className="button is-primary mt-6">
-                {activeItem.detailLinkLabel ??
-                  activeItem.detailLink.title ??
-                  'Learn More'}
+                {activeItem.detailLinkLabel || 'Learn More'}
               </a>
             </Link>
           )}
