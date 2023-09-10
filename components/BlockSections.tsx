@@ -14,8 +14,8 @@ import { ColumnRow } from './blocks/ColumnRow'
 import { FormBlock } from './blocks/FormBlock'
 import { Formula } from './blocks/Formula'
 import { ImageSet } from './blocks/ImageSet'
+import { ItemsPanel } from './blocks/ItemsPanel'
 import { RichText } from './blocks/RichText'
-import { ServicePane } from './blocks/ServicePane'
 import { ServiceSet } from './blocks/ServiceSet'
 import { Team } from './blocks/Team'
 import { TitleText } from './blocks/TitleText'
@@ -300,16 +300,7 @@ export const BlockSections: FC<{
               </section>
             )
 
-          case 'RichTextRecord':
-            return (
-              <section key={block.id} className="section RichTextRecord">
-                <div className={classNames('container', maxClass)}>
-                  <RichText block={block} />
-                </div>
-              </section>
-            )
-
-          case 'ServicePaneRecord':
+          case 'ItemsPanelRecord':
             return (
               <section key={block.id} className="section ServicePaneRecord">
                 <div
@@ -317,7 +308,16 @@ export const BlockSections: FC<{
                     'has-text-centered': textAlign === 'Center',
                   })}
                 >
-                  <ServicePane block={block} />
+                  <ItemsPanel block={block} />
+                </div>
+              </section>
+            )
+
+          case 'RichTextRecord':
+            return (
+              <section key={block.id} className="section RichTextRecord">
+                <div className={classNames('container', maxClass)}>
+                  <RichText block={block} />
                 </div>
               </section>
             )

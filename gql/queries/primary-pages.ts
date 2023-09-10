@@ -695,19 +695,14 @@ export const primaryPageBySlug = gql`
           }
           verticallyCenterAcrossImages
         }
-        ... on RichTextRecord {
+        ... on ItemsPanelRecord {
           id
-          richText
-        }
-        ... on ServicePaneRecord {
-          id
-          services {
+          panelItems {
             id
-            title
-            text
-            serviceImage {
+            listTitle
+            listImage {
               responsiveImage(
-                imgixParams: { fit: clip, maxW: 750, auto: format }
+                imgixParams: { fit: clip, maxW: 200, auto: format }
               ) {
                 aspectRatio
                 height
@@ -722,7 +717,7 @@ export const primaryPageBySlug = gql`
             }
             detailImage {
               responsiveImage(
-                imgixParams: { fit: clip, maxW: 1200, auto: format }
+                imgixParams: { fit: clip, maxW: 1600, auto: format }
               ) {
                 aspectRatio
                 height
@@ -735,7 +730,31 @@ export const primaryPageBySlug = gql`
                 base64
               }
             }
+            detailTitle
+            detailText
+            detailLink {
+              __typename
+              ... on ContentPageRecord {
+                slug
+              }
+              ... on CaseStudyRecord {
+                slug
+              }
+              ... on BlogPostRecord {
+                slug
+              }
+              ... on PrimaryPageRecord {
+                slug
+              }
+              ... on DownloadPageRecord {
+                slug
+              }
+            }
           }
+        }
+        ... on RichTextRecord {
+          id
+          richText
         }
         ... on ServiceSetRecord {
           id

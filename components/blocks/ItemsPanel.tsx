@@ -1,17 +1,16 @@
-import classNames from 'classnames'
 import { FC, useState } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
-import { PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord } from '../../gql/types/PrimaryPageBySlug'
+import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug'
 
 const ICON_SIZE = '60px'
 
-export const ServicePane: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_ServicePaneRecord
+export const ItemsPanel: FC<{
+  block: PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord
 }> = ({ block }) => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const activeService = block.services[activeIndex]
-  if (!activeService) return null
+  const activeItem = block.panelItems[activeIndex]
+  if (!activeItem) return null
   return (
     <div className="columns has-text-left">
       {/* List */}
@@ -34,11 +33,11 @@ export const ServicePane: FC<{
             }}
           />
           {/* services */}
-          {block.services.map((service, i) => {
+          {block.panelItems.map((item, i) => {
             const isActiveService = activeIndex === i
             return (
               <div
-                key={service.id}
+                key={item.id}
                 className="is-flex is-align-items-center is-clickable"
                 onClick={() => setActiveIndex(i)}
               >
@@ -54,9 +53,9 @@ export const ServicePane: FC<{
                     zIndex: 10,
                   }}
                 >
-                  {service.serviceImage?.responsiveImage && (
+                  {item.listImage?.responsiveImage && (
                     <img
-                      src={service.serviceImage.responsiveImage.src}
+                      src={item.listImage.responsiveImage.src}
                       style={{
                         width: ICON_SIZE,
                         height: ICON_SIZE,
@@ -82,7 +81,7 @@ export const ServicePane: FC<{
                       fontWeight: 'bold',
                     }}
                   >
-                    {service.title}
+                    {item.listTitle}
                   </div>
                 </div>
               </div>
@@ -91,68 +90,25 @@ export const ServicePane: FC<{
         </div>
       </div>
       {/* Detail */}
-      <div className="column" style={{ backgroundColor: '#143144' }}>
-        {activeService.detailImage?.responsiveImage && (
+      <div
+        className="column"
+        style={{ backgroundColor: '#143144' }}
+        key={activeItem.id}
+      >
+        {activeItem.detailImage?.responsiveImage && (
           <figure className="image">
             <Image
               data={
-                activeService.detailImage.responsiveImage as ResponsiveImageType
+                activeItem.detailImage.responsiveImage as ResponsiveImageType
               }
               lazyLoad={false}
             />
           </figure>
         )}
-        {activeService.text}
-      </div>
-    </div>
-  )
-
-  console.log(block)
-  return (
-    <div className="columns is-multiline is-mobile">
-      {block.services.map((service) => (
         <div
-          key={service.id}
-          className="column is-half-mobile is-one-third-tablet is-one-quarter-desktop"
-        >
-          <div className="service-item">
-            <div className="title is-4 py-6">
-              {/* {service.serviceImage?.responsiveImage ? (
-                <figure className="image">
-                  <Image
-                    data={
-                      service.serviceImage
-                        .responsiveImage as ResponsiveImageType
-                    }
-                    lazyLoad={false}
-                  />
-                </figure>
-              ) : (
-                <span className="fa-stack fa-3x">
-                  <i className="fas fa-circle fa-stack-2x has-text-grey-dark" />
-                  <i
-                    className={classNames(
-                      service.fontAwesomeIcon,
-                      'fa-stack-1x',
-                    )}
-                  />
-                </span>
-              )} */}
-            </div>
-            <div className={classNames('content-wrap')}>
-              {service.title && (
-                <div className="title is-5">{service.title}</div>
-              )}
-              {service.text && (
-                <div
-                  className="content"
-                  dangerouslySetInnerHTML={{ __html: service.text }}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      ))}
+          dangerouslySetInnerHTML={{ __html: activeItem.detailText ?? '' }}
+        />
+      </div>
     </div>
   )
 }
