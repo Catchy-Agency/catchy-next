@@ -2659,6 +2659,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ItemsPanelRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "RichTextRecord",
             "ofType": null
           },

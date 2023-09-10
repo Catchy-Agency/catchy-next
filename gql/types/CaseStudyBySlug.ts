@@ -690,6 +690,92 @@ export interface CaseStudyBySlug_caseStudy_blocks_FormBlockRecord {
   readonly form: CaseStudyBySlug_caseStudy_blocks_FormBlockRecord_form | null;
 }
 
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_listImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_listImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_listImage_responsiveImage | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailImage_responsiveImage | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_CaseStudyRecord {
+  readonly __typename: "CaseStudyRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_BlogPostRecord {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_PrimaryPageRecord {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_DownloadPageRecord {
+  readonly __typename: "DownloadPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export type CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink = CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_ContentPageRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_CaseStudyRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_BlogPostRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_PrimaryPageRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink_DownloadPageRecord;
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems {
+  readonly __typename: "PanelItemRecord";
+  readonly id: any;
+  readonly listTitle: string | null;
+  readonly listImage: CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_listImage | null;
+  readonly detailImage: CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailImage | null;
+  readonly detailTitle: string | null;
+  readonly detailText: string | null;
+  readonly detailLink: CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems_detailLink | null;
+  readonly detailLinkLabel: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord {
+  readonly __typename: "ItemsPanelRecord";
+  readonly id: any;
+  readonly panelItems: ReadonlyArray<CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord_panelItems>;
+}
+
 export interface CaseStudyBySlug_caseStudy_blocks_ImageSetRecord_imageSet_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -782,7 +868,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord {
   readonly video: CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord_video | null;
 }
 
-export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
+export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
 
 export interface CaseStudyBySlug_caseStudy_categories {
   readonly __typename: "WorkCategoryRecord";

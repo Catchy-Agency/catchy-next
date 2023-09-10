@@ -766,6 +766,69 @@ export const allCaseStudies = gql`
           }
           verticallyCenterAcrossImages
         }
+        ... on ItemsPanelRecord {
+          id
+          panelItems {
+            id
+            listTitle
+            listImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 200, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1600, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailTitle
+            detailText
+            detailLink {
+              __typename
+              ... on ContentPageRecord {
+                slug
+                title
+              }
+              ... on CaseStudyRecord {
+                slug
+                title
+              }
+              ... on BlogPostRecord {
+                slug
+                title
+              }
+              ... on PrimaryPageRecord {
+                slug
+                title
+              }
+              ... on DownloadPageRecord {
+                slug
+                title
+              }
+            }
+            detailLinkLabel
+          }
+        }
         ... on RichTextRecord {
           id
           richText
@@ -1675,6 +1738,69 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
+        ... on ItemsPanelRecord {
+          id
+          panelItems {
+            id
+            listTitle
+            listImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 200, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1600, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailTitle
+            detailText
+            detailLink {
+              __typename
+              ... on ContentPageRecord {
+                slug
+                title
+              }
+              ... on CaseStudyRecord {
+                slug
+                title
+              }
+              ... on BlogPostRecord {
+                slug
+                title
+              }
+              ... on PrimaryPageRecord {
+                slug
+                title
+              }
+              ... on DownloadPageRecord {
+                slug
+                title
+              }
+            }
+            detailLinkLabel
+          }
+        }
         ... on ImageSetRecord {
           id
           imageSet {
@@ -2385,6 +2511,69 @@ export const caseStudyBySlug = gql`
               invisible
               grouped
             }
+          }
+        }
+        ... on ItemsPanelRecord {
+          id
+          panelItems {
+            id
+            listTitle
+            listImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 200, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 1600, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            detailTitle
+            detailText
+            detailLink {
+              __typename
+              ... on ContentPageRecord {
+                slug
+                title
+              }
+              ... on CaseStudyRecord {
+                slug
+                title
+              }
+              ... on BlogPostRecord {
+                slug
+                title
+              }
+              ... on PrimaryPageRecord {
+                slug
+                title
+              }
+              ... on DownloadPageRecord {
+                slug
+                title
+              }
+            }
+            detailLinkLabel
           }
         }
         ... on ImageSetRecord {
