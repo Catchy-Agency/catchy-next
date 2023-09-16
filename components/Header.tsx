@@ -23,13 +23,6 @@ export const Header: FC<{
   }
 
   const isServicesActive = useMemo(() => {
-    const servicesSlug = 'services'
-    const servicesHref = `/${servicesSlug}`
-    const isServices =
-      router.pathname === '/[slug]'
-        ? 'services' === router.query.slug
-        : router.pathname.startsWith(servicesHref)
-    if (isServices) return true
     return header.serviceLinks?.some((link) => {
       const href = `/${link.slug || ''}`
       const isActive =
@@ -76,22 +69,20 @@ export const Header: FC<{
                   ;(e.target as HTMLElement).blur()
                 }}
               >
-                <Link href="/services">
-                  <a
-                    className={classNames('navbar-item', 'is-tab', {
-                      'is-active': isServicesActive,
-                    })}
-                  >
-                    Services{' '}
-                    <i
-                      className="fas fa-angle-down"
-                      style={{
-                        marginLeft: '0.75rem',
-                        marginRight: '0.25rem',
-                      }}
-                    />
-                  </a>
-                </Link>
+                <a
+                  className={classNames('navbar-item', 'is-tab', {
+                    'is-active': isServicesActive,
+                  })}
+                >
+                  Services{' '}
+                  <i
+                    className="fas fa-angle-down"
+                    style={{
+                      marginLeft: '0.75rem',
+                      marginRight: '0.25rem',
+                    }}
+                  />
+                </a>
                 <div className="navbar-dropdown">
                   {header.serviceLinks.map((link) => {
                     const href = `/${link.slug || ''}`
