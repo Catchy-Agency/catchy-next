@@ -40,7 +40,7 @@ export const ItemsPanel: FC<{
             return (
               <div key={item.id}>
                 <div
-                  className="is-flex is-align-items-center is-clickable"
+                  className="IP-list-link is-flex is-align-items-center is-clickable"
                   onClick={() => setActiveIndex(i)}
                 >
                   <div
