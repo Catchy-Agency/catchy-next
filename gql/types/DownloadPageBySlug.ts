@@ -61,11 +61,19 @@ export interface DownloadPageBySlug_header_serviceLinks {
   readonly slug: string | null;
 }
 
+export interface DownloadPageBySlug_header_resourceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface DownloadPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: DownloadPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<DownloadPageBySlug_header_links>;
   readonly serviceLinks: ReadonlyArray<DownloadPageBySlug_header_serviceLinks>;
+  readonly resourceLinks: ReadonlyArray<DownloadPageBySlug_header_resourceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

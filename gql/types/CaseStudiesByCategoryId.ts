@@ -1285,11 +1285,19 @@ export interface CaseStudiesByCategoryId_header_serviceLinks {
   readonly slug: string | null;
 }
 
+export interface CaseStudiesByCategoryId_header_resourceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface CaseStudiesByCategoryId_header {
   readonly __typename: "HeaderRecord";
   readonly logo: CaseStudiesByCategoryId_header_logo | null;
   readonly links: ReadonlyArray<CaseStudiesByCategoryId_header_links>;
   readonly serviceLinks: ReadonlyArray<CaseStudiesByCategoryId_header_serviceLinks>;
+  readonly resourceLinks: ReadonlyArray<CaseStudiesByCategoryId_header_resourceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

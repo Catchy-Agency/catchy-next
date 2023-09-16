@@ -148,11 +148,19 @@ export interface BlogPostsByCategoryId_header_serviceLinks {
   readonly slug: string | null;
 }
 
+export interface BlogPostsByCategoryId_header_resourceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface BlogPostsByCategoryId_header {
   readonly __typename: "HeaderRecord";
   readonly logo: BlogPostsByCategoryId_header_logo | null;
   readonly links: ReadonlyArray<BlogPostsByCategoryId_header_links>;
   readonly serviceLinks: ReadonlyArray<BlogPostsByCategoryId_header_serviceLinks>;
+  readonly resourceLinks: ReadonlyArray<BlogPostsByCategoryId_header_resourceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

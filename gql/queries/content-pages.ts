@@ -759,6 +759,11 @@ export const contentPageBySlug = gql`
         title
         slug
       }
+      resourceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {

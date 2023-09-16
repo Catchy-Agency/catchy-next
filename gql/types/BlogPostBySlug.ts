@@ -920,11 +920,19 @@ export interface BlogPostBySlug_header_serviceLinks {
   readonly slug: string | null;
 }
 
+export interface BlogPostBySlug_header_resourceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface BlogPostBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: BlogPostBySlug_header_logo | null;
   readonly links: ReadonlyArray<BlogPostBySlug_header_links>;
   readonly serviceLinks: ReadonlyArray<BlogPostBySlug_header_serviceLinks>;
+  readonly resourceLinks: ReadonlyArray<BlogPostBySlug_header_resourceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

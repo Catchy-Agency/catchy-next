@@ -111,6 +111,11 @@ export const allBlogPosts = gql`
         title
         slug
       }
+      resourceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {
@@ -242,6 +247,11 @@ export const blogPostsByCategoryId = gql`
         slug
       }
       serviceLinks {
+        id
+        title
+        slug
+      }
+      resourceLinks {
         id
         title
         slug
@@ -957,6 +967,11 @@ export const blogPostBySlug = gql`
         slug
       }
       serviceLinks {
+        id
+        title
+        slug
+      }
+      resourceLinks {
         id
         title
         slug

@@ -930,11 +930,19 @@ export interface CaseStudyBySlug_header_serviceLinks {
   readonly slug: string | null;
 }
 
+export interface CaseStudyBySlug_header_resourceLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
 export interface CaseStudyBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: CaseStudyBySlug_header_logo | null;
   readonly links: ReadonlyArray<CaseStudyBySlug_header_links>;
   readonly serviceLinks: ReadonlyArray<CaseStudyBySlug_header_serviceLinks>;
+  readonly resourceLinks: ReadonlyArray<CaseStudyBySlug_header_resourceLinks>;
   readonly contactLinkLabel: string | null;
 }
 

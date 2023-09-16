@@ -46,6 +46,11 @@ export const downloadPageBySlug = gql`
         title
         slug
       }
+      resourceLinks {
+        id
+        title
+        slug
+      }
       contactLinkLabel
     }
     footer {
