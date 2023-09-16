@@ -1,0 +1,12 @@
+.ItemsPanel {
+  .IP-list-text {
+    font-weight: bold;
+    color: #aab1b5;
+    &:hover {
+      color: #fff;
+    }
+    &.is-active-service {
+      color: #1ebc83;
+    }
+  }
+}

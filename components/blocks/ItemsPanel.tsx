@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { Image, ResponsiveImageType } from 'react-datocms'
 
+import classNames from 'classnames'
 import Link from 'next/link'
 import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug'
 
@@ -12,9 +13,8 @@ export const ItemsPanel: FC<{
   const [activeIndex, setActiveIndex] = useState(0)
   const activeItem = block.panelItems[activeIndex]
   if (!activeItem) return null
-  console.log(block)
   return (
-    <div className="columns has-text-left">
+    <div className="ItemsPanel columns has-text-left">
       {/* List */}
       <div className="column is-two-fifths">
         <div
@@ -78,10 +78,9 @@ export const ItemsPanel: FC<{
                   }}
                 >
                   <div
-                    style={{
-                      color: isActiveService ? '#1ebc83' : '#aab1b5',
-                      fontWeight: 'bold',
-                    }}
+                    className={classNames('IP-list-text', {
+                      'is-active-service': isActiveService,
+                    })}
                   >
                     {item.listTitle}
                   </div>
