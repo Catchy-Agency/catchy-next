@@ -1,5 +1,11 @@
 /**
  * Converts redirects.csv to redirects.js
+ *
+ * Usage:
+ * - update redirects.csv
+ * - $ cd /path/to/catchy-next/redirects
+ * - $ node convert.js
+ * - format convert.js
  */
 
 const fs = require('fs')
@@ -19,7 +25,7 @@ const slice = (url, target) => {
 }
 
 const filePath = path.resolve(__dirname, 'redirects.csv')
-const fileString = fs.readFileSync(filePath, 'utf8')
+const fileString = fs.readFileSync(filePath, 'utf8').trim()
 const fileLines = fileString.split('\n')
 const filePairs = fileLines.map((line) => line.split(','))
 const redirects = filePairs.map((pair) => ({

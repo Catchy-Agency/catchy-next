@@ -212,4 +212,29 @@ module.exports = [
     destination: '/blog/digital-events-in-2020',
     permanent: true,
   },
+  {
+    source: '/resources',
+    destination: '/downloads',
+    permanent: true,
+  },
+  {
+    source: '/blog/case-study-warriors-international',
+    destination: '/work',
+    permanent: true,
+  },
+  {
+    source: '/blog/case-study-us-air-force',
+    destination: '/work',
+    permanent: true,
+  },
+  {
+    source: '/developer-marketing',
+    destination: '/developer-marketing-guide-introduction',
+    permanent: true,
+  },
+  {
+    source: '/work/google.com',
+    destination: '/work/case-study-google-play',
+    permanent: true,
+  },
 ]
