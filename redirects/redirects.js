@@ -237,4 +237,14 @@ module.exports = [
     destination: '/work/case-study-google-play',
     permanent: true,
   },
+  {
+    source: '/what-is-developer-marketing',
+    destination: '/developer-marketing-guide-introduction',
+    permanent: true,
+  },
+  {
+    source: '/blog/what-is-developer-marketing',
+    destination: '/developer-marketing-guide-introduction',
+    permanent: true,
+  },
 ]
