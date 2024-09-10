@@ -1,15 +1,16 @@
 $font-montserrat: 'Montserrat', san-serif;
 $font-open: 'Open Sans', san-serif;
+$font-helvetica: Helvetica, san-serif;
 
 @mixin hdl-com() {
-  font-weight: 700;
+  font-weight: 100;
   letter-spacing: 0;
   line-height: 1.2 !important;
 }
 // styleName: Headline1;
 @mixin hdl1() {
   @include hdl-com;
-  font-family: $font-montserrat !important;
+  font-family: $font-helvetica !important;
   // line-height: 1.2258 !important; //76/62;
   @include font-size(56px, !important);
   // @media (min-width: $tablet) {

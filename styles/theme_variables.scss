@@ -4,6 +4,7 @@ $grey-dark: lighten($grey-darkest, 12);
 $grey: lighten($grey-darkest, 18);
 $grey-light: lighten($grey-darkest, 24);
 $grey-lighter: lighten($grey-darkest, 30);
+$anthracite: #212121;
 
 $orange: #e67e22;
 $yellow: #f1b70e;
@@ -40,7 +41,7 @@ $container-max-width: 1440px;
 $widescreen: 1440px;
 $container-offset: 0;
 
-$body-background-color: $grey-darkest;
+$body-background-color: $anthracite;
 $body-size: 17px;
 
 $background: $grey-darker;
