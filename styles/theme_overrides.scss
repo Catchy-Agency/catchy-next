@@ -16,12 +16,12 @@ h6 {
   letter-spacing: 0.5px;
 }
 
-.container {
+/* .container {
   $padding_horizontal: min(80px, 5.5556%);
   padding-left: $padding_horizontal;
   padding-right: $padding_horizontal;
 }
-
+ */
 a,
 .breadcrumb a {
   color: $primary;
@@ -48,17 +48,42 @@ a.is-block-link:focus {
 
 .button {
   box-sizing: border-box;
-  text-transform: uppercase;
-  font-weight: 700;
+  text-transform: capitalize;
+  font-weight: 300;
+  padding: 20px;
+  position: relative;
+  &:after {
+    content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E');
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-0.7em);
+    width: 1em;
+    height: 1em;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    &:after {
+      content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%231dbc83%22%20stroke%3D%22%231dbc83%22%2F%3E%3C%2Fsvg%3E');
+    }
+  }
 }
 
 .button.is-ghost {
-  color: $primary;
   border: none !important;
+  font-weight: 400;
+  color: $text;
+  font-size: 32px;
+  position: relative;
+  padding-right: 2em;
+
   // &:visited {
   //   color: $blue-light;
   // }
-  &:hover {
+  /*   &:hover {
     color: $button-hover-color;
   }
   &:active,
@@ -69,7 +94,7 @@ a.is-block-link:focus {
   &:focus:not(:active),
   .button.is-focused:not(:active) {
     box-shadow: none !important;
-  }
+  } */
 }
 .button:not(.is-ghost, .avoid-tf) {
   transition: color 200ms ease, background-color 200ms ease-out;
@@ -79,31 +104,13 @@ a.is-block-link:focus {
 
   padding-right: 2em;
 
-  &.is-active,
+  /*  &.is-active,
   &.is-focused,
   &:active,
   &:focus {
     box-shadow: 0 0 0 2px rgba($button-focus-border-color, 0.5);
   }
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-
-    &.is-#{$name} {
-      &.is-hovered,
-      &:hover {
-        background-color: lighten($color, 7.5%);
-      }
-
-      &.is-active,
-      &.is-focused,
-      &:active,
-      &:focus {
-        border-color: $color;
-        box-shadow: 0 0 0 2px rgba($color, 0.5);
-      }
-    }
-  }
+ 
   &:not(.is-primary) {
     &:after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%231dbc83%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
@@ -115,29 +122,28 @@ a.is-block-link:focus {
     //     content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%2339b1b9%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
     //   }
     // }
-  }
+  } */
   &.is-primary {
     min-width: 177px;
-    color: $grey-darkest;
+    color: $text;
+    background-color: transparent;
+    font-size: 24px;
+    border: 1px solid $text;
+    position: relative;
     &.navbar-item {
       padding: 0.25rem 0.75rem;
       padding-right: 2em;
       min-height: unset;
     }
-    position: relative;
-  }
-  &:after {
-    content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230D202C%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    position: absolute;
-    right: 0.5em;
-    top: 50%;
-    transform: translateY(-0.7em);
-    width: 1em;
-    height: 1em;
-    pointer-events: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: 1px solid $blue-light;
+    }
   }
 
-  &.is-primary:active,
+  /*  &.is-primary:active,
   &:active {
     background: $primary;
     color: $grey-darkest;
@@ -171,7 +177,7 @@ a.is-block-link:focus {
     &:after {
       content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230d202c%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
     }
-  }
+  } */
   // }
 }
 @media (min-width: calc($desktop + 1px)) {
@@ -511,10 +517,10 @@ body > .navbar {
  * TF Integrations
  *
  **/
-
+/* 
 .has-green-line {
   @include green-line();
-}
+} */
 
 //TeamRecord adjustments
 .team-title {

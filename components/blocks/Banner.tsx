@@ -32,7 +32,7 @@ export const Banner: FC<{
         />
       )}
       {block.showContactButton === true && (
-        <button className="button is-primary mt-4" onClick={scrollToContact}>
+        <button className="button is-ghost mt-4" onClick={scrollToContact}>
           {block.contactButtonLabel}
         </button>
       )}

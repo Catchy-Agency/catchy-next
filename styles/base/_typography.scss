@@ -59,7 +59,7 @@ $font-helvetica: Helvetica, san-serif;
   letter-spacing: 0em !important;
 }
 @mixin bdy-com {
-  font-family: $font-open !important;
+  font-family: $font-helvetica !important;
   @include clamp('font-size', 14px, 3vw, 16px);
   line-height: 1.5 !important;
   letter-spacing: 0em !important;
