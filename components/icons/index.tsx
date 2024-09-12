@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 export interface IconSVG {
-  color: string | null
+  color: string | null;
 }
 export const IconPlus: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <svg
     className="icon-plus"
@@ -19,10 +19,10 @@ export const IconPlus: FC<{
       fill={icon?.color || '#1DBC83'}
     />
   </svg>
-)
+);
 
 export const IconDash: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <svg
     className="icon-dash"
@@ -39,9 +39,9 @@ export const IconDash: FC<{
       fill={icon?.color || '#1DBC83'}
     />
   </svg>
-)
+);
 export const IconShareLink: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <>
     <svg
@@ -57,9 +57,9 @@ export const IconShareLink: FC<{
       />
     </svg>
   </>
-)
+);
 export const LeftSliderArrow: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = () => (
   <>
     <svg
@@ -84,9 +84,9 @@ export const LeftSliderArrow: FC<{
       />
     </svg>
   </>
-)
+);
 export const RightSliderArrow: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = () => (
   <>
     <svg
@@ -110,4 +110,20 @@ export const RightSliderArrow: FC<{
       />
     </svg>
   </>
-)
+);
+
+export const RightCarouselArrow = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="19"
+    viewBox="0 0 17 19"
+    fill="none"
+  >
+    <path
+      d="M0.997864 1.73389L0.997864 3.25269L12.4579 9.86703L0.997863 16.4814L0.997863 18.0002L15.0879 9.86703L0.997864 1.73389Z"
+      fill="white"
+      stroke="white"
+    />
+  </svg>
+);
