@@ -73,7 +73,7 @@ a.is-block-link:focus {
 }
 
 .button.is-ghost {
-  border: none !important;
+  border: none;
   font-weight: 400;
   color: $text;
   font-size: 32px;
@@ -83,18 +83,19 @@ a.is-block-link:focus {
   // &:visited {
   //   color: $blue-light;
   // }
-  /*   &:hover {
-    color: $button-hover-color;
+  &:hover {
+    color: $text;
+    text-decoration: none;
   }
-  &:active,
-  &:focus,
-  &:focus-within {
-    color: $blue-light;
-  }
-  &:focus:not(:active),
-  .button.is-focused:not(:active) {
-    box-shadow: none !important;
-  } */
+  // &:active,
+  // &:focus,
+  // &:focus-within {
+  //   color: $blue-light;
+  // }
+  // &:focus:not(:active),
+  // .button.is-focused:not(:active) {
+  //   box-shadow: none !important;
+  // }
 }
 .button:not(.is-ghost, .avoid-tf) {
   transition: color 200ms ease, background-color 200ms ease-out;
