@@ -50,7 +50,7 @@ a.is-block-link:focus {
   box-sizing: border-box;
   text-transform: capitalize;
   font-weight: 300;
-  padding: 20px;
+  padding: 1.25rem;
   position: relative;
   &:after {
     content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E');
@@ -78,52 +78,43 @@ a.is-block-link:focus {
   color: $text;
   font-size: 32px;
   position: relative;
-  padding-right: 2em;
+  padding: unset;
+  padding-bottom: 0.25rem;
+  padding-right: 3.25rem;
+  height: unset;
 
-  // &:visited {
-  //   color: $blue-light;
-  // }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: $text;
+    width: 90%;
+    transform: scaleX(0);
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &::after {
+    top: 40%;
+  }
+
   &:hover {
     color: $text;
     text-decoration: none;
   }
-  // &:active,
-  // &:focus,
-  // &:focus-within {
-  //   color: $blue-light;
-  // }
-  // &:focus:not(:active),
-  // .button.is-focused:not(:active) {
-  //   box-shadow: none !important;
-  // }
 }
 .button:not(.is-ghost, .avoid-tf) {
   transition: color 200ms ease, background-color 200ms ease-out;
   border-width: $border-width;
   color: $button-color;
   border-radius: 0;
-
   padding-right: 2em;
 
-  /*  &.is-active,
-  &.is-focused,
-  &:active,
-  &:focus {
-    box-shadow: 0 0 0 2px rgba($button-focus-border-color, 0.5);
-  }
- 
-  &:not(.is-primary) {
-    &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%231dbc83%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    }
-    // &:visited {
-    //   border: 1px solid $blue-light;
-    //   color: $blue-light;
-    //   &:after {
-    //     content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%2339b1b9%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    //   }
-    // }
-  } */
   &.is-primary {
     min-width: 177px;
     color: $text;
@@ -143,43 +134,6 @@ a.is-block-link:focus {
       border: 1px solid $blue-light;
     }
   }
-
-  /*  &.is-primary:active,
-  &:active {
-    background: $primary;
-    color: $grey-darkest;
-    &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230D202C%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    }
-  }
-  &.is-primary:hover,
-  &:hover {
-    color: $button-hover-color;
-    background-color: $primary-trans;
-    position: relative;
-    border: none;
-    &:before {
-      content: '';
-      @include fillall;
-      z-index: 1;
-      pointer-events: none;
-      border: $border-width solid $button-hover-color;
-      top: 1px;
-      height: calc(100% - 2px);
-    }
-    &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%2353fabe%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    }
-  }
-  &:focus {
-    background-color: $primary;
-    color: $grey-darkest;
-    border-color: $primary;
-    &:after {
-      content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230d202c%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    }
-  } */
-  // }
 }
 @media (min-width: calc($desktop + 1px)) {
   .button:not(.is-ghost).is-primary.navbar-item {
