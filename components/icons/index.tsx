@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 export interface IconSVG {
-  color: string | null
+  color: string | null;
 }
 export const IconPlus: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <svg
     className="icon-plus"
@@ -19,10 +19,10 @@ export const IconPlus: FC<{
       fill={icon?.color || '#1DBC83'}
     />
   </svg>
-)
+);
 
 export const IconDash: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <svg
     className="icon-dash"
@@ -39,9 +39,9 @@ export const IconDash: FC<{
       fill={icon?.color || '#1DBC83'}
     />
   </svg>
-)
+);
 export const IconShareLink: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = ({ icon }) => (
   <>
     <svg
@@ -57,9 +57,9 @@ export const IconShareLink: FC<{
       />
     </svg>
   </>
-)
+);
 export const LeftSliderArrow: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = () => (
   <>
     <svg
@@ -84,9 +84,9 @@ export const LeftSliderArrow: FC<{
       />
     </svg>
   </>
-)
+);
 export const RightSliderArrow: FC<{
-  icon?: IconSVG | null
+  icon?: IconSVG | null;
 }> = () => (
   <>
     <svg
@@ -110,7 +110,7 @@ export const RightSliderArrow: FC<{
       />
     </svg>
   </>
-)
+);
 
 export const RightCarouselArrow = (
   <svg
@@ -126,7 +126,7 @@ export const RightCarouselArrow = (
       stroke="white"
     />
   </svg>
-)
+);
 
 export const UpSoup = (
   <svg
@@ -410,7 +410,7 @@ export const UpSoup = (
       </clipPath>
     </defs>
   </svg>
-)
+);
 
 export const DownSoup = (
   <svg
@@ -635,11 +635,9 @@ export const DownSoup = (
       </clipPath>
     </defs>
   </svg>
-)
+);
 
-export const RightHero: FC<{
-  icon?: IconSVG | null
-}> = () => (
+export const RightHero = (
   <svg
     width="481"
     height="486"
@@ -841,10 +839,8 @@ export const RightHero: FC<{
       </clipPath>
     </defs>
   </svg>
-)
-export const LeftHero: FC<{
-  icon?: IconSVG | null
-}> = () => (
+);
+export const LeftHero = (
   <svg
     width="161"
     height="254"
@@ -908,4 +904,57 @@ export const LeftHero: FC<{
       </clipPath>
     </defs>
   </svg>
-)
+);
+export const LeftUpSoup = (
+  <svg
+    width="161"
+    height="255"
+    viewBox="0 0 161 255"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clipPath="url(#clip0_245_8095)">
+      <path
+        d="M0.130005 46.4097L80.12 0.219727V46.4097L0.130005 92.5997V46.4097Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M120.12 115.68L40.12 69.4902V115.68L120.12 161.87V115.68Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M40.12 208.08L80.12 184.98V231.17L40.12 254.27V208.08Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M120.12 115.7L160.12 92.5996V138.79L120.12 161.89V115.7Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M80.12 184.98L0.119995 138.79V184.98L80.12 231.17V184.98Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+      <path
+        d="M0.130005 138.79L80.13 92.5996V138.79L0.130005 184.98V138.79Z"
+        stroke="white"
+        strokeWidth="0.25"
+        strokeMiterlimit="10"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_245_8095">
+        <rect width="160.25" height="254.48" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);

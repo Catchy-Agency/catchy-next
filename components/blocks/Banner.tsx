@@ -1,10 +1,10 @@
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
-import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug'
-import { scrollToContact } from '../../util/scrollToContact'
-import { LeftHero, RightHero } from '../icons'
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
+import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
+import { scrollToContact } from '../../util/scrollToContact';
+import { LeftHero, RightHero } from '../icons';
 export const Banner: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord
+  block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => (
   <div className="custom-flex-columns ">
     <Image
@@ -35,13 +35,9 @@ export const Banner: FC<{
       )}
     </div>
 
-    <div className="svg-right">
-      <RightHero />
-    </div>
+    <div className="svg-right">{RightHero}</div>
 
-    <div className="svg-left">
-      <LeftHero />
-    </div>
+    <div className="svg-left">{LeftHero}</div>
 
     {/* {block.foregroundImage && (
       <div className="column is-hidden-mobile">
@@ -52,4 +48,4 @@ export const Banner: FC<{
       </div>
     )} */}
   </div>
-)
+);

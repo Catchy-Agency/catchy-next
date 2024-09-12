@@ -22,7 +22,6 @@ export const ClientSet: FC<{
         </div>
       ))}
     </div>
-
     <button className="button is-primary is-dark">See Our Work</button>
   </div>
 )
