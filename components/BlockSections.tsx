@@ -1,48 +1,48 @@
-import classNames from 'classnames'
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import classNames from 'classnames';
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
-import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug'
-import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug'
-import { prefixByTypename } from '../util/url'
-import { AgencyModel } from './blocks/AgencyModel'
-import { Banner } from './blocks/Banner'
-import { ButtonExternal } from './blocks/ButtonExternal'
-import { ButtonInternal } from './blocks/ButtonInternal'
-import { ClientSet } from './blocks/ClientSet'
-import { ColumnRow } from './blocks/ColumnRow'
-import { FormBlock } from './blocks/FormBlock'
-import { Formula } from './blocks/Formula'
-import { ImageSet } from './blocks/ImageSet'
-import { ItemsPanel } from './blocks/ItemsPanel'
-import { RichText } from './blocks/RichText'
-import { ServiceSet } from './blocks/ServiceSet'
-import { Team } from './blocks/Team'
-import { TitleText } from './blocks/TitleText'
-import { Video } from './blocks/Video'
-import { VideoInternal } from './blocks/VideoInternal'
-import { ViewMoreLink } from './blocks/ViewMoreLink'
-import { ContentBannerL } from './content-links/banners/ContentBannerL'
-import { ContentBannerMS } from './content-links/banners/ContentBannerMS'
-import { ContentTileM } from './content-links/cards/ContentTileM'
-import { ContentTileS } from './content-links/cards/ContentTileS'
+import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug';
+import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug';
+import { prefixByTypename } from '../util/url';
+import { AgencyModel } from './blocks/AgencyModel';
+import { Banner } from './blocks/Banner';
+import { ButtonExternal } from './blocks/ButtonExternal';
+import { ButtonInternal } from './blocks/ButtonInternal';
+import { ClientSet } from './blocks/ClientSet';
+import { ColumnRow } from './blocks/ColumnRow';
+import { FormBlock } from './blocks/FormBlock';
+import { Formula } from './blocks/Formula';
+import { ImageSet } from './blocks/ImageSet';
+import { ItemsPanel } from './blocks/ItemsPanel';
+import { RichText } from './blocks/RichText';
+import { ServiceSet } from './blocks/ServiceSet';
+import { Team } from './blocks/Team';
+import { TitleText } from './blocks/TitleText';
+import { Video } from './blocks/Video';
+import { VideoInternal } from './blocks/VideoInternal';
+import { ViewMoreLink } from './blocks/ViewMoreLink';
+import { ContentBannerL } from './content-links/banners/ContentBannerL';
+import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
+import { ContentTileM } from './content-links/cards/ContentTileM';
+import { ContentTileS } from './content-links/cards/ContentTileS';
 
 export const BlockSections: FC<{
-  containerMax?: 'desktop' | 'widescreen'
-  textAlign?: string | null
+  containerMax?: 'desktop' | 'widescreen';
+  textAlign?: string | null;
   blocks: ReadonlyArray<
     PrimaryPageBySlug_primaryPage_blocks | BlogPostBySlug_blogPost_blocks | null
-  >
+  >;
 }> = ({ blocks, containerMax, textAlign }) => {
   const alignClass = {
     'has-text-centered': textAlign === 'Center',
     'has-text-right': textAlign === 'Right',
     'has-text-left': textAlign !== 'Center' && textAlign !== 'Right', // Default
-  }
+  };
   const maxClass = {
     'is-max-desktop': containerMax === 'desktop',
     'is-max-widescreen': containerMax === 'widescreen',
-  }
+  };
   return (
     <>
       {blocks?.map((block) => {
@@ -57,7 +57,7 @@ export const BlockSections: FC<{
                   <AgencyModel block={block} />
                 </div>
               </section>
-            )
+            );
           case 'BannerRecord':
             return (
               <section
@@ -87,7 +87,7 @@ export const BlockSections: FC<{
                   <Banner block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ButtonExternalRecord':
             return (
@@ -102,7 +102,7 @@ export const BlockSections: FC<{
                   <ButtonExternal block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ButtonInternalRecord':
             return (
@@ -117,7 +117,7 @@ export const BlockSections: FC<{
                   <ButtonInternal block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ClientSetRecord':
             return (
@@ -126,7 +126,7 @@ export const BlockSections: FC<{
                   <ClientSet block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ColumnRowRecord':
             return (
@@ -140,11 +140,11 @@ export const BlockSections: FC<{
                   <ColumnRow block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ContentLinkSetRecord': {
-            const callToAction = block.callToActionLabel
-            const imageAlign = block.imageAlign
+            const callToAction = block.callToActionLabel;
+            const imageAlign = block.imageAlign;
             const links = block.links.map((link) => ({
               id: link.id,
               url: `${prefixByTypename[link.__typename]}${link.slug || ''}`,
@@ -163,7 +163,7 @@ export const BlockSections: FC<{
                 (link.previewImageCol
                   ?.responsiveImage as ResponsiveImageType) || null,
               callToAction,
-            }))
+            }));
             switch (block.displaySize) {
               /** Integrations/Re-Design - NEW
                *  card: column → Content Tile S
@@ -185,7 +185,7 @@ export const BlockSections: FC<{
                       <ContentBannerL links={links} isSlider={block.isSlider} />
                     </div>
                   </section>
-                )
+                );
               case 'Banner (Medium)':
               case 'Banner (Small)':
                 return (
@@ -209,7 +209,7 @@ export const BlockSections: FC<{
                       />
                     </div>
                   </section>
-                )
+                );
 
               case 'Card: Rows':
               case 'Cards (Two-Col)':
@@ -238,7 +238,7 @@ export const BlockSections: FC<{
                       />
                     </div>
                   </section>
-                )
+                );
               case 'Card: Columns':
               case 'Cards (Three-Col)':
               case 'Thumb: Columns':
@@ -266,10 +266,10 @@ export const BlockSections: FC<{
                       />
                     </div>
                   </section>
-                )
+                );
 
               default:
-                return null
+                return null;
             }
           }
 
@@ -280,7 +280,7 @@ export const BlockSections: FC<{
                   <FormBlock block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'FormulaRecord':
             return (
@@ -289,7 +289,7 @@ export const BlockSections: FC<{
                   <Formula block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ImageSetRecord':
             return (
@@ -298,7 +298,7 @@ export const BlockSections: FC<{
                   <ImageSet block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ItemsPanelRecord':
             return (
@@ -308,10 +308,11 @@ export const BlockSections: FC<{
                     'has-text-centered': textAlign === 'Center',
                   })}
                 >
+                  {/*<ServiceCarousel block={block}></ServiceCarousel>*/}
                   <ItemsPanel block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'RichTextRecord':
             return (
@@ -320,7 +321,7 @@ export const BlockSections: FC<{
                   <RichText block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ServiceSetRecord':
             return (
@@ -333,7 +334,7 @@ export const BlockSections: FC<{
                   <ServiceSet block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'TeamRecord':
             return (
@@ -342,7 +343,7 @@ export const BlockSections: FC<{
                   <Team block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'TitleTextRecord':
             return (
@@ -356,7 +357,7 @@ export const BlockSections: FC<{
                   <TitleText block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'VideoRecord':
             return (
@@ -365,7 +366,7 @@ export const BlockSections: FC<{
                   <Video block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'VideoInternalRecord':
             return (
@@ -374,7 +375,7 @@ export const BlockSections: FC<{
                   <VideoInternal block={block} />
                 </div>
               </section>
-            )
+            );
 
           case 'ViewMoreLinkRecord':
             return (
@@ -389,12 +390,12 @@ export const BlockSections: FC<{
                   <ViewMoreLink block={block} />
                 </div>
               </section>
-            )
+            );
 
           default:
-            return null
+            return null;
         }
       })}
     </>
-  )
-}
+  );
+};
