@@ -637,7 +637,9 @@ export const DownSoup = (
   </svg>
 )
 
-export const RightHero = (
+export const RightHero: FC<{
+  icon?: IconSVG | null
+}> = () => (
   <svg
     width="481"
     height="486"
@@ -840,7 +842,9 @@ export const RightHero = (
     </defs>
   </svg>
 )
-export const LeftHero = (
+export const LeftHero: FC<{
+  icon?: IconSVG | null
+}> = () => (
   <svg
     width="161"
     height="254"
