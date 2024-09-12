@@ -6,12 +6,12 @@ import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/
 export const ClientSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord
 }> = ({ block }) => (
-  <>
-    <div className="columns is-mobile is-multiline">
+  <div className="clipSoup">
+    <div className="columns is-mobile is-multiline ">
       {block.clientSet.map((client) => (
         <div
           key={client.id}
-          className="column is-4-mobile is-3-tablet is-2-desktop"
+          className="column is-4-mobile is-3-tablet is-2-desktop clip"
         >
           {client.logo?.responsiveImage && (
             <Image
@@ -22,6 +22,7 @@ export const ClientSet: FC<{
         </div>
       ))}
     </div>
-    <button className="button is-primary">See Our Work</button>
-  </>
+
+    <button className="button is-primary is-dark">See Our Work</button>
+  </div>
 )
