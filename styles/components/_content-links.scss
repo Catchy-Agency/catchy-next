@@ -299,3 +299,39 @@ div[class*='swiper-pagination-container'] {
     border-color: transparent;
   }
 }
+
+.custom-flex-columns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+
+  .imageHero {
+    height: 90vh;
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 36%, 31% 100%, 0 69%);
+    filter: brightness(0.5);
+  }
+
+  .data-container {
+    content: '';
+    position: absolute;
+    bottom: 20vh;
+    left: 10vw;
+
+    .title.titleHero {
+      width: 70%;
+      font-weight: 300;
+      margin-bottom: 40px;
+      text-transform: capitalize;
+    }
+
+    .text-description {
+      width: 60%;
+      font-family: Helvetica;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 80px;
+    }
+  }
+}

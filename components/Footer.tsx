@@ -112,24 +112,13 @@ export const Footer: FC<{
             </div>
             <div className="field is-grouped pt-2">
               <div className="control submit-btn">
-                <input
+                <button
+                  className="button is-ghost"
                   onClick={() => pageview('/contact')}
-                  className="button is-primary"
                   type="submit"
-                  value="Send"
-                />
-                <svg
-                  width="8"
-                  height="12"
-                  viewBox="0 0 8 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M1.64197 0L0.147949 1.41L5.00139 6L0.147949 10.59L1.64197 12L8.00004 6L1.64197 0Z"
-                    fill="#0D202C"
-                  />
-                </svg>
+                  Submit
+                </button>
               </div>
             </div>
           </form>
