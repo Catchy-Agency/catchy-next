@@ -1,13 +1,13 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { FC } from 'react'
-import { Image } from 'react-datocms'
+import classNames from 'classnames';
+import Link from 'next/link';
+import { FC } from 'react';
+import { Image } from 'react-datocms';
 
-import { LinkData } from './LinkData'
+import { LinkData } from './LinkData';
 
 export const ThumbRows: FC<{
-  links: LinkData[]
-  imageAlign?: string | null
+  links: LinkData[];
+  imageAlign?: string | null;
 }> = ({ links, imageAlign }) => (
   <div
     className={classNames('thumb-rows', {
@@ -19,12 +19,12 @@ export const ThumbRows: FC<{
       <div key={link.id} className="columns">
         <div className="column is-7">
           <Link href={link.url || ''}>
-            <a className="is-block-link">
+            <a className="button is-primary is-block-link">
               {link.title && <div className="title is-2">{link.title}</div>}
               {link.description && (
                 <div className="content has-text-light">{link.description}</div>
               )}
-              <button className="button is-primary">{link.callToAction}</button>
+              {link.callToAction}
             </a>
           </Link>
         </div>
@@ -36,4 +36,4 @@ export const ThumbRows: FC<{
       </div>
     ))}
   </div>
-)
+);
