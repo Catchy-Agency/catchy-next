@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 
+import Link from 'next/link';
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug';
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug';
 import { prefixByTypename } from '../util/url';
@@ -315,6 +316,9 @@ export const BlockSections: FC<{
                 >
                   <ServiceCarousel block={block} />
                   {/*<ItemsPanel block={block} />*/}
+                  <Link href={'/work' || ''}>
+                    <a className="button is-primary">Explore our services</a>
+                  </Link>
                 </div>
               </section>
             );
