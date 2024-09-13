@@ -96,6 +96,8 @@ a.is-block-link:focus {
     transition: transform 0.1s ease-in-out;
   }
 
+  &:focus::before,
+  &:active::before,
   &:hover::before {
     transform: scaleX(1);
   }
@@ -104,7 +106,10 @@ a.is-block-link:focus {
     top: 40%;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
+    box-shadow: unset;
     color: $text;
     text-decoration: none;
   }
@@ -147,7 +152,9 @@ a.is-block-link:focus {
     &:hover,
     &:focus,
     &:active {
-      border: 1px solid $blue-light;
+      box-shadow: unset;
+      border: 1px solid $catchy-50;
+      text-decoration: none;
     }
   }
   &.is-dark {
@@ -159,8 +166,9 @@ a.is-block-link:focus {
     &:hover,
     &:focus,
     &:active {
+      border: 1px solid $lagoon-50;
       &:after {
-        content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%231dbc83%22%20stroke%3D%22%231dbc83%22%2F%3E%3C%2Fsvg%3E');
+        content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23008C81%22%20stroke%3D%22%23008C81%22%2F%3E%3C%2Fsvg%3E');
       }
     }
   }
