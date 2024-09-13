@@ -33,6 +33,9 @@ $item-responsive-gap: 5vw;
       padding-top: 50px;
       .SC-item {
         max-width: 340px;
+        .SC-item-title {
+          margin-bottom: 20px;
+        }
       }
       &::before {
         content: '';

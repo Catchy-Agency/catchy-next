@@ -151,7 +151,7 @@ export const ServiceCarousel: FC<{
           return (
             <li className="SC-item-wrapper" key={`carousel-item-${item.id}`}>
               <div className="SC-item">
-                <h3>{item.listTitle}</h3>
+                <h3 className="SC-item-title">{item.listTitle}</h3>
                 {item.detailText && (
                   <div
                     dangerouslySetInnerHTML={{ __html: item.detailText }}
