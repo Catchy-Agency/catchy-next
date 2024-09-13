@@ -93,6 +93,7 @@ a.is-block-link:focus {
     background-color: $text;
     width: 90%;
     transform: scaleX(0);
+    transition: transform 0.1s ease-in-out;
   }
 
   &:hover::before {
@@ -106,6 +107,21 @@ a.is-block-link:focus {
   &:hover {
     color: $text;
     text-decoration: none;
+  }
+  &.navbar-item {
+    padding: 0.25rem 0.75rem;
+    padding-right: 2em;
+    min-height: unset;
+    padding-right: 0;
+    padding-left: 0;
+    min-width: unset;
+    @include font-size(16px, !important);
+    &:before {
+      width: 100%;
+    }
+    &:after {
+      content: none;
+    }
   }
 }
 .button:not(.is-ghost, .avoid-tf) {
@@ -344,6 +360,14 @@ a.navbar-item.is-tab:not(.button):hover {
   border-bottom-color: $navbar-item-active-color;
 }
 
+.navbar-item.is-tab {
+  display: flex;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: unset;
+}
+
 @media screen and (max-width: 1023px) {
   .navbar-menu {
     box-shadow: none;
@@ -369,14 +393,15 @@ a.navbar-item.is-tab:not(.button):hover {
 
 .navbar-end {
   align-items: center;
+  gap: 20px;
 }
 
 .navbar-item {
   min-width: 105px;
   text-align: center;
   justify-content: center;
-  font-weight: bold;
-  text-transform: uppercase;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
 .hero .navbar,

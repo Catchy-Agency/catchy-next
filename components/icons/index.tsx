@@ -958,3 +958,18 @@ export const LeftUpSoup = (
     </defs>
   </svg>
 );
+
+export const AngleDown = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="16"
+    viewBox="0 0 17 16"
+    fill="none"
+  >
+    <path
+      d="M16.7386 0.957031L15.2203 0.957031L8.60796 12.4136L1.99563 0.957031L0.477289 0.957031L8.60796 15.0427L16.7386 0.957031Z"
+      fill="white"
+    />
+  </svg>
+);
