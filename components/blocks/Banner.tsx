@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
 import { scrollToContact } from '../../util/scrollToContact';
+import { LeftHero, RightHero } from '../icons';
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => (
@@ -33,6 +34,10 @@ export const Banner: FC<{
         </button>
       )}
     </div>
+
+    <div className="svg-right">{RightHero}</div>
+
+    <div className="svg-left">{LeftHero}</div>
 
     {/* {block.foregroundImage && (
       <div className="column is-hidden-mobile">
