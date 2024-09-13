@@ -1,35 +1,35 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { FC, useMemo } from 'react'
-import { Image } from 'react-datocms'
+import classNames from 'classnames';
+import Link from 'next/link';
+import { FC, useMemo } from 'react';
+import { Image } from 'react-datocms';
 
-import { LinkData } from '../LinkData'
+import { LinkData } from '../LinkData';
 
-import { EffectFade, Pagination } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/pagination'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectFade, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
-let count = 0
+let count = 0;
 
 export const ContentBannerL: FC<{
-  links: LinkData[]
-  isSlider: boolean
+  links: LinkData[];
+  isSlider: boolean;
 }> = ({ links, isSlider }) => {
-  const deviceSize = useMediaQuery()
+  const deviceSize = useMediaQuery();
 
   // Update pagination ID if props change
   const paginationID = useMemo(() => {
     // Force props as dependencies
-    links
-    isSlider
-    return `ContentBannerL${count++}`
-  }, [links, isSlider])
+    links;
+    isSlider;
+    return `ContentBannerL${count++}`;
+  }, [links, isSlider]);
 
-  const paginationClass = `swiper-pagination-container-${paginationID}`
+  const paginationClass = `swiper-pagination-container-${paginationID}`;
 
   return (
     <div className="hero-banner is-large">
@@ -65,8 +65,8 @@ export const ContentBannerL: FC<{
         ))
       )}
     </div>
-  )
-}
+  );
+};
 
 const ContentLink: FC<{ link: LinkData; deviceSize: string }> = ({
   link,
@@ -107,9 +107,7 @@ const ContentLink: FC<{ link: LinkData; deviceSize: string }> = ({
           })}
         >
           <Link href={link.url || ''}>
-            <a>
-              <button className="button is-primary">{link.callToAction}</button>
-            </a>
+            <a className="button is-primary">{link.callToAction}</a>
           </Link>
         </div>
       </div>
@@ -126,4 +124,4 @@ const ContentLink: FC<{ link: LinkData; deviceSize: string }> = ({
       )}
     </div>
   </div>
-)
+);

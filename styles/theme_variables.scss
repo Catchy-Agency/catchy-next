@@ -5,6 +5,9 @@ $grey: lighten($grey-darkest, 18);
 $grey-light: lighten($grey-darkest, 24);
 $grey-lighter: lighten($grey-darkest, 30);
 $anthracite: #212121;
+$lagoon: #008c81;
+$catchy-50: #8eddc1;
+$lagoon-50: #80c5c0;
 
 $orange: #e67e22;
 $yellow: #f1b70e;
@@ -95,7 +98,7 @@ $pagination-border-color: $border;
 
 $navbar-height: 4rem;
 
-$navbar-background-color: $grey-darkest;
+$navbar-background-color: $anthracite;
 $navbar-item-color: $text;
 $navbar-item-hover-color: $primary;
 $navbar-item-hover-background-color: transparent;
@@ -104,7 +107,7 @@ $navbar-item-active-background-color-mobile: $grey-darker;
 $navbar-dropdown-arrow: #fff;
 $navbar-divider-background-color: rgba(0, 0, 0, 0.2);
 $navbar-dropdown-border-top: 1px solid $navbar-divider-background-color;
-$navbar-dropdown-background-color: $grey-darkest;
+$navbar-dropdown-background-color: $anthracite;
 $navbar-dropdown-item-hover-color: $primary;
 $navbar-dropdown-item-hover-background-color: transparent;
 $navbar-dropdown-item-active-background-color: $grey-darker;
