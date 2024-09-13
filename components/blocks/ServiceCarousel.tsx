@@ -153,7 +153,9 @@ export const ServiceCarousel: FC<{
               <div className="SC-item">
                 <h3>{item.listTitle}</h3>
                 {item.detailText && (
-                  <p dangerouslySetInnerHTML={{ __html: item.detailText }}></p>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: item.detailText }}
+                  ></div>
                 )}
               </div>
             </li>

@@ -14,8 +14,8 @@ import { ColumnRow } from './blocks/ColumnRow';
 import { FormBlock } from './blocks/FormBlock';
 import { Formula } from './blocks/Formula';
 import { ImageSet } from './blocks/ImageSet';
-import { ItemsPanel } from './blocks/ItemsPanel';
 import { RichText } from './blocks/RichText';
+import { ServiceCarousel } from './blocks/ServiceCarousel';
 import { ServiceSet } from './blocks/ServiceSet';
 import { Team } from './blocks/Team';
 import { TitleText } from './blocks/TitleText';
@@ -308,8 +308,8 @@ export const BlockSections: FC<{
                     'has-text-centered': textAlign === 'Center',
                   })}
                 >
-                  {/*<ServiceCarousel block={block}></ServiceCarousel>*/}
-                  <ItemsPanel block={block} />
+                  <ServiceCarousel block={block} />
+                  {/*<ItemsPanel block={block} />*/}
                 </div>
               </section>
             );
