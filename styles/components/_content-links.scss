@@ -309,14 +309,14 @@ div[class*='swiper-pagination-container'] {
   .imageHero {
     height: 90vh;
     z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% 36%, 31% 100%, 0 69%);
+    clip-path: polygon(0 0, 100% 0, 100% 13%, 33% 100%, 0 72%);
     filter: brightness(0.5);
   }
 
   .data-container {
     content: '';
     position: absolute;
-    bottom: 20vh;
+    bottom: 25vh;
     left: 10vw;
 
     .title.titleHero {
@@ -332,6 +332,39 @@ div[class*='swiper-pagination-container'] {
       font-size: 28px;
       font-weight: 700;
       margin-bottom: 80px;
+    }
+  }
+
+  .svg-right {
+    content: '';
+    position: absolute;
+    width: 25%;
+    bottom: 15vh;
+    right: 0;
+  }
+
+  .svg-left {
+    content: '';
+    position: absolute;
+    width: 9%;
+    bottom: -1vh;
+    z-index: -1;
+  }
+
+  @media screen and (max-width: calc(1440px + 200px)) {
+    .imageHero {
+      clip-path: polygon(0 0, 100% 0, 100% 18%, 25% 100%, 0 73%);
+    }
+
+    .svg-right {
+      width: 30%;
+      bottom: 10vh;
+      right: 0;
+    }
+
+    .svg-left {
+      width: 10%;
+      bottom: -4vh;
     }
   }
 }

@@ -26,6 +26,7 @@ import { ContentBannerL } from './content-links/banners/ContentBannerL';
 import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
 import { ContentTileM } from './content-links/cards/ContentTileM';
 import { ContentTileS } from './content-links/cards/ContentTileS';
+import { DownSoup, LeftHero, LeftUpSoup, UpSoup } from './icons';
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
@@ -125,6 +126,10 @@ export const BlockSections: FC<{
                 <div className={classNames('container', maxClass)}>
                   <ClientSet block={block} />
                 </div>
+                <div className="absoluteSvg LeftUp">{LeftUpSoup}</div>
+                <div className="absoluteSvg RightUp">{UpSoup}</div>
+                <div className="absoluteSvg leftDown">{LeftHero}</div>
+                <div className="absoluteSvg RightDown">{DownSoup}</div>
               </section>
             );
 

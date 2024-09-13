@@ -45,14 +45,36 @@ section:last-of-type {
 }
 
 .section.ClientSetRecord {
-  /*   padding-top: 1rem;
-  padding-bottom: 1.5rem; */
-  display: flex;
-  align-items: center;
   padding: unset;
-  background-color: $soup-background;
-  clip-path: polygon(0 30%, 45% 0, 100% 35%, 100% 60%, 40% 100%, 0 70%);
-  height: 120vh;
+  position: relative;
+  > .container {
+    margin: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 140vh;
+    background-color: $soup-background;
+    clip-path: polygon(0 30%, 45% 0, 100% 35%, 100% 60%, 40% 100%, 0 70%);
+    max-width: unset;
+  }
+  .absoluteSvg {
+    width: fit-content;
+    position: absolute;
+  }
+  .LeftUp {
+    top: 0;
+  }
+  .leftDown {
+    bottom: 0;
+  }
+  .RightDown {
+    bottom: 0;
+    right: 0;
+  }
+  .RightUp {
+    top: 0;
+    right: 0;
+  }
 }
 
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
