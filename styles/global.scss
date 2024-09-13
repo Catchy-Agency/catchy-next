@@ -47,16 +47,20 @@ section:last-of-type {
 .section.ClientSetRecord {
   padding: unset;
   position: relative;
-  > .container {
+  height: 140dvh;
+
+  .container {
+    margin: unset;
+    padding: unset;
+    width: 100%;
+    max-width: unset;
+  }
+  /*   > .container {
     margin: unset;
     width: 100%;
     display: flex;
     align-items: center;
-    height: 140vh;
-    background-color: $soup-background;
-    clip-path: polygon(0 30%, 45% 0, 100% 35%, 100% 60%, 40% 100%, 0 70%);
-    max-width: unset;
-  }
+  } */
   .absoluteSvg {
     width: fit-content;
     position: absolute;
@@ -180,6 +184,7 @@ section:last-of-type {
 @import 'components/service-carousel';
 @import 'pages/_primary-pages';
 @import 'pages/_content-pages';
+@import 'components/_client-set';
 
 //
 // "content" adjustments

@@ -1,17 +1,29 @@
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
-import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/types/PrimaryPageBySlug'
+import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/types/PrimaryPageBySlug';
 
 export const ClientSet: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord
+  block: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord;
 }> = ({ block }) => (
-  <div className="clipSoup">
-    <div className="columns is-mobile is-multiline ">
+  <div className="soupWrapper">
+    <div className="soupTitle">
+      <h2>Who We Work With</h2>
+      <p>
+        We help the biggest brands in technology, scale-ups in emerging
+        technology, and traditional Fortune 500 companies reinvent the way they
+        do business.
+      </p>
+    </div>
+    <div className="columns is-mobile is-multiline is-variable is-1 soupContent">
       {block.clientSet.map((client) => (
         <div
           key={client.id}
-          className="column is-4-mobile is-3-tablet is-2-desktop clip"
+          className="column is-narrow clip"
+          style={{
+            flexBasis: '14.28%',
+            maxWidth: '14.28%',
+          }}
         >
           {client.logo?.responsiveImage && (
             <Image
@@ -22,6 +34,8 @@ export const ClientSet: FC<{
         </div>
       ))}
     </div>
-    <button className="button is-primary is-dark">See Our Work</button>
+    <div className="soupBottom">
+      <button className="button is-primary is-dark">See Our Work</button>
+    </div>
   </div>
-)
+);
