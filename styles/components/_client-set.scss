@@ -6,32 +6,37 @@
 
   .soupTitle {
     clip-path: polygon(45% 0, 100% 95%, 100% 100%, 0 100%, 0 80%);
-    height: 50dvh;
+    height: 60vh;
     padding: 0 10rem;
     background-color: $soup-background;
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
     justify-content: flex-end;
-    > h2 {
-      color: var(--Text-Anthracite, #212121);
-      /* Typography/Headline/02_Light */
-      font-family: Helvetica;
-      font-size: 56px !important;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 72px; /* 128.571% */
-      text-transform: capitalize;
-    }
-    > p {
-      color: var(--Text-Anthracite, #212121);
+    align-items: center;
+    transform: translateY(1px);
+    .textContent {
+      max-width: 1440px;
+      width: 100%;
+      > h2 {
+        color: var(--Text-Anthracite, #212121);
+        /* Typography/Headline/02_Light */
+        font-family: Helvetica;
+        font-size: 56px !important;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 72px; /* 128.571% */
+        text-transform: capitalize;
+      }
+      > p {
+        color: var(--Text-Anthracite, #212121);
 
-      /* Typography/Sub_Heading/02_Reg */
-      font-family: Helvetica;
-      font-size: 24px !important;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 40px; /* 166.667% */
+        /* Typography/Sub_Heading/02_Reg */
+        font-family: Helvetica;
+        font-size: 24px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px; /* 166.667% */
+      }
     }
   }
   > .columns {
@@ -40,6 +45,11 @@
   .soupContent {
     background-color: $soup-background;
     padding: 2rem 10rem;
+    display: flex;
+    justify-content: center;
+    .imageContent {
+      max-width: 1440px;
+    }
   }
 
   .soupBottom {
@@ -47,5 +57,22 @@
     background-color: $soup-background;
     padding: 0 10rem;
     height: 40vh;
+    transform: translateY(-2px);
+    padding: 2rem 10rem;
+    display: flex;
+    justify-content: center;
+
+    .buttonContent {
+      width: 100%;
+      max-width: 1440px;
+    }
+  }
+  @media (min-width: 2300px) {
+    .soupTitle {
+      height: 25vh;
+    }
+    .soupBottom {
+      height: 20vh;
+    }
   }
 }
