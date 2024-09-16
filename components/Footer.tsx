@@ -70,38 +70,38 @@ export const Footer: FC<{
             action={footer.destinationEmail || ''}
             method="POST"
           >
-            <div className="field is-grouped">
-              <div className="control is-expanded _has-icons-left">
+            <div className="field is-grouped pb-5">
+              <div className="control is-expanded _has-icons-left mr-5">
                 <input
-                  className="input"
+                  className="input px-2 pb-4"
                   type="text"
                   name="firstname"
                   placeholder={footer.firstNameLabel || 'First Name'}
                 />
               </div>
-              <div className="control is-expanded _has-icons-left">
+              <div className="control is-expanded _has-icons-left ml-5">
                 <input
-                  className="input"
+                  className="input px-2 pb-4"
                   type="text"
                   name="lastname"
                   placeholder={footer.lastNameLabel || 'Last Name'}
                 />
               </div>
             </div>
-            <div className="field">
+            <div className="field pb-5">
               <div className="control is-expanded _has-icons-left">
                 <input
-                  className="input"
+                  className="input px-2 pb-4"
                   type="email"
                   name="_replyto"
                   placeholder={footer.emailAddressLabel || undefined}
                 />
               </div>
             </div>
-            <div className="field">
+            <div className="field mb-6">
               <div className="control">
                 <textarea
-                  className="textarea"
+                  className="textarea px-2 pb-4"
                   name="message"
                   placeholder={footer.messageLabel || undefined}
                   rows={7}
