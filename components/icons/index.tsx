@@ -639,205 +639,288 @@ export const DownSoup = (
 
 export const RightHero = (
   <svg
-    width="481"
-    height="486"
-    viewBox="0 0 481 486"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    viewBox="0 0 480.2 646.8"
   >
-    <g clipPath="url(#clip0_269_16998)">
-      <path
-        d="M360.14 23.3102L320.14 0.220215V46.4002L360.14 69.5002V23.3102Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M280.17 23.5102L240.17 0.410156V46.6002L280.17 69.7001V23.5102Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M240.18 46.5998L200.18 23.5098V69.6998L240.18 92.7898V46.5998Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M200.18 254.46L240.18 231.36V277.55L200.18 300.65V254.46Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M480.14 46.57L440.14 23.48V69.67L480.14 92.76V46.57Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M480.14 92.8002L440.14 69.7002V115.89L480.14 138.99V92.8002Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M440.14 69.7401L480.14 46.6401V92.8301L440.14 115.92V69.7401Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M440.14 115.91L480.14 92.8198V139.01L440.14 162.1V115.91Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M480.14 139.01L440.14 115.92V162.11L480.14 185.2V139.01Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M360.19 208.32L320.19 185.23V231.42L360.19 254.51V208.32Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M360.19 254.51L320.19 231.42V277.6L360.19 300.7V254.51Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M320.19 231.42L360.19 208.33V254.52L320.19 277.61V231.42Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M320.19 277.6L360.19 254.51V300.7L320.19 323.79V277.6Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M360.19 300.62L320.19 277.52V323.71L360.19 346.8V300.62Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M400.18 231.42L360.18 208.33V254.52L400.18 277.61V231.42Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M480.14 416.15L440.14 393.06V439.25L480.14 462.34V416.15Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M320.19 323.76L280.19 300.67V346.85L320.19 369.95V323.76Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M280.21 300.67L240.21 277.58V323.77L280.21 346.86V300.67Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M240.19 323.77L200.19 300.68V346.86L240.19 369.96V323.77Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M400.18 277.6L360.18 254.5V300.69L400.18 323.79V277.6Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M360.18 254.53L400.18 231.43V277.62L360.18 300.71V254.53Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M200.17 115.89L280.17 69.7002V115.89L200.17 162.07V115.89Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M120.22 115.89L200.22 69.7002V115.89L120.22 162.07V115.89Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M120.19 254.41L200.19 208.22V254.41L120.19 300.6V254.41Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M0.120001 323.54L80.11 277.35V323.54L0.120001 369.73V323.54Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M120.19 393.09L200.19 346.91V393.09L120.19 439.28V393.09Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M280.19 392.97L360.19 346.79V392.97L280.19 439.16V392.97Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M240.2 185.11L160.2 138.92V185.11L240.2 231.3V185.11Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M440.18 439.22L360.18 393.03V439.22L440.18 485.4V439.22Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M200.19 346.91L120.19 300.72V346.91L200.19 393.1V346.91Z"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
-      <path
-        d="M160.14 277.42V370"
-        stroke="white"
-        strokeWidth="0.25"
-        strokeMiterlimit="10"
-      />
+    <g>
+      <g id="Layer_1">
+        <g>
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M360.2,184.7l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M280.1,184.8l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M240.1,207.9l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M200.1,415.8l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M480.1,207.9l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M480.1,254.1l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M440.1,231l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M440.1,277.2l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M480.1,300.3l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M360.1,369.6l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M360.1,415.8l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M320.1,392.7l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M320.1,438.9l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M360.1,461.9l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M400.1,392.7l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M480.1,577.4l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M320.1,485.1l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M280.1,462l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M240.1,485.1l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M400.1,438.9l-40-23.1v46.2l40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M360.1,415.8l40-23.1v46.2l-40,23.1v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M200.1,277.2l80-46.2v46.2l-80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M120.2,277.2l80-46.2v46.2l-80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M120.1,415.8l80-46.2v46.2l-80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M.1,484.8l80-46.2v46.2L.1,531v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M120.1,554.4l80-46.2v46.2l-80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M280.1,554.3l80-46.2v46.2l-80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M240.1,346.5l-80-46.2v46.2l80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M440.1,600.5l-80-46.2v46.2l80,46.2v-46.2Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M200.1,508.2l-80-46.2v46.2l80,46.2v-46.2h0Z"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width=".2px"
+            d="M160.1,438.9v92.4"
+          />
+          <path fill="#bfb3a3" d="M400.2,115.5V23.1L440.2,0v92.4l-40,23.1Z" />
+          <path fill="#8fb2cc" d="M440.2,138.6v-46.2l40-23.1v92.4l-40-23.1Z" />
+          <path
+            fill="#008c81"
+            d="M360.1,92.4v92.4l80,46.2v-92.4s-80-46.2-80-46.2Z"
+          />
+          <path
+            fill="#263140"
+            d="M320.1,346.5v-92.4l120-69.3v92.4l-120,69.3Z"
+          />
+          <path
+            fill="#bfb3a3"
+            d="M400.2,346.5v-46.2l-40-23.1v92.4l40-23.1h0Z"
+          />
+          <path fill="#212121" d="M400.2,300.3l-40,23.1,40,23.2v-46.2h0Z" />
+          <path
+            fill="#1dbc83"
+            d="M480.2,438.9v-92.4l-80-46.2v184.7l80-46.2h0Z"
+          />
+          <path fill="#1dbc83" d="M40,415.9v-46.2L0,346.6v46.2l40,23.1Z" />
+          <path fill="#8fb2cc" d="M240.1,346.6l80,46.1-80,46.3v-92.5h0Z" />
+          <path fill="#bfb3a3" d="M200.2,462l80-46.2v46.2l-80,46.2v-46.2Z" />
+          <path fill="#008c81" d="M360.1,462l-80-46.2v46.2l80,46.2v-46.2Z" />
+          <path fill="#263140" d="M280.1,415.8l40,23.1-40,23.2v-46.2h0Z" />
+        </g>
+      </g>
     </g>
-    <defs>
-      <clipPath id="clip0_269_16998">
-        <rect width="480.26" height="485.62" fill="white" />
-      </clipPath>
-    </defs>
   </svg>
 );
 export const LeftHero = (
