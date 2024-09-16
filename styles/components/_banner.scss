@@ -24,13 +24,11 @@
 
     .imageHero {
       height: 90vh;
-      z-index: -1;
-      clip-path: polygon(0 0, 100% 0, 100% 13%, 33% 100%, 0 72%);
+      clip-path: polygon(0 0, 100% 0, 100% 10%, 28% 100%, 0 70%);
       filter: brightness(0.5);
     }
 
     .data-container {
-      content: '';
       position: absolute;
       bottom: 25vh;
       left: 10vw;
@@ -52,55 +50,43 @@
     }
 
     .svg-right {
-      content: '';
+      width: 50vh;
       position: absolute;
-      width: 25%;
-      bottom: 15vh;
+      top: 1vh;
       right: 0;
     }
 
     .svg-left {
-      content: '';
       position: absolute;
-      width: 9%;
-      bottom: -1vh;
-      z-index: -1;
+      bottom: 0;
+      left: 0;
     }
 
     @media (min-width: 2300px) {
+      .imageHero {
+        clip-path: polygon(0 0, 100% 0, 100% 9%, 31% 100%, 0 68%);
+      }
+
       .svg-right {
-        bottom: 35vh;
-        right: -9vw;
+        top: 0;
       }
 
       .svg-left {
-        bottom: 7vh;
-      }
-    }
-
-    @media (max-width: calc(1600px + 200px)) {
-      .imageHero {
-        clip-path: polygon(0 0, 100% 0, 100% 13%, 33% 100%, 0 72%);
-      }
-
-      .svg-right {
-        bottom: 13vh;
-        right: 2vw;
+        bottom: 10vh;
       }
     }
 
     @media (max-width: calc(1440px + 200px)) {
       .imageHero {
-        clip-path: polygon(0 0, 100% 0, 100% 18%, 25% 100%, 0 73%);
+        clip-path: polygon(0 0, 100% 0, 100% 15%, 24% 100%, 0 72%);
       }
 
       .svg-right {
-        bottom: 10vh;
-        right: 9vh;
+        top: 6vh;
       }
 
       .svg-left {
-        bottom: -4vh;
+        top: 65vh;
       }
     }
   }

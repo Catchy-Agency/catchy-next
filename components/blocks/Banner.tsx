@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
 import { scrollToContact } from '../../util/scrollToContact';
-import { LeftHero, RightHero } from '../icons';
+import { LeftUpSoup, RightHero } from '../icons';
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => (
@@ -18,9 +18,9 @@ export const Banner: FC<{
     />
 
     <div className="data-container">
-      {block.titleOverline && (
+      {/* {block.titleOverline && (
         <p className="overline mb-2">{block.titleOverline}</p>
-      )}
+      )} */}
       {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
       {block.text && (
         <div
@@ -37,7 +37,7 @@ export const Banner: FC<{
 
     <div className="svg-right">{RightHero}</div>
 
-    <div className="svg-left">{LeftHero}</div>
+    <div className="svg-left">{LeftUpSoup}</div>
 
     {/* {block.foregroundImage && (
       <div className="column is-hidden-mobile">
