@@ -402,7 +402,61 @@ a.navbar-item.is-tab:not(.button):hover {
       transform: scaleX(1);
     }
     > svg {
+      > path {
+        fill: $turquoise;
+      }
       transform: rotate(180deg);
+    }
+  }
+}
+
+.navbar-item.has-dropdown.is-hoverable {
+  .navbar-dropdown {
+    border-radius: 0;
+    right: 0;
+    left: unset;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+
+    > .navbar-item {
+      justify-content: flex-end;
+      width: fit-content;
+      padding-left: 0;
+      padding-right: 0;
+      min-width: unset;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: $text;
+        width: 100%;
+        transform: scaleX(0);
+        transition: transform 0.1s ease-in-out;
+      }
+
+      &:hover {
+        color: #fff;
+        &::before {
+          transform: scaleX(1);
+        }
+        > svg {
+          > path {
+            fill: $turquoise;
+          }
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &:hover {
+    .navbar-dropdown {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
     }
   }
 }
