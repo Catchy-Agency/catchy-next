@@ -78,7 +78,8 @@ a.is-block-link:focus {
   color: $text;
   font-size: 2rem;
   position: relative;
-  padding: unset;
+  padding: 0.25rem 0.75rem;
+
   padding-bottom: 0.25rem;
   padding-right: 3.25rem;
   height: unset;
@@ -114,7 +115,6 @@ a.is-block-link:focus {
     text-decoration: none;
   }
   &.navbar-item {
-    padding: 0.25rem 0.75rem;
     padding-right: 2em;
     min-height: unset;
     padding-right: 0;
@@ -371,8 +371,8 @@ a.navbar-item.is-tab:not(.button):hover {
 .navbar-item.is-tab {
   display: flex;
   gap: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
   min-width: unset;
   border-bottom: none;
   padding-top: 0.25rem;
@@ -466,7 +466,17 @@ a.navbar-item.is-tab:not(.button):hover {
     box-shadow: none;
     padding: 0;
     padding-bottom: 1rem;
+    .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      &:hover {
+        align-items: center;
+      }
+    }
   }
+
   a.navbar-item.is-tab,
   a.navbar-item.is-tab.is-active,
   a.navbar-item.is-tab:hover {
@@ -486,7 +496,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 .navbar-end {
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
   margin-left: unset;
 }
