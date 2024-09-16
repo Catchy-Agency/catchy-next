@@ -8,34 +8,40 @@ export const ClientSet: FC<{
 }> = ({ block }) => (
   <div className="soupWrapper">
     <div className="soupTitle">
-      <h2>Who We Work With</h2>
-      <p>
-        We help the biggest brands in technology, scale-ups in emerging
-        technology, and traditional Fortune 500 companies reinvent the way they
-        do business.
-      </p>
+      <div className="textContent">
+        <h2>Who We Work With</h2>
+        <p>
+          We help the biggest brands in technology, scale-ups in emerging
+          technology, and traditional Fortune 500 companies reinvent the way
+          they do business.
+        </p>
+      </div>
     </div>
-    <div className="columns is-mobile is-multiline is-variable is-1 soupContent">
-      {block.clientSet.map((client) => (
-        <div
-          key={client.id}
-          className="column is-narrow clip"
-          style={{
-            flexBasis: '14.28%',
-            maxWidth: '14.28%',
-          }}
-        >
-          {client.logo?.responsiveImage && (
-            <Image
-              data={client.logo.responsiveImage as ResponsiveImageType}
-              lazyLoad={false}
-            />
-          )}
-        </div>
-      ))}
+    <div className="soupContent">
+      <div className="columns is-mobile is-multiline is-variable is-1 imageContent">
+        {block.clientSet.map((client) => (
+          <div
+            key={client.id}
+            className="column is-narrow clip"
+            style={{
+              flexBasis: '14.28%',
+              maxWidth: '14.28%',
+            }}
+          >
+            {client.logo?.responsiveImage && (
+              <Image
+                data={client.logo.responsiveImage as ResponsiveImageType}
+                lazyLoad={false}
+              />
+            )}
+          </div>
+        ))}
+      </div>
     </div>
     <div className="soupBottom">
-      <button className="button is-primary is-dark">See Our Work</button>
+      <div className="buttonContent">
+        <button className="button is-primary is-dark">See Our Work</button>
+      </div>
     </div>
   </div>
 );

@@ -124,7 +124,7 @@ export const BlockSections: FC<{
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">
-                <div className={classNames('container')}>
+                <div className="container">
                   <ClientSet block={block} />
                 </div>
                 <div className="absoluteSvg LeftUp">{LeftUpSoup}</div>
