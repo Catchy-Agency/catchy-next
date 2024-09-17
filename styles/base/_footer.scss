@@ -3,8 +3,6 @@
  *
  */
 footer {
-  border-top: 1px solid $grey-dark;
-
   a {
     @include btn-link;
     text-decoration: none;
@@ -38,6 +36,13 @@ footer {
       }
     }
   }
+
+  @media screen and (max-width: calc(692px + 100px)) {
+    .columns {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
 }
 .footer-bottom {
   margin-top: 90px;
@@ -50,15 +55,21 @@ footer {
     flex-flow: row;
     justify-content: space-between;
   }
+
+  @media (max-width: calc(692px + 100px)) {
+    align-items: flex-start;
+  }
+
   .navbar-item {
     padding: 0;
+    text-align: start;
   }
 
   .privacy p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 5px;
+    gap: 2vh;
 
     //text-privacy-richText
     a {
