@@ -362,9 +362,24 @@ a.is-block-link:focus {
   padding-left: 0;
   padding-right: 0;
 }
-.navbar-burger:hover,
+
 a.navbar-item.is-tab.is-active:not(.button),
 a.navbar-item.is-tab:not(.button):hover {
+  color: #fff;
+  border: none;
+  padding-bottom: 0.5rem;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: $text;
+    transform: scale(1);
+    width: 100%;
+    transition: transform 0.1s ease-in-out;
+  }
 }
 
 .navbar-item.is-tab {
@@ -374,10 +389,11 @@ a.navbar-item.is-tab:not(.button):hover {
   padding-right: 0px;
   min-width: unset;
   border-bottom: none;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   min-height: unset;
-
+  align-items: center;
+  width: fit-content;
   > svg {
     transform: rotate(0deg);
     transition: transform 250ms ease-in-out;
@@ -395,8 +411,11 @@ a.navbar-item.is-tab:not(.button):hover {
     transition: transform 0.1s ease-in-out;
   }
 
-  &:hover {
+  &:hover,
+  &:active,
+  &:focus {
     color: #fff;
+    text-decoration: none;
     &::before {
       transform: scaleX(1);
     }
@@ -436,7 +455,9 @@ a.navbar-item.is-tab:not(.button):hover {
         transition: transform 0.1s ease-in-out;
       }
 
-      &:hover {
+      &:hover,
+      &:active,
+      &:focus {
         color: #fff;
         &::before {
           transform: scaleX(1);
@@ -460,39 +481,6 @@ a.navbar-item.is-tab:not(.button):hover {
   }
 }
 
-@media screen and (max-width: 1023px) {
-  .navbar-menu {
-    box-shadow: none;
-    padding: 0;
-    padding-bottom: 1rem;
-    .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      &:hover {
-        align-items: center;
-      }
-    }
-  }
-
-  a.navbar-item.is-tab,
-  a.navbar-item.is-tab.is-active,
-  a.navbar-item.is-tab:hover {
-    border-bottom: none;
-    min-height: 0px;
-    padding-bottom: 0px;
-    padding: 1rem;
-  }
-  a.navbar-item.is-tab.is-active:not(.button),
-  a.navbar-item.is-tab:not(.button):hover {
-    background-color: transparentize(
-      $color: $navbar-item-active-background-color-mobile,
-      $amount: 0.95
-    );
-  }
-}
-
 .navbar-end {
   align-items: center;
   gap: 30px;
@@ -506,6 +494,53 @@ a.navbar-item.is-tab:not(.button):hover {
   justify-content: center;
   font-weight: 400;
   text-transform: capitalize;
+}
+@media screen and (max-width: 1023px) {
+  .navbar {
+    padding: 0 5rem;
+  }
+
+  .navbar-end {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    > .navbar-item.has-dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .navbar-menu {
+    box-shadow: none;
+    padding: 0;
+    padding-bottom: 1rem;
+    .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      &:hover,
+      &:active,
+      &:focus {
+        align-items: center;
+      }
+    }
+  }
+
+  a.navbar-item.is-tab,
+  a.navbar-item.is-tab.is-active,
+  a.navbar-item.is-tab:hover {
+    border-bottom: none;
+    min-height: 0px;
+    padding-bottom: 0.5rem;
+  }
+  a.navbar-item.is-tab.is-active:not(.button),
+  a.navbar-item.is-tab:not(.button):hover {
+    background-color: transparentize(
+      $color: $navbar-item-active-background-color-mobile,
+      $amount: 0.95
+    );
+  }
 }
 
 .hero .navbar,
