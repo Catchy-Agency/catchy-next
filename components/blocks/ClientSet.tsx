@@ -9,8 +9,8 @@ export const ClientSet: FC<{
   <div className="soupWrapper">
     <div className="soupTitle">
       <div className="textContent">
-        <h2>Who We Work With</h2>
-        <p>
+        <h2 className="title is-2">Who We Work With</h2>
+        <p className="content">
           We help the biggest brands in technology, scale-ups in emerging
           technology, and traditional Fortune 500 companies reinvent the way
           they do business.

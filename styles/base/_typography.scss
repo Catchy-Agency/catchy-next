@@ -23,8 +23,8 @@ $font-helvetica: Helvetica, san-serif;
 @mixin hdl2() {
   @include hdl-com;
   font-family: $font-montserrat !important;
-  @include font-size(40px, !important);
-  font-weight: 700;
+  @include font-size(56px, !important);
+  font-weight: 300;
   // line-height: 1.21739 !important; //56/46;
 }
 // styleName: Headline3;
@@ -110,6 +110,9 @@ h5 {
   @include hdl5();
 }
 
+.content {
+  @include hdl4();
+}
 .subtitle,
 .title {
   //responsive

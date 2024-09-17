@@ -6,7 +6,7 @@
 
   .soupTitle {
     clip-path: polygon(45% 0, 100% 95%, 100% 100%, 0 100%, 0 80%);
-    height: 60vh;
+    height: 50vh;
     padding: 0 10rem;
     background-color: $soup-background;
     display: flex;
@@ -14,28 +14,14 @@
     justify-content: flex-end;
     align-items: center;
     transform: translateY(1px);
+
     .textContent {
       max-width: 1440px;
       width: 100%;
-      > h2 {
-        color: var(--Text-Anthracite, #212121);
-        /* Typography/Headline/02_Light */
-        font-family: Helvetica;
-        font-size: 56px !important;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 72px; /* 128.571% */
-        text-transform: capitalize;
-      }
-      > p {
-        color: var(--Text-Anthracite, #212121);
 
-        /* Typography/Sub_Heading/02_Reg */
-        font-family: Helvetica;
-        font-size: 24px !important;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 40px; /* 166.667% */
+      > h2,
+      p {
+        color: var(--Text-Anthracite, #212121);
       }
     }
   }
@@ -49,6 +35,9 @@
     justify-content: center;
     .imageContent {
       max-width: 1440px;
+    }
+    @media (max-width: $tablet) {
+      padding: 2rem 1rem;
     }
   }
 
@@ -65,6 +54,27 @@
     .buttonContent {
       width: 100%;
       max-width: 1440px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .soupTitle {
+      height: 30vh;
+      clip-path: polygon(45% 0, 100% 60%, 100% 100%, 0 100%, 0 50%);
+      padding: 0 1rem;
+    }
+    .soupBottom {
+      clip-path: polygon(45% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
+      height: 20vh;
+      padding: 0 1rem;
+    }
+  }
+  @media (max-width: 1200px) {
+    .soupTitle {
+      height: 35vh;
+    }
+    .soupBottom {
+      height: 30vh;
     }
   }
   @media (min-width: 2300px) {

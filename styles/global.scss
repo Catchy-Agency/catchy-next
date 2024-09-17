@@ -28,6 +28,9 @@ $border-color-gray: #444f57;
 section:not(.has-background-grey-darker) {
   padding: 0 10rem;
   margin: 3% 0;
+  @media (max-width: $tablet) {
+    padding: 0 1rem;
+  }
 }
 
 section:last-of-type {
@@ -58,6 +61,9 @@ section:last-of-type {
   .absoluteSvg {
     width: fit-content;
     position: absolute;
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
   .LeftUp {
     top: 0;
