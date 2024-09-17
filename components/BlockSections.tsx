@@ -85,9 +85,7 @@ export const BlockSections: FC<{
                     />
                   </div>
                 )}
-                <div className={classNames(maxClass)}>
-                  <Banner block={block} />
-                </div>
+                <Banner block={block} maxClass={maxClass} />
               </section>
             );
 
