@@ -322,6 +322,7 @@ a.is-block-link:focus {
 }
 
 .navbar {
+  border-bottom: 1px solid #d4d6d969;
   &.is-transparent {
     background: none;
   }
@@ -342,6 +343,7 @@ a.is-block-link:focus {
   }
 
   .navbar-dropdown {
+    border: 1px solid #d4d6d969;
     .navbar-item {
       justify-content: start; // left-align
       padding-top: 0.75rem;
@@ -393,7 +395,7 @@ a.navbar-item.is-tab:not(.button):hover {
   padding-bottom: 0.5rem;
   min-height: unset;
   align-items: center;
-  width: fit-content;
+  height: fit-content;
   > svg {
     transform: rotate(0deg);
     transition: transform 250ms ease-in-out;
@@ -429,6 +431,8 @@ a.navbar-item.is-tab:not(.button):hover {
 }
 
 .navbar-item.has-dropdown.is-hoverable {
+  height: 100%;
+  align-items: center;
   .navbar-dropdown {
     border-radius: 0;
     right: 0;
@@ -519,6 +523,7 @@ a.navbar-item.is-tab:not(.button):hover {
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      border: none;
       &:hover,
       &:active,
       &:focus {
