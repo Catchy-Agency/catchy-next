@@ -6,8 +6,8 @@ $cam-link: #2ba2c3;
 $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
-
 $border-color-gray: #444f57;
+$global-padding: 10rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -26,7 +26,7 @@ $border-color-gray: #444f57;
 // }
 
 section:not(.has-background-grey-darker) {
-  padding: 0 10rem;
+  padding: 0 $global-padding;
   margin: 3% 0;
   @media (max-width: $tablet) {
     padding: 0 1rem;

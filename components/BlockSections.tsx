@@ -306,16 +306,26 @@ export const BlockSections: FC<{
 
           case 'ItemsPanelRecord':
             return (
-              <section key={block.id} className="section ServicePaneRecord">
+              <section
+                key={block.id}
+                className="section ServicePaneRecord"
+                style={{ paddingRight: 0 }}
+              >
                 <div
-                  className={classNames('container', maxClass, {
-                    'has-text-centered': textAlign === 'Center',
-                  })}
+                  className={classNames(
+                    'container SC-carousel-wrapper',
+                    maxClass,
+                    {
+                      'has-text-centered': textAlign === 'Center',
+                    },
+                  )}
                 >
                   <ServiceCarousel block={block} />
                   {/*<ItemsPanel block={block} />*/}
                   <Link href={'/work' || ''}>
-                    <a className="button is-primary">Explore our services</a>
+                    <a className="button is-primary SC-button">
+                      Explore our services
+                    </a>
                   </Link>
                 </div>
               </section>

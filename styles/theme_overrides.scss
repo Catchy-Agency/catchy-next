@@ -675,7 +675,7 @@ body > .navbar {
     max-width: 1440px;
   }
   .navbar {
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: $global-padding;
+    padding-right: $global-padding;
   }
 }

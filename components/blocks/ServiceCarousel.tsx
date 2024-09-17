@@ -12,7 +12,7 @@ export const ServiceCarousel: FC<{
   const pointerStart = useRef<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const scrollLeftRef = useRef<number>(0);
-
+  const [itemWidth, setItemWidth] = useState<number>(0);
   useEffect(() => {
     if (!containerRef.current) return;
     handleResize();
@@ -23,7 +23,9 @@ export const ServiceCarousel: FC<{
   function handleResize() {
     if (!containerRef.current || !carouselRef.current) return;
     const windowsWidth = window.innerWidth;
-    setItemsOnScreen(getItemsAmount(windowsWidth));
+    const itemsAmt = getItemsAmount(windowsWidth);
+    setItemsOnScreen(itemsAmt);
+    setItemWidth(Math.floor(containerRef.current.offsetWidth / itemsAmt));
     carouselRef.current.scrollTo({
       left: containerRef.current!.offsetWidth * activeIndicator,
       behavior: 'auto',
@@ -143,7 +145,7 @@ export const ServiceCarousel: FC<{
         onTouchEnd={handleTouchEnd}
         style={
           {
-            '--items-amount': itemsOnScreen,
+            '--items-width': `${itemWidth}px`,
           } as React.CSSProperties
         }
       >

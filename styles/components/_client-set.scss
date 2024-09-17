@@ -7,7 +7,7 @@
   .soupTitle {
     clip-path: polygon(45% 0, 100% 95%, 100% 100%, 0 100%, 0 80%);
     height: 50vh;
-    padding: 0 10rem;
+    padding: 0 $global-padding;
     background-color: $soup-background;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@
   }
   .soupContent {
     background-color: $soup-background;
-    padding: 2rem 10rem;
+    padding: 2rem $global-padding;
     display: flex;
     justify-content: center;
     .imageContent {
@@ -44,10 +44,9 @@
   .soupBottom {
     clip-path: polygon(45% 100%, 100% 0%, 100% 0%, 0 0%, 0 10%);
     background-color: $soup-background;
-    padding: 0 10rem;
     height: 40vh;
     transform: translateY(-2px);
-    padding: 2rem 10rem;
+    padding: 2rem $global-padding;
     display: flex;
     justify-content: center;
 
