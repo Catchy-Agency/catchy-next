@@ -52,12 +52,14 @@ a.is-block-link:focus {
   font-weight: 300;
   padding: 1.25rem;
   position: relative;
+  @include hdl4();
+
   &:after {
     content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23ffffff%22%20stroke%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E');
     position: absolute;
     right: 0.5em;
     top: 50%;
-    transform: translateY(-0.7em);
+    transform: translateY(-0.5em);
     width: 1em;
     height: 1em;
     pointer-events: none;
@@ -78,7 +80,6 @@ a.is-block-link:focus {
   color: $text;
   position: relative;
   padding: 0.25rem 0.75rem;
-
   padding-bottom: 0.25rem;
   padding-right: 3.25rem;
   height: unset;
@@ -100,10 +101,6 @@ a.is-block-link:focus {
   &:active::before,
   &:hover::before {
     transform: scaleX(1);
-  }
-
-  &::after {
-    top: 40%;
   }
 
   &:hover,
@@ -139,7 +136,6 @@ a.is-block-link:focus {
     min-width: 177px;
     color: $text;
     background-color: transparent;
-    font-size: 1.5rem;
     border: 1px solid $text;
     position: relative;
     &.navbar-item {
