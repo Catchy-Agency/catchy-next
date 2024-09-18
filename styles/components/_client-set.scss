@@ -5,8 +5,8 @@
   height: 100%;
 
   .soupTitle {
-    clip-path: polygon(45% 0, 100% 95%, 100% 100%, 0 100%, 0 80%);
-    height: 50vh;
+    clip-path: polygon(47% 0, 100% 94%, 100% 100%, 0 100%, 0 80%);
+    height: 55vh;
     padding: 0 $global-padding;
     background-color: $soup-background;
     display: flex;
@@ -42,7 +42,7 @@
   }
 
   .soupBottom {
-    clip-path: polygon(45% 100%, 100% 0%, 100% 0%, 0 0%, 0 10%);
+    clip-path: polygon(45% 100%, 100% 1%, 100% 0%, 0 0%, 0 15%);
     background-color: $soup-background;
     height: 40vh;
     transform: translateY(-2px);
@@ -70,7 +70,7 @@
   }
   @media (max-width: 1200px) {
     .soupTitle {
-      height: 35vh;
+      height: 40vh;
     }
     .soupBottom {
       height: 30vh;
