@@ -22,7 +22,7 @@ $font-helvetica: Helvetica, san-serif;
 // styleName: Headline2;
 @mixin hdl2() {
   @include hdl-com;
-  font-family: $font-montserrat !important;
+  font-family: $font-helvetica !important;
   @include font-size(56px, !important);
   font-weight: 300;
   // line-height: 1.21739 !important; //56/46;
@@ -32,20 +32,21 @@ $font-helvetica: Helvetica, san-serif;
   @include hdl-com;
   font-family: $font-helvetica !important;
   @include font-size(32px, !important);
-  font-weight: 700;
+  font-weight: 300;
   // line-height: 1.647 !important; //56/34
 }
 // styleName: Headline4;
 @mixin hdl4() {
   @include hdl-com();
-  font-family: $font-open !important;
+  font-family: $font-helvetica !important;
   @include font-size(24px, !important);
+  font-weight: 400;
   // line-height: 1.4166666 !important; //34/24;
 }
 // styleName: Headline5;
 @mixin hdl5() {
   @include hdl-com();
-  font-family: $font-open !important;
+  font-family: $font-helvetica !important;
   @include font-size(18px, !important);
   font-weight: 700 !important;
   // line-height: 1.3889 !important; //25px;
