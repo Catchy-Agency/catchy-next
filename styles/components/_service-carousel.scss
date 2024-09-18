@@ -27,7 +27,7 @@ $item-responsive-gap: 5vw;
       &.SC-dragging {
         cursor: grabbing;
       }
-      .SC-item-wrapper {
+      /*   .SC-item-wrapper {
         display: flex;
         flex: 0 0 var(--items-width);
         padding-right: clamp(20px, 5vw, 80px);
@@ -55,7 +55,7 @@ $item-responsive-gap: 5vw;
           clip-path: polygon(0% 0%, 74% 0%, 80% 100%, 100% 100%, 00% 100%);
           transform: translateX(3px);
         }
-      }
+      } */
     }
 
     .SC-indicator-container {

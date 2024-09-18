@@ -185,12 +185,11 @@ section:last-of-type {
 @import 'pages/_primary-pages';
 @import 'pages/_content-pages';
 @import 'components/_client-set';
-
-//
+@import 'components/case-study-grid';
+@import 'components/_panel-cards'; //
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
 //
-
 .content table {
   border-color: transparent;
 }

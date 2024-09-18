@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug';
+import { PanelCards } from '../content-links/cards/PanelCards';
 import { RightCarouselArrow } from '../icons';
 export const ServiceCarousel: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord;
@@ -27,7 +28,7 @@ export const ServiceCarousel: FC<{
     setItemsOnScreen(itemsAmt);
     setItemWidth(Math.floor(containerRef.current.offsetWidth / itemsAmt));
     carouselRef.current.scrollTo({
-      left: containerRef.current!.offsetWidth * activeIndicator,
+      left: containerRef.current.offsetWidth * activeIndicator,
       behavior: 'auto',
     });
   }
@@ -48,7 +49,7 @@ export const ServiceCarousel: FC<{
     setActiveIndicator(newActiveIndicator);
 
     carouselRef.current.scrollTo({
-      left: containerRef.current!.offsetWidth * newActiveIndicator,
+      left: containerRef.current.offsetWidth * newActiveIndicator,
       behavior: 'smooth',
     });
   }
@@ -59,7 +60,7 @@ export const ServiceCarousel: FC<{
     if (newActiveIndicator === activeIndicator) return;
     setActiveIndicator(newActiveIndicator);
     carouselRef.current.scrollTo({
-      left: containerRef.current!.offsetWidth * newActiveIndicator,
+      left: containerRef.current.offsetWidth * newActiveIndicator,
       behavior: 'smooth',
     });
   }
@@ -75,9 +76,9 @@ export const ServiceCarousel: FC<{
 
   function handlePointerMove(e: React.MouseEvent) {
     if (!isDragging || !carouselRef.current) return;
-    const x = e.pageX - carouselRef.current!.offsetLeft;
+    const x = e.pageX - carouselRef.current.offsetLeft;
     const walk = (x - pointerStart.current) * 0.7;
-    carouselRef.current!.scrollLeft = scrollLeftRef.current - walk;
+    carouselRef.current.scrollLeft = scrollLeftRef.current - walk;
   }
 
   function handlePointerUp(e: React.MouseEvent) {
@@ -143,13 +144,10 @@ export const ServiceCarousel: FC<{
         onMouseMove={handlePointerMove}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        style={
-          {
-            '--items-width': `${itemWidth}px`,
-          } as React.CSSProperties
-        }
       >
-        {block.panelItems.map((item) => {
+        <PanelCards width={itemWidth} panelItems={block.panelItems} />
+
+        {/*       {block.panelItems.map((item) => {
           return (
             <li className="SC-item-wrapper" key={`carousel-item-${item.id}`}>
               <div className="SC-item">
@@ -157,12 +155,12 @@ export const ServiceCarousel: FC<{
                 {item.detailText && (
                   <div
                     dangerouslySetInnerHTML={{ __html: item.detailText }}
-                  ></div>
+                   />
                 )}
               </div>
             </li>
           );
-        })}
+        })} */}
       </ul>
       <div className="SC-indicator-container">
         <button
@@ -191,9 +189,9 @@ export const ServiceCarousel: FC<{
                 onClick={() =>
                   handleIndicatorClick(Math.ceil(i / itemsOnScreen))
                 }
-              ></button>
+              />
             ) : (
-              <React.Fragment key={`indicator-item-${i}`}></React.Fragment>
+              <React.Fragment key={`indicator-item-${i}`} />
             );
           })}
         </div>

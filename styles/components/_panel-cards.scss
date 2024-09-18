@@ -1,0 +1,29 @@
+.panel-item-wrapper {
+  display: flex;
+  flex: 0 0 var(--items-width);
+  padding-right: clamp(20px, 5vw, 80px);
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  padding-top: 50px;
+  .panel-item {
+    max-width: 420px;
+    transform: translateX(3px);
+    .panel-item-title {
+      margin-bottom: 20px;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    padding-right: clamp(20px, 5vw, 80px);
+    background-color: white;
+    top: 0;
+    left: 0;
+    background-clip: content-box;
+    clip-path: polygon(0% 0%, 74% 0%, 80% 100%, 100% 100%, 00% 100%);
+    transform: translateX(3px);
+  }
+}
