@@ -342,8 +342,8 @@ a.is-block-link:focus {
     border: 1px solid #d4d6d969;
     .navbar-item {
       justify-content: start; // left-align
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
 
       &.is-active {
         background-color: $navbar-dropdown-item-active-background-color !important; // !important to override bulma nav-item defaults, sad trombone
@@ -497,7 +497,7 @@ a.navbar-item.is-tab:not(.button):hover {
 }
 @media screen and (max-width: 1023px) {
   .navbar {
-    padding: 0 5rem;
+    padding-left: clamp(2rem, 8vw, 5rem);
   }
 
   .navbar-end {
