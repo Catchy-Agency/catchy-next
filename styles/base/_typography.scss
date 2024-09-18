@@ -1,6 +1,8 @@
 $font-montserrat: 'Montserrat', san-serif;
 $font-open: 'Open Sans', san-serif;
-$font-helvetica: Helvetica, san-serif;
+//Since in windows systems the Helvetica will be replaced by Arial and the latter doesn't have a light version and this will disrupt the design. To prevent this we use apple-system instead of Helvetica, so other OS will follow the fallback chain.
+$font-helvetica: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
+  'Lato', 'Arial', sans-serif;
 
 @mixin hdl-com() {
   font-weight: 100;
