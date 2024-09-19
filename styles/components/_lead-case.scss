@@ -1,0 +1,86 @@
+.section.LeadCase {
+  position: relative;
+
+  .imageLead {
+    height: 55vh;
+    clip-path: polygon(0 0, 100% 0, 100% 69%, 81% 100%, 0 100%, 0% 50%);
+    position: relative;
+  }
+
+  .svg-bottomlead {
+    position: absolute;
+    width: 34vh;
+    top: 38vh;
+    right: 25vh;
+  }
+
+  .svg-rightlead {
+    position: absolute;
+    width: 19vh;
+    top: 27vh;
+    right: 6vh;
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 80px;
+    padding: 0 7.5rem;
+
+    .description-info {
+      @include bdy-md;
+      line-height: 32px;
+    }
+  }
+
+  @media (min-width: 2300px) {
+    .imageLead {
+      clip-path: polygon(0 0, 100% 0, 100% 69%, 73% 100%, 0 100%, 0% 50%);
+    }
+
+    .svg-bottomlead {
+      right: 54vh;
+    }
+
+    .svg-rightlead {
+      right: 16vw;
+    }
+  }
+
+  @media (max-width: calc(1440px + 200px)) {
+    .imageLead {
+      clip-path: polygon(0 0, 100% 0, 100% 67%, 77% 100%, 0 100%, 0% 50%);
+    }
+
+    .svg-bottomlead {
+      top: 37vh;
+      right: 19vh;
+    }
+
+    .svg-rightlead {
+      top: 26vh;
+      right: 0;
+    }
+  }
+
+  @media (max-width: calc(1200px + 200px)) {
+    .imageLead {
+      height: 35vh;
+      clip-path: none;
+    }
+
+    .svg-bottomlead {
+      display: none;
+    }
+
+    .svg-rightlead {
+      display: none;
+    }
+
+    .info {
+      padding: 0;
+    }
+  }
+}
