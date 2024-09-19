@@ -1107,3 +1107,127 @@ export const IconLogo = (
     </defs>
   </svg>
 );
+
+export const BackgroundPatternHome = `
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 361 277">
+    <g>
+      <g id="Layer_1">
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M321,46.2l40-23.1v46.2l-40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M120,207.4l40-23.1v46.2l-40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M80,138.1l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M361,23.1L321,0v46.2l40,23.1V23.1Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M240,92l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M240,138.2l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M200,115.1l40-23.1v46.2l-40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M200,161.3l40-23.1v46.2l-40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M240,184.4l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M200,207.4l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M160,184.3l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M120,207.4l-40-23.1v46.2l40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M160,184.3l40-23.1v46.2l-40,23.1v-46.2Z"
+        />
+        <path
+          fill="none"
+          stroke="#fff"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth=".2px"
+          d="M0,138.2l80-46.2v46.2L0,184.4v-46.2Z"
+        />
+        <path fill="#8fb2cc" d="M280.1,253.7v-92.4l40-23.1v92.4l-40,23.1Z" />
+        <path fill="#bfb3a3" d="M240.1,276.4l80-45.9-80-46.1v92Z" />
+        <path fill="#008c81" d="M280.1,68.9v92.4l-80,46.2v-92.4l80-46.2Z" />
+        <path fill="#1dbc83" d="M160.1,92.4v-46.2l-40-23.1v46.2l40,23.1Z" />
+      </g>
+    </g>
+  </svg>`;

@@ -9,7 +9,7 @@ import { IconLogo } from './icons';
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer;
 }> = ({ footer }) => (
-  <footer className="section _has-background-grey-darker">
+  <footer className="section _has-background-grey-darker" data-footer>
     <div className="container is-max-widescreen">
       <div className="columns">
         <div className="column is-flex-direction-column">

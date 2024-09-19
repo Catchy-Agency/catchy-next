@@ -197,3 +197,9 @@ section:last-of-type {
 .content table td:not(:last-of-type) {
   border-right-width: 1px;
 }
+
+.bg-pattern-svg {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}

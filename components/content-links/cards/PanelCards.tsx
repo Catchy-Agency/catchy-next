@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 export const PanelCards: FC<{
-  width?: any;
+  width?: number;
   panelItems: any[];
 }> = ({ width, panelItems }) => (
   <>
