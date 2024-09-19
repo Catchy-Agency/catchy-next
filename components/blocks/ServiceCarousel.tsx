@@ -83,10 +83,9 @@ export const ServiceCarousel: FC<{
 
   function handlePointerUp(e: React.MouseEvent) {
     if (!isDragging || !carouselRef.current) return;
-
-    if (pointerStart.current + 20 > e.clientX) {
+    if (pointerStart.current - 20 > e.clientX) {
       handleIndicatorClickRight();
-    } else if (pointerStart.current - 20 < e.clientX) {
+    } else if (pointerStart.current + 20 < e.clientX) {
       handleIndicatorClickLeft();
     } else {
       carouselRef.current.scrollTo({
