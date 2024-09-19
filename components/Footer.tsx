@@ -12,58 +12,55 @@ export const Footer: FC<{
   <footer className="section _has-background-grey-darker">
     <div className="container is-max-widescreen">
       <div className="columns">
-        <div className="column is-flex-direction-column">
-          {footer.socialLinks?.map(
-            (link) =>
-              link && (
-                <a
-                  key={link.fontAwesomeIcon}
-                  href={link.url || undefined}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="is-size-3"
-                >
-                  <span className="fa-stack">
-                    <i
-                      className={classNames(
-                        link.fontAwesomeIcon,
-                        'fa-stack-1x',
-                        'has-text-turquoise',
-                        'color-hover',
-                      )}
-                    />
-                  </span>
-                </a>
-              ),
-          )}
-          <div className="control mt-4">
-            <button
-              className="button is-primary"
-              onClick={() => pageview('/contact')}
-              type="submit"
-            >
-              Join Our Mailing List
-            </button>
-          </div>
-          <div className="footer-bottom">
-            <div className="is-flex-direction-column">
-              <Link href="/">
-                <a className="navbar-item is-justify-content-flex-start">
-                  {IconLogo}
-                </a>
-              </Link>
-              {footer.richText && (
-                <div
-                  className="mt-6 content privacy"
-                  dangerouslySetInnerHTML={{ __html: footer.richText }}
-                />
-              )}
+        <div className="column is-flex-direction-column information">
+          <div className="is-flex-direction-column">
+            {footer.socialLinks?.map(
+              (link) =>
+                link && (
+                  <a
+                    key={link.fontAwesomeIcon}
+                    href={link.url || undefined}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="is-size-3"
+                  >
+                    <span className="fa-stack">
+                      <i
+                        className={classNames(
+                          link.fontAwesomeIcon,
+                          'has-text-turquoise',
+                          'color-hover',
+                        )}
+                      />
+                    </span>
+                  </a>
+                ),
+            )}
+            <div className="control mt-4">
+              <button
+                className="button is-primary"
+                onClick={() => pageview('/contact')}
+                type="submit"
+              >
+                Join Our Mailing List
+              </button>
             </div>
+          </div>
+          <div className="is-flex-direction-column">
+            <Link href="/">
+              <a className="navbar-item">{IconLogo}</a>
+            </Link>
+            {footer.richText && (
+              <div
+                className="mt-6 content privacy"
+                dangerouslySetInnerHTML={{ __html: footer.richText }}
+              />
+            )}
           </div>
         </div>
         <div className="column mt-3">
           {footer.formTitle && (
-            <h4 className="has-text-white mb-6">{footer.formTitle}</h4>
+            <h3 className="has-text-white mb-6">{footer.formTitle}</h3>
           )}
           <form
             id="contact-form"
@@ -104,7 +101,7 @@ export const Footer: FC<{
                   className="textarea px-2 pb-4"
                   name="message"
                   placeholder={footer.messageLabel || undefined}
-                  rows={7}
+                  rows={1}
                 />
               </div>
             </div>

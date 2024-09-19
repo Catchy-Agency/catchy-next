@@ -4,7 +4,7 @@
  */
 footer {
   a {
-    @include btn-link;
+    @include bdy-md;
     text-decoration: none;
 
     color: $text;
@@ -44,32 +44,24 @@ footer {
     }
   }
 }
-.footer-bottom {
-  margin-top: 90px;
-  align-items: center;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  @media screen and (min-width: $tablet) {
-    align-items: flex-end;
-    flex-flow: row;
-    justify-content: space-between;
-  }
 
-  @media (max-width: calc(692px + 100px)) {
-    align-items: flex-start;
-  }
+.information {
+  display: flex;
+  justify-content: space-between;
 
   .navbar-item {
     padding: 0;
-    text-align: start;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .privacy p {
+    height: 60px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2vh;
+    gap: 10px;
+    @include bdy-md;
 
     //text-privacy-richText
     a {
@@ -79,7 +71,23 @@ footer {
       }
     }
   }
+
+  @media (max-width: $tablet) {
+    justify-content: unset;
+    gap: 80px;
+
+    .privacy p {
+      flex-direction: row;
+      justify-content: center;
+      gap: unset;
+    }
+
+    .navbar-item {
+      justify-content: center;
+    }
+  }
 }
+
 .form-notice {
   .content {
     @include bdy-md;
