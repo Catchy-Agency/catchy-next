@@ -144,22 +144,9 @@ export const ServiceCarousel: FC<{
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <PanelCards width={itemWidth} panelItems={block.panelItems} />
-
-        {/*       {block.panelItems.map((item) => {
-          return (
-            <li className="SC-item-wrapper" key={`carousel-item-${item.id}`}>
-              <div className="SC-item">
-                <h3 className="SC-item-title">{item.listTitle}</h3>
-                {item.detailText && (
-                  <div
-                    dangerouslySetInnerHTML={{ __html: item.detailText }}
-                   />
-                )}
-              </div>
-            </li>
-          );
-        })} */}
+        {block.panelItems.map((item, i) => {
+          return <PanelCards key={i} width={itemWidth} item={item} />;
+        })}
       </ul>
       <div className="SC-indicator-container">
         <button
