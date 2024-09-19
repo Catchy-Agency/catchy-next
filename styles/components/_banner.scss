@@ -21,11 +21,11 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 90vh;
+    height: 100vh;
 
     .imageHero {
       height: 100%;
-      clip-path: polygon(0 0, 100% 0, 100% 10%, 28% 100%, 0 70%);
+      clip-path: polygon(0 0, 100% 0, 100% 20%, 33% 100%, 0 70%);
       filter: brightness(0.5);
     }
 
@@ -36,16 +36,16 @@
 
       .title.titleHero {
         width: 70%;
-        font-weight: 300;
         margin-bottom: 40px;
         text-transform: capitalize;
       }
 
       .text-description {
-        width: 60%;
-        font-family: Helvetica;
-        font-size: 28px;
-        font-weight: 700;
+        width: 70%;
+      }
+
+      .text-description p {
+        @include description-hero;
         margin-bottom: 80px;
       }
     }
@@ -53,33 +53,29 @@
     .svg-right {
       width: 50vh;
       position: absolute;
-      top: 1vh;
+      bottom: 19vh;
       right: 0;
     }
 
     .svg-left {
       position: absolute;
-      bottom: 0;
+      bottom: 3vh;
       left: 0;
     }
 
     @media (min-width: 2300px) {
       .imageHero {
-        clip-path: polygon(0 0, 100% 0, 100% 9%, 31% 100%, 0 68%);
-      }
-
-      .svg-right {
-        top: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 36% 100%, 0 68%);
       }
 
       .svg-left {
-        bottom: 10vh;
+        bottom: 13vh;
       }
     }
 
     @media (max-width: calc(1440px + 200px)) {
       .imageHero {
-        clip-path: polygon(0 0, 100% 0, 100% 15%, 24% 100%, 0 72%);
+        clip-path: polygon(0 0, 100% 0, 100% 30%, 32% 100%, 0 71%);
       }
 
       .data-container {
@@ -87,11 +83,11 @@
       }
 
       .svg-right {
-        top: 6vh;
+        top: 23vh;
       }
 
       .svg-left {
-        top: 65vh;
+        top: 70vh;
       }
     }
 
