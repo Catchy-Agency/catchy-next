@@ -3,7 +3,6 @@ import { FC } from 'react';
 
 import Link from 'next/link';
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug';
-import { pageview } from '../util/gtag';
 import { IconLogo } from './icons';
 
 export const Footer: FC<{
@@ -37,13 +36,11 @@ export const Footer: FC<{
                 ),
             )}
             <div className="control mt-4">
-              <button
-                className="button is-primary"
-                onClick={() => pageview('/contact')}
-                type="submit"
-              >
-                Join Our Mailing List
-              </button>
+              <Link href={'/contact'}>
+                <a className="button is-primary" type="submit">
+                  Join Our Mailing List
+                </a>
+              </Link>
             </div>
           </div>
           <div className="is-flex-direction-column">
@@ -107,13 +104,11 @@ export const Footer: FC<{
             </div>
             <div className="field is-grouped pt-2">
               <div className="control submit-btn">
-                <button
-                  className="button is-ghost"
-                  onClick={() => pageview('/contact')}
-                  type="submit"
-                >
-                  Submit
-                </button>
+                <Link href={`/contact`}>
+                  <a className="button is-ghost" type="submit">
+                    Submit
+                  </a>
+                </Link>
               </div>
             </div>
           </form>

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 
+import Link from 'next/link';
 import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/types/PrimaryPageBySlug';
 
 export const ClientSet: FC<{
@@ -40,7 +41,9 @@ export const ClientSet: FC<{
     </div>
     <div className="soupBottom">
       <div className="buttonContent">
-        <button className="button is-primary is-dark">See Our Work</button>
+        <Link href={`/work`}>
+          <a className="button is-primary is-dark">See Our Work</a>
+        </Link>
       </div>
     </div>
   </div>
