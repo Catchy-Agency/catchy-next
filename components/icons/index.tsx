@@ -1232,7 +1232,7 @@ export const BackgroundPatternHome = `
     </g>
   </svg>`;
 
-export const IconBottomLead = (
+export const IconBottomLeadFullWidth = (
   <svg viewBox="0 0 280 163" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M280 1.33498L280 163L0 163L280 1.33498Z" fill="none" />
     <path
@@ -1274,7 +1274,7 @@ export const IconBottomLead = (
   </svg>
 );
 
-export const IconRightLead = (
+export const IconRightLeadFullWidth = (
   <svg viewBox="0 0 161 255" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M1.00001 47.19L81 1V47.19L1.00001 93.38V47.19Z"

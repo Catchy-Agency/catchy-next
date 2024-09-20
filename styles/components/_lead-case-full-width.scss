@@ -1,10 +1,11 @@
-.section.LeadCase {
+.section.LeadCaseFullWidth {
   position: relative;
 
   .imageLead {
     height: 55vh;
     clip-path: polygon(0 0, 100% 0, 100% 69%, 81% 100%, 0 100%, 0% 50%);
     position: relative;
+    overflow: hidden;
   }
 
   .svg-bottomlead {

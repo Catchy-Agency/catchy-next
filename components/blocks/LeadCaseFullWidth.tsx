@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
 
-export const LeadCase: FC<{
+export const LeadCaseFullWidth: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => {
   return (
@@ -17,9 +17,7 @@ export const LeadCase: FC<{
       )}
 
       <div className="info">
-        {block.title && (
-          <h2 className="title is-2 title-info">{block.title}</h2>
-        )}
+        {block.title && <h2 className="title is-2">{block.title}</h2>}
 
         {block.text && (
           <div
