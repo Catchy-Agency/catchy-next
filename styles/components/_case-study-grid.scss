@@ -30,18 +30,28 @@
         }
       }
     }
+    .card-button {
+      width: 100%;
+      padding-top: 5%;
+      > a {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+      }
+    }
   }
 
   @media (max-width: 1024px) {
     .card-item-wrapper {
-      flex: 1 1 50%;
-      max-width: 50%;
+      flex: 1 1 calc(50% - 5%);
+      max-width: calc(50% - 5%);
     }
   }
 
-  /*   @media (max-width: 768px) {
+  @media (max-width: 768px) {
     .card-item-wrapper {
-      flex: 1 1 100%; 
+      flex: 1 1 100%;
+      max-width: unset;
     }
-  } */
+  }
 }
