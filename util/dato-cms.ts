@@ -34,6 +34,7 @@ import schema from '../schema.json'
 import { reservedPaths } from './url'
 
 const API_TOKEN = process.env.DATOCMS_API_TOKEN
+const API_ENVIRONMENT = process.env.DATOCMS_API_ENVIRONMENT
 
 if (!API_TOKEN) throw new Error('Failed to read API_TOKEN')
 
@@ -52,6 +53,7 @@ const authLink = setContext((_, { headers }) => {
       'Content-Type': 'application/json',
       Accept: 'application/json',
       Authorization: `Bearer ${API_TOKEN}`,
+      'X-Environment': API_ENVIRONMENT,
     },
   }
 })

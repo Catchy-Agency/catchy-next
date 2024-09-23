@@ -65,6 +65,7 @@ It's already added to Vercel for deployments, but we also need it locally for de
 
 1. Copy `.env.local.sample` to `.env.local` (will by ignored by git)
 2. Update `DATOCMS_API_TOKEN` with our [Read-only API token](https://catchy.admin.datocms.com/admin/access_tokens/84520/edit) value
+3. Update `DATOCMS_API_ENVIRONMENT` with the correct environment name value for development
 
 ## Node.js & NPM versions
 
