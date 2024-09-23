@@ -1,9 +1,7 @@
 import classNames from 'classnames';
-import { FC } from 'react';
-
 import Link from 'next/link';
+import { FC } from 'react';
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug';
-import { IconLogo } from './icons';
 
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer;
@@ -45,7 +43,13 @@ export const Footer: FC<{
           </div>
           <div className="is-flex-direction-column">
             <Link href="/">
-              <a className="navbar-item">{IconLogo}</a>
+              <a className="navbar-item">
+                <img
+                  src={footer.footerLogo?.url}
+                  alt={footer.footerLogo?.alt || undefined}
+                  title={footer.footerLogo?.title || undefined}
+                />
+              </a>
             </Link>
             {footer.richText && (
               <div
