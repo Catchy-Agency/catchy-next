@@ -1,28 +1,29 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import afterRenderCallback from '../../util/afterRenderCallback';
 import throttle from '../../util/throttle';
 import { BackgroundPatternHome } from '../icons';
 export default function useBackgroundPattern() {
   const router = useRouter();
   const patternOverFooterPaths = ['/', '/what-we-do'];
-  const browserRenderingTimeout = 50;
   useEffect(() => {
-    handlePositioning();
+    afterRenderCallback(handlePositioning);
     const throttledHandlePositioning = throttle(handlePositioning, 100);
     window.addEventListener('resize', throttledHandlePositioning);
-    return () =>
+    return () => {
       window.removeEventListener('resize', throttledHandlePositioning);
+    };
   }, []);
 
   function handlePositioning() {
     cleanOldPatterns();
-    if (window.innerWidth < 1024) return;
     const body = document.querySelector('.primary-page');
+    if (window.innerWidth < 1024) return;
     if (!body) return;
     if (body.scrollHeight < 3150) return;
     const currentPath = router.pathname;
-    const svgWidth = 500;
-    const svgHeight = 500;
+    const svgWidth = 350;
+    const svgHeight = 350;
     const footer = document.querySelector('[data-footer]');
     const div = document.createElement('div');
     div.classList.add('bg-pattern-svg');
@@ -30,19 +31,30 @@ export default function useBackgroundPattern() {
     div.style.setProperty('width', `${svgWidth}px`);
     div.style.setProperty('height', `${svgHeight}px`);
     if (patternOverFooterPaths.includes(currentPath)) {
-      setTimeout(() => {
-        const positionY = body!.scrollHeight - footer!.clientHeight - svgHeight;
-        div.style.setProperty('top', `${positionY}px`);
-        body.appendChild(div);
-      }, browserRenderingTimeout);
+      const positionY =
+        body!.scrollHeight - footer!.clientHeight - svgHeight / 2;
+      div.style.setProperty('top', `${positionY}px`);
+      body.appendChild(div);
+      div.style.setProperty('right', `0`);
     } else if (body.scrollHeight > 3150) {
-      setTimeout(() => {
-        const randomPosition =
-          body.scrollHeight * (Math.random() * (0.7 - 0.3) + 0.3);
-        const positionY = randomPosition;
-        div.style.setProperty('top', `${positionY}px`);
-        body.appendChild(div);
-      }, browserRenderingTimeout);
+      const sections = Array.from(
+        document.querySelectorAll('.primary-page section'),
+      ) as HTMLElement[];
+      const filteredSections = sections.filter(
+        (section) => !section.classList.contains('TitleTextRecord'),
+      );
+      const position = Math.min(
+        Math.floor(Math.random() * filteredSections.length) + 1,
+        filteredSections.length - 1,
+      );
+      const element = filteredSections[position] as HTMLElement;
+      const positionY =
+        element.offsetTop + element.offsetHeight - svgHeight / 2;
+      div.style.setProperty('top', `${positionY}px`);
+      Math.random() >= 0.5
+        ? div.style.setProperty('right', `0`)
+        : div.style.setProperty('left', `0`);
+      body.appendChild(div);
     }
   }
 
