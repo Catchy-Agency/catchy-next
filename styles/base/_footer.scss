@@ -75,16 +75,6 @@ footer {
   @media (max-width: $tablet) {
     justify-content: unset;
     gap: 80px;
-
-    .privacy p {
-      flex-direction: row;
-      justify-content: center;
-      gap: unset;
-    }
-
-    .navbar-item {
-      justify-content: center;
-    }
   }
 }
 
