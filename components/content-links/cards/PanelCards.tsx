@@ -24,37 +24,32 @@ export const PanelCards: FC<{
         } as React.CSSProperties
       }
     >
-      {device === 'mobile' && (
+      {device === 'mobile' && item.detailLink?.slug ? (
         <div
-          className="panel-item"
-          onClick={device === 'mobile' ? toggleDropdown : undefined}
-          style={{ cursor: device === 'mobile' ? 'pointer' : 'default' }}
+          className={`panel-item`}
+          onClick={toggleDropdown}
+          style={{ cursor: 'pointer' }}
         >
-          <div className="panel-dropdown">
+          <div className={`panel-dropdown ${isOpen ? 'rotate-svg' : ''}`}>
             <h3 className="panel-item-title">{item.listTitle}</h3>
             {AngleDown}
           </div>
-          {isOpen && (
-            <>
-              {' '}
-              {item.detailText && (
-                <div dangerouslySetInnerHTML={{ __html: item.detailText }} />
-              )}
-              {item.detailLink?.slug && (
-                <div className="card-button">
-                  <Link href={`/${item.detailLink.slug}`}>
-                    <a className="button is-primary mt-4">
-                      {item.detailLinkLabel || 'Learn More'}
-                    </a>
-                  </Link>
-                </div>
-              )}
-            </>
-          )}
+          <div className={`panel-content ${isOpen ? 'open-dropdown' : ''}`}>
+            {item.detailText && (
+              <div dangerouslySetInnerHTML={{ __html: item.detailText }} />
+            )}
+            {item.detailLink?.slug && (
+              <div className="card-button">
+                <Link href={`/${item.detailLink.slug}`}>
+                  <a className="button is-primary mt-4">
+                    {item.detailLinkLabel || 'Learn More'}
+                  </a>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
-      )}
-
-      {device !== 'mobile' && (
+      ) : (
         <div className="panel-item">
           <h3 className="panel-item-title">{item.listTitle}</h3>
           {item.detailText && (

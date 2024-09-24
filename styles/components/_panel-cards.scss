@@ -28,32 +28,31 @@
       align-items: baseline;
       justify-content: space-between;
 
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        background-color: $text;
-        width: 100%;
-        transform: scaleX(0);
-        transition: transform 0.1s ease-in-out;
-      }
-
-      &:focus::before,
-      &:active::before,
-      &:hover::before {
-        transform: scaleX(1);
-      }
-
-      &:hover {
+      &:hover,
+      &:active,
+      &:focus {
+        border-bottom: 1px solid white;
         > svg {
+          transform: rotate(180deg);
+          transition: transform 250ms ease-in-out;
           path {
             fill: $turquoise;
           }
         }
       }
+    }
+
+    .panel-content {
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-content.open-dropdown {
+      padding-top: 1rem;
+      opacity: 1;
+      max-height: 1000px;
     }
   }
   &::before {
@@ -69,7 +68,16 @@
     clip-path: polygon(0% 0%, 74% 0%, 80% 100%, 100% 100%, 00% 100%);
     transform: translateX(3px);
   }
-
+  .rotate-svg {
+    border-bottom: 1px solid white;
+    > svg {
+      transform: rotate(180deg);
+      transition: transform 250ms ease-in-out;
+      path {
+        fill: $turquoise;
+      }
+    }
+  }
   .card-button {
     width: 100%;
     margin-top: auto;
