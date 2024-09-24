@@ -1,0 +1,273 @@
+$textPaddingLarge: 14rem;
+$textPaddingMedium: 10rem;
+$textPaddingSmall: 3rem;
+
+$svgWidthLarge: 40vh;
+$svgWidthMedium: 36vh;
+
+.textImage-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .info-texts {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 4rem;
+
+    .text-description {
+      margin-bottom: 80px;
+      @include bdy-md;
+    }
+  }
+
+  .img-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 100%;
+
+    .imageText {
+      height: 60vh;
+      @include clip-path-right('default');
+    }
+
+    .svg-textImageRight {
+      position: absolute;
+      top: 43vh;
+      right: 56vh;
+
+      > svg {
+        width: 30vh;
+        max-width: 100%;
+      }
+    }
+
+    .svg-textImageLeft {
+      display: none;
+    }
+  }
+
+  @media (min-width: 2300px) {
+    .info-texts {
+      padding: 0 32rem;
+
+      .text-description {
+        font-size: 24px;
+      }
+    }
+
+    .img-container {
+      .imageText {
+        @include clip-path-right('large');
+      }
+
+      .svg-textImageRight {
+        top: 39vh;
+        right: 13vw;
+
+        > svg {
+          width: 35vh;
+        }
+      }
+    }
+  }
+
+  @media (max-width: calc(1440px + 200px)) {
+    .info-texts {
+      padding: unset;
+      padding-right: 10rem;
+    }
+
+    .img-container {
+      .imageText {
+        @include clip-path-right('medium');
+      }
+
+      .svg-textImageRight {
+        top: 43vh;
+        right: 41vh;
+      }
+    }
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    flex-direction: column-reverse;
+
+    .info-texts {
+      flex: unset;
+      padding: 0 $textPaddingMedium;
+    }
+
+    .img-container {
+      flex: unset;
+      padding: 5rem 0;
+
+      .imageText {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%, 0 56%);
+      }
+
+      .svg-textImageRight {
+        top: 43vh;
+        right: 80vh;
+
+        > svg {
+          width: 45vh;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .info-texts {
+      padding: 0 $textPaddingSmall;
+      padding-bottom: 10rem;
+    }
+
+    .img-container {
+      .imageText {
+        height: 40vh;
+        @include clip-path-right('small');
+      }
+
+      .svg-textImageRight {
+        top: 37vh;
+        right: 29vh;
+
+        > svg {
+          width: 21vh;
+          max-width: unset;
+        }
+      }
+    }
+  }
+
+  // Invert component
+  &.image-left {
+    flex-direction: row-reverse;
+
+    .info-texts {
+      padding: 0 $textPaddingLarge;
+    }
+
+    .img-container {
+      .imageText {
+        @include clip-path-left('default');
+      }
+
+      .svg-textImageRight {
+        display: none;
+      }
+
+      .svg-textImageLeft {
+        display: block;
+        position: absolute;
+        top: 37vh;
+        left: 28vh;
+
+        > svg {
+          width: $svgWidthLarge;
+          max-width: 100%;
+        }
+      }
+    }
+
+    @media (min-width: 2300px) {
+      .info-texts {
+        padding-right: 36rem;
+
+        .text-description {
+          font-size: 24px;
+        }
+      }
+
+      .img-container {
+        .imageText {
+          @include clip-path-left('large');
+        }
+
+        .svg-textImageLeft {
+          top: 36vh;
+          left: 30vh;
+
+          > svg {
+            width: $svgWidthLarge;
+          }
+        }
+      }
+    }
+
+    @media (max-width: calc(1440px + 200px)) {
+      .info-texts {
+        padding: 0 $textPaddingMedium;
+      }
+
+      .img-container {
+        .imageText {
+          @include clip-path-left('medium');
+        }
+
+        .svg-textImageLeft {
+          top: 39vh;
+          left: 24vh;
+
+          > svg {
+            width: $svgWidthMedium;
+          }
+        }
+      }
+    }
+
+    @media (max-width: calc(1024px + 200px)) {
+      flex-direction: column-reverse;
+
+      .img-container {
+        flex: unset;
+        padding: 5rem 0;
+
+        .imageText {
+          clip-path: polygon(0 0, 100% 0, 100% 46%, 55% 100%, 0 100%, 0% 50%);
+        }
+
+        .svg-textImageLeft {
+          top: 37vh;
+          left: 69vh;
+
+          > svg {
+            width: 60vh;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $tablet) {
+      .info-texts {
+        padding: 0 $textPaddingSmall;
+        padding-bottom: 10rem;
+      }
+
+      .img-container {
+        padding: 5rem 0;
+
+        .imageText {
+          height: 40vh;
+          @include clip-path-left('small');
+        }
+
+        .svg-textImageLeft {
+          top: 39vh;
+          left: 28vh;
+
+          > svg {
+            width: 18vh;
+            max-width: unset;
+          }
+        }
+      }
+    }
+  }
+}

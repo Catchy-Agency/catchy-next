@@ -1263,3 +1263,90 @@ export const IconRightLeadFullWidth = (
     />
   </svg>
 );
+
+export const IconTextImageRight = (
+  <svg viewBox="0 0 280 163" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M-1.41332e-05 1.33498L0 163L280 163L-1.41332e-05 1.33498Z"
+      fill="none"
+    />
+    <path
+      d="M120.07 116.1L160.07 93V139.19L120.07 162.29V116.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M200 116L120 69.8096V116L200 162.19V116Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M40 24.1L80 1V47.19L40 70.29V24.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M40 24.1L0 1V47.19L40 70.29V24.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M-1.52588e-05 47.1L40 24V70.19L-1.52588e-05 93.29V47.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M80 93.19L0 47V93.19L80 139.38V93.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);
+
+export const IconTextImageLeft = (
+  <svg viewBox="0 0 280 163" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M280 1.33498L280 163L0 163L280 1.33498Z" fill="none" />
+    <path
+      d="M159.93 116.1L119.93 93V139.19L159.93 162.29V116.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M80 116L160 69.8096V116L80 162.19V116Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M240 24.1L200 1V47.19L240 70.29V24.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M240 24.1L280 1V47.19L240 70.29V24.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M280 47.1L240 24V70.19L280 93.29V47.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M200 93.19L280 47V93.19L200 139.38V93.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);
