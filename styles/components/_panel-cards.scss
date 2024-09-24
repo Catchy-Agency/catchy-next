@@ -2,15 +2,58 @@
   display: flex;
   flex: 0 0 var(--items-width);
   padding-right: clamp(20px, 5vw, 80px);
-  pointer-events: none;
   user-select: none;
   position: relative;
+  flex-direction: column;
   padding-top: 50px;
+  height: 100%;
+  justify-content: space-between;
   .panel-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     max-width: 420px;
     transform: translateX(3px);
+    @media (max-width: 768px) {
+      max-width: unset;
+    }
+
     .panel-item-title {
       margin-bottom: 20px;
+    }
+
+    .panel-dropdown {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: $text;
+        width: 100%;
+        transform: scaleX(0);
+        transition: transform 0.1s ease-in-out;
+      }
+
+      &:focus::before,
+      &:active::before,
+      &:hover::before {
+        transform: scaleX(1);
+      }
+
+      &:hover {
+        > svg {
+          path {
+            fill: $turquoise;
+          }
+        }
+      }
     }
   }
   &::before {
@@ -25,5 +68,16 @@
     background-clip: content-box;
     clip-path: polygon(0% 0%, 74% 0%, 80% 100%, 100% 100%, 00% 100%);
     transform: translateX(3px);
+  }
+
+  .card-button {
+    width: 100%;
+    margin-top: auto;
+    > a {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: unset;
+    }
   }
 }
