@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug';
@@ -24,15 +23,6 @@ export const CaseStudyGrid: FC<{
                 </div>
                 <PanelCards key={i} item={item} />
               </div>
-              {item.detailLink?.slug && (
-                <div className="card-button">
-                  <Link href={`/${item.detailLink.slug}`}>
-                    <a className="button is-primary mt-4">
-                      {item.detailLinkLabel || 'Learn More'}
-                    </a>
-                  </Link>
-                </div>
-              )}
             </div>
           );
         })}

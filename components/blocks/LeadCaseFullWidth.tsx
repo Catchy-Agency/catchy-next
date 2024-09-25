@@ -6,7 +6,7 @@ export const LeadCaseFullWidth: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => {
   return (
-    <div className="is-flex-direction-column">
+    <div className="is-flex-direction-column container-fullWidth">
       {block.foregroundImage && (
         <div className="imageLead">
           <Image

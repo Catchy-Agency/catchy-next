@@ -58,13 +58,12 @@
 
   @media (max-width: $tablet) {
     .soupTitle {
-      height: 30vh;
-      clip-path: polygon(45% 0, 100% 60%, 100% 100%, 0 100%, 0 50%);
+      clip-path: polygon(100% 0, 100% 60%, 100% 100%, 0 100%, 0 50%);
       padding: 0 1rem;
     }
+
     .soupBottom {
-      clip-path: polygon(45% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
-      height: 20vh;
+      clip-path: polygon(0% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
       padding: 0 1rem;
     }
   }

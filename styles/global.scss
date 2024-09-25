@@ -40,6 +40,8 @@ section:last-of-type {
 .section.BannerRecord {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+
   .column {
     img {
       object-fit: contain;
@@ -50,6 +52,7 @@ section:last-of-type {
 .section.ClientSetRecord {
   padding: unset;
   position: relative;
+  overflow: hidden;
 
   > .container {
     margin: unset;
@@ -62,12 +65,16 @@ section:last-of-type {
   .absoluteSvg {
     width: fit-content;
     position: absolute;
+    pointer-events: none;
     @media (max-width: 1200px) {
       display: none;
     }
   }
   .LeftUp {
     top: 0;
+    @media (max-width: $tablet) {
+      display: unset;
+    }
   }
   .leftDown {
     bottom: 0;
@@ -75,10 +82,30 @@ section:last-of-type {
   .RightDown {
     bottom: 0;
     right: 0;
+    @media (max-width: $tablet) {
+      display: unset;
+      transform: translate(40%, 20%);
+    }
   }
   .RightUp {
     top: 0;
     right: 0;
+  }
+}
+
+.section.TextImage {
+  padding: unset;
+  position: relative;
+
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    padding: unset;
   }
 }
 
@@ -190,6 +217,7 @@ section:last-of-type {
 @import 'components/_panel-cards';
 @import 'components/lead-case-full-width';
 @import 'components/_static-cards-stack';
+@import 'components/text-image';
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
 //

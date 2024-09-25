@@ -23,6 +23,10 @@
     position: relative;
     height: 100vh;
 
+    @media (max-width: $tablet) {
+      align-items: flex-start;
+    }
+
     .imageHero {
       height: 100%;
       clip-path: polygon(0 0, 100% 0, 100% 20%, 33% 100%, 0 70%);
@@ -91,9 +95,26 @@
       }
     }
 
-    @media (max-width: 769px) {
+    @media (max-width: $tablet) {
+      .imageHero {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 100%);
+        background-color: red;
+      }
+
       .data-container {
         padding: 0 1rem;
+        padding-top: $global-padding;
+        .title.titleHero,
+        .text-description {
+          width: unset;
+        }
+      }
+
+      .svg-left {
+        display: none;
+      }
+      .svg-right {
+        transform: translate(60%, 20%);
       }
     }
   }

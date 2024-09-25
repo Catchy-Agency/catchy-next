@@ -16,6 +16,7 @@
     padding-bottom: 1rem;
 
     .static-card-item-content {
+      height: 100%;
       > li {
         padding-right: unset;
         &::before {
@@ -32,7 +33,7 @@
     max-width: calc(25% - 4rem);
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
     .static-card-item-wrapper {
       flex: 1 1 calc(33.33% - 3rem);
       max-width: calc(33.33% - 3rem);
@@ -58,7 +59,7 @@
 
 .static-cards-list,
 .three-columns {
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .static-card-item-wrapper {
       flex: 1 1 calc(50% - 2rem);
       max-width: calc(50% - 2rem);
@@ -70,7 +71,7 @@
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     .static-card-item-wrapper {
       flex: 1 1 100%;
       max-width: 100%;
