@@ -1,5 +1,4 @@
 $textPaddingLarge: 14rem;
-$textPaddingMedium: 10rem;
 $textPaddingSmall: 3rem;
 
 $svgWidthLarge: 40vh;
@@ -16,7 +15,7 @@ $svgWidthMedium: 36vh;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 4rem;
+    padding: 0 $textPaddingLarge;
 
     .text-description {
       margin-bottom: 80px;
@@ -25,6 +24,7 @@ $svgWidthMedium: 36vh;
   }
 
   .img-container {
+    height: 60vh;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -32,14 +32,14 @@ $svgWidthMedium: 36vh;
     max-width: 100%;
 
     .imageText {
-      height: 60vh;
+      height: 100%;
       @include clip-path-right('default');
     }
 
     .svg-textImageRight {
       position: absolute;
-      top: 43vh;
-      right: 56vh;
+      top: 42vh;
+      right: 47vh;
 
       > svg {
         width: 30vh;
@@ -54,7 +54,7 @@ $svgWidthMedium: 36vh;
 
   @media (min-width: 2300px) {
     .info-texts {
-      padding: 0 32rem;
+      padding-left: 42rem;
 
       .text-description {
         font-size: 24px;
@@ -67,8 +67,8 @@ $svgWidthMedium: 36vh;
       }
 
       .svg-textImageRight {
-        top: 39vh;
-        right: 13vw;
+        top: 43vh;
+        right: 20vw;
 
         > svg {
           width: 35vh;
@@ -79,8 +79,7 @@ $svgWidthMedium: 36vh;
 
   @media (max-width: calc(1440px + 200px)) {
     .info-texts {
-      padding: unset;
-      padding-right: 10rem;
+      padding: 0 $global-padding;
     }
 
     .img-container {
@@ -96,33 +95,31 @@ $svgWidthMedium: 36vh;
   }
 
   @media (max-width: calc(1024px + 200px)) {
-    flex-direction: column-reverse;
-
     .info-texts {
-      flex: unset;
-      padding: 0 $textPaddingMedium;
+      padding: 0 $global-padding;
     }
 
     .img-container {
-      flex: unset;
       padding: 5rem 0;
 
       .imageText {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 37% 100%, 0 56%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 71%);
       }
 
       .svg-textImageRight {
-        top: 43vh;
-        right: 80vh;
+        top: 39vh;
+        right: 24vh;
 
         > svg {
-          width: 45vh;
+          width: 20vh;
         }
       }
     }
   }
 
   @media (max-width: $tablet) {
+    flex-direction: column-reverse;
+
     .info-texts {
       padding: 0 $textPaddingSmall;
       padding-bottom: 10rem;
@@ -149,6 +146,7 @@ $svgWidthMedium: 36vh;
   // Invert component
   &.image-left {
     flex-direction: row-reverse;
+    padding-right: $global-padding;
 
     .info-texts {
       padding: 0 $textPaddingLarge;
@@ -203,7 +201,7 @@ $svgWidthMedium: 36vh;
 
     @media (max-width: calc(1440px + 200px)) {
       .info-texts {
-        padding: 0 $textPaddingMedium;
+        padding: 0 $global-padding;
       }
 
       .img-container {
@@ -223,28 +221,29 @@ $svgWidthMedium: 36vh;
     }
 
     @media (max-width: calc(1024px + 200px)) {
-      flex-direction: column-reverse;
+      padding-right: unset;
 
       .img-container {
-        flex: unset;
         padding: 5rem 0;
 
         .imageText {
-          clip-path: polygon(0 0, 100% 0, 100% 46%, 55% 100%, 0 100%, 0% 50%);
+          clip-path: polygon(0 0, 100% 0, 100% 64%, 41% 100%, 0 100%, 0% 50%);
         }
 
         .svg-textImageLeft {
-          top: 37vh;
-          left: 69vh;
+          top: 36vh;
+          left: 19vh;
 
           > svg {
-            width: 60vh;
+            width: 25vh;
           }
         }
       }
     }
 
     @media (max-width: $tablet) {
+      flex-direction: column-reverse;
+
       .info-texts {
         padding: 0 $textPaddingSmall;
         padding-bottom: 10rem;

@@ -94,7 +94,7 @@ section:last-of-type {
 }
 
 .section.TextImage {
-  padding-right: unset;
+  padding: unset;
   position: relative;
 
   > .container {
@@ -102,15 +102,6 @@ section:last-of-type {
     width: 100%;
     height: 100%;
     max-width: unset;
-  }
-
-  &.image-left {
-    padding-left: unset;
-    padding-right: 10rem;
-
-    @media (max-width: calc(1024px + 200px)) {
-      padding-right: unset;
-    }
   }
 
   @media (max-width: calc(1024px + 200px)) {

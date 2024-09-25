@@ -54,9 +54,9 @@
 //clip-path for the image of the TextImage component
 @mixin clip-path-right($size) {
   @if $size == 'default' {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%, 0 71%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%, 0 70%);
   } @else if $size == 'large' {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 57% 100%, 0 65%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 41% 100%, 0 72%);
   } @else if $size == 'medium' {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 71%);
   } @else if $size == 'small' {
