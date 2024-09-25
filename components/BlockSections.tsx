@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Image, ResponsiveImageType } from 'react-datocms';
+import { ResponsiveImageType } from 'react-datocms';
 
 import Link from 'next/link';
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug';
@@ -66,25 +66,6 @@ export const BlockSections: FC<{
                 key={block.id}
                 className="section BannerRecord hero has-background-grey-darkest is-relative"
               >
-                {block.backgroundImage?.responsiveImage && (
-                  <div
-                    className="has-cover-image"
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                    }}
-                  >
-                    <Image
-                      data={
-                        block.backgroundImage
-                          .responsiveImage as ResponsiveImageType
-                      }
-                    />
-                  </div>
-                )}
                 <Banner block={block} maxClass={maxClass} />
               </section>
             );

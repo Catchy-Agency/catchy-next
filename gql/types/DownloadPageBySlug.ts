@@ -23,7 +23,7 @@ export interface DownloadPageBySlug_downloadPage {
   readonly linkText: string | null;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<DownloadPageBySlug_downloadPage__seoMetaTags>;
 }

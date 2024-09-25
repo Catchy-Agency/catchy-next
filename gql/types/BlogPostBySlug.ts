@@ -32,24 +32,6 @@ export interface BlogPostBySlug_blogPost_author {
   readonly image: BlogPostBySlug_blogPost_author_image | null;
 }
 
-export interface BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage {
-  readonly __typename: "FileField";
-  readonly responsiveImage: BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage_responsiveImage | null;
-}
-
 export interface BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -68,18 +50,20 @@ export interface BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage {
   readonly responsiveImage: BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage_responsiveImage | null;
 }
 
+export interface BlogPostBySlug_blogPost_blocks_BannerRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface BlogPostBySlug_blogPost_blocks_BannerRecord {
   readonly __typename: "BannerRecord";
   readonly id: any;
-  readonly titleOverline: string | null;
   readonly title: string | null;
-  readonly addGreenLine: any | null;
-  readonly subTitle: string | null;
   readonly text: string | null;
-  readonly foregroundImage: BlogPostBySlug_blogPost_blocks_BannerRecord_foregroundImage | null;
   readonly backgroundImage: BlogPostBySlug_blogPost_blocks_BannerRecord_backgroundImage | null;
   readonly showContactButton: any | null;
   readonly contactButtonLabel: string | null;
+  readonly link: BlogPostBySlug_blogPost_blocks_BannerRecord_link | null;
 }
 
 export interface BlogPostBySlug_blogPost_blocks_ButtonExternalRecord {
@@ -882,7 +866,7 @@ export interface BlogPostBySlug_blogPost {
   readonly categories: ReadonlyArray<BlogPostBySlug_blogPost_categories>;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<BlogPostBySlug_blogPost__seoMetaTags>;
 }

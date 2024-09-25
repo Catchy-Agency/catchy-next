@@ -110,7 +110,7 @@ export interface BlogPostsByCategoryId_primaryPage {
   readonly id: any;
   readonly title: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<BlogPostsByCategoryId_primaryPage__seoMetaTags>;
 }

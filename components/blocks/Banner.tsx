@@ -9,15 +9,15 @@ export const Banner: FC<{
   maxClass: { [key: string]: boolean };
 }> = ({ block, maxClass }) => (
   <div className="custom-flex-columns ">
-    <Image
-      data={
-        {
-          src: '/assets/imageHero.jpg',
-          alt: 'Image-Hero',
-        } as ResponsiveImageType
-      }
-      className="imageHero"
-    />
+    {block.backgroundImage && (
+      <div className="column is-hidden-mobile">
+        <Image
+          data={block.backgroundImage.responsiveImage as ResponsiveImageType}
+          lazyLoad={false}
+          className="imageHero"
+        />
+      </div>
+    )}
 
     <div className={classNames('container data-container', maxClass)}>
       {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
@@ -37,14 +37,5 @@ export const Banner: FC<{
     <div className="svg-right">{RightHero}</div>
 
     <div className="svg-left">{LeftUpSoup}</div>
-
-    {/* {block.foregroundImage && (
-      <div className="column is-hidden-mobile">
-        <Image
-          data={block.foregroundImage.responsiveImage as ResponsiveImageType}
-          lazyLoad={false}
-        />
-      </div>
-    )} */}
   </div>
 );

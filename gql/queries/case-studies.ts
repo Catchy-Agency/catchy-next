@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allCaseStudySlugs = gql`
   query AllCaseStudySlugs {
@@ -6,7 +6,7 @@ export const allCaseStudySlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const allCaseStudies = gql`
   query AllCaseStudies {
@@ -117,26 +117,8 @@ export const allCaseStudies = gql`
         }
         ... on BannerRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -154,6 +136,12 @@ export const allCaseStudies = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         __typename
         ... on ButtonExternalRecord {
@@ -999,7 +987,7 @@ export const allCaseStudies = gql`
       richText
     }
   }
-`
+`;
 
 export const caseStudiesByCategoryId = gql`
   query CaseStudiesByCategoryId($id: ItemId) {
@@ -1114,26 +1102,8 @@ export const caseStudiesByCategoryId = gql`
         }
         ... on BannerRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -1151,6 +1121,12 @@ export const caseStudiesByCategoryId = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         __typename
         ... on ButtonExternalRecord {
@@ -1997,7 +1973,7 @@ export const caseStudiesByCategoryId = gql`
       richText
     }
   }
-`
+`;
 
 export const caseStudyBySlug = gql`
   query CaseStudyBySlug($slug: String) {
@@ -2721,4 +2697,4 @@ export const caseStudyBySlug = gql`
       richText
     }
   }
-`
+`;

@@ -7,90 +7,6 @@
 // GraphQL query operation: AllBlogPosts
 // ====================================================
 
-export interface AllBlogPosts_allBlogPosts_previewImage_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImage {
-  readonly __typename: "FileField";
-  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImage_responsiveImage | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageLg {
-  readonly __typename: "FileField";
-  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageLg_responsiveImage | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageSm {
-  readonly __typename: "FileField";
-  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageSm_responsiveImage | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageCol_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface AllBlogPosts_allBlogPosts_previewImageCol {
-  readonly __typename: "FileField";
-  readonly responsiveImage: AllBlogPosts_allBlogPosts_previewImageCol_responsiveImage | null;
-}
-
-export interface AllBlogPosts_allBlogPosts {
-  readonly __typename: "BlogPostRecord";
-  readonly id: any;
-  readonly slug: string | null;
-  readonly title: string | null;
-  readonly description: string | null;
-  readonly previewImage: AllBlogPosts_allBlogPosts_previewImage | null;
-  readonly previewImageLg: AllBlogPosts_allBlogPosts_previewImageLg | null;
-  readonly previewImageSm: AllBlogPosts_allBlogPosts_previewImageSm | null;
-  readonly previewImageCol: AllBlogPosts_allBlogPosts_previewImageCol | null;
-}
-
 export interface AllBlogPosts_allCategories {
   readonly __typename: "CategoryRecord";
   readonly id: any;
@@ -110,7 +26,7 @@ export interface AllBlogPosts_primaryPage {
   readonly id: any;
   readonly title: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<AllBlogPosts_primaryPage__seoMetaTags>;
 }
@@ -196,10 +112,6 @@ export interface AllBlogPosts_footer {
 }
 
 export interface AllBlogPosts {
-  /**
-   * Returns a collection of records
-   */
-  readonly allBlogPosts: ReadonlyArray<AllBlogPosts_allBlogPosts>;
   /**
    * Returns a collection of records
    */

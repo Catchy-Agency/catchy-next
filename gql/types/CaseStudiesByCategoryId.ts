@@ -139,24 +139,6 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord {
   readonly columns: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord_columns>;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_foregroundImage {
-  readonly __typename: "FileField";
-  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage | null;
-}
-
 export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -175,18 +157,20 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_backgro
   readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage | null;
 }
 
+export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord {
   readonly __typename: "BannerRecord";
   readonly id: any;
-  readonly titleOverline: string | null;
   readonly title: string | null;
-  readonly addGreenLine: any | null;
-  readonly subTitle: string | null;
   readonly text: string | null;
-  readonly foregroundImage: CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_foregroundImage | null;
   readonly backgroundImage: CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_backgroundImage | null;
   readonly showContactButton: any | null;
   readonly contactButtonLabel: string | null;
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_link | null;
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ButtonExternalRecord {
@@ -1247,7 +1231,7 @@ export interface CaseStudiesByCategoryId_primaryPage {
   readonly textAlign: string | null;
   readonly blocks: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks>;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<CaseStudiesByCategoryId_primaryPage__seoMetaTags>;
 }

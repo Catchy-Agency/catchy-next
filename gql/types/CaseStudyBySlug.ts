@@ -892,7 +892,7 @@ export interface CaseStudyBySlug_caseStudy {
   readonly categories: ReadonlyArray<CaseStudyBySlug_caseStudy_categories>;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<CaseStudyBySlug_caseStudy__seoMetaTags>;
 }

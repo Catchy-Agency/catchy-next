@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allContentPageSlugs = gql`
   query AllContentPageSlugs {
@@ -6,7 +6,7 @@ export const allContentPageSlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const contentPageBySlug = gql`
   query ContentPageBySlug($slug: String) {
@@ -106,26 +106,8 @@ export const contentPageBySlug = gql`
         __typename
         ... on BannerRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -143,6 +125,12 @@ export const contentPageBySlug = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         ... on ButtonExternalRecord {
           id
@@ -790,4 +778,4 @@ export const contentPageBySlug = gql`
       richText
     }
   }
-`
+`;

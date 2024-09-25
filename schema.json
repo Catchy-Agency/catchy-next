@@ -111,7 +111,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -402,7 +402,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -706,7 +706,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -786,18 +786,6 @@
             "deprecationReason": null
           },
           {
-            "name": "addGreenLine",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "BooleanType",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "backgroundImage",
             "description": null,
             "args": [],
@@ -838,18 +826,6 @@
             "deprecationReason": null
           },
           {
-            "name": "foregroundImage",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "FileField",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "id",
             "description": null,
             "args": [],
@@ -866,24 +842,24 @@
             "deprecationReason": null
           },
           {
-            "name": "showContactButton",
+            "name": "link",
             "description": null,
             "args": [],
             "type": {
-              "kind": "SCALAR",
-              "name": "BooleanType",
+              "kind": "OBJECT",
+              "name": "PrimaryPageRecord",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "subTitle",
+            "name": "showContactButton",
             "description": null,
             "args": [],
             "type": {
               "kind": "SCALAR",
-              "name": "String",
+              "name": "BooleanType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -916,18 +892,6 @@
           },
           {
             "name": "title",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "titleOverline",
             "description": null,
             "args": [],
             "type": {
@@ -1168,23 +1132,11 @@
             "deprecationReason": null
           },
           {
-            "name": "author",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "LinkFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "categories",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "LinksFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1204,11 +1156,23 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
+            "name": "seo",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "TextFilter",
+              "name": "SeoFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "categories",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LinksFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1240,11 +1204,23 @@
             "deprecationReason": null
           },
           {
-            "name": "previewImageCol",
+            "name": "description",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
+              "name": "TextFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "author",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LinkFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1276,11 +1252,11 @@
             "deprecationReason": null
           },
           {
-            "name": "seo",
+            "name": "previewImageCol",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "SeoFilter",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1293,18 +1269,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1490,18 +1454,6 @@
             "deprecationReason": null
           },
           {
-            "name": "date_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "date_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title_ASC",
             "description": null,
             "isDeprecated": false,
@@ -1509,6 +1461,18 @@
           },
           {
             "name": "title_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "date_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "date_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -1620,7 +1584,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -2102,7 +2066,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -2430,7 +2394,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -2927,11 +2891,11 @@
             "deprecationReason": null
           },
           {
-            "name": "slug",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "SlugFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -2939,11 +2903,11 @@
             "deprecationReason": null
           },
           {
-            "name": "title",
+            "name": "slug",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "SlugFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -3259,7 +3223,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -4039,7 +4003,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -4342,11 +4306,11 @@
             "deprecationReason": null
           },
           {
-            "name": "logo",
+            "name": "name",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -4354,11 +4318,11 @@
             "deprecationReason": null
           },
           {
-            "name": "name",
+            "name": "logo",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -4662,7 +4626,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -4929,7 +4893,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -5009,6 +4973,18 @@
             "deprecationReason": null
           },
           {
+            "name": "buttonLabel",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "clientSet",
             "description": null,
             "args": [],
@@ -5060,6 +5036,55 @@
                 "name": "ItemId",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "link",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PrimaryPageRecord",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subtitle",
+            "description": null,
+            "args": [
+              {
+                "name": "markdown",
+                "description": "Process content as markdown",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -5504,6 +5529,30 @@
             "deprecationReason": null
           },
           {
+            "name": "width",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "image",
             "description": null,
             "type": {
@@ -5529,30 +5578,6 @@
           },
           {
             "name": "textAlign",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "width",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -5742,13 +5767,13 @@
             "deprecationReason": null
           },
           {
-            "name": "textAlign_ASC",
+            "name": "width_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "textAlign_DESC",
+            "name": "width_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -5766,13 +5791,13 @@
             "deprecationReason": null
           },
           {
-            "name": "width_ASC",
+            "name": "textAlign_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "width_DESC",
+            "name": "textAlign_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -5884,7 +5909,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -6224,7 +6249,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -6552,7 +6577,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -6989,11 +7014,23 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
+            "name": "seo",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "TextFilter",
+              "name": "SeoFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -7025,11 +7062,11 @@
             "deprecationReason": null
           },
           {
-            "name": "previewImageCol",
+            "name": "description",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
+              "name": "TextFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -7061,11 +7098,11 @@
             "deprecationReason": null
           },
           {
-            "name": "seo",
+            "name": "previewImageCol",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "SeoFilter",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -7078,18 +7115,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -7405,7 +7430,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -7513,12 +7538,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "ContentPageRecord",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ContentPageRecord",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -8094,6 +8127,18 @@
             "deprecationReason": null
           },
           {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "description",
             "description": null,
             "type": {
@@ -8106,11 +8151,35 @@
             "deprecationReason": null
           },
           {
-            "name": "fileName",
+            "name": "previewImage",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
+              "name": "FileFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "seo",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SeoFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "preview",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "JsonFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -8119,18 +8188,6 @@
           },
           {
             "name": "fileUrl",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "linkText",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -8154,11 +8211,11 @@
             "deprecationReason": null
           },
           {
-            "name": "preview",
+            "name": "linkText",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "JsonFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -8166,23 +8223,11 @@
             "deprecationReason": null
           },
           {
-            "name": "previewImage",
+            "name": "fileName",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "previewImageCol",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -8214,11 +8259,11 @@
             "deprecationReason": null
           },
           {
-            "name": "seo",
+            "name": "previewImageCol",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "SeoFilter",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -8231,18 +8276,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -8428,13 +8461,13 @@
             "deprecationReason": null
           },
           {
-            "name": "fileName_ASC",
+            "name": "title_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "fileName_DESC",
+            "name": "title_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -8452,18 +8485,6 @@
             "deprecationReason": null
           },
           {
-            "name": "linkText_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "linkText_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "messageText_ASC",
             "description": null,
             "isDeprecated": false,
@@ -8476,13 +8497,25 @@
             "deprecationReason": null
           },
           {
-            "name": "title_ASC",
+            "name": "linkText_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "title_DESC",
+            "name": "linkText_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fileName_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fileName_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -8594,7 +8627,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -8956,7 +8989,7 @@
           },
           {
             "name": "_editingUrl",
-            "description": "Editing URL",
+            "description": "The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -9669,7 +9702,7 @@
           },
           {
             "name": "_editingUrl",
-            "description": "Editing URL",
+            "description": "The DatoCMS URL where you can edit this entity. To use this field, you need to set a X-Base-Editing-Url header in the request",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -10564,7 +10597,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -11013,7 +11046,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -11268,7 +11301,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -11619,19 +11652,7 @@
             "deprecationReason": null
           },
           {
-            "name": "action",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "method",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -11655,7 +11676,19 @@
             "deprecationReason": null
           },
           {
-            "name": "title",
+            "name": "action",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "method",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -11845,6 +11878,30 @@
             "deprecationReason": null
           },
           {
+            "name": "title_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "action_ASC",
             "description": null,
             "isDeprecated": false,
@@ -11864,30 +11921,6 @@
           },
           {
             "name": "method_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -11999,7 +12032,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -12314,7 +12347,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -12665,7 +12698,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -13004,7 +13037,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -13219,11 +13252,59 @@
             "deprecationReason": null
           },
           {
-            "name": "bgRemove",
-            "description": "Background Removal\n\nRemoves background from image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background-removal/bg-remove)",
+            "name": "bgRemoveFallback",
+            "description": "Background Removal Fallback\n\nOverrides default fallback behavior for bg-remove failures.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)",
             "type": {
               "kind": "SCALAR",
               "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bgRemove",
+            "description": "Background Removal\n\nRemoves background from image.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-remove)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bgReplaceFallback",
+            "description": "Background Removal Fallback\n\nOverrides default fallback behavior for bg-replace failures.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bgReplaceNegPrompt",
+            "description": "Background Replacement Negative Prompt\n\nProvides a negative text suggestion for background replacement.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace-neg-prompt)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bgReplace",
+            "description": "Background Replacement\n\nReplaces background from image using a string based prompt.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/background/bg-replace)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -13767,6 +13848,178 @@
             "deprecationReason": null
           },
           {
+            "name": "fillGenFallback",
+            "description": "Fill Generative Fallback\n\nSets the fallback behavior for generative fill.\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-fallback)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGenNegPrompt",
+            "description": "Fill Generative Negative Prompt\n\nProvides a negative text suggestion to the generative fill parameter. Used to reduce the probability of a subject, detail, or object appearing in generative output.\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-neg-prompt)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGenPos",
+            "description": "Fill Generative Position\n\nSets the position of the Origin Image in relation to the generative fill.\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-pos)",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ImgixParamsFillGenPos",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGenPrompt",
+            "description": "Fill Generative Prompt\n\nProvides a text suggestion to the generative fill parameter.\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-prompt)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGenSeed",
+            "description": "Fill Generative Seed\n\nSets the generative seed value. Used to generate similar outputs from different prompts.\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gen-seed)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "IntType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientCs",
+            "description": "Fill Gradient Color Space\n\nDefines the color space as linear, sRGB, Oklab, HSL, or LCH for gradient color interpolation\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-cs)",
+            "type": {
+              "kind": "ENUM",
+              "name": "ImgixParamsFillGradientCs",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientLinearDirection",
+            "description": "Fill Gradient Linear Direction\n\nThe fill-gradient-linear-direction specifies the gradient's direction, flowing towards the bottom, top, right, or left\n\nDepends on: `fit=fill`, `fill=gen`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear-direction)",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ImgixParamsFillGradientLinearDirection",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientLinear",
+            "description": "Fill Gradient Linear\n\nBlends a gradient between two colors, {color1} and {color2}, along a straight path\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-linear)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientRadialRadius",
+            "description": "Fill Gradient Radial Radius\n\nParameter defines the radial gradient's radius as pixels or a percentage (0.0-1.0) of the image's smallest dimension\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-radius)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientRadialX",
+            "description": "Fill Gradient Radial X\n\nSpecifies the location of the radial gradient's center along the x-axis, using either a pixel value or a floating point percentage (ranging from 0.0 to 1.0) of the image's width\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-x)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "FloatType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientRadialY",
+            "description": "Fill Gradient Radial Y\n\nParameter sets the radial gradient's center on the y-axis, using pixels or a 0.0 to 1.0 percentage of the image's height\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial-y)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "FloatType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientRadial",
+            "description": "Fill Gradient Radial\n\nThe fill-gradient-radial parameter creates a circular gradient transitioning from a central color (Color1) to an outer color (Color2)\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-radial)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fillGradientType",
+            "description": "Fill Gradient Type\n\nSpecifies if a gradient is radial (circular) or linear (straight)\n\nDepends on: `fit=fill`, `fill=gradient`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-gradient-type)",
+            "type": {
+              "kind": "ENUM",
+              "name": "ImgixParamsFillGradientType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "fill",
             "description": "Fill Mode\n\nDetermines how to fill in additional space created by the fit setting\n\nDepends on: `fit`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)",
             "type": {
@@ -13900,7 +14153,7 @@
           },
           {
             "name": "gifQ",
-            "description": "Animated Gif Quality\n\nDepends on: `fm=gif`",
+            "description": "Animated Gif Quality\n\nSpecifies the quality of the animated gif. The higher the value, the better more compression is applied.\n\nDepends on: `fm=gif`",
             "type": {
               "kind": "SCALAR",
               "name": "IntType",
@@ -14012,6 +14265,18 @@
             "type": {
               "kind": "ENUM",
               "name": "ImgixParamsIptc",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "jpgProgressive",
+            "description": "Jpg Progressive\n\nSpecifies whether or not a jpg/jpeg uses progressive (true) or baseline (false)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
               "ofType": null
             },
             "defaultValue": null,
@@ -14555,6 +14820,18 @@
             "deprecationReason": null
           },
           {
+            "name": "svgSanitize",
+            "description": "Sanitize Svg\n\nSpecifies whether to sanitize an SVG.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "transparency",
             "description": "Transparency\n\nAdds checkerboard behind images which support transparency.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)",
             "type": {
@@ -14727,18 +15004,6 @@
             "deprecationReason": null
           },
           {
-            "name": "txtLig",
-            "description": "Text Ligatures\n\nControls the level of ligature substitution\n\nDepends on: `txt`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)",
-            "type": {
-              "kind": "SCALAR",
-              "name": "IntType",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "txtLineColor",
             "description": "Text Outline Color\n\nSpecifies a text outline color.\n\nDepends on: `txt`, `txtline`\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)",
             "type": {
@@ -14859,6 +15124,30 @@
             "deprecationReason": null
           },
           {
+            "name": "upscaleFallback",
+            "description": "Super Resolution Fallback\n\nOverrides default fallback behavior for super resolution failures\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale-fallback)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "upscale",
+            "description": "Super Resolution\n\nUses generative AI fill to upscale low resolution images.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/rendering/super-resolution/upscale)",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "usm",
             "description": "Unsharp Mask\n\nSharpens the source image using an unsharp mask.\n\n[Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usm)",
             "type": {
@@ -14900,6 +15189,18 @@
             "type": {
               "kind": "SCALAR",
               "name": "FloatType",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "skipDefaultOptimizations",
+            "description": "Bypasses any [DatoCMS Automatic Image Optimization](https://www.datocms.com/docs/cdn-settings/advanced-asset-settings) that might be set up for the project.\n\nExercise caution when using this parameter, as it could significantly increase your bandwidth costs.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
               "ofType": null
             },
             "defaultValue": null,
@@ -15348,6 +15649,174 @@
           },
           {
             "name": "blur",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gen",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "generative",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "gradient",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsFillGenPos",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "top",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bottom",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "middle",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "left",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "right",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "center",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsFillGradientCs",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "linear",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "srgb",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "oklab",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "hsl",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "lch",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsFillGradientLinearDirection",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "top",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "bottom",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "left",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "right",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ImgixParamsFillGradientType",
+        "description": null,
+        "specifiedByUrl": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "linear",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "radial",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -16106,7 +16575,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -16956,7 +17425,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -17385,55 +17854,7 @@
             "deprecationReason": null
           },
           {
-            "name": "detailImage",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "detailLink",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "LinkFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "detailLinkLabel",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "detailText",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "TextFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "detailTitle",
+            "name": "listTitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -17457,7 +17878,55 @@
             "deprecationReason": null
           },
           {
-            "name": "listTitle",
+            "name": "detailImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "FileFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailTitle",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailText",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "TextFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailLink",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LinkFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "detailLinkLabel",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -17647,13 +18116,13 @@
             "deprecationReason": null
           },
           {
-            "name": "detailLinkLabel_ASC",
+            "name": "listTitle_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "detailLinkLabel_DESC",
+            "name": "listTitle_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -17671,13 +18140,13 @@
             "deprecationReason": null
           },
           {
-            "name": "listTitle_ASC",
+            "name": "detailLinkLabel_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "listTitle_DESC",
+            "name": "detailLinkLabel_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -17789,7 +18258,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -18411,11 +18880,23 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "TextFilter",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "seo",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SeoFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -18435,6 +18916,18 @@
             "deprecationReason": null
           },
           {
+            "name": "textAlign",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "previewImage",
             "description": null,
             "type": {
@@ -18447,11 +18940,23 @@
             "deprecationReason": null
           },
           {
-            "name": "previewImageCol",
+            "name": "description",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
+              "name": "TextFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "showBreadcrumbs",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "BooleanFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -18483,23 +18988,11 @@
             "deprecationReason": null
           },
           {
-            "name": "seo",
+            "name": "previewImageCol",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "SeoFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "showBreadcrumbs",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "BooleanFilter",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -18512,30 +19005,6 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "textAlign",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -18733,13 +19202,13 @@
             "deprecationReason": null
           },
           {
-            "name": "showBreadcrumbs_ASC",
+            "name": "title_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "showBreadcrumbs_DESC",
+            "name": "title_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -18757,13 +19226,13 @@
             "deprecationReason": null
           },
           {
-            "name": "title_ASC",
+            "name": "showBreadcrumbs_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "title_DESC",
+            "name": "showBreadcrumbs_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -18875,7 +19344,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -18983,12 +19452,20 @@
             "description": null,
             "args": [],
             "type": {
-              "kind": "LIST",
+              "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "OBJECT",
-                "name": "PrimaryPageRecord",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "PrimaryPageRecord",
+                    "ofType": null
+                  }
+                }
               }
             },
             "isDeprecated": false,
@@ -22956,7 +23433,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -23618,7 +24095,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -23807,6 +24284,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "FileField",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "noIndex",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
               "ofType": null
             },
             "isDeprecated": false,
@@ -24006,23 +24495,11 @@
             "deprecationReason": null
           },
           {
-            "name": "fontAwesomeIcon",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "serviceImage",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -24042,11 +24519,23 @@
             "deprecationReason": null
           },
           {
-            "name": "title",
+            "name": "fontAwesomeIcon",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "serviceImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -24232,18 +24721,6 @@
             "deprecationReason": null
           },
           {
-            "name": "fontAwesomeIcon_ASC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "fontAwesomeIcon_DESC",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title_ASC",
             "description": null,
             "isDeprecated": false,
@@ -24251,6 +24728,18 @@
           },
           {
             "name": "title_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fontAwesomeIcon_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "fontAwesomeIcon_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -24362,7 +24851,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -24666,7 +25155,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -24980,6 +25469,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "noIndex",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "BooleanType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -25177,7 +25678,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -25755,7 +26256,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -26106,7 +26607,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -28266,6 +28767,136 @@
         "specifiedByUrl": null,
         "fields": [
           {
+            "name": "alt",
+            "description": null,
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "blurUpThumb",
+            "description": null,
+            "args": [
+              {
+                "name": "punch",
+                "description": "Controls the \"punch\" value (~contrast) of the blurhash decoding algorithm (defaults to 1.0)",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Float",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "1",
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "size",
+                "description": "Maximum image dimension (defaults to 24px)",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "24",
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "quality",
+                "description": "Image quality (defaults to 70%)",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": "70",
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "imgixParams",
+                "description": "Imgix transformations to apply to the image",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "ImgixParams",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "blurhash",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "duration",
             "description": null,
             "args": [],
@@ -28285,6 +28916,22 @@
               "kind": "SCALAR",
               "name": "Int",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "height",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "IntType",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -28375,6 +29022,18 @@
             "deprecationReason": null
           },
           {
+            "name": "thumbhash",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "thumbnailUrl",
             "description": null,
             "args": [
@@ -28397,6 +29056,67 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [
+              {
+                "name": "locale",
+                "description": "The locale to use to fetch the field's content",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "SiteLocale",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "fallbackLocales",
+                "description": "If you want to fallback to a default translation when a translation has not been found",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "SiteLocale",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "width",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "IntType",
                 "ofType": null
               }
             },
@@ -28721,7 +29441,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -29018,7 +29738,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -29273,7 +29993,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",
@@ -29896,7 +30616,7 @@
           },
           {
             "name": "_seoMetaTags",
-            "description": "SEO meta tags",
+            "description": "Generates SEO and Social card meta tags to be used in your frontend",
             "args": [
               {
                 "name": "locale",

@@ -81,7 +81,7 @@ export const allBlogPosts = gql`
 `;
 
 export const allPaginatedBlogPosts = gql`
-  query AllBlogPosts($first: IntType, $skip: IntType) {
+  query AllPaginatedBlogPosts($first: IntType, $skip: IntType) {
     allBlogPosts(first: $first, skip: $skip, orderBy: date_DESC) {
       id
       slug
@@ -153,7 +153,7 @@ export const allPaginatedBlogPosts = gql`
   }
 `;
 export const filteredBlogPosts = gql`
-  query AllBlogPosts($first: IntType, $skip: IntType, $id: ItemId) {
+  query AllFilteredBlogPosts($first: IntType, $skip: IntType, $id: ItemId) {
     allBlogPosts(
       first: $first
       skip: $skip
@@ -398,26 +398,8 @@ export const blogPostBySlug = gql`
         __typename
         ... on BannerRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -435,6 +417,12 @@ export const blogPostBySlug = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         ... on ButtonExternalRecord {
           id
