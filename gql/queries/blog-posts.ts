@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allBlogPostSlugs = gql`
   query AllBlogPostSlugs {
@@ -6,74 +6,10 @@ export const allBlogPostSlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const allBlogPosts = gql`
   query AllBlogPosts {
-    allBlogPosts(first: 100, orderBy: date_DESC) {
-      id
-      slug
-      title
-      description
-      previewImage {
-        responsiveImage(
-          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
-        ) {
-          aspectRatio
-          height
-          width
-          sizes
-          src
-          srcSet
-          alt
-          title
-          base64
-        }
-      }
-      previewImageLg {
-        responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
-          aspectRatio
-          height
-          width
-          sizes
-          src
-          srcSet
-          alt
-          title
-          base64
-        }
-      }
-      previewImageSm {
-        responsiveImage(
-          imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
-        ) {
-          aspectRatio
-          height
-          width
-          sizes
-          src
-          srcSet
-          alt
-          title
-          base64
-        }
-      }
-      previewImageCol {
-        responsiveImage(
-          imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
-        ) {
-          aspectRatio
-          height
-          width
-          sizes
-          src
-          srcSet
-          alt
-          title
-          base64
-        }
-      }
-    }
     allCategories {
       id
       name
@@ -142,8 +78,157 @@ export const allBlogPosts = gql`
       richText
     }
   }
-`
+`;
 
+export const allPaginatedBlogPosts = gql`
+  query AllBlogPosts($first: IntType, $skip: IntType) {
+    allBlogPosts(first: $first, skip: $skip, orderBy: date_DESC) {
+      id
+      slug
+      title
+      description
+      categories {
+        name
+        slug
+      }
+      previewImage {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageLg {
+        responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageSm {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageCol {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+    }
+  }
+`;
+export const filteredBlogPosts = gql`
+  query AllBlogPosts($first: IntType, $skip: IntType, $id: ItemId) {
+    allBlogPosts(
+      first: $first
+      skip: $skip
+      orderBy: date_DESC
+      filter: { categories: { anyIn: [$id] } }
+    ) {
+      id
+      slug
+      title
+      description
+      categories {
+        name
+        slug
+      }
+      previewImage {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageLg {
+        responsiveImage(imgixParams: { fit: crop, ar: "3:1", auto: format }) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageSm {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+      previewImageCol {
+        responsiveImage(
+          imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+        ) {
+          aspectRatio
+          height
+          width
+          sizes
+          src
+          srcSet
+          alt
+          title
+          base64
+        }
+      }
+    }
+  }
+`;
 export const blogPostsByCategoryId = gql`
   query BlogPostsByCategoryId($id: ItemId) {
     allBlogPosts(
@@ -283,7 +368,7 @@ export const blogPostsByCategoryId = gql`
       richText
     }
   }
-`
+`;
 
 export const blogPostBySlug = gql`
   query BlogPostBySlug($slug: String) {
@@ -1003,4 +1088,4 @@ export const blogPostBySlug = gql`
       richText
     }
   }
-`
+`;
