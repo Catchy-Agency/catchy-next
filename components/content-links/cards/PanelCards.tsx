@@ -24,7 +24,7 @@ export const PanelCards: FC<{
         } as React.CSSProperties
       }
     >
-      {device === 'mobile' && item.detailLink?.slug ? (
+      {device === 'mobile' && item.detailImage ? (
         <div
           className={`panel-item`}
           onClick={toggleDropdown}
