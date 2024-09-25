@@ -29,6 +29,7 @@
 
     .imageHero {
       height: 100%;
+      max-width: unset !important;
       clip-path: polygon(0 0, 100% 0, 100% 20%, 33% 100%, 0 70%);
       filter: brightness(0.5);
     }
@@ -98,7 +99,6 @@
     @media (max-width: $tablet) {
       .imageHero {
         clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 100%);
-        background-color: red;
       }
 
       .data-container {

@@ -8,15 +8,13 @@ export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
   maxClass: { [key: string]: boolean };
 }> = ({ block, maxClass }) => (
-  <div className="custom-flex-columns ">
+  <div className="custom-flex-columns">
     {block.backgroundImage && (
-      <div className="column is-hidden-mobile">
-        <Image
-          data={block.backgroundImage.responsiveImage as ResponsiveImageType}
-          lazyLoad={false}
-          className="imageHero"
-        />
-      </div>
+      <Image
+        data={block.backgroundImage.responsiveImage as ResponsiveImageType}
+        lazyLoad={false}
+        className="imageHero"
+      />
     )}
 
     <div className={classNames('container data-container', maxClass)}>
