@@ -1,13 +1,12 @@
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord } from '../../gql/types/PrimaryPageBySlug';
-import { IconTopLeadCaseStudy } from '../icons';
+import { IconNewsletter } from '../icons';
 import { FormBlock } from './FormBlock';
 
 export const Newsletter: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord;
 }> = ({ block }) => {
-  console.log(block);
   return (
     <div className="newsletter-wrapper">
       <div className="newsletter-content">
@@ -15,7 +14,7 @@ export const Newsletter: FC<{
         <FormBlock block={block} />
       </div>
       <div className="newsletter-image">
-        {IconTopLeadCaseStudy}
+        <div className="newsletter-svg">{IconNewsletter}</div>
 
         {block.image && (
           <Image

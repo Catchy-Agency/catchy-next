@@ -1398,3 +1398,54 @@ export const IconTopLeadCaseStudy = (
     />
   </svg>
 );
+
+export const IconNewsletter = (
+  <svg
+    width="281"
+    height="164"
+    viewBox="0 0 281 164"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.999986 162.665L1 1L281 1.00002L0.999986 162.665Z"
+      fill="#212121"
+    />
+    <path
+      d="M121.07 47.9L161.07 71V24.81L121.07 1.71001V47.9Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M201 48.0004L121 94.1904V48.0004L201 1.81042V48.0004Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M41 139.9L81 163V116.81L41 93.71V139.9Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M41 47.19L1 70.29V24.1L41 1.00005V47.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M0.999985 71.19L41 94.29V48.1L0.999985 25V71.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M81 70.81L1 117V70.81L81 24.62V70.81Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);
