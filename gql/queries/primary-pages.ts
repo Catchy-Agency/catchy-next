@@ -45,6 +45,26 @@ export const primaryPageBySlug = gql`
             }
           }
         }
+        ... on ArticleRecord {
+          id
+          title
+          text
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+        }
         ... on BannerRecord {
           id
           title
@@ -864,6 +884,35 @@ export const primaryPageBySlug = gql`
                 title
                 base64
               }
+            }
+          }
+        }
+        ... on TextImageSmallRecord {
+          id
+          title
+          text
+          buttonLabel
+          externalLink
+          internalLink {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+              title
+            }
+          }
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
             }
           }
         }
