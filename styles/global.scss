@@ -25,7 +25,8 @@ $global-padding: 10rem;
 //   border: 1px dotted red;
 // }
 
-section:not(.has-background-grey-darker) {
+section:not(.has-background-grey-darker),
+.section.Footer {
   padding: 0 $global-padding;
   margin: 3% 0;
   @media (max-width: $tablet) {
@@ -90,6 +91,32 @@ section:last-of-type {
   .RightUp {
     top: 0;
     right: 0;
+  }
+}
+
+.section.Newsletter {
+  padding-right: unset;
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+}
+
+.section.TextImage {
+  padding: unset;
+  position: relative;
+
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    padding: unset;
   }
 }
 
@@ -218,6 +245,7 @@ section:last-of-type {
 @import 'components/lead-case-full-width';
 @import 'components/_static-cards-stack';
 @import 'components/text-image';
+@import 'components/newsletter';
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
 //
