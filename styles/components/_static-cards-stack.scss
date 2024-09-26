@@ -59,7 +59,7 @@
 
 .static-cards-list,
 .three-columns {
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .static-card-item-wrapper {
       flex: 1 1 calc(50% - 2rem);
       max-width: calc(50% - 2rem);

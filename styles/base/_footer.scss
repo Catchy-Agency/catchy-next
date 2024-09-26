@@ -18,29 +18,30 @@ footer {
   .fa-stack {
     width: 1.65em;
   }
-  form {
-    .select select,
-    .textarea,
-    .input {
-      @include bdy-md;
-      border: none;
-      border-bottom: 1px solid #fff;
-      &:hover,
-      &:focus {
-        box-shadow: none;
-        border-color: $primary;
-      }
-      padding: 0;
-      &::placeholder {
-        color: darken(#fff, 35%);
-      }
-    }
-  }
 
   @media screen and (max-width: calc(692px + 100px)) {
     .columns {
       display: flex;
       flex-direction: column-reverse;
+    }
+  }
+}
+
+form {
+  .select select,
+  .textarea,
+  .input {
+    @include bdy-md;
+    border: none;
+    border-bottom: 1px solid #fff;
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      border-color: $primary;
+    }
+    padding: 0;
+    &::placeholder {
+      color: darken(#fff, 35%);
     }
   }
 }

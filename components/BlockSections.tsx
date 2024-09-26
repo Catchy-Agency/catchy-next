@@ -15,6 +15,7 @@ import { ColumnRow } from './blocks/ColumnRow';
 import { FormBlock } from './blocks/FormBlock';
 import { Formula } from './blocks/Formula';
 import { ImageSet } from './blocks/ImageSet';
+import { Newsletter } from './blocks/Newsletter';
 import { RichText } from './blocks/RichText';
 import { ServiceCarousel } from './blocks/ServiceCarousel';
 import { ServiceSet } from './blocks/ServiceSet';
@@ -341,6 +342,14 @@ export const BlockSections: FC<{
                       Explore our services
                     </a>
                   </Link>
+                </div>
+              </section>
+            );
+          case 'NewsletterRecord':
+            return (
+              <section key={block.id} className="section Newsletter">
+                <div className={classNames('container', maxClass)}>
+                  <Newsletter block={block} />
                 </div>
               </section>
             );
