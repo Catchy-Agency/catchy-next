@@ -104,8 +104,34 @@ export const primaryPageBySlug = gql`
           align
           openInNewTab
         }
+        ... on CarouselRecord {
+          id
+          buttonLabel
+          items {
+            __typename
+            ... on ExternalCardItemRecord {
+              title
+              description
+            }
+          }
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
+        }
         ... on ClientSetRecord {
           id
+          title
+          subtitle
+          buttonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
           clientSet {
             id
             name

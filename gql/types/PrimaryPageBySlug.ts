@@ -127,6 +127,36 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord {
   readonly openInNewTab: any | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly title: string | null;
+  readonly description: string | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items = PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord;
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord {
+  readonly __typename: "CarouselRecord";
+  readonly id: any;
+  readonly buttonLabel: string | null;
+  readonly items: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items>;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_link | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet_logo_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -155,6 +185,10 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet 
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord {
   readonly __typename: "ClientSetRecord";
   readonly id: any;
+  readonly title: string | null;
+  readonly subtitle: string | null;
+  readonly buttonLabel: string | null;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_link | null;
   readonly clientSet: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
@@ -1123,7 +1157,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";
