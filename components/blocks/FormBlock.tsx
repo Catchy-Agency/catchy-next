@@ -23,20 +23,19 @@ export const FormBlock: FC<{
     | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord
     | PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord;
 }> = ({ block: { form } }) => {
-  console.log('form', form);
   return (
     <form
       action={form?.action || undefined}
       method={form?.method || undefined}
       name={form?.name || undefined}
     >
+      {form?.title && <h3 className="has-text-white mb-6">{form.title}</h3>}
       {groupFields(Array.from(form?.formFields || [])).map((fieldOrGroup) => {
         switch (fieldOrGroup?.__typename) {
           case 'Group': {
-            console.log('Group');
             const group = fieldOrGroup;
             return (
-              <div key={group.id} className="field is-grouped">
+              <div key={group.id} className="field is-grouped pb-5">
                 {group.fields.map((field) => (
                   <div key={field?.id} className="control is-expanded">
                     <FieldElement field={field} />
@@ -46,12 +45,11 @@ export const FormBlock: FC<{
             );
           }
           case 'FormFieldRecord': {
-            console.log('Field');
             const field = fieldOrGroup;
             return (
               <div
                 key={field.id}
-                className="field"
+                className="field  pb-5"
                 style={
                   field.invisible
                     ? { position: 'absolute', left: '-5000px' }
@@ -77,7 +75,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
     case 'Email':
       return (
         <input
-          className="input"
+          className="input px-2 pb-4"
           type="email"
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
@@ -86,7 +84,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
     case 'Text':
       return (
         <input
-          className="input"
+          className="input px-2 pb-4"
           type="text"
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
@@ -95,7 +93,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
     case 'Text Area':
       return (
         <textarea
-          className="textarea"
+          className="textarea px-2 pb-4"
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
           rows={1}
@@ -111,7 +109,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
         /> */
         <button
           type="submit"
-          className="button is-ghost"
+          className="button is-ghost "
           onClick={() => pageview('/contact')}
         >
           {field.fieldName || undefined}
@@ -149,7 +147,5 @@ const groupFields = (fields: Field[]): FieldsAndGroups => {
       }
     }
   }
-  console.log('----------------------------');
-  console.log(output);
   return output;
 };
