@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { FC } from 'react';
 import { PrimaryPageBySlug_footer } from '../gql/types/PrimaryPageBySlug';
+import { pageview } from '../util/gtag';
 
 export const Footer: FC<{
   footer: PrimaryPageBySlug_footer;
@@ -108,11 +109,13 @@ export const Footer: FC<{
             </div>
             <div className="field is-grouped pt-2">
               <div className="control submit-btn">
-                <Link href={`/contact`}>
-                  <a className="button is-ghost" type="submit">
-                    Submit
-                  </a>
-                </Link>
+                <button
+                  type="submit"
+                  className="button is-ghost"
+                  onClick={() => pageview('/contact')}
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </form>
