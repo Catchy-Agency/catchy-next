@@ -102,6 +102,10 @@ section:last-of-type {
     height: 100%;
     max-width: unset;
   }
+
+  @media (max-width: $tablet) {
+    padding-left: unset;
+  }
 }
 
 .section.TextImage {
