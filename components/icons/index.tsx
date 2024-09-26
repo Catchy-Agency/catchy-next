@@ -1350,3 +1350,51 @@ export const IconTextImageLeft = (
     />
   </svg>
 );
+
+export const IconTopLeadCaseStudy = (
+  <svg
+    width="320"
+    height="185"
+    viewBox="0 0 320 185"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M0 184.76V0H320L0 184.76Z" fill="none" />
+    <path
+      d="M79.9297 92.2904L39.9297 69.1904V115.38L79.9297 138.48V92.2904Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M0 92.19L80 46V92.19L0 138.38V92.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M119.93 23.2904L79.9297 0.19043V46.3804L119.93 69.4804V23.2904Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M160 46.1L200 23V69.19L160 92.29V46.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M200 69.1L160 46V92.19L200 115.29V69.1Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M40 69.19L120 23V69.19L40 115.38V69.19Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);
