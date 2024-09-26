@@ -167,8 +167,7 @@ export const ServiceCarousel: FC<{
         </button>
         <div className="SC-indicator-items-wrapper">
           {items.map((_, i) => {
-            return (i % itemsOnScreen === 0 && i > 0) ||
-              i === items.length - 1 ? (
+            return i % itemsOnScreen === 0 ? (
               <button
                 tabIndex={-1}
                 data-index={i}
