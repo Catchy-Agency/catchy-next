@@ -113,6 +113,12 @@ export const primaryPageBySlug = gql`
               title
               description
             }
+            ... on InternalCardItemRecord {
+              link {
+                title
+                text
+              }
+            }
           }
           link {
             __typename
@@ -770,6 +776,41 @@ export const primaryPageBySlug = gql`
               }
             }
             detailLinkLabel
+          }
+        }
+        ... on NewsletterRecord {
+          id
+          title
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              __typename
+              id
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+              grouped
+            }
           }
         }
         ... on RichTextRecord {

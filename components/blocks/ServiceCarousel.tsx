@@ -1,19 +1,25 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug';
 import { PanelCards } from '../content-links/cards/PanelCards';
 import { RightCarouselArrow } from '../icons';
+
+interface IServiceCarousel {
+  title: string;
+  description: string;
+}
+
 export const ServiceCarousel: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord;
-}> = ({ block }) => {
+  items: IServiceCarousel[];
+}> = ({ items }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLUListElement>(null);
   const [activeIndicator, setActiveIndicator] = useState<number>(0);
   const [itemsOnScreen, setItemsOnScreen] = useState<number>(3);
-  const numberOfIndicators = Math.ceil(block.panelItems.length / itemsOnScreen);
+  const numberOfIndicators = Math.ceil(items.length / itemsOnScreen);
   const pointerStart = useRef<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const scrollLeftRef = useRef<number>(0);
   const [itemWidth, setItemWidth] = useState<number>(0);
+
   useEffect(() => {
     if (!containerRef.current) return;
     handleResize();
@@ -144,7 +150,7 @@ export const ServiceCarousel: FC<{
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {block.panelItems.map((item, i) => {
+        {items.map((item, i) => {
           return <PanelCards key={i} width={itemWidth} item={item} />;
         })}
       </ul>
@@ -160,11 +166,12 @@ export const ServiceCarousel: FC<{
           {RightCarouselArrow}
         </button>
         <div className="SC-indicator-items-wrapper">
-          {block.panelItems.map((_, i) => {
-            return i % itemsOnScreen === 0 ||
-              i === block.panelItems.length - 1 ? (
+          {items.map((_, i) => {
+            return (i % itemsOnScreen === 0 && i > 0) ||
+              i === items.length - 1 ? (
               <button
                 tabIndex={-1}
+                data-index={i}
                 title={`Indicator Position ${Math.ceil(i / itemsOnScreen)}`}
                 key={`indicator-item-${i}`}
                 className={`SC-indicator-item ${

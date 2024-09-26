@@ -99,7 +99,7 @@ export interface CaseStudiesByCategoryId_allWorkCategories {
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord {
-  readonly __typename: "CarouselRecord";
+  readonly __typename: "CarouselRecord" | "NewsletterRecord";
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord_columns_image_responsiveImage {

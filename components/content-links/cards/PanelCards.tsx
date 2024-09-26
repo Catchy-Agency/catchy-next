@@ -9,7 +9,6 @@ export const PanelCards: FC<{
 }> = ({ width, item }) => {
   const device = useMediaQuery();
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -31,12 +30,12 @@ export const PanelCards: FC<{
           style={{ cursor: 'pointer' }}
         >
           <div className={`panel-dropdown ${isOpen ? 'rotate-svg' : ''}`}>
-            <h3 className="panel-item-title">{item.listTitle}</h3>
+            <h3 className="panel-item-title">{item.title}</h3>
             {AngleDown}
           </div>
           <div className={`panel-content ${isOpen ? 'open-dropdown' : ''}`}>
-            {item.detailText && (
-              <div dangerouslySetInnerHTML={{ __html: item.detailText }} />
+            {item.description && (
+              <div dangerouslySetInnerHTML={{ __html: item.description }} />
             )}
             {item.detailLink?.slug && (
               <div className="card-button">
@@ -51,9 +50,9 @@ export const PanelCards: FC<{
         </div>
       ) : (
         <div className="panel-item">
-          <h3 className="panel-item-title">{item.listTitle}</h3>
-          {item.detailText && (
-            <div dangerouslySetInnerHTML={{ __html: item.detailText }} />
+          <h3 className="panel-item-title">{item.title}</h3>
+          {item.description && (
+            <div dangerouslySetInnerHTML={{ __html: item.description }} />
           )}
           {item.detailLink?.slug && (
             <div className="card-button">

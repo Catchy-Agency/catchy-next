@@ -99,7 +99,41 @@ export const BlockSections: FC<{
                 </div>
               </section>
             );
-
+          case 'CarouselRecord':
+            const items = block.items.map((item) => ({
+              title:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.title ?? ''
+                  : item.link?.title ?? '',
+              description:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.description ?? ''
+                  : item.link?.text ?? '',
+            }));
+            return (
+              <section
+                key={block.id}
+                className="section"
+                style={{ paddingRight: 0 }}
+              >
+                <div
+                  className={classNames(
+                    'container SC-carousel-wrapper',
+                    maxClass,
+                    {
+                      'has-text-centered': textAlign === 'Center',
+                    },
+                  )}
+                >
+                  <ServiceCarousel items={items} />
+                  <Link href={block.link?.slug || ''}>
+                    <a className="button is-primary SC-button">
+                      {block.buttonLabel}
+                    </a>
+                  </Link>
+                </div>
+              </section>
+            );
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">
@@ -301,7 +335,6 @@ export const BlockSections: FC<{
                     },
                   )}
                 >
-                  <ServiceCarousel block={block} />
                   {/*<ItemsPanel block={block} />*/}
                   <Link href={'/work' || ''}>
                     <a className="button is-primary SC-button">
