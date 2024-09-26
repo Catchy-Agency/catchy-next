@@ -1191,6 +1191,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord {
   readonly text: string | null;
   readonly buttonLabel: string | null;
   readonly externalLink: string | null;
+  readonly inverted: any | null;
   readonly internalLink: PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_internalLink | null;
   readonly image: PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_image | null;
 }
