@@ -893,6 +893,7 @@ export const primaryPageBySlug = gql`
           text
           buttonLabel
           externalLink
+          inverted
           internalLink {
             __typename
             ... on PrimaryPageRecord {
