@@ -102,7 +102,9 @@ section:last-of-type {
     height: 100%;
     max-width: unset;
   }
-
+  @media (min-width: 1700px) {
+    padding-left: calc((100vw - 1440px) / 2);
+  }
   @media (max-width: $tablet) {
     padding-left: unset;
   }
