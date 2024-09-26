@@ -33,6 +33,7 @@ $svgWidthMedium: 36vh;
 
     .imageText {
       height: 100%;
+      max-width: unset !important;
       @include clip-path-right('default');
     }
 

@@ -33,6 +33,7 @@
     .imageLead {
       width: 100%;
       height: 55vh;
+      max-width: unset !important;
       clip-path: polygon(0 0, 100% 0, 100% 67%, 81% 100%, 0 100%, 0% 50%);
       position: relative;
       overflow: hidden;
