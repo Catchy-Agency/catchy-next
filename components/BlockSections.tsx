@@ -15,11 +15,13 @@ import { ColumnRow } from './blocks/ColumnRow';
 import { FormBlock } from './blocks/FormBlock';
 import { Formula } from './blocks/Formula';
 import { ImageSet } from './blocks/ImageSet';
+import { LeadCaseFullWidth } from './blocks/LeadCaseFullWidth';
 import { Newsletter } from './blocks/Newsletter';
 import { RichText } from './blocks/RichText';
 import { ServiceCarousel } from './blocks/ServiceCarousel';
 import { ServiceSet } from './blocks/ServiceSet';
 import { Team } from './blocks/Team';
+import { TextImage } from './blocks/TextImage';
 import { TitleText } from './blocks/TitleText';
 import { Video } from './blocks/Video';
 import { VideoInternal } from './blocks/VideoInternal';
@@ -28,7 +30,14 @@ import { ContentBannerL } from './content-links/banners/ContentBannerL';
 import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
 import { ContentTileM } from './content-links/cards/ContentTileM';
 import { ContentTileS } from './content-links/cards/ContentTileS';
-import { DownSoup, LeftHero, LeftUpSoup, UpSoup } from './icons';
+import {
+  DownSoup,
+  IconBottomLeadFullWidth,
+  IconRightLeadFullWidth,
+  LeftHero,
+  LeftUpSoup,
+  UpSoup,
+} from './icons';
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
@@ -61,6 +70,18 @@ export const BlockSections: FC<{
                 </div>
               </section>
             );
+
+          case 'ArticleRecord':
+            return (
+              <section key={block.id} className="section LeadCaseFullWidth">
+                <div className={classNames('container', maxClass)}>
+                  <LeadCaseFullWidth block={block} />
+                </div>
+                <div className="svg-bottomlead">{IconBottomLeadFullWidth}</div>
+                <div className="svg-rightlead">{IconRightLeadFullWidth}</div>
+              </section>
+            );
+
           case 'BannerRecord':
             return (
               <section
@@ -381,6 +402,15 @@ export const BlockSections: FC<{
               <section key={block.id} className="section TeamRecord">
                 <div className={classNames('container', maxClass)}>
                   <Team block={block} />
+                </div>
+              </section>
+            );
+
+          case 'TextImageSmallRecord':
+            return (
+              <section key={block.id} className="section TextImage">
+                <div className={classNames('container', maxClass)}>
+                  <TextImage block={block} />
                 </div>
               </section>
             );
