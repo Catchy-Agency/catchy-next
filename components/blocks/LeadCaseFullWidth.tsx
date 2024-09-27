@@ -1,19 +1,18 @@
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
-import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
+import { PrimaryPageBySlug_primaryPage_blocks_ArticleRecord } from '../../gql/types/PrimaryPageBySlug';
 
 export const LeadCaseFullWidth: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
+  block: PrimaryPageBySlug_primaryPage_blocks_ArticleRecord;
 }> = ({ block }) => {
   return (
     <div className="is-flex-direction-column container-fullWidth">
-      {block.foregroundImage && (
-        <div className="imageLead">
-          <Image
-            data={block.foregroundImage.responsiveImage as ResponsiveImageType}
-            lazyLoad={false}
-          />
-        </div>
+      {block.image && (
+        <Image
+          data={block.image.responsiveImage as ResponsiveImageType}
+          lazyLoad={false}
+          className="imageLead"
+        />
       )}
 
       <div className="info">
