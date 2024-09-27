@@ -1,0 +1,80 @@
+.textStudy-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+
+  .study-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .textStudy-description {
+      margin-bottom: 80px;
+      @include hdl4;
+    }
+  }
+
+  .imgStudy-container {
+    height: 80vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .imageStudy {
+      width: 100%;
+      height: 100%;
+      max-width: unset !important;
+      clip-path: polygon(52% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 25%);
+    }
+
+    .svg-leadCaseStudy {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 26%;
+
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: calc(1440px + 200px)) {
+    .imgStudy-container {
+      .imageStudy {
+        clip-path: polygon(50% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 25%);
+      }
+    }
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    .imgStudy-container {
+      height: 60vh;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column-reverse;
+    gap: 5rem;
+
+    .study-content {
+      padding: 0 1rem;
+    }
+
+    .imgStudy-container {
+      .imageStudy {
+        height: 45vh;
+        clip-path: polygon(42% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 24%);
+      }
+      .svg-leadCaseStudy {
+        width: 40%;
+        height: 25%;
+      }
+    }
+  }
+}
