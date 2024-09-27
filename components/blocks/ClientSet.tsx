@@ -27,12 +27,8 @@ export const ClientSet: FC<{
     <div className="soupWrapper">
       <div className="soupTitle">
         <div className="textContent">
-          <h2 className="title is-2">Who We Work With</h2>
-          <p className="content">
-            We help the biggest brands in technology, scale-ups in emerging
-            technology, and traditional Fortune 500 companies reinvent the way
-            they do business.
-          </p>
+          <h2 className="title is-2">{block.title}</h2>
+          <p className="content">{block.subtitle}</p>
         </div>
       </div>
       <div className="soupContent">
@@ -57,11 +53,13 @@ export const ClientSet: FC<{
         </div>
       </div>
       <div className="soupBottom">
-        <div className="buttonContent">
-          <Link href={`/work`}>
-            <a className="button is-primary is-dark">See Our Work</a>
-          </Link>
-        </div>
+        {block.link?.slug && (
+          <div className="buttonContent">
+            <Link href={block.link?.slug}>
+              <a className="button is-primary is-dark">{block.buttonLabel}</a>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
