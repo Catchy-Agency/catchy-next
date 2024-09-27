@@ -1074,7 +1074,7 @@ export interface AllCaseStudies_primaryPage_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
-export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_serviceImage_responsiveImage {
+export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -1087,9 +1087,9 @@ export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_ser
   readonly base64: string | null;
 }
 
-export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_serviceImage {
+export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_previewImage {
   readonly __typename: "FileField";
-  readonly responsiveImage: AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_serviceImage_responsiveImage | null;
+  readonly responsiveImage: AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_previewImage_responsiveImage | null;
 }
 
 export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services {
@@ -1098,7 +1098,7 @@ export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services {
   readonly title: string | null;
   readonly text: string | null;
   readonly fontAwesomeIcon: string | null;
-  readonly serviceImage: AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_serviceImage | null;
+  readonly previewImage: AllCaseStudies_primaryPage_blocks_ServiceSetRecord_services_previewImage | null;
 }
 
 export interface AllCaseStudies_primaryPage_blocks_ServiceSetRecord {

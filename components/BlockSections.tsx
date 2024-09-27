@@ -5,6 +5,7 @@ import { ResponsiveImageType } from 'react-datocms';
 import Link from 'next/link';
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug';
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug';
+import { ServicePagesBySlug_service_blocks } from '../gql/types/ServicePagesBySlug';
 import { prefixByTypename } from '../util/url';
 import { AgencyModel } from './blocks/AgencyModel';
 import { Banner } from './blocks/Banner';
@@ -43,7 +44,10 @@ export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
   textAlign?: string | null;
   blocks: ReadonlyArray<
-    PrimaryPageBySlug_primaryPage_blocks | BlogPostBySlug_blogPost_blocks | null
+    | PrimaryPageBySlug_primaryPage_blocks
+    | BlogPostBySlug_blogPost_blocks
+    | ServicePagesBySlug_service_blocks
+    | null
   >;
 }> = ({ blocks, containerMax, textAlign }) => {
   const alignClass = {

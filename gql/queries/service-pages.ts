@@ -1,19 +1,17 @@
 import gql from 'graphql-tag';
 
-export const allPrimaryPageSlugs = gql`
-  query AllPrimaryPageSlugs {
-    allPrimaryPages(first: 100) {
+export const allServicesBySlug = gql`
+  query allServicesSlugs {
+    allServices(first: 100) {
       slug
     }
   }
 `;
 
-export const primaryPageBySlug = gql`
-  query PrimaryPageBySlug($slug: String) {
-    primaryPage(filter: { slug: { eq: $slug } }) {
+export const servicePagesBySlug = gql`
+  query ServicePagesBySlug($slug: String) {
+    service(filter: { slug: { eq: $slug } }) {
       title
-      showBreadcrumbs
-      textAlign
       blocks {
         __typename
         ... on AgencyModelRecord {
@@ -144,6 +142,31 @@ export const primaryPageBySlug = gql`
             __typename
             ... on PrimaryPageRecord {
               slug
+            }
+          }
+        }
+        ... on CaseStudyTileRecord {
+          id
+          title
+          overline
+          buttonLabel
+          caseStudy {
+            slug
+            description
+            previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
             }
           }
         }
@@ -936,37 +959,6 @@ export const primaryPageBySlug = gql`
             width
           }
         }
-        ... on VideoInternalRecord {
-          id
-          thumbnail {
-            id
-            title
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 1344, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
-          video {
-            height
-            mimeType
-            title
-            video {
-              mp4Url
-              streamingUrl
-              thumbnailUrl
-            }
-            width
-          }
-        }
         ... on ViewMoreLinkRecord {
           id
           text
@@ -1013,6 +1005,7 @@ export const primaryPageBySlug = gql`
     footer {
       title
       formTitle
+      nameLabel
       firstNameLabel
       lastNameLabel
       emailAddressLabel

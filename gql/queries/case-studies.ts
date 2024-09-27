@@ -830,7 +830,7 @@ export const allCaseStudies = gql`
             title
             text
             fontAwesomeIcon
-            serviceImage {
+            previewImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
               ) {
@@ -1815,7 +1815,7 @@ export const caseStudiesByCategoryId = gql`
             title
             text
             fontAwesomeIcon
-            serviceImage {
+            previewImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
               ) {
