@@ -1,36 +1,37 @@
-import { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { MouseEventHandler, useMemo } from 'react'
+import { NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { MouseEventHandler, useMemo } from 'react';
 import {
-  renderMetaTags,
   ResponsiveImageType,
+  renderMetaTags,
   useQuerySubscription,
-} from 'react-datocms'
-import { AllCaseStudies } from '../../gql/types/AllCaseStudies'
-import { Subscription } from '../../util/dato-cms'
-import { BlockSections } from '../BlockSections'
-import { PageError } from '../cms/PageError'
-import { PreviewBanner } from '../cms/PreviewBanner'
-import { ContentTileS } from '../content-links/cards/ContentTileS'
-import { Footer } from '../Footer'
-import { Header } from '../Header'
+} from 'react-datocms';
+import { AllCaseStudies } from '../../gql/types/AllCaseStudies';
+import { CaseStudyBySlug_caseStudy_blocks } from '../../gql/types/CaseStudyBySlug';
+import { Subscription } from '../../util/dato-cms';
+import { BlockSections } from '../BlockSections';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
+import { PageError } from '../cms/PageError';
+import { PreviewBanner } from '../cms/PreviewBanner';
+import { ContentTileS } from '../content-links/cards/ContentTileS';
 
-const PAGE_SIZE = 9
+const PAGE_SIZE = 9;
 
 export interface CaseStudyListPageProps {
-  subscription: Subscription<AllCaseStudies>
-  path: string
+  subscription: Subscription<AllCaseStudies>;
+  path: string;
 }
 
 export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
   subscription,
   path,
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { data, error, status } =
-    useQuerySubscription<AllCaseStudies>(subscription)
+    useQuerySubscription<AllCaseStudies>(subscription);
 
   const links =
     data?.allCaseStudies.map((post) => ({
@@ -47,23 +48,23 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       imageCol:
         (post.previewImageCol?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
-    })) || []
+    })) || [];
 
-  const p = Number(router.query.p)
-  const pageNum = Number.isNaN(p) ? 1 : p
-  const pageCount = Math.ceil(links.length / PAGE_SIZE)
-  const pageIndex = pageNum - 1
+  const p = Number(router.query.p);
+  const pageNum = Number.isNaN(p) ? 1 : p;
+  const pageCount = Math.ceil(links.length / PAGE_SIZE);
+  const pageIndex = pageNum - 1;
   const visibleLinks = links.slice(
     pageIndex * PAGE_SIZE,
     (pageIndex + 1) * PAGE_SIZE,
-  )
+  );
 
   const sortedCategories = useMemo(() => {
-    if (!data?.allWorkCategories) return undefined
+    if (!data?.allWorkCategories) return undefined;
     return [...data.allWorkCategories].sort(
       (a, b) => a.name?.localeCompare(b.name ?? '') ?? 0,
-    )
-  }, [data?.allWorkCategories])
+    );
+  }, [data?.allWorkCategories]);
 
   return (
     <div className="primary-page">
@@ -95,7 +96,10 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         </header>
       )}
       <BlockSections
-        blocks={data?.primaryPage?.blocks || []}
+        blocks={
+          (data?.primaryPage?.blocks ||
+            []) as CaseStudyBySlug_caseStudy_blocks[]
+        }
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
@@ -205,8 +209,8 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
-  )
-}
+  );
+};
 
 const buttonClickBlur: MouseEventHandler<HTMLButtonElement> = (e) =>
-  e.currentTarget.blur()
+  e.currentTarget.blur();

@@ -40,11 +40,14 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
   const observer = useRef<IntersectionObserver>();
 
   useEffect(() => {
-    getPosts(0);
+    getPosts(0).catch((err: Error) => {
+      throw new Error(err?.message);
+    });
     setCurrentOffset(0);
     setCurrentDisplay(0);
     currentDisplayOffset.current = 0;
     setNewDisplayBreakpoint(currentDisplayOffset.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query]);
 
   useEffect(() => {
@@ -59,7 +62,9 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
             if (currentDisplay % AMOUNT_OF_ITEMS === 0) {
               const newOffset = currentOffset + 1;
               setCurrentOffset(newOffset);
-              getPosts(newOffset);
+              getPosts(newOffset).catch((err: Error) => {
+                throw new Error(err?.message);
+              });
             }
 
             currentDisplayOffset.current += 1;
@@ -72,9 +77,10 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
       },
     );
 
-    observer.current!.observe(triggerItem);
+    observer.current.observe(triggerItem);
 
-    return () => observer.current!.disconnect();
+    return () => observer.current && observer.current.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentDisplay, blogPosts]);
 
   const sortedCategories = useMemo(() => {
@@ -91,7 +97,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     const res = await getPaginatedBlogPosts(
       AMOUNT_OF_ITEMS,
       AMOUNT_OF_ITEMS * (offset ?? currentOffset),
-      categoryId?.id,
+      (categoryId?.id ?? '') as string,
     );
     const posts = mapPosts(res);
     const newBlogPosts = offset === 0 ? posts : [...blogPosts, ...posts];

@@ -130,11 +130,13 @@ export const primaryPageBySlug = gql`
           items {
             __typename
             ... on ExternalCardItemRecord {
+              id
               title
               description
             }
             ... on InternalCardItemRecord {
               link {
+                id
                 title
                 text
               }

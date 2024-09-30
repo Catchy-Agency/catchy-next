@@ -7,10 +7,6 @@
 // GraphQL query operation: CaseStudyBySlug
 // ====================================================
 
-export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord {
-  readonly __typename: "TeamRecord";
-}
-
 export interface CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -812,6 +808,39 @@ export interface CaseStudyBySlug_caseStudy_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image_responsiveImage | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members {
+  readonly __typename: "MemberRecord";
+  readonly id: any;
+  readonly name: string | null;
+  readonly title: string | null;
+  readonly image: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord {
+  readonly __typename: "TeamRecord";
+  readonly id: any;
+  readonly teamTitle: string | null;
+  readonly members: ReadonlyArray<CaseStudyBySlug_caseStudy_blocks_TeamRecord_members>;
+}
+
 export interface CaseStudyBySlug_caseStudy_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
   readonly height: any;
@@ -872,7 +901,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord {
   readonly video: CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord_video | null;
 }
 
-export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_TeamRecord | CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
+export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_TeamRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
 
 export interface CaseStudyBySlug_caseStudy_categories {
   readonly __typename: "WorkCategoryRecord";

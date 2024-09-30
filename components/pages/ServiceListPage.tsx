@@ -1,7 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { MouseEventHandler } from 'react';
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { ServicePagesBySlug } from '../../gql/types/ServicePagesBySlug';
 import { Subscription } from '../../util/dato-cms';
@@ -11,8 +9,6 @@ import { Header } from '../Header';
 import { PageError } from '../cms/PageError';
 import { PreviewBanner } from '../cms/PreviewBanner';
 
-const PAGE_SIZE = 9;
-
 export interface ServicePageListProps {
   subscription: Subscription<ServicePagesBySlug>;
 }
@@ -20,7 +16,6 @@ export interface ServicePageListProps {
 export const ServiceLPage: NextPage<ServicePageListProps> = ({
   subscription,
 }) => {
-  const router = useRouter();
   const { data, error, status } =
     useQuerySubscription<ServicePagesBySlug>(subscription);
 
@@ -52,11 +47,8 @@ export const ServiceLPage: NextPage<ServicePageListProps> = ({
       <section
         className="ContentLinkSetRecord card--columns"
         style={{ marginTop: '0' }}
-      ></section>
+      />
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
   );
 };
-
-const buttonClickBlur: MouseEventHandler<HTMLButtonElement> = (e) =>
-  e.currentTarget.blur();

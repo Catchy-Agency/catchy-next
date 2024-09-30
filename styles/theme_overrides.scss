@@ -324,7 +324,7 @@ a.is-block-link:focus {
     }
   }
 
-  .navbar-dropdown {
+  .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
     border: 1px solid #d4d6d969;
     .navbar-item {
       justify-content: start; // left-align
@@ -332,7 +332,13 @@ a.is-block-link:focus {
       padding-bottom: 0.25rem;
 
       &.is-active {
-        background-color: $navbar-dropdown-item-active-background-color !important; // !important to override bulma nav-item defaults, sad trombone
+        color: #fff;
+        border-bottom: 1px solid #fff;
+        &:hover {
+          &::before {
+            transform: scaleX(0);
+          }
+        }
       }
     }
   }
@@ -378,9 +384,12 @@ a.navbar-item.is-tab:not(.button):hover {
   min-height: unset;
   align-items: center;
   height: fit-content;
-  > svg {
+  > button {
     transform: rotate(0deg);
     transition: transform 250ms ease-in-out;
+    background: none;
+    border: none;
+    padding: 0;
   }
   &::before {
     content: '';
@@ -403,11 +412,13 @@ a.navbar-item.is-tab:not(.button):hover {
     &::before {
       transform: scaleX(1);
     }
-    > svg {
-      > path {
-        fill: $turquoise;
-      }
+    > button {
       transform: rotate(180deg);
+      svg {
+        > path {
+          fill: $turquoise;
+        }
+      }
     }
   }
 }
@@ -416,6 +427,7 @@ a.navbar-item.is-tab:not(.button):hover {
   height: 100%;
   align-items: center;
   .navbar-dropdown {
+    display: none;
     border-radius: 0;
     right: 0;
     left: unset;
@@ -490,10 +502,12 @@ a.navbar-item.is-tab:not(.button):hover {
     display: flex;
     flex-direction: column;
     gap: 0;
+    align-items: flex-end;
+    padding-right: clamp(2rem, 5vw, 3rem);
     > .navbar-item.has-dropdown {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
     }
   }
   .navbar-menu {
@@ -501,15 +515,14 @@ a.navbar-item.is-tab:not(.button):hover {
     padding: 0;
     padding-bottom: 1rem;
     .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
-      display: flex;
+      display: none;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
       gap: 10px;
       border: none;
-      &:hover,
-      &:active,
-      &:focus {
-        align-items: center;
+      padding-right: 1.5rem;
+      &.is-expanded {
+        display: flex;
       }
     }
   }
@@ -520,6 +533,11 @@ a.navbar-item.is-tab:not(.button):hover {
     border-bottom: none;
     min-height: 0px;
     padding-bottom: 0.5rem;
+
+    .header-link-button {
+      background: none;
+      border: none;
+    }
   }
   a.navbar-item.is-tab.is-active:not(.button),
   a.navbar-item.is-tab:not(.button):hover {
