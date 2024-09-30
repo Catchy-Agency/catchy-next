@@ -155,12 +155,14 @@ export interface ServicePagesBySlug_service_blocks_ButtonInternalRecord {
 
 export interface ServicePagesBySlug_service_blocks_CarouselRecord_items_ExternalCardItemRecord {
   readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly description: string | null;
 }
 
 export interface ServicePagesBySlug_service_blocks_CarouselRecord_items_InternalCardItemRecord_link {
   readonly __typename: "ServiceRecord";
+  readonly id: any;
   readonly title: string | null;
   readonly text: string | null;
 }

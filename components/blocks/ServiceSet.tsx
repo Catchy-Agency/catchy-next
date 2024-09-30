@@ -1,11 +1,11 @@
-import classNames from 'classnames'
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import classNames from 'classnames';
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
-import { PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord } from '../../gql/types/PrimaryPageBySlug'
+import { PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord } from '../../gql/types/PrimaryPageBySlug';
 
 export const ServiceSet: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord
+  block: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord;
 }> = ({ block }) => (
   <div className="columns is-multiline is-mobile">
     {block.services.map((service) => (
@@ -15,11 +15,11 @@ export const ServiceSet: FC<{
       >
         <div className="service-item">
           <div className="title is-4 py-6">
-            {service.serviceImage?.responsiveImage ? (
+            {service.previewImage?.responsiveImage ? (
               <figure className="image">
                 <Image
                   data={
-                    service.serviceImage?.responsiveImage as ResponsiveImageType
+                    service.previewImage?.responsiveImage as ResponsiveImageType
                   }
                   lazyLoad={false}
                 />
@@ -54,4 +54,4 @@ export const ServiceSet: FC<{
       </div>
     ))}
   </div>
-)
+);

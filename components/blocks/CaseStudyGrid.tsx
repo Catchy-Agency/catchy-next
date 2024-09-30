@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord } from '../../gql/types/PrimaryPageBySlug';
-import { PanelCards } from '../content-links/cards/PanelCards';
 
 export const CaseStudyGrid: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord;
@@ -21,7 +20,7 @@ export const CaseStudyGrid: FC<{
                     lazyLoad={false}
                   />{' '}
                 </div>
-                <PanelCards key={i} item={item} />
+                {/*<PanelCards key={i} item={item} />*/}
               </div>
             </div>
           );

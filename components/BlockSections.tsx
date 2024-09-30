@@ -4,6 +4,7 @@ import { ResponsiveImageType } from 'react-datocms';
 
 import Link from 'next/link';
 import { BlogPostBySlug_blogPost_blocks } from '../gql/types/BlogPostBySlug';
+import { CaseStudyBySlug_caseStudy_blocks } from '../gql/types/CaseStudyBySlug';
 import { PrimaryPageBySlug_primaryPage_blocks } from '../gql/types/PrimaryPageBySlug';
 import { ServicePagesBySlug_service_blocks } from '../gql/types/ServicePagesBySlug';
 import { prefixByTypename } from '../util/url';
@@ -48,6 +49,7 @@ export const BlockSections: FC<{
     | PrimaryPageBySlug_primaryPage_blocks
     | BlogPostBySlug_blogPost_blocks
     | ServicePagesBySlug_service_blocks
+    | CaseStudyBySlug_caseStudy_blocks
     | null
   >;
 }> = ({ blocks, containerMax, textAlign }) => {
@@ -136,8 +138,12 @@ export const BlockSections: FC<{
               </section>
             );
 
-          case 'CarouselRecord':
+          case 'CarouselRecord': {
             const items = block.items.map((item) => ({
+              id:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.id
+                  : item.link?.id,
               title:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.title ?? ''
@@ -171,6 +177,7 @@ export const BlockSections: FC<{
                 </div>
               </section>
             );
+          }
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">

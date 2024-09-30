@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { PanelCards } from '../content-links/cards/PanelCards';
 import { RightCarouselArrow } from '../icons';
 
 interface IServiceCarousel {
+  id: string;
   title: string;
   description: string;
 }
@@ -19,25 +20,26 @@ export const ServiceCarousel: FC<{
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const scrollLeftRef = useRef<number>(0);
   const [itemWidth, setItemWidth] = useState<number>(0);
+  const activeIndicatorRef = useRef(activeIndicator); // added to avoid putting dependency on useCallback as it affects the scroll behavior.
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  function handleResize() {
+  const handleResize = useCallback(() => {
     if (!containerRef.current || !carouselRef.current) return;
     const windowsWidth = window.innerWidth;
     const itemsAmt = getItemsAmount(windowsWidth);
     setItemsOnScreen(itemsAmt);
     setItemWidth(Math.floor(containerRef.current.offsetWidth / itemsAmt));
     carouselRef.current.scrollTo({
-      left: containerRef.current.offsetWidth * activeIndicator,
+      left: containerRef.current.offsetWidth * activeIndicatorRef.current,
       behavior: 'auto',
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [handleResize]);
 
   function getItemsAmount(width: number) {
     if (width < 1150 && width > 850) return 2;
@@ -88,14 +90,14 @@ export const ServiceCarousel: FC<{
   }
 
   function handlePointerUp(e: React.MouseEvent) {
-    if (!isDragging || !carouselRef.current) return;
+    if (!isDragging || !carouselRef.current || !containerRef.current) return;
     if (pointerStart.current - 20 > e.clientX) {
       handleIndicatorClickRight();
     } else if (pointerStart.current + 20 < e.clientX) {
       handleIndicatorClickLeft();
     } else {
       carouselRef.current.scrollTo({
-        left: containerRef.current!.offsetWidth * activeIndicator,
+        left: containerRef.current.offsetWidth * activeIndicator,
         behavior: 'smooth',
       });
     }
@@ -104,24 +106,30 @@ export const ServiceCarousel: FC<{
   }
 
   function handleTouchStart(e: React.TouchEvent) {
-    if (isDragging || !carouselRef.current) return;
+    if (isDragging || !carouselRef.current || !e.touches[0]) return;
 
-    pointerStart.current = e.touches[0]!.clientX;
+    pointerStart.current = e.touches[0].clientX;
     scrollLeftRef.current = carouselRef.current.scrollLeft;
 
     setIsDragging(true);
   }
 
   function handleTouchEnd(e: React.TouchEvent) {
-    if (!isDragging || !carouselRef.current) return;
+    if (
+      !isDragging ||
+      !carouselRef.current ||
+      !e.changedTouches[0] ||
+      !containerRef.current
+    )
+      return;
 
-    if (pointerStart.current + 20 > e.changedTouches[0]!.clientX) {
+    if (pointerStart.current + 20 > e.changedTouches[0].clientX) {
       handleIndicatorClickRight();
-    } else if (pointerStart.current - 20 < e.changedTouches[0]!.clientX) {
+    } else if (pointerStart.current - 20 < e.changedTouches[0].clientX) {
       handleIndicatorClickLeft();
     } else {
       carouselRef.current.scrollTo({
-        left: containerRef.current!.offsetWidth * activeIndicator,
+        left: containerRef.current.offsetWidth * activeIndicator,
         behavior: 'smooth',
       });
     }
@@ -130,10 +138,15 @@ export const ServiceCarousel: FC<{
   }
 
   function handleIndicatorClick(position: number) {
-    if (!carouselRef.current || position === activeIndicator) return;
+    if (
+      !carouselRef.current ||
+      position === activeIndicator ||
+      !containerRef.current
+    )
+      return;
     setActiveIndicator(position);
     carouselRef.current.scrollTo({
-      left: containerRef.current!.offsetWidth * position,
+      left: containerRef.current.offsetWidth * position,
       behavior: 'smooth',
     });
   }

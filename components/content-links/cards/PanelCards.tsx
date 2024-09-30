@@ -1,11 +1,21 @@
 import Link from 'next/link';
 import { FC, useState } from 'react';
+import { ResponsiveImageType } from 'react-datocms';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { AngleDown } from '../../icons';
 
+export interface IPanelCard {
+  id: string;
+  title: string;
+  description: string;
+  buttonLabel?: string;
+  slug?: string;
+  image?: ResponsiveImageType;
+}
+
 export const PanelCards: FC<{
   width?: number;
-  item: any;
+  item: IPanelCard;
 }> = ({ width, item }) => {
   const device = useMediaQuery();
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +33,7 @@ export const PanelCards: FC<{
         } as React.CSSProperties
       }
     >
-      {device === 'mobile' && item.detailImage ? (
+      {device === 'mobile' && item.image ? (
         <div
           className={`panel-item`}
           onClick={toggleDropdown}
@@ -37,11 +47,11 @@ export const PanelCards: FC<{
             {item.description && (
               <div dangerouslySetInnerHTML={{ __html: item.description }} />
             )}
-            {item.detailLink?.slug && (
+            {item.slug && (
               <div className="card-button">
-                <Link href={`/${item.detailLink.slug}`}>
+                <Link href={`/${item.slug}`}>
                   <a className="button is-primary mt-4">
-                    {item.detailLinkLabel || 'Learn More'}
+                    {item.buttonLabel || 'Learn More'}
                   </a>
                 </Link>
               </div>
@@ -54,11 +64,11 @@ export const PanelCards: FC<{
           {item.description && (
             <div dangerouslySetInnerHTML={{ __html: item.description }} />
           )}
-          {item.detailLink?.slug && (
+          {item.slug && (
             <div className="card-button">
-              <Link href={`/${item.detailLink.slug}`}>
+              <Link href={`/${item.slug}`}>
                 <a className="button is-primary mt-4">
-                  {item.detailLinkLabel || 'Learn More'}
+                  {item.buttonLabel || 'Learn More'}
                 </a>
               </Link>
             </div>

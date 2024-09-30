@@ -131,41 +131,52 @@ const DropdownLinks: FC<{
     | PrimaryPageBySlug_header['resourceLinks'];
   isDropdownActive: boolean;
   router: NextRouter;
-}> = ({ title, links, isDropdownActive, router }) => (
-  <div
-    className="navbar-item has-dropdown is-hoverable"
-    onClick={(e) => {
-      // Prevent dropdown from hanging around
-      (e.target as HTMLElement).blur();
-    }}
-  >
-    <a
-      className={classNames('navbar-item', 'is-tab', {
-        'is-active': isDropdownActive,
-      })}
+}> = ({ title, links, isDropdownActive, router }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  function handleExpand(e: React.MouseEvent) {
+    e.stopPropagation();
+    if (typeof window === 'undefined') return;
+    if (window.innerWidth > 1024) return;
+    setIsExpanded(!isExpanded);
+  }
+  return (
+    <div
+      className="navbar-item has-dropdown is-hoverable"
+      onClick={(e) => {
+        // Prevent dropdown from hanging around
+        (e.target as HTMLElement).blur();
+      }}
     >
-      {title}
-      {AngleDown}
-    </a>
-    <div className="navbar-dropdown">
-      {links.map((link) => {
-        const href = `/${link.slug || ''}`;
-        const isActive =
-          router.pathname === '/[slug]'
-            ? link.slug === router.query.slug
-            : router.pathname.startsWith(href);
-        return (
-          <Link key={href} href={href}>
-            <a
-              className={classNames('navbar-item', {
-                'is-active': isActive,
-              })}
-            >
-              {link.title}
-            </a>
-          </Link>
-        );
-      })}
+      <a
+        className={classNames('navbar-item', 'is-tab', {
+          'is-active': isDropdownActive,
+        })}
+      >
+        {title}
+        <button className="header-link-button" onClick={handleExpand}>
+          {AngleDown}
+        </button>
+      </a>
+      <div className={`navbar-dropdown ${isExpanded ? 'is-expanded' : ''}`}>
+        {links.map((link) => {
+          const href = `/${link.slug || ''}`;
+          const isActive =
+            router.pathname === '/[slug]'
+              ? link.slug === router.query.slug
+              : router.pathname.startsWith(href);
+          return (
+            <Link key={href} href={href}>
+              <a
+                className={classNames('navbar-item', {
+                  'is-active': isActive,
+                })}
+              >
+                {link.title}
+              </a>
+            </Link>
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
+};
