@@ -1,11 +1,11 @@
-import classNames from 'classnames'
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import classNames from 'classnames';
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
-import { BlogPostBySlug_blogPost_blocks_ImageSetRecord } from '../../gql/types/BlogPostBySlug'
+import { BlogPostBySlug_blogPost_blocks_ImageSetRecord } from '../../gql/types/BlogPostBySlug';
 
 export const ImageSet: FC<{
-  block: BlogPostBySlug_blogPost_blocks_ImageSetRecord
+  block: BlogPostBySlug_blogPost_blocks_ImageSetRecord;
 }> = ({ block }) => (
   <div
     className={classNames('columns', {
@@ -13,7 +13,7 @@ export const ImageSet: FC<{
     })}
   >
     {block.imageSet.map((image) => (
-      <div key={image.id} className="column">
+      <div key={image.id} className="column is-blog">
         <Image
           data={image.responsiveImage as ResponsiveImageType}
           lazyLoad={false}
@@ -21,4 +21,4 @@ export const ImageSet: FC<{
       </div>
     ))}
   </div>
-)
+);

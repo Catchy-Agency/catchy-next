@@ -16,26 +16,6 @@ h6 {
   letter-spacing: 0.5px;
 }
 
-/* .container {
-  $padding_horizontal: min(80px, 5.5556%);
-  padding-left: $padding_horizontal;
-  padding-right: $padding_horizontal;
-}
- */
-a,
-.breadcrumb a {
-  color: $primary;
-  transition: color 200ms ease;
-  &:hover,
-  &.has-text-primary:hover {
-    color: $turquoise-interact;
-  }
-  &:focus,
-  &.has-text-primary:focus {
-    text-decoration: underline;
-  }
-}
-
 a.is-block-link,
 a.is-block-link:hover,
 a.is-block-link:active,
