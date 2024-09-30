@@ -203,10 +203,100 @@ section:last-of-type {
     padding-bottom: 0;
   }
 }
+.content-post {
+  background-color: #f2f2f2;
+  .container {
+    color: $anthracite;
+  }
 
+  .is-blog {
+    :first-child {
+      max-width: unset !important;
+    }
+  }
+
+  .section.Work,
+  .section.Blog {
+    padding: 3rem $global-padding;
+    .breadcrumb a {
+      color: $primary;
+      transition: color 200ms ease;
+      &:hover,
+      &.has-text-primary:hover {
+        color: $lagoon;
+      }
+      &:focus,
+      &.has-text-primary:focus {
+        text-decoration: underline;
+      }
+    }
+    .title-blog,
+    .title-work {
+      color: $anthracite;
+    }
+
+    .author-blog {
+      .author-image {
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 100%, 0% 50%);
+      }
+      .media-content {
+        p {
+          color: $anthracite;
+          @include bdy-md();
+        }
+        .author-name {
+          font-weight: 700;
+        }
+      }
+    }
+    .tags {
+      .tag {
+        background-color: unset;
+        color: $anthracite;
+        @include bdy-md();
+        font-weight: 700;
+        padding-left: unset;
+        padding-right: unset;
+      }
+    }
+  }
+  > .section.RichTextRecord {
+    padding: 0 18rem;
+    color: $anthracite;
+    a {
+      text-decoration: underline;
+    }
+    strong {
+      color: $anthracite;
+      @include blog-work();
+    }
+    b {
+      @include hdl4();
+    }
+    a,
+    b,
+    p {
+      color: $anthracite;
+      @include bdy-md();
+    }
+    blockquote {
+      background-color: $anthracite;
+      border-left: 5px solid $turquoise;
+      strong,
+      p,
+      a,
+      ul {
+        color: #f2f2f2;
+      }
+    }
+  }
+
+  > .section.ColumnRowRecord {
+    padding: 0 18rem;
+  }
+}
 //
 // More fragile hacks
-//
 
 .section.ServiceSetRecord {
   .title.is-5:not(:last-child) {
