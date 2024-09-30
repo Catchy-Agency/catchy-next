@@ -1449,3 +1449,33 @@ export const IconNewsletter = (
     />
   </svg>
 );
+
+export const IconImageTeam = (
+  <svg
+    width="81"
+    height="93"
+    viewBox="0 0 81 93"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M81 46.81L81 93L1 93L81 46.81Z" fill="none" />
+    <path
+      d="M41 69.91L1 93L1 46.81L41 23.72L41 69.91Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M81 47.1898L41 70.2798L41 24.0898L81 0.999786L81 47.1898Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M41 69.91L81 93L81 46.81L41 23.72L41 69.91Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);

@@ -358,11 +358,6 @@ section:last-of-type {
 // Own utilitites
 //
 
-.circle-crop {
-  border-radius: 1000px;
-  overflow: hidden;
-}
-
 .has-cover-image * {
   width: 100%;
   height: 100%;
@@ -383,6 +378,7 @@ section:last-of-type {
 @import 'components/text-image';
 @import 'components/newsletter';
 @import 'components/lead-case-study';
+@import 'components/team';
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
 //
