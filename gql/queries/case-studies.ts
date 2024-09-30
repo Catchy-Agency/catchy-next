@@ -2586,6 +2586,30 @@ export const caseStudyBySlug = gql`
           id
           richText
         }
+        ... on TeamRecord {
+          id
+          teamTitle
+          members {
+            id
+            name
+            title
+            image {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
+        }
         ... on VideoRecord {
           id
           video {
