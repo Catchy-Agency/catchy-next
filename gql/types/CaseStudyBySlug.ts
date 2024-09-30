@@ -7,6 +7,10 @@
 // GraphQL query operation: CaseStudyBySlug
 // ====================================================
 
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord {
+  readonly __typename: "TeamRecord";
+}
+
 export interface CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord {
   readonly __typename: "ButtonExternalRecord";
   readonly id: any;
@@ -868,7 +872,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord {
   readonly video: CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord_video | null;
 }
 
-export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
+export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_TeamRecord | CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
 
 export interface CaseStudyBySlug_caseStudy_categories {
   readonly __typename: "WorkCategoryRecord";

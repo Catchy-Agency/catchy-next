@@ -3238,6 +3238,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "TeamRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "VideoInternalRecord",
             "ofType": null
           },
