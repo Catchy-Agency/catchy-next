@@ -17,6 +17,7 @@ import { FormBlock } from './blocks/FormBlock';
 import { Formula } from './blocks/Formula';
 import { ImageSet } from './blocks/ImageSet';
 import { LeadCaseFullWidth } from './blocks/LeadCaseFullWidth';
+import { LeadCaseStudy } from './blocks/LeadCaseStudy';
 import { Newsletter } from './blocks/Newsletter';
 import { RichText } from './blocks/RichText';
 import { ServiceCarousel } from './blocks/ServiceCarousel';
@@ -125,6 +126,16 @@ export const BlockSections: FC<{
                 </div>
               </section>
             );
+
+          case 'CaseStudyTileRecord':
+            return (
+              <section key={block.id} className="section LeadCaseStudy">
+                <div className={classNames('container', maxClass)}>
+                  <LeadCaseStudy block={block} />
+                </div>
+              </section>
+            );
+
           case 'CarouselRecord':
             const items = block.items.map((item) => ({
               title:
