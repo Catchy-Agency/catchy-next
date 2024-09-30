@@ -230,6 +230,9 @@ section:last-of-type {
         text-decoration: underline;
       }
     }
+    .breadcrumb li + .is-active a {
+      color: $anthracite;
+    }
     .title-blog,
     .title-work {
       color: $anthracite;
@@ -263,6 +266,13 @@ section:last-of-type {
   > .section.RichTextRecord {
     padding: 0 18rem;
     color: $anthracite;
+    @media (max-width: calc(1024px + 200px)) {
+      padding: 0 10rem;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 0 1rem;
+    }
     a {
       text-decoration: underline;
     }
@@ -272,16 +282,26 @@ section:last-of-type {
     }
     b {
       @include hdl4();
+      > em {
+        @include bdy-md();
+      }
     }
     a,
     b,
-    p {
+    p,
+    em {
       color: $anthracite;
       @include bdy-md();
     }
     blockquote {
       background-color: $anthracite;
       border-left: 5px solid $turquoise;
+      @include bdy-md();
+
+      strong {
+        font-size: 16px !important;
+        font-weight: 700;
+      }
       strong,
       p,
       a,
