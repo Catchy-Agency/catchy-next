@@ -171,42 +171,31 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
       </header>
       <section className="section">
         <div className="container is-max-widescreen">
-          <div className="columns">
-            <div className="column is-one-fifth-desktop is-flex-grow-0">
+          <div className="blog-posts-container">
+            <div className="blog-categories">
               <h5 className="title is-5">Categories</h5>
-              <hr />
-              {sortedCategories?.map((cat) => (
-                <div key={cat.id} className="mb-2 mr-2 is-inline-block-mobile">
-                  {cat.slug === router.query.slug ? (
-                    <div className="tags are-medium has-addons">
-                      <span className="tag is-primary">
-                        {cat.name}
-                        &nbsp; &nbsp;
-                        <Link href="/blog" scroll={false}>
-                          <a
-                            className="has-text-white"
-                            style={{
-                              margin: '-0.33rem -1rem',
-                              padding: '0.33rem 1rem',
-                            }}
-                          >
-                            ✕
-                          </a>
-                        </Link>
-                      </span>
-                    </div>
-                  ) : (
+              <div className="blog-category-list-container">
+                <div className="mb-2 mr-2 is-inline-block-mobile">
+                  <Link href={`/blog`} scroll={false}>
+                    <a className="tag is-medium">All</a>
+                  </Link>
+                </div>
+                {sortedCategories?.map((cat) => (
+                  <div
+                    key={cat.id}
+                    className="mb-2 mr-2 is-inline-block-mobile"
+                  >
                     <Link
                       href={`/blog?category=${cat.slug || ''}`}
                       scroll={false}
                     >
                       <a className="tag is-medium">{cat.name}</a>
                     </Link>
-                  )}
-                </div>
-              ))}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="column">
+            <div>
               <ThumbRows
                 links={blogPosts.slice(0, currentDisplay)}
                 imageAlign="Left"
