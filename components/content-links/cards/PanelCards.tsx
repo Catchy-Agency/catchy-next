@@ -32,6 +32,7 @@ export const PanelCards: FC<{
       style={
         {
           '--items-width': `${width ? width : '500'}px`,
+          '--theme-color': item.themeColor,
         } as React.CSSProperties
       }
     >

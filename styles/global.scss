@@ -50,6 +50,25 @@ section:last-of-type {
   }
 }
 
+.section.CaseStudyPage {
+  .tag:not(body) {
+    background-color: unset;
+    padding-left: unset;
+  }
+}
+.case-study-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .case-study-navigation-button {
+    border: unset;
+    background-color: unset;
+  }
+  .nav-left {
+    transform: rotate(180deg);
+  }
+}
+
 .section.ClientSetRecord {
   padding: unset;
   position: relative;
@@ -219,6 +238,9 @@ section:last-of-type {
   .section.Work,
   .section.Blog {
     padding: 3rem $global-padding;
+    @media (max-width: $tablet) {
+      padding: 0 1rem;
+    }
     .breadcrumb a {
       color: $primary;
       transition: color 200ms ease;
@@ -317,6 +339,15 @@ section:last-of-type {
 
   > .section.ColumnRowRecord {
     padding: 0 18rem;
+  }
+
+  > .section.TeamRecord {
+    .img-container {
+      background-color: $anthracite;
+    }
+    h4 {
+      color: $anthracite !important;
+    }
   }
 }
 //
