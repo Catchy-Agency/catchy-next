@@ -104,7 +104,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         containerMax="widescreen"
       />
       <section
-        className="section"
+        className="section CaseStudyPage"
         style={{ paddingTop: '0', marginBottom: '1.5rem' }}
       >
         <div className="container is-max-widescreen has-text-left">
@@ -161,53 +161,37 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       </section>
       <section className="section pt-4 pb-6">
         {pageCount > 1 && (
-          <div className="container is-max-widescreen has-text-centered">
-            {pageNum > 1 ? (
-              <Link href={`${path}?p=${pageNum - 1}`}>
-                <a>
-                  <button
-                    className="button is-small avoid-tf"
-                    onClick={buttonClickBlur}
-                  >
-                    ←
-                  </button>
-                </a>
-              </Link>
-            ) : (
+          <div className="container is-max-widescreen case-study-navigation">
+            <Link href={`${path}?p=${pageNum - 1}`}>
               <button
-                className="button is-small avoid-tf"
-                disabled={true}
-                style={{ visibility: 'hidden' }}
-              >
-                ←
-              </button>
-            )}
-            <span className="mx-5" style={{ verticalAlign: 'sub' }}>
+                className="button is-small avoid-tf case-study-navigation-button nav-left"
+                onClick={buttonClickBlur}
+                disabled={pageNum <= 1}
+                style={{ visibility: pageNum > 1 ? 'visible' : 'hidden' }}
+              />
+            </Link>
+
+            <span
+              className="mx-5 case-study-navigation-title"
+              style={{ verticalAlign: 'sub' }}
+            >
               Page {pageNum} of {pageCount}
             </span>
-            {pageNum < pageCount ? (
-              <Link href={`${path}?p=${pageNum + 1}`}>
-                <a>
-                  <button
-                    className="button is-small avoid-tf"
-                    onClick={buttonClickBlur}
-                  >
-                    →
-                  </button>
-                </a>
-              </Link>
-            ) : (
+
+            <Link href={`${path}?p=${pageNum + 1}`}>
               <button
-                className="button is-small avoid-tf"
-                disabled={true}
-                style={{ visibility: 'hidden' }}
-              >
-                →
-              </button>
-            )}
+                className="button is-small avoid-tf case-study-navigation-button"
+                onClick={buttonClickBlur}
+                disabled={pageNum >= pageCount}
+                style={{
+                  visibility: pageNum < pageCount ? 'visible' : 'hidden',
+                }}
+              />
+            </Link>
           </div>
         )}
       </section>
+
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
   );

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC } from 'react';
 import { Image } from 'react-datocms';
 import { LinkData } from '../content-links/LinkData';
@@ -38,12 +39,11 @@ export const StaticCaseStudyCards: FC<{
                   )}
                   {item.url && (
                     <div className="card-button">
-                      <a
-                        className="button is-primary mt-4"
-                        href={`/${item.url}`}
-                      >
-                        {item.callToAction || 'Read as More'}
-                      </a>
+                      <Link href={item.url}>
+                        <a className="button is-primary mt-4">
+                          {item.callToAction || 'Read as More'}
+                        </a>
+                      </Link>
                     </div>
                   )}
                 </div>

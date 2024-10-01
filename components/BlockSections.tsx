@@ -171,7 +171,7 @@ export const BlockSections: FC<{
             );
           }
           case 'CardStackRecord': {
-            const items = block.cards.map((item) => ({
+            const items = block.cards?.map((item) => ({
               id:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.id
