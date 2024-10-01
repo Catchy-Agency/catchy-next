@@ -99,7 +99,7 @@ export interface AllCaseStudies_allWorkCategories {
 }
 
 export interface AllCaseStudies_primaryPage_blocks_ArticleRecord {
-  readonly __typename: "ArticleRecord" | "CarouselRecord" | "NewsletterRecord" | "TextImageSmallRecord";
+  readonly __typename: "ArticleRecord" | "CardStackRecord" | "CarouselRecord" | "NewsletterRecord" | "TextImageSmallRecord";
 }
 
 export interface AllCaseStudies_primaryPage_blocks_AgencyModelRecord_columns_image_responsiveImage {

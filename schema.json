@@ -20715,6 +20715,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "CardStackRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "CarouselRecord",
             "ofType": null
           },
