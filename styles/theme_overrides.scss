@@ -327,7 +327,7 @@ a.is-block-link:focus {
   .navbar-item.has-dropdown.is-hoverable .navbar-dropdown {
     border: 1px solid #d4d6d969;
     .navbar-item {
-      justify-content: start; // left-align
+      justify-content: flex-start; // left-align
       padding-top: 0.25rem;
       padding-bottom: 0.25rem;
 

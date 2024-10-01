@@ -187,6 +187,34 @@ export interface ServicePagesBySlug_service_blocks_CarouselRecord {
   readonly link: ServicePagesBySlug_service_blocks_CarouselRecord_link | null;
 }
 
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly description: string | null;
+}
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+}
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+  readonly link: ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link | null;
+}
+
+export type ServicePagesBySlug_service_blocks_CardStackRecord_cards = ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord | ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord;
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord {
+  readonly __typename: "CardStackRecord";
+  readonly id: any;
+  readonly maxColumns: any | null;
+  readonly cards: ReadonlyArray<ServicePagesBySlug_service_blocks_CardStackRecord_cards>;
+}
+
 export interface ServicePagesBySlug_service_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1265,7 +1293,7 @@ export interface ServicePagesBySlug_service_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type ServicePagesBySlug_service_blocks = ServicePagesBySlug_service_blocks_AgencyModelRecord | ServicePagesBySlug_service_blocks_ArticleRecord | ServicePagesBySlug_service_blocks_BannerRecord | ServicePagesBySlug_service_blocks_ButtonExternalRecord | ServicePagesBySlug_service_blocks_ButtonInternalRecord | ServicePagesBySlug_service_blocks_CarouselRecord | ServicePagesBySlug_service_blocks_CaseStudyTileRecord | ServicePagesBySlug_service_blocks_ClientSetRecord | ServicePagesBySlug_service_blocks_ContentLinkSetRecord | ServicePagesBySlug_service_blocks_ColumnRowRecord | ServicePagesBySlug_service_blocks_FormBlockRecord | ServicePagesBySlug_service_blocks_FormulaRecord | ServicePagesBySlug_service_blocks_ImageSetRecord | ServicePagesBySlug_service_blocks_ItemsPanelRecord | ServicePagesBySlug_service_blocks_NewsletterRecord | ServicePagesBySlug_service_blocks_RichTextRecord | ServicePagesBySlug_service_blocks_ServiceSetRecord | ServicePagesBySlug_service_blocks_TeamRecord | ServicePagesBySlug_service_blocks_TextImageSmallRecord | ServicePagesBySlug_service_blocks_TitleTextRecord | ServicePagesBySlug_service_blocks_VideoRecord | ServicePagesBySlug_service_blocks_ViewMoreLinkRecord;
+export type ServicePagesBySlug_service_blocks = ServicePagesBySlug_service_blocks_AgencyModelRecord | ServicePagesBySlug_service_blocks_ArticleRecord | ServicePagesBySlug_service_blocks_BannerRecord | ServicePagesBySlug_service_blocks_ButtonExternalRecord | ServicePagesBySlug_service_blocks_ButtonInternalRecord | ServicePagesBySlug_service_blocks_CarouselRecord | ServicePagesBySlug_service_blocks_CardStackRecord | ServicePagesBySlug_service_blocks_CaseStudyTileRecord | ServicePagesBySlug_service_blocks_ClientSetRecord | ServicePagesBySlug_service_blocks_ContentLinkSetRecord | ServicePagesBySlug_service_blocks_ColumnRowRecord | ServicePagesBySlug_service_blocks_FormBlockRecord | ServicePagesBySlug_service_blocks_FormulaRecord | ServicePagesBySlug_service_blocks_ImageSetRecord | ServicePagesBySlug_service_blocks_ItemsPanelRecord | ServicePagesBySlug_service_blocks_NewsletterRecord | ServicePagesBySlug_service_blocks_RichTextRecord | ServicePagesBySlug_service_blocks_ServiceSetRecord | ServicePagesBySlug_service_blocks_TeamRecord | ServicePagesBySlug_service_blocks_TextImageSmallRecord | ServicePagesBySlug_service_blocks_TitleTextRecord | ServicePagesBySlug_service_blocks_VideoRecord | ServicePagesBySlug_service_blocks_ViewMoreLinkRecord;
 
 export interface ServicePagesBySlug_service__seoMetaTags {
   readonly __typename: "Tag";

@@ -147,6 +147,25 @@ export const servicePagesBySlug = gql`
             }
           }
         }
+        ... on CardStackRecord {
+          id
+          maxColumns
+          cards {
+            __typename
+            ... on ExternalCardItemRecord {
+              id
+              title
+              description
+            }
+            ... on InternalCardItemRecord {
+              link {
+                id
+                title
+                text
+              }
+            }
+          }
+        }
         ... on CaseStudyTileRecord {
           id
           title
@@ -172,6 +191,7 @@ export const servicePagesBySlug = gql`
             }
           }
         }
+
         ... on ClientSetRecord {
           id
           title

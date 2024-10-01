@@ -23,6 +23,7 @@ import { Newsletter } from './blocks/Newsletter';
 import { RichText } from './blocks/RichText';
 import { ServiceCarousel } from './blocks/ServiceCarousel';
 import { ServiceSet } from './blocks/ServiceSet';
+import { StaticCardsStack } from './blocks/StaticCardsStack';
 import { Team } from './blocks/Team';
 import { TextImage } from './blocks/TextImage';
 import { TitleText } from './blocks/TitleText';
@@ -129,15 +130,6 @@ export const BlockSections: FC<{
               </section>
             );
 
-          case 'CaseStudyTileRecord':
-            return (
-              <section key={block.id} className="section LeadCaseStudy">
-                <div className={classNames('container', maxClass)}>
-                  <LeadCaseStudy block={block} />
-                </div>
-              </section>
-            );
-
           case 'CarouselRecord': {
             const items = block.items.map((item) => ({
               id:
@@ -178,6 +170,42 @@ export const BlockSections: FC<{
               </section>
             );
           }
+          case 'CardStackRecord': {
+            const items = block.cards.map((item) => ({
+              id:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.id
+                  : item.link?.id,
+              title:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.title ?? ''
+                  : item.link?.title ?? '',
+              description:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.description ?? ''
+                  : item.link?.text ?? '',
+            }));
+
+            return (
+              <section key={block.id} className="section LeadCaseStudy">
+                <div className={classNames('container', maxClass)}>
+                  <StaticCardsStack
+                    items={items}
+                    maxColumns={block.maxColumns}
+                  />
+                </div>
+              </section>
+            );
+          }
+          case 'CaseStudyTileRecord':
+            return (
+              <section key={block.id} className="section LeadCaseStudy">
+                <div className={classNames('container', maxClass)}>
+                  <LeadCaseStudy block={block} />
+                </div>
+              </section>
+            );
+
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">
