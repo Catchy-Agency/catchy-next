@@ -17,6 +17,13 @@
 
     .static-card-item-content {
       height: 100%;
+      .card-item-image {
+        padding: 1rem;
+        > svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
       > li {
         padding-right: unset;
         &::before {

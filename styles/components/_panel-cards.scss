@@ -61,7 +61,7 @@
     height: 10px;
     width: 100%;
     padding-right: clamp(20px, 5vw, 80px);
-    background-color: white;
+    background-color: var(--theme-color, white);
     top: 0;
     left: 0;
     background-clip: content-box;
