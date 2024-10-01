@@ -4,10 +4,14 @@ import { IPanelCard, PanelCards } from '../content-links/cards/PanelCards';
 export const StaticCardsStack: FC<{
   items: IPanelCard[];
   maxColumns: number;
-}> = ({ items }) => {
+}> = ({ items, maxColumns }) => {
   return (
     <div className="static-cards">
-      <ul className="static-cards-list">
+      <ul
+        className={`static-cards-list ${
+          maxColumns === 3 ? 'three-columns' : ''
+        }`}
+      >
         {items.map((item, i) => {
           return (
             <div className="static-card-item-wrapper " key={i}>

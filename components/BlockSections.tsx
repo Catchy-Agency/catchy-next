@@ -184,10 +184,34 @@ export const BlockSections: FC<{
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.description ?? ''
                   : item.link?.text ?? '',
+              image:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? ((item.image ?? undefined) as
+                      | ResponsiveImageType
+                      | undefined)
+                  : ((item.link.previewImage ?? undefined) as
+                      | ResponsiveImageType
+                      | undefined),
+              buttonLabel:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.buttonLabel ?? undefined
+                  : `Explore ${item.link?.title}`,
+              slug:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.buttonLink ?? undefined
+                  : item.link.slug ?? undefined,
+              openInNewTab:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? item.openInNewTab
+                  : false,
+              themeColor:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? '#ffffff'
+                  : item.link?.themeColor ?? undefined,
             }));
 
             return (
-              <section key={block.id} className="section LeadCaseStudy">
+              <section key={block.id} className="section">
                 <div className={classNames('container', maxClass)}>
                   <StaticCardsStack
                     items={items}

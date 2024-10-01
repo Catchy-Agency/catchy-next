@@ -153,15 +153,52 @@ export const servicePagesBySlug = gql`
           cards {
             __typename
             ... on ExternalCardItemRecord {
+              __typename
               id
               title
               description
+              image{
+                responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+              }
+              buttonLabel
+              buttonLink
+              openInNewTab
             }
             ... on InternalCardItemRecord {
+              __typename
               link {
                 id
                 title
                 text
+                slug
+                themeColor
+                previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
               }
             }
           }

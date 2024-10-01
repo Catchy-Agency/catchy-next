@@ -187,11 +187,51 @@ export interface ServicePagesBySlug_service_blocks_CarouselRecord {
   readonly link: ServicePagesBySlug_service_blocks_CarouselRecord_link | null;
 }
 
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage | null;
+}
+
 export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord {
   readonly __typename: "ExternalCardItemRecord";
   readonly id: any;
   readonly title: string | null;
   readonly description: string | null;
+  readonly image: ServicePagesBySlug_service_blocks_CardStackRecord_cards_ExternalCardItemRecord_image | null;
+  readonly buttonLabel: string | null;
+  readonly buttonLink: string | null;
+  readonly openInNewTab: any | null;
+}
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage | null;
 }
 
 export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link {
@@ -199,6 +239,9 @@ export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_Interna
   readonly id: any;
   readonly title: string | null;
   readonly text: string | null;
+  readonly slug: string | null;
+  readonly themeColor: string | null;
+  readonly previewImage: ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage | null;
 }
 
 export interface ServicePagesBySlug_service_blocks_CardStackRecord_cards_InternalCardItemRecord {

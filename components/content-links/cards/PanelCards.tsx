@@ -11,6 +11,8 @@ export interface IPanelCard {
   buttonLabel?: string;
   slug?: string;
   image?: ResponsiveImageType;
+  openInNewTab?: boolean;
+  themeColor?: string;
 }
 
 export const PanelCards: FC<{
