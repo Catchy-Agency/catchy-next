@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+import { GA_TRACKING_ID } from '../util/gtag'
 
 export default class extends Document {
   render(): JSX.Element {
@@ -34,7 +35,7 @@ export default class extends Document {
 
           {/* Google Tag Manager (first half) */}
           {/* eslint-disable @next/next/next-script-for-ga */}
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
               (function (w, d, s, l, i) {
@@ -49,10 +50,10 @@ export default class extends Document {
               })(window, document, "script", "dataLayer", "GTM-WTSH8X9");
             `,
             }}
-          />
+          /> */}
 
           {/* Google Analytics */}
-          {/* <script
+          <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -65,7 +66,7 @@ export default class extends Document {
                 gtag('config', '${GA_TRACKING_ID}');
             `,
             }}
-          /> */}
+          />
           <script />
 
           {/* LinkedIn */}
