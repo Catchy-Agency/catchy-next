@@ -4,7 +4,7 @@ import { LinkData } from '../content-links/LinkData';
 import { CaseStudySvg } from '../icons';
 
 export const StaticCaseStudyCards: FC<{
-  link: LinkData;
+  link: LinkData[];
 }> = ({ link }) => {
   return (
     <div className="case-study-wrapper">
@@ -14,13 +14,15 @@ export const StaticCaseStudyCards: FC<{
             <li className="link-item-wrapper" key={i}>
               <div className="link-item-content">
                 <div className="link-item-image">
-                  <Image
-                    data={item.imageCol}
-                    lazyLoad={false}
-                    layout="responsive"
-                    objectFit="cover"
-                    className="image-case-study"
-                  />
+                  {item.imageCol && (
+                    <Image
+                      data={item.imageCol}
+                      lazyLoad={false}
+                      layout="responsive"
+                      objectFit="cover"
+                      className="image-case-study"
+                    />
+                  )}
                   <div className="svg-case-study">{CaseStudySvg}</div>
                 </div>
 

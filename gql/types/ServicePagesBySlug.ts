@@ -1348,6 +1348,7 @@ export interface ServicePagesBySlug_service__seoMetaTags {
 export interface ServicePagesBySlug_service {
   readonly __typename: "ServiceRecord";
   readonly title: string | null;
+  readonly themeColor: string | null;
   readonly blocks: ReadonlyArray<ServicePagesBySlug_service_blocks>;
   readonly slug: string | null;
   /**

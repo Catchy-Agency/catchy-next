@@ -189,17 +189,19 @@ export const BlockSections: FC<{
                   ? ((item.image ?? undefined) as
                       | ResponsiveImageType
                       | undefined)
-                  : ((item.link.previewImage ?? undefined) as
+                  : ((item.link?.previewImage ?? undefined) as
                       | ResponsiveImageType
                       | undefined),
               buttonLabel:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.buttonLabel ?? undefined
-                  : `Explore ${item.link?.title}`,
+                  : item.link?.title
+                  ? `Explore ${item.link?.title}`
+                  : undefined,
               slug:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.buttonLink ?? undefined
-                  : item.link.slug ?? undefined,
+                  : item.link?.slug ?? undefined,
               openInNewTab:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.openInNewTab

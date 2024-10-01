@@ -12,6 +12,8 @@ export const servicePagesBySlug = gql`
   query ServicePagesBySlug($slug: String) {
     service(filter: { slug: { eq: $slug } }) {
       title
+      themeColor
+
       blocks {
         __typename
         ... on AgencyModelRecord {
