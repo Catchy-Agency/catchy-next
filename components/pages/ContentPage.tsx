@@ -1,32 +1,32 @@
-import { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
+import { NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
 import {
   renderMetaTags,
   ResponsiveImageType,
   useQuerySubscription,
-} from 'react-datocms'
+} from 'react-datocms';
 
 import {
   ContentPageBySlug,
   ContentPageBySlug_contentPage_parent,
-} from '../../gql/types/ContentPageBySlug'
-import { Subscription } from '../../util/dato-cms'
-import { notEmpty } from '../../util/notEmpty'
-import { BlockSections } from '../BlockSections'
-import { PageError } from '../cms/PageError'
-import { PreviewBanner } from '../cms/PreviewBanner'
-import { CardRows } from '../content-links/CardRows'
-import { Footer } from '../Footer'
-import { Header } from '../Header'
+} from '../../gql/types/ContentPageBySlug';
+import { Subscription } from '../../util/dato-cms';
+import { notEmpty } from '../../util/notEmpty';
+import { BlockSections } from '../BlockSections';
+import { PageError } from '../cms/PageError';
+import { PreviewBanner } from '../cms/PreviewBanner';
+import { CardRows } from '../content-links/CardRows';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
 export const ContentPage: NextPage<{
-  subscription: Subscription<ContentPageBySlug>
+  subscription: Subscription<ContentPageBySlug>;
 }> = ({ subscription }) => {
   const { data, error, status } =
-    useQuerySubscription<ContentPageBySlug>(subscription)
+    useQuerySubscription<ContentPageBySlug>(subscription);
 
-  const ancestors = extractAncestors(data?.contentPage?.parent || null, [])
+  const ancestors = extractAncestors(data?.contentPage?.parent || null, []);
 
   const links =
     data?.contentPage?.children
@@ -52,7 +52,7 @@ export const ContentPage: NextPage<{
             callToAction: 'Read More',
           },
       )
-      .filter(notEmpty) || []
+      .filter(notEmpty) || [];
 
   return (
     <>
@@ -66,7 +66,7 @@ export const ContentPage: NextPage<{
         <PreviewBanner status={status} />
         {error && <PageError error={error} />}
         {data?.header && <Header header={data?.header} />}
-        <header className="section">
+        <header className="section Blog">
           <div className="container is-max-desktop">
             <nav className="breadcrumb" aria-label="breadcrumbs">
               <ul>
@@ -87,7 +87,9 @@ export const ContentPage: NextPage<{
                 </li>
               </ul>
             </nav>
-            <h1 className="title is-1">{data?.contentPage?.title}</h1>
+            <h1 className="title is-1 title-blog">
+              {data?.contentPage?.title}
+            </h1>
           </div>
         </header>
         <BlockSections
@@ -104,11 +106,11 @@ export const ContentPage: NextPage<{
       </div>
       {data?.footer && <Footer footer={data?.footer} />}
     </>
-  )
-}
+  );
+};
 
-type Parent = ContentPageBySlug_contentPage_parent
+type Parent = ContentPageBySlug_contentPage_parent;
 const extractAncestors = (parent: Parent | null, list: Parent[]): Parent[] => {
-  if (parent === null) return list
-  else return extractAncestors(parent.parent as Parent, [...list, parent])
-}
+  if (parent === null) return list;
+  else return extractAncestors(parent.parent as Parent, [...list, parent]);
+};

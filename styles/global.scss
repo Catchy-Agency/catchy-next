@@ -203,7 +203,8 @@ section:last-of-type {
     padding-bottom: 0;
   }
 }
-.content-post {
+.content-post,
+.content-page {
   background-color: #f2f2f2;
   .container {
     color: $anthracite;
@@ -276,6 +277,7 @@ section:last-of-type {
     a {
       text-decoration: underline;
     }
+    h3,
     strong {
       color: $anthracite;
       @include blog-work();
@@ -286,6 +288,7 @@ section:last-of-type {
         @include bdy-md();
       }
     }
+    ul,
     a,
     b,
     p,
@@ -302,6 +305,7 @@ section:last-of-type {
         font-size: 16px !important;
         font-weight: 700;
       }
+
       strong,
       p,
       a,
@@ -378,6 +382,8 @@ section:last-of-type {
 @import 'components/text-image';
 @import 'components/newsletter';
 @import 'components/lead-case-study';
+
+@import 'components/_static-case-study-cards';
 @import 'components/team';
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
