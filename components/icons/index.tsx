@@ -1479,3 +1479,45 @@ export const IconImageTeam = (
     />
   </svg>
 );
+
+export const CaseStudySvg = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="160"
+    height="139"
+    viewBox="0 0 160 139"
+    fill="none"
+  >
+    <path d="M0 92.38V0H160L0 92.38Z" fill="#212121" />
+    <path
+      d="M40 23.09L80 0V46.19L40 69.28V23.09Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M0 92.09L40 69V115.19L0 138.28V92.09Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M120 23.09L80 0V46.19L120 69.28V23.09Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M80 0.0898438L40 23.1898L80 46.2798V0.0898438Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+    <path
+      d="M40 23.09L0 0V46.19L40 69.28V23.09Z"
+      stroke="white"
+      strokeWidth="0.25"
+      strokeMiterlimit="10"
+    />
+  </svg>
+);

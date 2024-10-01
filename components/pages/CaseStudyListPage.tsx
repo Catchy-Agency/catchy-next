@@ -14,9 +14,9 @@ import { Subscription } from '../../util/dato-cms';
 import { BlockSections } from '../BlockSections';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
+import { StaticCaseStudyCards } from '../blocks/StaticCaseStudyCards';
 import { PageError } from '../cms/PageError';
 import { PreviewBanner } from '../cms/PreviewBanner';
-import { ContentTileS } from '../content-links/cards/ContentTileS';
 
 const PAGE_SIZE = 9;
 
@@ -145,12 +145,13 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         style={{ marginTop: '0' }}
       >
         <div className="container is-max-widescreen">
-          <ContentTileS
+          {/*       <ContentTileS
             contentSize={'Small'}
             displaySize={null}
             links={visibleLinks}
             isSlider={false}
-          />
+          /> */}
+          <StaticCaseStudyCards link={visibleLinks} />
           {links.length === 0 && (
             <div className="section is-size-3 is-italic has-text-centered">
               No work to show
