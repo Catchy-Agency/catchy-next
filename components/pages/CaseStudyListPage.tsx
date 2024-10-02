@@ -38,6 +38,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       id: post.id,
       url: `/work/${post.slug || ''}`,
       title: post.title,
+      pretitle: post.pretitle,
       description: post.description,
       image:
         (post.previewImage?.responsiveImage as ResponsiveImageType) || null,

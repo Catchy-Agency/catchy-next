@@ -393,6 +393,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_Blo
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;

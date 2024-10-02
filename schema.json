@@ -1424,7 +1424,7 @@
             "deprecationReason": null
           },
           {
-            "name": "title",
+            "name": "subtitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -1436,11 +1436,11 @@
             "deprecationReason": null
           },
           {
-            "name": "date",
+            "name": "categories",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "DateFilter",
+              "name": "LinksFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1460,11 +1460,23 @@
             "deprecationReason": null
           },
           {
-            "name": "categories",
+            "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "LinksFilter",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "date",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "DateFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -1741,6 +1753,18 @@
           },
           {
             "name": "_isValid_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subtitle_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subtitle_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -2158,6 +2182,18 @@
           },
           {
             "name": "slug",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subtitle",
             "description": null,
             "args": [],
             "type": {

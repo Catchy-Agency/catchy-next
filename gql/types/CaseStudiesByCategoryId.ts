@@ -84,6 +84,7 @@ export interface CaseStudiesByCategoryId_allCaseStudies {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: CaseStudiesByCategoryId_allCaseStudies_previewImage | null;
   readonly previewImageLg: CaseStudiesByCategoryId_allCaseStudies_previewImageLg | null;
@@ -414,6 +415,7 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;

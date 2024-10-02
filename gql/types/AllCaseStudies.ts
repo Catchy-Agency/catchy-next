@@ -84,6 +84,7 @@ export interface AllCaseStudies_allCaseStudies {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: AllCaseStudies_allCaseStudies_previewImage | null;
   readonly previewImageLg: AllCaseStudies_allCaseStudies_previewImageLg | null;
@@ -414,6 +415,7 @@ export interface AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_Bl
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;

@@ -314,6 +314,7 @@ export const primaryPageBySlug = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(

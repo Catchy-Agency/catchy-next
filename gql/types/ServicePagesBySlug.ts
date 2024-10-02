@@ -493,6 +493,7 @@ export interface ServicePagesBySlug_service_blocks_ContentLinkSetRecord_links_Bl
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: ServicePagesBySlug_service_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: ServicePagesBySlug_service_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;

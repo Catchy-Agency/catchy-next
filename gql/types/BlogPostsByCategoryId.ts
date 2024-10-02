@@ -84,6 +84,7 @@ export interface BlogPostsByCategoryId_allBlogPosts {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: BlogPostsByCategoryId_allBlogPosts_previewImage | null;
   readonly previewImageLg: BlogPostsByCategoryId_allBlogPosts_previewImageLg | null;

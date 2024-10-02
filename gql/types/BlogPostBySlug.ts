@@ -452,6 +452,7 @@ export interface BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_BlogP
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
@@ -861,6 +862,8 @@ export interface BlogPostBySlug_blogPost__seoMetaTags {
 export interface BlogPostBySlug_blogPost {
   readonly __typename: "BlogPostRecord";
   readonly title: string | null;
+  readonly subtitle: string | null;
+  readonly description: string | null;
   readonly date: any | null;
   readonly author: BlogPostBySlug_blogPost_author | null;
   readonly blocks: ReadonlyArray<BlogPostBySlug_blogPost_blocks>;

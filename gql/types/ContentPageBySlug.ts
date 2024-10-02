@@ -550,6 +550,7 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;

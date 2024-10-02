@@ -29,8 +29,8 @@ export const StaticCaseStudyCards: FC<{
 
                 <div className="text-item">
                   <div className="text-header">
-                    <span className="text-item-pretitle"> Case Study</span>
-                    <h3 className="text-item-title">{item.title}</h3>
+                    <span className="text-item-pretitle">{item.pretitle}</span>
+                    <h3 className="text-item-title"> {item.title}</h3>
                   </div>
                   {item.description && (
                     <div

@@ -90,6 +90,7 @@ export interface AllPaginatedBlogPosts_allBlogPosts {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly categories: ReadonlyArray<AllPaginatedBlogPosts_allBlogPosts_categories>;
   readonly previewImage: AllPaginatedBlogPosts_allBlogPosts_previewImage | null;

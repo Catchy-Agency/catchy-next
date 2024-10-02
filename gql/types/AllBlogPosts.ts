@@ -90,6 +90,7 @@ export interface AllBlogPosts_allBlogPosts {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly categories: ReadonlyArray<AllBlogPosts_allBlogPosts_categories>;
   readonly previewImage: AllBlogPosts_allBlogPosts_previewImage | null;

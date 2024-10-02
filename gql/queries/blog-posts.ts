@@ -14,6 +14,7 @@ export const allBlogPosts = gql`
       id
       slug
       title
+      subtitle
       description
       categories {
         name
@@ -164,6 +165,7 @@ export const allPaginatedBlogPosts = gql`
       id
       slug
       title
+      subtitle
       description
       categories {
         name
@@ -241,6 +243,7 @@ export const filteredBlogPosts = gql`
       id
       slug
       title
+      subtitle
       description
       categories {
         name
@@ -317,6 +320,7 @@ export const blogPostsByCategoryId = gql`
       id
       slug
       title
+      subtitle
       description
       previewImage {
         responsiveImage(
@@ -462,6 +466,8 @@ export const blogPostBySlug = gql`
   query BlogPostBySlug($slug: String) {
     blogPost(filter: { slug: { eq: $slug } }) {
       title
+      subtitle
+      description
       date
       author {
         name
@@ -748,6 +754,7 @@ export const blogPostBySlug = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(
