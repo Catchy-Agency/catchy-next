@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_TeamRecord } from '../../gql/types/PrimaryPageBySlug';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -6,23 +6,30 @@ import { AngleDown, IconImageTeam } from '../icons';
 
 export const Team: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_TeamRecord;
-  width?: number;
-}> = ({ block, width }) => {
+}> = ({ block }) => {
   const device = useMediaQuery();
   const [isOpen, setIsOpen] = useState(false);
+  const [columnSize, setColumnSize] = useState('20%');
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
-    <div
-      className="team-wrapper"
-      style={
-        {
-          '--items-width': `${width ? width : '500'}px`,
-        } as React.CSSProperties
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setColumnSize('20%');
       }
-    >
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return (
+    <div className="team-wrapper">
       {device === 'mobile' ? (
         <div className={`team-container`}>
           <div
@@ -41,7 +48,7 @@ export const Team: FC<{
             {block.members.map((member) => (
               <div
                 key={member.id}
-                className="column is-6-mobile is-4-tablet is-2-desktop pb-5"
+                className="column is-6-mobile pb-5"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="img-container">
@@ -84,7 +91,11 @@ export const Team: FC<{
             {block.members.map((member) => (
               <div
                 key={member.id}
-                className="column is-6-mobile is-4-tablet is-2-desktop pb-5"
+                className="column is-narrow pb-5"
+                style={{
+                  flexBasis: columnSize,
+                  maxWidth: columnSize,
+                }}
               >
                 <div className="img-container">
                   {member.image?.responsiveImage && (
