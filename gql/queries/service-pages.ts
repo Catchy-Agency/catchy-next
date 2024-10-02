@@ -159,20 +159,20 @@ export const servicePagesBySlug = gql`
               id
               title
               description
-              image{
+              image {
                 responsiveImage(
-                imgixParams: { fit: clip, maxW: 300, auto: format }
-              ) {
-                aspectRatio
-                height
-                width
-                sizes
-                src
-                srcSet
-                alt
-                title
-                base64
-              }
+                  imgixParams: { fit: clip, maxW: 300, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
               }
               buttonLabel
               buttonLink
@@ -187,20 +187,20 @@ export const servicePagesBySlug = gql`
                 slug
                 themeColor
                 previewImage {
-              responsiveImage(
-                imgixParams: { fit: clip, maxW: 300, auto: format }
-              ) {
-                aspectRatio
-                height
-                width
-                sizes
-                src
-                srcSet
-                alt
-                title
-                base64
-              }
-            }
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 300, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
               }
             }
           }
@@ -1051,12 +1051,22 @@ export const servicePagesBySlug = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug

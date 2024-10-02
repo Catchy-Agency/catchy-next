@@ -1393,14 +1393,28 @@ export interface PrimaryPageBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface PrimaryPageBySlug_header_serviceLinks {
+export interface PrimaryPageBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface PrimaryPageBySlug_header_resourceLinks {
+export interface PrimaryPageBySlug_header_whatWeDoLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -1411,8 +1425,10 @@ export interface PrimaryPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: PrimaryPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<PrimaryPageBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<PrimaryPageBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<PrimaryPageBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: PrimaryPageBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<PrimaryPageBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: PrimaryPageBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<PrimaryPageBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

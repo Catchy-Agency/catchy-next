@@ -742,12 +742,22 @@ export const contentPageBySlug = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug

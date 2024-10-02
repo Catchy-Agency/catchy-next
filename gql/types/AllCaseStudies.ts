@@ -1266,14 +1266,28 @@ export interface AllCaseStudies_header_links {
   readonly slug: string | null;
 }
 
-export interface AllCaseStudies_header_serviceLinks {
+export interface AllCaseStudies_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface AllCaseStudies_header_resourceLinks {
+export interface AllCaseStudies_header_whatWeDoLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface AllCaseStudies_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface AllCaseStudies_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -1284,8 +1298,10 @@ export interface AllCaseStudies_header {
   readonly __typename: "HeaderRecord";
   readonly logo: AllCaseStudies_header_logo | null;
   readonly links: ReadonlyArray<AllCaseStudies_header_links>;
-  readonly serviceLinks: ReadonlyArray<AllCaseStudies_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<AllCaseStudies_header_resourceLinks>;
+  readonly whatWeDoPageLink: AllCaseStudies_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<AllCaseStudies_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: AllCaseStudies_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<AllCaseStudies_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

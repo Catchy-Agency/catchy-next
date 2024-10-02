@@ -141,14 +141,28 @@ export interface BlogPostsByCategoryId_header_links {
   readonly slug: string | null;
 }
 
-export interface BlogPostsByCategoryId_header_serviceLinks {
+export interface BlogPostsByCategoryId_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface BlogPostsByCategoryId_header_resourceLinks {
+export interface BlogPostsByCategoryId_header_whatWeDoLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface BlogPostsByCategoryId_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface BlogPostsByCategoryId_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -159,8 +173,10 @@ export interface BlogPostsByCategoryId_header {
   readonly __typename: "HeaderRecord";
   readonly logo: BlogPostsByCategoryId_header_logo | null;
   readonly links: ReadonlyArray<BlogPostsByCategoryId_header_links>;
-  readonly serviceLinks: ReadonlyArray<BlogPostsByCategoryId_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<BlogPostsByCategoryId_header_resourceLinks>;
+  readonly whatWeDoPageLink: BlogPostsByCategoryId_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<BlogPostsByCategoryId_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: BlogPostsByCategoryId_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<BlogPostsByCategoryId_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

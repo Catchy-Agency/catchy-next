@@ -1383,14 +1383,28 @@ export interface ServicePagesBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface ServicePagesBySlug_header_serviceLinks {
+export interface ServicePagesBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface ServicePagesBySlug_header_resourceLinks {
+export interface ServicePagesBySlug_header_whatWeDoLinks {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface ServicePagesBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface ServicePagesBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -1401,8 +1415,10 @@ export interface ServicePagesBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: ServicePagesBySlug_header_logo | null;
   readonly links: ReadonlyArray<ServicePagesBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<ServicePagesBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<ServicePagesBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: ServicePagesBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<ServicePagesBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: ServicePagesBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<ServicePagesBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 
