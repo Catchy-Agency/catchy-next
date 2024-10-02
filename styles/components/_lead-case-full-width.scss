@@ -48,8 +48,10 @@
       padding: 0 7.5rem;
 
       .description-info {
-        @include bdy-md;
-        line-height: 32px;
+        > p {
+          @include bdy-md;
+          line-height: 2 !important; //32/16
+        }
       }
     }
   }

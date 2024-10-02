@@ -20,7 +20,7 @@ export const LeadCaseFullWidth: FC<{
 
         {block.text && (
           <div
-            className="description-info"
+            className="content description-info"
             dangerouslySetInnerHTML={{ __html: block.text }}
           />
         )}
