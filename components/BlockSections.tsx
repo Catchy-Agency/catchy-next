@@ -144,6 +144,10 @@ export const BlockSections: FC<{
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.description ?? ''
                   : item.link?.text ?? '',
+              themeColor:
+                item.__typename === 'ExternalCardItemRecord'
+                  ? '#ffffff'
+                  : item.link?.themeColor ?? undefined,
             }));
             return (
               <section

@@ -193,6 +193,7 @@ export const primaryPageBySlug = gql`
             ... on InternalCardItemRecord {
               link {
                 id
+                themeColor
                 title
                 text
               }

@@ -234,6 +234,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_Exter
 export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord_link {
   readonly __typename: "ServiceRecord";
   readonly id: any;
+  readonly themeColor: string | null;
   readonly title: string | null;
   readonly text: string | null;
 }

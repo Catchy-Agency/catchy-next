@@ -13,7 +13,6 @@ export const servicePagesBySlug = gql`
     service(filter: { slug: { eq: $slug } }) {
       title
       themeColor
-
       blocks {
         __typename
         ... on AgencyModelRecord {
@@ -137,6 +136,7 @@ export const servicePagesBySlug = gql`
             ... on InternalCardItemRecord {
               link {
                 id
+                themeColor
                 title
                 text
               }
