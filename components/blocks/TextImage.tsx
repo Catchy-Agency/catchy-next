@@ -21,15 +21,17 @@ export const TextImage: FC<{
           )}
         </div>
 
-        {(block.internalLink || block.externalLink) && block.internalLink ? (
-          <Link href={block.internalLink.slug || ''}>
-            <a className="button is-primary">{block.buttonLabel}</a>
-          </Link>
-        ) : (
-          <a href={block.externalLink || ''} className="button is-primary">
-            {block.buttonLabel}
-          </a>
-        )}
+        {(block.internalLink || block.externalLink) &&
+          block.buttonLabel &&
+          (block.internalLink ? (
+            <Link href={block.internalLink.slug || ''}>
+              <a className="button is-primary">{block.buttonLabel}</a>
+            </Link>
+          ) : (
+            <a href={block.externalLink || ''} className="button is-primary">
+              {block.buttonLabel}
+            </a>
+          ))}
       </div>
 
       <div className="img-container">
