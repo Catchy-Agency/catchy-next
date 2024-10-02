@@ -406,6 +406,7 @@ export const servicePagesBySlug = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(

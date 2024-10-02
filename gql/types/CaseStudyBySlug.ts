@@ -477,6 +477,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_Cas
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;

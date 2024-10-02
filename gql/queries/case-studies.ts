@@ -1336,6 +1336,7 @@ export const caseStudiesByCategoryId = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(
@@ -2304,6 +2305,7 @@ export const caseStudyBySlug = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(

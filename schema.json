@@ -3694,11 +3694,11 @@
             "deprecationReason": null
           },
           {
-            "name": "categories",
+            "name": "pretitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "LinksFilter",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -3718,11 +3718,11 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
+            "name": "preview",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "TextFilter",
+              "name": "JsonFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -3730,11 +3730,47 @@
             "deprecationReason": null
           },
           {
-            "name": "preview",
+            "name": "seo",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "JsonFilter",
+              "name": "SeoFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "slug",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "SlugFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "categories",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "LinksFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "description",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "TextFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -3790,35 +3826,11 @@
             "deprecationReason": null
           },
           {
-            "name": "seo",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "SeoFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "slug",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "SlugFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -3999,6 +4011,18 @@
           },
           {
             "name": "_isValid_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pretitle_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pretitle_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -4326,6 +4350,18 @@
                 "name": "ItemId",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pretitle",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -26799,18 +26835,6 @@
             "deprecationReason": null
           },
           {
-            "name": "previewImage",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "FileFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "themeColor",
             "description": null,
             "type": {
@@ -26852,6 +26876,18 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "previewImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "FileFilter",
               "ofType": null
             },
             "defaultValue": null,

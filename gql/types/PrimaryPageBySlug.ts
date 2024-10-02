@@ -543,6 +543,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;

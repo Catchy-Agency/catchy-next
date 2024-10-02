@@ -380,6 +380,7 @@ export const primaryPageBySlug = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(

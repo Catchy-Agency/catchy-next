@@ -536,6 +536,7 @@ export interface BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_CaseS
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: BlogPostBySlug_blogPost_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;

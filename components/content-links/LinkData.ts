@@ -4,6 +4,7 @@ export interface LinkData {
   id: string
   url: string | null
   title: string | null
+  pretitle: string | null
   description: string | null
   callToAction: string | null
   image: ResponsiveImageType | null
