@@ -10,18 +10,16 @@ export const LeadCaseStudy: FC<{
   return (
     <div className="textStudy-content">
       <div className="study-content">
-        <div className="texts-study">
-          {block.overline && <h3 className="title is-3">{block.overline}</h3>}
+        {block.overline && <h3 className="title is-3">{block.overline}</h3>}
 
-          {block.title && <h1 className="title is-1">{block.title}</h1>}
+        {block.title && <h1 className="title is-1">{block.title}</h1>}
 
-          {block.caseStudy?.description && (
-            <div
-              className="textStudy-description"
-              dangerouslySetInnerHTML={{ __html: block.caseStudy?.description }}
-            />
-          )}
-        </div>
+        {block.caseStudy?.description && (
+          <div
+            className="textStudy-description"
+            dangerouslySetInnerHTML={{ __html: block.caseStudy?.description }}
+          />
+        )}
 
         {block.caseStudy && (
           <Link href={block.caseStudy?.slug || ''}>
