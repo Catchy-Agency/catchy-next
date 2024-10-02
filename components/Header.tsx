@@ -24,7 +24,7 @@ export const Header: FC<{
   };
 
   const isServicesActive = useMemo(() => {
-    return header.serviceLinks?.some((link) => {
+    return header.whatWeDoLinks?.some((link) => {
       const href = `/${link.slug || ''}`;
       const isActive =
         router.pathname === '/[slug]'
@@ -32,10 +32,10 @@ export const Header: FC<{
           : router.pathname.startsWith(href);
       return isActive;
     });
-  }, [header.serviceLinks, router.pathname, router.query.slug]);
+  }, [header.whatWeDoLinks, router.pathname, router.query.slug]);
 
   const isResourcesActive = useMemo(() => {
-    return header.resourceLinks?.some((link) => {
+    return header.aboutCatchyLinks?.some((link) => {
       const href = `/${link.slug || ''}`;
       const isActive =
         router.pathname === '/[slug]'
@@ -43,7 +43,7 @@ export const Header: FC<{
           : router.pathname.startsWith(href);
       return isActive;
     });
-  }, [header.resourceLinks, router.pathname, router.query.slug]);
+  }, [header.aboutCatchyLinks, router.pathname, router.query.slug]);
 
   return (
     <nav className="navbar is-fixed-top">
@@ -74,12 +74,13 @@ export const Header: FC<{
         <div className={classNames('navbar-menu', { 'is-active': isOpen })}>
           <div className="navbar-end">
             {/* Services dropdown */}
-            {header.serviceLinks?.length > 0 && (
+            {header.whatWeDoLinks?.length > 0 && (
               <DropdownLinks
-                title="Services"
-                links={header.serviceLinks}
+                title={header.whatWeDoPageLink?.title || 'What We Do'}
+                links={header.whatWeDoLinks}
                 isDropdownActive={isServicesActive}
                 router={router}
+                slug={header.whatWeDoPageLink?.slug || ''}
               />
             )}
             {/* Top-level links */}
@@ -102,12 +103,13 @@ export const Header: FC<{
               );
             })}
             {/* Resources dropdown */}
-            {header.resourceLinks?.length > 0 && (
+            {header.aboutCatchyLinks?.length > 0 && (
               <DropdownLinks
-                title="Resources"
-                links={header.resourceLinks}
+                title={header.aboutCatchyPageLink?.title || 'About Catchy'}
+                links={header.aboutCatchyLinks}
                 isDropdownActive={isResourcesActive}
                 router={router}
+                slug={header.aboutCatchyPageLink?.slug || ''}
               />
             )}
             {/* Contact link */}
@@ -127,11 +129,12 @@ export const Header: FC<{
 const DropdownLinks: FC<{
   title: string;
   links:
-    | PrimaryPageBySlug_header['serviceLinks']
-    | PrimaryPageBySlug_header['resourceLinks'];
+    | PrimaryPageBySlug_header['whatWeDoLinks']
+    | PrimaryPageBySlug_header['aboutCatchyLinks'];
   isDropdownActive: boolean;
   router: NextRouter;
-}> = ({ title, links, isDropdownActive, router }) => {
+  slug: string;
+}> = ({ title, links, isDropdownActive, router, slug }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   function handleExpand(e: React.MouseEvent) {
     e.stopPropagation();
@@ -139,6 +142,8 @@ const DropdownLinks: FC<{
     if (window.innerWidth > 1024) return;
     setIsExpanded(!isExpanded);
   }
+  const isPrimaryPageActive = slug === router.query.slug;
+
   return (
     <div
       className="navbar-item has-dropdown is-hoverable"
@@ -149,8 +154,9 @@ const DropdownLinks: FC<{
     >
       <a
         className={classNames('navbar-item', 'is-tab', {
-          'is-active': isDropdownActive,
+          'is-active': isDropdownActive || isPrimaryPageActive,
         })}
+        {...(slug ? { href: `/${slug}` } : {})}
       >
         {title}
         <button className="header-link-button" onClick={handleExpand}>
