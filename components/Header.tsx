@@ -135,14 +135,17 @@ const DropdownLinks: FC<{
   router: NextRouter;
   slug: string;
 }> = ({ title, links, isDropdownActive, router, slug }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [expanded, setExpanded] = useState<string | null>(null);
+
   function handleExpand(e: React.MouseEvent) {
+    e.preventDefault();
     e.stopPropagation();
     if (typeof window === 'undefined') return;
     if (window.innerWidth > 1024) return;
-    setIsExpanded(!isExpanded);
+    setExpanded((prevExpanded) => (prevExpanded === title ? null : title));
   }
   const isPrimaryPageActive = slug === router.query.slug;
+  const isExpanded = expanded === title;
 
   return (
     <div
@@ -159,7 +162,12 @@ const DropdownLinks: FC<{
         {...(slug ? { href: `/${slug}` } : {})}
       >
         {title}
-        <button className="header-link-button" onClick={handleExpand}>
+        <button
+          className={classNames('header-link-button', {
+            'is-expanded': isExpanded,
+          })}
+          onClick={handleExpand}
+        >
           {AngleDown}
         </button>
       </a>

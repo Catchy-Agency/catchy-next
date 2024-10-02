@@ -404,19 +404,32 @@ a.navbar-item.is-tab:not(.button):hover {
     transition: transform 0.1s ease-in-out;
   }
 
-  &:hover,
-  &:active,
-  &:focus {
-    color: #fff;
-    text-decoration: none;
-    &::before {
-      transform: scaleX(1);
-    }
-    > button {
+  @media (max-width: 1023px) {
+    > button.is-expanded {
       transform: rotate(180deg);
       svg {
         > path {
           fill: $turquoise;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      text-decoration: none;
+      &::before {
+        transform: scaleX(1);
+      }
+      > button {
+        transform: rotate(180deg);
+        svg {
+          > path {
+            fill: $turquoise;
+          }
         }
       }
     }
