@@ -1,41 +1,71 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
-import { LeftUpSoup, RightHero } from '../icons';
+import { heroSvgObject } from '../../util/heroSvgObject';
+import { LeftUpSoup } from '../icons';
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
   maxClass: { [key: string]: boolean };
-}> = ({ block, maxClass }) => (
-  <div className="custom-flex-columns">
-    {block.backgroundImage && (
-      <Image
-        data={block.backgroundImage.responsiveImage as ResponsiveImageType}
-        lazyLoad={false}
-        className="imageHero"
-      />
-    )}
+}> = ({ block, maxClass }) => {
+  const router = useRouter();
 
-    <div className={classNames('container data-container', maxClass)}>
-      {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
-      {block.text && (
-        <div
-          className="content text-description"
-          dangerouslySetInnerHTML={{ __html: block.text }}
+  const slug = router.asPath;
+
+  function getHeroSvg(slug: string | undefined) {
+    let slugName = '';
+
+    if (typeof slug === 'string') {
+      switch (slug) {
+        case '/':
+          slugName = 'home';
+          break;
+        case '/work':
+          slugName = 'work';
+          break;
+        default:
+          slugName = slug.replace('/', '');
+          break;
+      }
+
+      return heroSvgObject[slugName] || null;
+    }
+    const defaultSvg = heroSvgObject['what-we-do'];
+    return defaultSvg || null;
+  }
+
+  return (
+    <div className="custom-flex-columns">
+      {block.backgroundImage && (
+        <Image
+          data={block.backgroundImage.responsiveImage as ResponsiveImageType}
+          lazyLoad={false}
+          className="imageHero"
         />
       )}
-      {block.showContactButton === true && (
-        <Link href={block.link?.slug || ''}>
-          <a className="button is-ghost">{`${
-            block.contactButtonLabel || 'Contact Us'
-          }`}</a>
-        </Link>
-      )}
+
+      <div className={classNames('container data-container', maxClass)}>
+        {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
+        {block.text && (
+          <div
+            className="content text-description"
+            dangerouslySetInnerHTML={{ __html: block.text }}
+          />
+        )}
+        {block.showContactButton === true && (
+          <Link href={block.link?.slug || ''}>
+            <a className="button is-ghost">{`${
+              block.contactButtonLabel || 'Contact Us'
+            }`}</a>
+          </Link>
+        )}
+      </div>
+
+      <div className="svg-right">{getHeroSvg(slug)}</div>
+
+      <div className="svg-left">{LeftUpSoup}</div>
     </div>
-
-    <div className="svg-right">{RightHero}</div>
-
-    <div className="svg-left">{LeftUpSoup}</div>
-  </div>
-);
+  );
+};
