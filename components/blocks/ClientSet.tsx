@@ -32,7 +32,7 @@ export const ClientSet: FC<{
         </div>
       </div>
       <div className="soupContent">
-        <div className="columns is-mobile is-multiline is-variable is-1 imageContent">
+        <div className="columns is-mobile is-multiline is-variable is-5 imageContent">
           {block.clientSet.map((client) => (
             <div
               key={client.id}

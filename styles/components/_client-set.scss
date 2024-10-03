@@ -36,16 +36,31 @@
   > .columns {
     margin: unset;
   }
+  .imageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .soupContent {
     background-color: $soup-background;
     padding: 2rem $global-padding;
     display: flex;
     justify-content: center;
+    user-select: none;
+
     .imageContent {
       max-width: 1440px;
     }
+    @media (max-width: 1200px) {
+      > .columns.is-variable.is-5 {
+        --columnGap: 0.5rem;
+      }
+    }
     @media (max-width: $tablet) {
       padding: 2rem 1rem;
+      > .columns.is-variable.is-5 {
+        --columnGap: 1.25rem;
+      }
     }
   }
 
