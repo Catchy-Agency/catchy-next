@@ -51,7 +51,10 @@
 
       .text-description p {
         @include description-hero;
-        margin-bottom: 80px;
+        margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 80px;
+        }
       }
     }
 
