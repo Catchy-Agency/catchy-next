@@ -41,9 +41,10 @@ import { WorkCategoryIdBySlug } from '../gql/types/WorkCategoryIdBySlug';
 import schema from '../schema.json';
 import { reservedPaths } from './url';
 
-const API_TOKEN = process.env?.DATOCMS_API_TOKEN ?? process.env.NEXT_PUBLIC_API_TOKEN;
- const API_ENVIRONMENT = process.env.NEXT_PUBLIC_DATOCMS_API_ENVIRONMENT ?? "main";
-
+const API_TOKEN =
+  process?.env?.DATOCMS_API_TOKEN ?? process.env.NEXT_PUBLIC_API_TOKEN;
+const API_ENVIRONMENT =
+  process?.env?.NEXT_PUBLIC_DATOCMS_API_ENVIRONMENT ?? 'main';
 if (!API_TOKEN) throw new Error('Failed to read API_TOKEN');
 
 const httpLink = createHttpLink({
