@@ -909,7 +909,7 @@ export interface BlogPostBySlug_header_whatWeDoPageLink {
 }
 
 export interface BlogPostBySlug_header_whatWeDoLinks {
-  readonly __typename: "PrimaryPageRecord";
+  readonly __typename: "ServiceRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;

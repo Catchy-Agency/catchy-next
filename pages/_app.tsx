@@ -8,7 +8,6 @@ import NProgress from 'nprogress';
 
 import { AppComponent } from 'next/dist/shared/lib/router/router';
 import { PreviewTrigger } from '../components/cms/PreviewTrigger';
-import useBackgroundPattern from '../components/hooks/useBackgroundPattern';
 import { pageview } from '../util/gtag';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -21,7 +20,6 @@ Router.events.on('routeChangeComplete', (path: string) => {
 const App: AppComponent = ({ Component, pageProps }) => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const isPreview = Boolean(pageProps?.subscription?.preview);
-  useBackgroundPattern();
   return (
     <>
       <Head>

@@ -230,7 +230,6 @@ export const servicePagesBySlug = gql`
             }
           }
         }
-
         ... on ClientSetRecord {
           id
           title

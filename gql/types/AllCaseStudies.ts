@@ -223,6 +223,40 @@ export interface AllCaseStudies_primaryPage_blocks_ButtonInternalRecord {
   readonly openInNewTab: any | null;
 }
 
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy {
+  readonly __typename: "CaseStudyRecord";
+  readonly slug: string | null;
+  readonly description: string | null;
+  readonly previewImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord {
+  readonly __typename: "CaseStudyTileRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly overline: string | null;
+  readonly buttonLabel: string | null;
+  readonly caseStudy: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy | null;
+}
+
 export interface AllCaseStudies_primaryPage_blocks_ClientSetRecord_clientSet_logo_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1220,7 +1254,7 @@ export interface AllCaseStudies_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type AllCaseStudies_primaryPage_blocks = AllCaseStudies_primaryPage_blocks_ArticleRecord | AllCaseStudies_primaryPage_blocks_AgencyModelRecord | AllCaseStudies_primaryPage_blocks_BannerRecord | AllCaseStudies_primaryPage_blocks_ButtonExternalRecord | AllCaseStudies_primaryPage_blocks_ButtonInternalRecord | AllCaseStudies_primaryPage_blocks_ClientSetRecord | AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord | AllCaseStudies_primaryPage_blocks_ColumnRowRecord | AllCaseStudies_primaryPage_blocks_FormBlockRecord | AllCaseStudies_primaryPage_blocks_FormulaRecord | AllCaseStudies_primaryPage_blocks_ImageSetRecord | AllCaseStudies_primaryPage_blocks_ItemsPanelRecord | AllCaseStudies_primaryPage_blocks_RichTextRecord | AllCaseStudies_primaryPage_blocks_ServiceSetRecord | AllCaseStudies_primaryPage_blocks_TeamRecord | AllCaseStudies_primaryPage_blocks_TitleTextRecord | AllCaseStudies_primaryPage_blocks_VideoRecord | AllCaseStudies_primaryPage_blocks_VideoInternalRecord | AllCaseStudies_primaryPage_blocks_ViewMoreLinkRecord;
+export type AllCaseStudies_primaryPage_blocks = AllCaseStudies_primaryPage_blocks_ArticleRecord | AllCaseStudies_primaryPage_blocks_AgencyModelRecord | AllCaseStudies_primaryPage_blocks_BannerRecord | AllCaseStudies_primaryPage_blocks_ButtonExternalRecord | AllCaseStudies_primaryPage_blocks_ButtonInternalRecord | AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord | AllCaseStudies_primaryPage_blocks_ClientSetRecord | AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord | AllCaseStudies_primaryPage_blocks_ColumnRowRecord | AllCaseStudies_primaryPage_blocks_FormBlockRecord | AllCaseStudies_primaryPage_blocks_FormulaRecord | AllCaseStudies_primaryPage_blocks_ImageSetRecord | AllCaseStudies_primaryPage_blocks_ItemsPanelRecord | AllCaseStudies_primaryPage_blocks_RichTextRecord | AllCaseStudies_primaryPage_blocks_ServiceSetRecord | AllCaseStudies_primaryPage_blocks_TeamRecord | AllCaseStudies_primaryPage_blocks_TitleTextRecord | AllCaseStudies_primaryPage_blocks_VideoRecord | AllCaseStudies_primaryPage_blocks_VideoInternalRecord | AllCaseStudies_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface AllCaseStudies_primaryPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -1276,7 +1310,7 @@ export interface AllCaseStudies_header_whatWeDoPageLink {
 }
 
 export interface AllCaseStudies_header_whatWeDoLinks {
-  readonly __typename: "PrimaryPageRecord";
+  readonly __typename: "ServiceRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
