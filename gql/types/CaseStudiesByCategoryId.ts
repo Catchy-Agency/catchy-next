@@ -99,10 +99,6 @@ export interface CaseStudiesByCategoryId_allWorkCategories {
   readonly slug: string | null;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord {
-  readonly __typename: "ArticleRecord" | "CardStackRecord" | "CarouselRecord" | "CaseStudyTileRecord" | "NewsletterRecord" | "TextImageSmallRecord";
-}
-
 export interface CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord_columns_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -142,6 +138,32 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord {
   readonly text: string | null;
   readonly title: string | null;
   readonly columns: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord_columns>;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord_image_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord {
+  readonly __typename: "ArticleRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly image: CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord_image | null;
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage {
@@ -223,6 +245,189 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ButtonInternalRecord
   readonly openInNewTab: any | null;
 }
 
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly image: CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image | null;
+  readonly buttonLabel: string | null;
+  readonly buttonLink: string | null;
+  readonly openInNewTab: any | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly slug: string | null;
+  readonly themeColor: string | null;
+  readonly previewImage: CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link | null;
+}
+
+export type CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards = CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord | CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord;
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord {
+  readonly __typename: "CardStackRecord";
+  readonly id: any;
+  readonly maxColumns: any | null;
+  readonly cards: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord_cards>;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly description: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord_link {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly themeColor: string | null;
+  readonly title: string | null;
+  readonly text: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord_link | null;
+}
+
+export type CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items = CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord | CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord;
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord {
+  readonly __typename: "CarouselRecord";
+  readonly id: any;
+  readonly buttonLabel: string | null;
+  readonly items: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_items>;
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord_link | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy {
+  readonly __typename: "CaseStudyRecord";
+  readonly slug: string | null;
+  readonly description: string | null;
+  readonly previewImage: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage | null;
+  readonly previewImageSm: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm | null;
+  readonly previewImageCol: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord {
+  readonly __typename: "CaseStudyTileRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly overline: string | null;
+  readonly buttonLabel: string | null;
+  readonly caseStudy: CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord_caseStudy | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_clientSet_logo_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -251,6 +456,10 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_clie
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord {
   readonly __typename: "ClientSetRecord";
   readonly id: any;
+  readonly title: string | null;
+  readonly subtitle: string | null;
+  readonly buttonLabel: string | null;
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_link | null;
   readonly clientSet: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
@@ -959,6 +1168,32 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_FormulaRecord {
   readonly step3: CaseStudiesByCategoryId_primaryPage_blocks_FormulaRecord_step3 | null;
 }
 
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet {
+  readonly __typename: "FileField";
+  readonly id: any;
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord {
+  readonly __typename: "ImageSetRecord";
+  readonly id: any;
+  readonly imageSet: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet>;
+  readonly verticallyCenterAcrossImages: any | null;
+}
+
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ItemsPanelRecord_panelItems_listImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1045,7 +1280,7 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ItemsPanelRecord {
   readonly panelItems: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ItemsPanelRecord_panelItems>;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet_responsiveImage {
+export interface CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -1058,17 +1293,37 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_image
   readonly base64: string | null;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet {
+export interface CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_image {
   readonly __typename: "FileField";
-  readonly id: any;
-  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet_responsiveImage | null;
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_image_responsiveImage | null;
 }
 
-export interface CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord {
-  readonly __typename: "ImageSetRecord";
+export interface CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_form_formFields {
+  readonly __typename: "FormFieldRecord";
   readonly id: any;
-  readonly imageSet: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord_imageSet>;
-  readonly verticallyCenterAcrossImages: any | null;
+  readonly label: string | null;
+  readonly fieldName: string | null;
+  readonly fieldType: string | null;
+  readonly required: any | null;
+  readonly invisible: any | null;
+  readonly grouped: any | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_form {
+  readonly __typename: "FormRecord";
+  readonly title: string | null;
+  readonly name: string | null;
+  readonly action: string | null;
+  readonly method: string | null;
+  readonly formFields: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_form_formFields>;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord {
+  readonly __typename: "NewsletterRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly image: CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_image | null;
+  readonly form: CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord_form | null;
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_RichTextRecord {
@@ -1143,6 +1398,42 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord {
   readonly id: any;
   readonly teamTitle: string | null;
   readonly members: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members>;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_internalLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_image_responsiveImage | null;
+}
+
+export interface CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord {
+  readonly __typename: "TextImageSmallRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly buttonLabel: string | null;
+  readonly externalLink: string | null;
+  readonly inverted: any | null;
+  readonly internalLink: CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_internalLink | null;
+  readonly image: CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord_image | null;
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_TitleTextRecord {
@@ -1221,7 +1512,7 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type CaseStudiesByCategoryId_primaryPage_blocks = CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord | CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord | CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord | CaseStudiesByCategoryId_primaryPage_blocks_ButtonExternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_ButtonInternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_ColumnRowRecord | CaseStudiesByCategoryId_primaryPage_blocks_FormBlockRecord | CaseStudiesByCategoryId_primaryPage_blocks_FormulaRecord | CaseStudiesByCategoryId_primaryPage_blocks_ItemsPanelRecord | CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_RichTextRecord | CaseStudiesByCategoryId_primaryPage_blocks_ServiceSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord | CaseStudiesByCategoryId_primaryPage_blocks_TitleTextRecord | CaseStudiesByCategoryId_primaryPage_blocks_VideoRecord | CaseStudiesByCategoryId_primaryPage_blocks_VideoInternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_ViewMoreLinkRecord;
+export type CaseStudiesByCategoryId_primaryPage_blocks = CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord | CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord | CaseStudiesByCategoryId_primaryPage_blocks_BannerRecord | CaseStudiesByCategoryId_primaryPage_blocks_ButtonExternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_ButtonInternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_CardStackRecord | CaseStudiesByCategoryId_primaryPage_blocks_CarouselRecord | CaseStudiesByCategoryId_primaryPage_blocks_CaseStudyTileRecord | CaseStudiesByCategoryId_primaryPage_blocks_ClientSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_ContentLinkSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_ColumnRowRecord | CaseStudiesByCategoryId_primaryPage_blocks_FormBlockRecord | CaseStudiesByCategoryId_primaryPage_blocks_FormulaRecord | CaseStudiesByCategoryId_primaryPage_blocks_ImageSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_ItemsPanelRecord | CaseStudiesByCategoryId_primaryPage_blocks_NewsletterRecord | CaseStudiesByCategoryId_primaryPage_blocks_RichTextRecord | CaseStudiesByCategoryId_primaryPage_blocks_ServiceSetRecord | CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord | CaseStudiesByCategoryId_primaryPage_blocks_TextImageSmallRecord | CaseStudiesByCategoryId_primaryPage_blocks_TitleTextRecord | CaseStudiesByCategoryId_primaryPage_blocks_VideoRecord | CaseStudiesByCategoryId_primaryPage_blocks_VideoInternalRecord | CaseStudiesByCategoryId_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface CaseStudiesByCategoryId_primaryPage__seoMetaTags {
   readonly __typename: "Tag";

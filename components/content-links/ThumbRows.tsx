@@ -14,7 +14,7 @@ export const ThumbRows: FC<{
   links: LinkData[];
   imageAlign?: string | null;
   isBreakpoint: (index: number) => boolean;
-}> = ({ links, imageAlign, isBreakpoint }) => {
+}> = ({ links, isBreakpoint }) => {
   return (
     <div className={'post-list-wrapper'}>
       {links.map((link, i) => (

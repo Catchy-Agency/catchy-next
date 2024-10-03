@@ -1169,6 +1169,26 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
+        ... on ArticleRecord {
+          id
+          title
+          text
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+        }
         ... on BannerRecord {
           id
           title
@@ -1197,7 +1217,6 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
-        __typename
         ... on ButtonExternalRecord {
           id
           label
@@ -1229,8 +1248,154 @@ export const caseStudiesByCategoryId = gql`
           align
           openInNewTab
         }
+        ... on CardStackRecord {
+          id
+          maxColumns
+          cards {
+            __typename
+            ... on ExternalCardItemRecord {
+              __typename
+              id
+              title
+              description
+              image {
+                responsiveImage(
+                  imgixParams: { fit: clip, maxW: 300, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              buttonLabel
+              buttonLink
+              openInNewTab
+            }
+            ... on InternalCardItemRecord {
+              __typename
+              link {
+                id
+                title
+                text
+                slug
+                themeColor
+                previewImage {
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 300, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on CarouselRecord {
+          id
+          buttonLabel
+          items {
+            __typename
+            ... on ExternalCardItemRecord {
+              id
+              title
+              description
+            }
+            ... on InternalCardItemRecord {
+              link {
+                id
+                themeColor
+                title
+                text
+              }
+            }
+          }
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
+        }
+        ... on CaseStudyTileRecord {
+          id
+          title
+          overline
+          buttonLabel
+          caseStudy {
+            slug
+            description
+            previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageSm {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageCol {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
+        }
         ... on ClientSetRecord {
           id
+          title
+          subtitle
+          buttonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
           clientSet {
             id
             name
@@ -1790,6 +1955,26 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
+        ... on ImageSetRecord {
+          id
+          imageSet {
+            id
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1344, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          verticallyCenterAcrossImages
+        }
         ... on ItemsPanelRecord {
           id
           panelItems {
@@ -1853,12 +2038,12 @@ export const caseStudiesByCategoryId = gql`
             detailLinkLabel
           }
         }
-        ... on ImageSetRecord {
+        ... on NewsletterRecord {
           id
-          imageSet {
-            id
+          title
+          image {
             responsiveImage(
-              imgixParams: { fit: clip, maxW: 1344, auto: format }
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
             ) {
               aspectRatio
               height
@@ -1871,7 +2056,22 @@ export const caseStudiesByCategoryId = gql`
               base64
             }
           }
-          verticallyCenterAcrossImages
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              __typename
+              id
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+              grouped
+            }
+          }
         }
         ... on RichTextRecord {
           id
@@ -1924,6 +2124,36 @@ export const caseStudiesByCategoryId = gql`
                 title
                 base64
               }
+            }
+          }
+        }
+        ... on TextImageSmallRecord {
+          id
+          title
+          text
+          buttonLabel
+          externalLink
+          inverted
+          internalLink {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+              title
+            }
+          }
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
             }
           }
         }
