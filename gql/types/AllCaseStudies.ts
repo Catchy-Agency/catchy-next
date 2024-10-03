@@ -241,11 +241,49 @@ export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy
   readonly responsiveImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage | null;
 }
 
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage | null;
+}
+
 export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy {
   readonly __typename: "CaseStudyRecord";
   readonly slug: string | null;
   readonly description: string | null;
   readonly previewImage: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage | null;
+  readonly previewImageSm: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm | null;
+  readonly previewImageCol: AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol | null;
 }
 
 export interface AllCaseStudies_primaryPage_blocks_CaseStudyTileRecord {

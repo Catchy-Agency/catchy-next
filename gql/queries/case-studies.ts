@@ -199,6 +199,36 @@ export const allCaseStudies = gql`
                 base64
               }
             }
+            previewImageSm {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageCol {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
           }
         }
         ... on ClientSetRecord {
