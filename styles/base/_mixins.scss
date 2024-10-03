@@ -75,3 +75,10 @@
     clip-path: polygon(0 0, 100% 0, 100% 63%, 42% 100%, 0 100%, 0% 50%);
   }
 }
+
+@mixin text-clamp($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+}

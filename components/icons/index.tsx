@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, SVGProps } from 'react';
 
 export interface IconSVG {
   color: string | null;
@@ -1519,5 +1519,325 @@ export const CaseStudySvg = (
       strokeWidth="0.25"
       strokeMiterlimit="10"
     />
+  </svg>
+);
+
+export const InsightsImageTop: FC<
+  SVGProps<SVGSVGElement> & {
+    width?: number;
+    height?: number;
+  }
+> = ({ width = 81, height = 116, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width}
+    height={height}
+    fill="none"
+    {...props}
+  >
+    <g clipPath="url(#InsightsImageTop)">
+      <mask
+        id="b"
+        width={320}
+        height={640}
+        x={-239}
+        y={0}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: 'luminance',
+        }}
+      >
+        <path fill="#fff" d="M81 0h-320v640H81V0Z" />
+      </mask>
+      <g
+        stroke="#212121"
+        strokeMiterlimit={10}
+        strokeWidth={0.25}
+        mask="url(#b)"
+      >
+        <path d="M41 23.09 1 0v46.19l40 23.09V23.09Z" />
+        <path d="M41 69.09 1 46v46.19l40 23.09V69.09ZM81 46.09 41 23v46.19l40 23.09V46.09Z" />
+        <path d="m1 .09 40 23.1L1 46.28V.09ZM41 23.09 81 0v46.19L41 69.28V23.09Z" />
+      </g>
+    </g>
+    <defs>
+      <clipPath id="InsightsImageTop">
+        <path fill="#fff" d="M-239 0H81v640h-320z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export const InsightsImageBottomOdd: FC<
+  SVGProps<SVGSVGElement> & {
+    width?: number;
+    height?: number;
+  }
+> = ({ width = 320, height = 391, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width}
+    height={height}
+    fill="none"
+    {...props}
+  >
+    <g clipPath="url(#InsightsImageBottomOdd)">
+      <mask
+        id="InsightsImageBottomOdd-mask"
+        width={320}
+        height={640}
+        x={0}
+        y={-249}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: 'luminance',
+        }}
+      >
+        <path fill="#fff" d="M320-249H0v640h320v-640Z" />
+      </mask>
+      <g mask="url(#InsightsImageBottomOdd-mask)">
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m279.77 94.09 40-23.09v46.18l-40 23.1V94.09ZM240 24.1 200 1v46.19l40 23.1V24.1Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.01 47.09-40-23.09v46.19l40 23.09V47.09ZM80.05 253.05l40-23.1v46.19l-40 23.1v-46.19ZM360.01 45.8l-40-23.09V68.9l40 23.09V45.8Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m360.01 91.98-40-23.1v46.19l40 23.1V91.98Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m320.01 68.33 40-23.1v46.19l-40 23.09V68.33Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m320.01 114.5 40-23.09v46.19l-40 23.09V114.5Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m360.01 138.15-40-23.09v46.19l40 23.09v-46.19ZM240.07 206.85l-40-23.09v46.19l40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m240.07 253.03-40-23.09v46.18l40 23.1v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.07 230.01 40-23.09v46.19l-40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.07 275.55 40-23.09v46.19l-40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m240.07 299.21-40-23.1v46.19l40 23.09v-46.18ZM280.05 230.01l-40-23.09v46.19l40 23.09v-46.19ZM200.07 322.35l-40-23.09v46.18l40 23.1v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m160.09 299.26-40-23.09v46.19l40 23.09v-46.19ZM119.97 322.35l-40-23.09v46.18l40 23.1v-46.19ZM280.05 94.1l-40-23.1v46.19l40 23.1V94.1ZM240.05 252.54l40-23.1v46.19l-40 23.09v-46.18ZM160 116.48l80-46.19v46.19l-80 46.18v-46.18ZM.07 114.48l80-46.19v46.19l-80 46.18v-46.18ZM.07 253l80-46.19V253l-80 46.19V253Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m.07 391.56 80-46.18v46.18l-80 46.19v-46.19ZM160.07 391.56l80-46.18v46.18l-80 46.19v-46.19ZM120.08 183.7l-80-46.19v46.19l80 46.19V183.7Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m80.1 345.6-80-46.19v46.19l80 46.19V345.6ZM40.01 276.01v92.58"
+        />
+        <path fill="#8FB2CC" d="m160 391.46 80-46.12L160 299v92.46Z" />
+        <path fill="#008C81" d="m80 254.19 80 46.19v-46.19L80 208v46.19Z" />
+        <path
+          fill="#BFB3A3"
+          d="m159.96 300.19-80 46.19v-46.19l80-46.19v46.19Z"
+        />
+        <path fill="#212121" d="m40 276.32 40-23.06-40-23.17v46.23Z" />
+        <path fill="#263140" d="m80 253.24-40-23.06L80 207v46.24Z" />
+        <path fill="#008C81" d="M280 1v92.37l-80 46.19V47.18L280 1Z" />
+        <path fill="#1DBC83" d="M240 209.57v-92.38L320 71v184.75l-80-46.18Z" />
+        <path fill="#263140" d="M0 253.66v-92.37L120 92v92.38L0 253.66Z" />
+        <path
+          fill="#BFB3A3"
+          d="M40 139.47V47.09L0 24v92.37l40 23.1ZM200 230.29V184.1l40-23.1v92.38l-40-23.09Z"
+        />
+        <path fill="#212121" d="m200 184.07 40 23.06-40 23.18v-46.24Z" />
+        <path
+          fill="#1DBC83"
+          d="M120 232.28v-46.19L159.99 163v46.19L120 232.28Z"
+        />
+        <path fill="#8FB2CC" d="M80 207.29V161.1l40-23.1v92.38l-40-23.09Z" />
+      </g>
+    </g>
+    <defs>
+      <clipPath id="InsightsImageBottomOdd">
+        <path fill="#fff" d="M0-249h320v640H0z" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+export const InsightsImageBottomEven: FC<
+  SVGProps<SVGSVGElement> & {
+    width?: number;
+    height?: number;
+  }
+> = ({ width = 320, height = 391, ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width}
+    height={height}
+    fill="none"
+    {...props}
+  >
+    <g clipPath="url(#InsightsImageBottomEven)">
+      <mask
+        id="InsightsImageBottomEven-mask"
+        width={320}
+        height={640}
+        x={0}
+        y={-249}
+        maskUnits="userSpaceOnUse"
+        style={{
+          maskType: 'luminance',
+        }}
+      >
+        <path fill="#fff" d="M320-249H0v640h320v-640Z" />
+      </mask>
+      <g mask="url(#InsightsImageBottomEven-mask)">
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m279.77 94.09 40-23.09v46.18l-40 23.1V94.09ZM240 24.1 200 1v46.19l40 23.1V24.1Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.01 47.09-40-23.09v46.19l40 23.09V47.09ZM80.05 253.05l40-23.1v46.19l-40 23.1v-46.19ZM360.01 45.8l-40-23.09V68.9l40 23.09V45.8Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m360.01 91.98-40-23.1v46.19l40 23.1V91.98Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m320.01 68.33 40-23.1v46.19l-40 23.09V68.33Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m320.01 114.5 40-23.09v46.19l-40 23.09V114.5Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m360.01 138.15-40-23.09v46.19l40 23.09v-46.19ZM240.07 206.85l-40-23.09v46.19l40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m240.07 253.03-40-23.09v46.18l40 23.1v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.07 230.01 40-23.09v46.19l-40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m200.07 275.55 40-23.09v46.19l-40 23.09v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m240.07 299.21-40-23.1v46.19l40 23.09v-46.18ZM280.05 230.01l-40-23.09v46.19l40 23.09v-46.19ZM200.07 322.35l-40-23.09v46.18l40 23.1v-46.19Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m160.09 299.26-40-23.09v46.19l40 23.09v-46.19ZM119.97 322.35l-40-23.09v46.18l40 23.1v-46.19ZM280.05 94.1l-40-23.1v46.19l40 23.1V94.1ZM240.05 252.54l40-23.1v46.19l-40 23.09v-46.18ZM160 116.48l80-46.19v46.19l-80 46.18v-46.18ZM.07 114.48l80-46.19v46.19l-80 46.18v-46.18ZM.07 253l80-46.19V253l-80 46.19V253Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m.07 391.56 80-46.18v46.18l-80 46.19v-46.19ZM160.07 391.56l80-46.18v46.18l-80 46.19v-46.19ZM120.08 183.7l-80-46.19v46.19l80 46.19V183.7Z"
+        />
+        <path
+          stroke="#212121"
+          strokeMiterlimit={10}
+          strokeWidth={0.25}
+          d="m80.1 345.6-80-46.19v46.19l80 46.19V345.6ZM40.01 276.01v92.58"
+        />
+        <path fill="#8FB2CC" d="m120.11 229 80 46.12-80 46.34V229Z" />
+        <path fill="#BFB3A3" d="m80 344.62 80-46.19v46.19l-80 46.19v-46.19Z" />
+        <path
+          fill="#008C81"
+          d="m239.96 344.62-80-46.19v46.19l80 46.19v-46.19Z"
+        />
+        <path fill="#212121" d="m200 275.32-40 23.06 40 23.17v-46.23Z" />
+        <path fill="#263140" d="m160 298.4 40 23.06-40 23.18V298.4Z" />
+        <path fill="#008C81" d="M280 139v92.37l-80 46.19v-92.38L280 139Z" />
+        <path fill="#1DBC83" d="M80 162.57V70.19L0 24v184.75l80-46.18Z" />
+        <path fill="#8FB2CC" d="M160 116.29V70.1L200 47v92.38l-40-23.09Z" />
+        <path fill="#263140" d="M40 277.66v-92.37L160 116v92.38L40 277.66Z" />
+        <path
+          fill="#BFB3A3"
+          d="M160 254.47v-92.38L120 139v92.37l40 23.1ZM280 277.29V231.1l40-23.1v92.38l-40-23.09Z"
+        />
+        <path fill="#212121" d="m280 231.07 40 23.06-40 23.18v-46.24Z" />
+        <path
+          fill="#1DBC83"
+          d="M240 391.28v-46.19L279.99 322v46.19L240 391.28Z"
+        />
+      </g>
+    </g>
+    <defs>
+      <clipPath id="InsightsImageBottomEven">
+        <path fill="#fff" d="M0-249h320v640H0z" />
+      </clipPath>
+    </defs>
   </svg>
 );
