@@ -52,7 +52,7 @@ export const ThumbRows: FC<{
               <div className="content">{link.description}</div>
             )}
             <Link href={link.url ?? '/blog'}>
-              <a className="button is-ghost revert-color content">
+              <a className="button is-ghost revert-button content">
                 {link.callToAction}
               </a>
             </Link>
