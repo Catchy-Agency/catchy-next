@@ -58,7 +58,7 @@
 
       .content {
         line-height: 40px !important; // .content applies !important to line-height
-        @include text-clamp(4);
+        @include text-clamp(5);
       }
 
       .revert-color {
