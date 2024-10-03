@@ -19,7 +19,7 @@ footer {
     width: 1.65em;
   }
 
-  @media screen and (max-width: calc(692px + 100px)) {
+  @media screen and (max-width: calc($tablet + 200px)) {
     .columns {
       display: flex;
       flex-direction: column-reverse;
@@ -73,7 +73,7 @@ form {
     }
   }
 
-  @media (max-width: $tablet) {
+  @media (max-width: calc($tablet + 200px)) {
     justify-content: unset;
     gap: 80px;
   }

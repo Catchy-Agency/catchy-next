@@ -25,12 +25,19 @@ $global-padding: 10rem;
 //   border: 1px dotted red;
 // }
 
-section:not(.has-background-grey-darker),
-.section.Footer {
+section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 3% 0;
   @media (max-width: $tablet) {
     padding: 0 1rem;
+  }
+}
+
+.section.Footer {
+  padding: 5rem $global-padding;
+  margin: 3% 0;
+  @media (max-width: $tablet) {
+    padding: 2rem 1rem;
   }
 }
 
@@ -261,6 +268,12 @@ section:last-of-type {
     .title-work {
       color: $anthracite;
     }
+    /*    .subtitle-blog {
+      @include blog-work();
+    }
+    .description-blog {
+      @include description-hero();
+    } */
 
     .author-blog {
       .author-image {
