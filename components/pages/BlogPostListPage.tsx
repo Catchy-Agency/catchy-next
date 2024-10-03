@@ -162,7 +162,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
         }
         containerMax="widescreen"
       />
-      <section className="section">
+      <section className="section CaseStudyPage">
         <div className="container is-max-widescreen">
           <div className="blog-posts-container">
             <div className="blog-categories">
