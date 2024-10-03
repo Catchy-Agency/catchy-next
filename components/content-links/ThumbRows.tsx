@@ -32,7 +32,7 @@ export const ThumbRows: FC<{
                     <Image
                       className="image"
                       objectFit="cover"
-                      data={link.image}
+                      data={link.imageSm || link.image}
                       lazyLoad={false}
                     />
                   )}
