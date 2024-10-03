@@ -385,11 +385,13 @@ a.navbar-item.is-tab:not(.button):hover {
   align-items: center;
   height: fit-content;
   > button {
-    transform: rotate(0deg);
-    transition: transform 250ms ease-in-out;
     background: none;
     border: none;
     padding: 0;
+    > svg {
+      transform: rotate(0deg);
+      transition: transform 250ms ease-in-out;
+    }
   }
   &::before {
     content: '';
@@ -406,8 +408,8 @@ a.navbar-item.is-tab:not(.button):hover {
 
   @media (max-width: 1023px) {
     > button.is-expanded {
-      transform: rotate(180deg);
       svg {
+        transform: rotate(180deg);
         > path {
           fill: $turquoise;
         }
@@ -425,8 +427,8 @@ a.navbar-item.is-tab:not(.button):hover {
         transform: scaleX(1);
       }
       > button {
-        transform: rotate(180deg);
         svg {
+          transform: rotate(180deg);
           > path {
             fill: $turquoise;
           }
