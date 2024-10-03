@@ -15,25 +15,22 @@ export const Banner: FC<{
   const slug = router.asPath;
 
   function getHeroSvg(slug: string | undefined) {
+    if (!slug) return;
     let slugName = '';
 
-    if (typeof slug === 'string') {
-      switch (slug) {
-        case '/':
-          slugName = 'home';
-          break;
-        case '/work':
-          slugName = 'work';
-          break;
-        default:
-          slugName = slug.replace('/', '');
-          break;
-      }
-
-      return heroSvgObject[slugName] || null;
+    switch (slug) {
+      case '/':
+        slugName = 'home';
+        break;
+      case '/work':
+        slugName = 'work';
+        break;
+      default:
+        slugName = slug.replace('/', '');
+        break;
     }
-    const defaultSvg = heroSvgObject['what-we-do'];
-    return defaultSvg || null;
+
+    return heroSvgObject[slugName] || heroSvgObject['what-we-do'];
   }
 
   return (

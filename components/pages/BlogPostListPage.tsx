@@ -155,22 +155,6 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
       <PreviewBanner status={status} />
       {error && <PageError error={error} />}
       {data?.header && <Header header={data?.header} />}
-      <header className="section py-0 pt-5">
-        <div className="container is-max-widescreen">
-          <nav className="breadcrumb" aria-label="breadcrumbs">
-            <ul>
-              <li>
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li className="is-active">
-                <a aria-current="page">Blog</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
 
       <BlockSections
         blocks={
