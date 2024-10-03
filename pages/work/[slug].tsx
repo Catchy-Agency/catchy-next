@@ -64,10 +64,12 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
             </div>
           </div>
         </header>
-        <BlockSections
-          blocks={data?.caseStudy?.blocks || []}
-          containerMax="widescreen"
-        />
+        <div className="block-sections">
+          <BlockSections
+            blocks={data?.caseStudy?.blocks || []}
+            containerMax="widescreen"
+          />
+        </div>
       </div>
       {data?.footer && <Footer footer={data?.footer} />}
     </>

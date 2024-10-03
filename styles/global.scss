@@ -236,7 +236,8 @@ section:last-of-type {
   }
 
   .section.Work,
-  .section.Blog {
+  .section.Blog,
+  .block-sections {
     padding: 3rem $global-padding;
     @media (max-width: $tablet) {
       padding: 0 1rem;
@@ -286,70 +287,86 @@ section:last-of-type {
       }
     }
   }
-  > .section.RichTextRecord {
-    padding: 0 18rem;
-    color: $anthracite;
-    @media (max-width: calc(1024px + 200px)) {
-      padding: 0 10rem;
-    }
 
-    @media (max-width: $tablet) {
-      padding: 0 1rem;
-    }
-    a {
-      text-decoration: underline;
-    }
-    h3,
-    strong {
+  .block-sections {
+    > .section.RichTextRecord {
+      padding: 0 18rem;
       color: $anthracite;
-      @include blog-work();
-    }
-    b {
-      @include hdl4();
-      > em {
+      @media (max-width: calc(1024px + 200px)) {
+        padding: 0 10rem;
+      }
+
+      @media (max-width: $tablet) {
+        padding: 0 1rem;
+      }
+      a {
+        text-decoration: underline;
+      }
+      h3,
+      strong {
+        color: $anthracite;
+        @include blog-work();
+      }
+      b {
+        @include hdl4();
+        > em {
+          @include bdy-md();
+        }
+      }
+      ul,
+      a,
+      b,
+      p,
+      em {
+        color: $anthracite;
         @include bdy-md();
       }
-    }
-    ul,
-    a,
-    b,
-    p,
-    em {
-      color: $anthracite;
-      @include bdy-md();
-    }
-    blockquote {
-      background-color: $anthracite;
-      border-left: 5px solid $turquoise;
-      @include bdy-md();
+      blockquote {
+        background-color: $anthracite;
+        border-left: 5px solid $turquoise;
+        @include bdy-md();
 
-      strong {
-        font-size: 16px !important;
-        font-weight: 700;
-      }
+        strong {
+          font-size: 16px !important;
+          font-weight: 700;
+        }
 
-      strong,
-      p,
-      a,
-      ul {
-        color: #f2f2f2;
+        strong,
+        p,
+        a,
+        ul {
+          color: #f2f2f2;
+        }
       }
     }
-  }
 
-  > .section.ColumnRowRecord {
-    padding: 0 18rem;
-  }
-
-  > .section.TeamRecord {
-    .img-container {
-      background-color: $anthracite;
+    > .section.ColumnRowRecord {
+      padding: 0 18rem;
     }
-    h4 {
-      color: $anthracite !important;
+
+    > .section.TeamRecord {
+      .img-container {
+        background-color: $anthracite;
+      }
+      h4 {
+        color: $anthracite !important;
+      }
     }
   }
 }
+
+.block-sections {
+  padding: unset !important;
+}
+
+.block-sections :is(.ImageSetRecord, .VideoRecord):first-of-type {
+  padding: unset !important;
+  > div {
+    padding: unset;
+    max-width: unset;
+  }
+}
+
 //
 // More fragile hacks
 
