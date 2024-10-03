@@ -100,7 +100,7 @@ export interface CaseStudiesByCategoryId_allWorkCategories {
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_ArticleRecord {
-  readonly __typename: "ArticleRecord" | "CardStackRecord" | "CarouselRecord" | "NewsletterRecord" | "TextImageSmallRecord";
+  readonly __typename: "ArticleRecord" | "CardStackRecord" | "CarouselRecord" | "CaseStudyTileRecord" | "NewsletterRecord" | "TextImageSmallRecord";
 }
 
 export interface CaseStudiesByCategoryId_primaryPage_blocks_AgencyModelRecord_columns_image_responsiveImage {
@@ -1277,7 +1277,7 @@ export interface CaseStudiesByCategoryId_header_whatWeDoPageLink {
 }
 
 export interface CaseStudiesByCategoryId_header_whatWeDoLinks {
-  readonly __typename: "PrimaryPageRecord";
+  readonly __typename: "ServiceRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;

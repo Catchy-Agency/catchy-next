@@ -259,6 +259,78 @@ export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord {
   readonly link: PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_link | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy {
+  readonly __typename: "CaseStudyRecord";
+  readonly slug: string | null;
+  readonly description: string | null;
+  readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage | null;
+  readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord {
+  readonly __typename: "CaseStudyTileRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly overline: string | null;
+  readonly buttonLabel: string | null;
+  readonly caseStudy: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_link {
   readonly __typename: "PrimaryPageRecord";
   readonly slug: string | null;
@@ -1348,7 +1420,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_ArticleRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_CardStackRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_ArticleRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_CardStackRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord | PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -1404,7 +1476,7 @@ export interface PrimaryPageBySlug_header_whatWeDoPageLink {
 }
 
 export interface PrimaryPageBySlug_header_whatWeDoLinks {
-  readonly __typename: "PrimaryPageRecord";
+  readonly __typename: "ServiceRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;

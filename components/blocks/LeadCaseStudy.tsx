@@ -7,6 +7,17 @@ import { IconTopLeadCaseStudy } from '../icons';
 export const LeadCaseStudy: FC<{
   block: ServicePagesBySlug_service_blocks_CaseStudyTileRecord;
 }> = ({ block }) => {
+  function getImage() {
+    if (block.caseStudy?.previewImageCol?.responsiveImage)
+      return block.caseStudy?.previewImageCol?.responsiveImage;
+    if (block.caseStudy?.previewImageSm?.responsiveImage)
+      return block.caseStudy?.previewImageSm?.responsiveImage;
+    if (block.caseStudy?.previewImage?.responsiveImage)
+      return block.caseStudy?.previewImage?.responsiveImage;
+
+    return undefined;
+  }
+  const image = getImage();
   return (
     <div className="textStudy-content">
       <div className="study-content">
@@ -29,12 +40,9 @@ export const LeadCaseStudy: FC<{
       </div>
 
       <div className="imgStudy-container">
-        {block.caseStudy?.previewImage && (
+        {image && (
           <Image
-            data={
-              block.caseStudy.previewImage
-                .responsiveImage as ResponsiveImageType
-            }
+            data={image as ResponsiveImageType}
             lazyLoad={false}
             className="imageStudy"
           />

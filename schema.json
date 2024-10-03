@@ -14526,7 +14526,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "PrimaryPageRecord",
+                    "name": "ServiceRecord",
                     "ofType": null
                   }
                 }
@@ -20817,6 +20817,11 @@
           {
             "kind": "OBJECT",
             "name": "CarouselRecord",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CaseStudyTileRecord",
             "ofType": null
           },
           {
