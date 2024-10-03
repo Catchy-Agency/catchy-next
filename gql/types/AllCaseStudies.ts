@@ -573,6 +573,7 @@ export interface AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_Ca
   readonly slug: string | null;
   readonly title: string | null;
   readonly description: string | null;
+  readonly pretitle: string | null;
   readonly previewImage: AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
   readonly previewImageSm: AllCaseStudies_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm | null;

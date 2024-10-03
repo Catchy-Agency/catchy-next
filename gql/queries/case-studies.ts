@@ -399,6 +399,7 @@ export const allCaseStudies = gql`
               slug
               title
               description
+              pretitle
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
@@ -2060,6 +2061,8 @@ export const caseStudyBySlug = gql`
     caseStudy(filter: { slug: { eq: $slug } }) {
       title
       date
+      pretitle
+      description
       blocks {
         __typename
         ... on ButtonExternalRecord {
@@ -2365,8 +2368,8 @@ export const caseStudyBySlug = gql`
               id
               slug
               title
-              pretitle
               description
+              pretitle
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }

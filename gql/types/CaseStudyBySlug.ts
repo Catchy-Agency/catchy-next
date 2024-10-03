@@ -478,8 +478,8 @@ export interface CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_Cas
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
-  readonly pretitle: string | null;
   readonly description: string | null;
+  readonly pretitle: string | null;
   readonly previewImage: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
   readonly previewImageSm: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm | null;
@@ -923,6 +923,8 @@ export interface CaseStudyBySlug_caseStudy {
   readonly __typename: "CaseStudyRecord";
   readonly title: string | null;
   readonly date: any | null;
+  readonly pretitle: string | null;
+  readonly description: string | null;
   readonly blocks: ReadonlyArray<CaseStudyBySlug_caseStudy_blocks>;
   readonly categories: ReadonlyArray<CaseStudyBySlug_caseStudy_categories>;
   readonly slug: string | null;
