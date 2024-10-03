@@ -13,7 +13,9 @@ import {
   AllBlogPosts,
   AllBlogPosts_allBlogPosts,
 } from '../../gql/types/AllBlogPosts';
+import { BlogPostBySlug_blogPost_blocks } from '../../gql/types/BlogPostBySlug';
 import { Subscription, getPaginatedBlogPosts } from '../../util/dato-cms';
+import { BlockSections } from '../BlockSections';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { PageError } from '../cms/PageError';
@@ -169,6 +171,13 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
           </nav>
         </div>
       </header>
+
+      <BlockSections
+        blocks={
+          (data?.primaryPage?.blocks || []) as BlogPostBySlug_blogPost_blocks[]
+        }
+        containerMax="widescreen"
+      />
       <section className="section">
         <div className="container is-max-widescreen">
           <div className="blog-posts-container">

@@ -14,6 +14,7 @@ export const Banner: FC<{
         data={block.backgroundImage.responsiveImage as ResponsiveImageType}
         lazyLoad={false}
         className="imageHero"
+        objectFit="cover"
       />
     )}
 

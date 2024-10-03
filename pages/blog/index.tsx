@@ -1,12 +1,12 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps } from 'next';
 
 import {
   BlogPostListPage,
   BlogPostListPageProps,
-} from '../../components/pages/BlogPostListPage'
-import { allBlogPosts } from '../../gql/queries/blog-posts'
-import { AllBlogPosts } from '../../gql/types/AllBlogPosts'
-import { createSubscription } from '../../util/dato-cms'
+} from '../../components/pages/BlogPostListPage';
+import { allBlogPosts } from '../../gql/queries/blog-posts';
+import { AllBlogPosts } from '../../gql/types/AllBlogPosts';
+import { createSubscription } from '../../util/dato-cms';
 
 export const getStaticProps: GetStaticProps<BlogPostListPageProps> = async (
   context,
@@ -15,6 +15,6 @@ export const getStaticProps: GetStaticProps<BlogPostListPageProps> = async (
     subscription: await createSubscription<AllBlogPosts>(context, allBlogPosts),
     path: '/blog',
   },
-})
+});
 
-export default BlogPostListPage
+export default BlogPostListPage;

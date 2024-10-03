@@ -40,6 +40,7 @@ export const TextImage: FC<{
             data={block.image.responsiveImage as ResponsiveImageType}
             lazyLoad={false}
             className="imageText"
+            objectFit="cover"
           />
         )}
 
