@@ -25,6 +25,28 @@ export const PanelCards: FC<{
     setIsOpen(!isOpen);
   };
 
+  const renderLink = (item: IPanelCard) =>
+    item.openInNewTab ? (
+      <a
+        className="button is-primary mt-4"
+        href={item.slug || undefined}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {item.buttonLabel || 'Learn More'}
+      </a>
+    ) : (
+      <>
+        {item.slug && (
+          <Link href={`/${item.slug}`}>
+            <a className="button is-primary mt-4">
+              {item.buttonLabel || 'Learn More'}
+            </a>
+          </Link>
+        )}
+      </>
+    );
+
   return (
     <li
       className="panel-item-wrapper"
@@ -50,15 +72,7 @@ export const PanelCards: FC<{
             {item.description && (
               <div dangerouslySetInnerHTML={{ __html: item.description }} />
             )}
-            {item.slug && (
-              <div className="card-button">
-                <Link href={`/${item.slug}`}>
-                  <a className="button is-primary mt-4">
-                    {item.buttonLabel || 'Learn More'}
-                  </a>
-                </Link>
-              </div>
-            )}
+            {renderLink(item)}
           </div>
         </div>
       ) : (
@@ -67,15 +81,8 @@ export const PanelCards: FC<{
           {item.description && (
             <div dangerouslySetInnerHTML={{ __html: item.description }} />
           )}
-          {item.slug && (
-            <div className="card-button">
-              <Link href={`/${item.slug}`}>
-                <a className="button is-primary mt-4">
-                  {item.buttonLabel || 'Learn More'}
-                </a>
-              </Link>
-            </div>
-          )}
+
+          <div className="card-button">{item.slug && renderLink(item)}</div>
         </div>
       )}
     </li>
