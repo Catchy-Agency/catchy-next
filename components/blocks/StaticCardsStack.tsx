@@ -18,12 +18,14 @@ export const StaticCardsStack: FC<{
           return (
             <div className="static-card-item-wrapper " key={i}>
               <div className="static-card-item">
-                <div className="card-item-image">
-                  <Image
-                    data={item.image?.responsiveImage as ResponsiveImageType}
-                    lazyLoad={false}
-                  />{' '}
-                </div>
+                {item.image && (
+                  <div className="card-item-image">
+                    <Image
+                      data={item.image?.responsiveImage as ResponsiveImageType}
+                      lazyLoad={false}
+                    />{' '}
+                  </div>
+                )}
                 <div className="card-item-content">
                   <PanelCards key={i} item={item} />
                 </div>
