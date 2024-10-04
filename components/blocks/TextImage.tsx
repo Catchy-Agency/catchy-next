@@ -15,7 +15,7 @@ export const TextImage: FC<{
 
           {block.text && (
             <div
-              className="text-description"
+              className="text-description content"
               dangerouslySetInnerHTML={{ __html: block.text }}
             />
           )}
