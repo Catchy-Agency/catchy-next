@@ -104,6 +104,7 @@ $navbar-item-hover-color: $primary;
 $navbar-item-hover-background-color: transparent;
 $navbar-item-active-color: $navbar-item-hover-color;
 $navbar-item-active-background-color-mobile: $grey-darker;
+$navbar-item-img-max-height: fit-content !default;
 $navbar-dropdown-arrow: #fff;
 $navbar-divider-background-color: rgba(0, 0, 0, 0.2);
 $navbar-dropdown-border-top: 1px solid $navbar-divider-background-color;
