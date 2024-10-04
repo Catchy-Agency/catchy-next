@@ -327,6 +327,9 @@ a.is-block-link:focus {
 }
 
 .navbar {
+  > .container {
+    max-width: unset;
+  }
   border-bottom: 1px solid #d4d6d969;
   min-height: 5.5rem;
   &.is-transparent {
@@ -716,7 +719,10 @@ body > .navbar {
     max-width: 1440px;
   }
   .navbar {
-    padding-left: $global-padding;
-    padding-right: $global-padding;
+    > .container {
+      max-width: unset;
+      padding-left: $global-padding;
+      padding-right: $global-padding;
+    }
   }
 }
