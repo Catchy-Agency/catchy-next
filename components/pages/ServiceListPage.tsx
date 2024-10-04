@@ -18,7 +18,6 @@ export const ServiceLPage: NextPage<ServicePageListProps> = ({
 }) => {
   const { data, error, status } =
     useQuerySubscription<ServicePagesBySlug>(subscription);
-
   return (
     <div className="primary-page">
       <Head>
@@ -33,20 +32,6 @@ export const ServiceLPage: NextPage<ServicePageListProps> = ({
       <BlockSections
         blocks={data?.service?.blocks || []}
         containerMax="widescreen"
-      />
-      <section
-        className="section"
-        style={{ paddingTop: '0', marginBottom: '1.5rem' }}
-      >
-        <div className="container is-max-widescreen has-text-left">
-          <h2 className="title is-2" style={{ maxWidth: '100%' }}>
-            Check out our work
-          </h2>
-        </div>
-      </section>
-      <section
-        className="ContentLinkSetRecord card--columns"
-        style={{ marginTop: '0' }}
       />
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
