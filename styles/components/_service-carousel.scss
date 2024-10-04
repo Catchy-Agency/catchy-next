@@ -3,10 +3,6 @@ $item-min-gap: 20px;
 $item-responsive-gap: 5vw;
 
 .SC-carousel-wrapper {
-  &.container.is-max-widescreen {
-    max-width: 1600px;
-  }
-
   .SC-container-outer {
     --item-width: 100%;
     overflow: hidden;
