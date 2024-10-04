@@ -42,7 +42,7 @@ export const Footer: FC<{
               </Link>
             </div>
           </div>
-          <div className="is-flex-direction-column">
+          <div className="catchy-privacy">
             <Link href="/">
               <a className="navbar-item">
                 <img
@@ -54,7 +54,7 @@ export const Footer: FC<{
             </Link>
             {footer.richText && (
               <div
-                className="mt-6 content privacy"
+                className="content privacy"
                 dangerouslySetInnerHTML={{ __html: footer.richText }}
               />
             )}
@@ -69,8 +69,8 @@ export const Footer: FC<{
             action={footer.destinationEmail || ''}
             method="POST"
           >
-            <div className="field is-grouped pb-5">
-              <div className="control is-expanded _has-icons-left mr-5">
+            <div className="field is-grouped pb-5 info-personal">
+              <div className="control is-expanded _has-icons-left mr-5 input-name">
                 <input
                   className="input px-2 pb-4"
                   type="text"
@@ -78,7 +78,7 @@ export const Footer: FC<{
                   placeholder={footer.firstNameLabel || 'First Name'}
                 />
               </div>
-              <div className="control is-expanded _has-icons-left ml-5">
+              <div className="control is-expanded _has-icons-left ml-5 input-lastName">
                 <input
                   className="input px-2 pb-4"
                   type="text"
@@ -100,7 +100,7 @@ export const Footer: FC<{
             <div className="field mb-6">
               <div className="control">
                 <textarea
-                  className="textarea px-2 pb-4"
+                  className="textarea px-2 pb-4 scroll-text"
                   name="message"
                   placeholder={footer.messageLabel || undefined}
                   rows={1}
