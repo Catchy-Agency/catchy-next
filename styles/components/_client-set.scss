@@ -43,7 +43,7 @@
   }
   .soupContent {
     background-color: $soup-background;
-    padding: 2rem $global-padding;
+    padding: 5rem $global-padding;
     display: flex;
     justify-content: center;
     user-select: none;
@@ -52,6 +52,7 @@
       max-width: 1440px;
     }
     @media (max-width: 1200px) {
+      padding: 3rem $global-padding;
       > .columns.is-variable.is-5 {
         --columnGap: 0.5rem;
       }
