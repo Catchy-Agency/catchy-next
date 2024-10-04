@@ -48,7 +48,7 @@ export const ThumbRows: FC<{
           <div className="single-blog-body-svg">{IconTextImageLeft}</div>
           <div className="single-post-body img-container">
             {link.title && <h3 className="is-2">{link.title}</h3>}
-            {link.subtitle && <p>{link.subtitle}</p>}
+            {link.subtitle && <p className="subtitle is-3">{link.subtitle}</p>}
             {link.description && (
               <div className="content">{link.description}</div>
             )}

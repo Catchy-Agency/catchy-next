@@ -56,6 +56,11 @@
         }
       }
 
+      .subtitle {
+        color: $anthracite;
+        margin-bottom: 0;
+      }
+
       .content {
         line-height: 40px !important; // .content applies !important to line-height
         @include text-clamp(5);
