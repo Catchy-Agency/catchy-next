@@ -111,6 +111,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
         id: post.id,
         url: `/blog/${post.slug || ''}`,
         title: post.title,
+        subtitle: post.subtitle,
         description: post.description,
         image:
           (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
