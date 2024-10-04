@@ -24,6 +24,7 @@ import { RichText } from './blocks/RichText';
 import { ServiceCarousel } from './blocks/ServiceCarousel';
 import { ServiceSet } from './blocks/ServiceSet';
 import { StaticCardsStack } from './blocks/StaticCardsStack';
+import { StaticCaseStudyCards } from './blocks/StaticCaseStudyCards';
 import { Team } from './blocks/Team';
 import { TextImage } from './blocks/TextImage';
 import { TitleText } from './blocks/TitleText';
@@ -33,7 +34,6 @@ import { ViewMoreLink } from './blocks/ViewMoreLink';
 import { ContentBannerL } from './content-links/banners/ContentBannerL';
 import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
 import { ContentTileM } from './content-links/cards/ContentTileM';
-import { ContentTileS } from './content-links/cards/ContentTileS';
 import {
   DownSoup,
   IconBottomLeadFullWidth,
@@ -150,7 +150,11 @@ export const BlockSections: FC<{
                   : item.link?.themeColor ?? undefined,
             }));
             return (
-              <section key={block.id} className="section">
+              <section
+                key={block.id}
+                className="section"
+                style={{ paddingRight: 0 }}
+              >
                 <div
                   className={classNames(
                     'container SC-carousel-wrapper',
@@ -186,12 +190,9 @@ export const BlockSections: FC<{
                   : item.link?.text ?? '',
               image:
                 item.__typename === 'ExternalCardItemRecord'
-                  ? ((item.image ?? undefined) as
-                      | ResponsiveImageType
-                      | undefined)
-                  : ((item.link?.previewImage ?? undefined) as
-                      | ResponsiveImageType
-                      | undefined),
+                  ? (item.image?.responsiveImage as ResponsiveImageType) || null
+                  : (item.link?.previewImage
+                      ?.responsiveImage as ResponsiveImageType) || null,
               buttonLabel:
                 item.__typename === 'ExternalCardItemRecord'
                   ? item.buttonLabel ?? undefined
@@ -266,6 +267,8 @@ export const BlockSections: FC<{
               id: link.id,
               url: `${prefixByTypename[link.__typename]}${link.slug || ''}`,
               title: link.title,
+              pretitle:
+                link.__typename === 'CaseStudyRecord' ? link.pretitle : null,
               description: link.description,
               image:
                 (link.previewImage?.responsiveImage as ResponsiveImageType) ||
@@ -375,12 +378,13 @@ export const BlockSections: FC<{
                     )}
                   >
                     <div className={classNames('container', maxClass)}>
-                      <ContentTileS
+                      {/*  <ContentTileS
                         contentSize={'Small'}
                         displaySize={block.displaySize}
                         links={links}
                         isSlider={block.isSlider}
-                      />
+                      /> */}
+                      <StaticCaseStudyCards link={links} />
                     </div>
                   </section>
                 );
