@@ -39,10 +39,7 @@ $item-responsive-gap: 5vw;
       align-items: center;
       justify-content: center;
       gap: clamp(10px, 3vw, 40px);
-      padding-right: $global-padding;
-      @media screen and (max-width: 769px) {
-        padding-right: 1rem;
-      }
+
       .SC-indicator-items-wrapper {
         display: flex;
         align-items: center;
