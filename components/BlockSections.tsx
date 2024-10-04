@@ -150,11 +150,7 @@ export const BlockSections: FC<{
                   : item.link?.themeColor ?? undefined,
             }));
             return (
-              <section
-                key={block.id}
-                className="section"
-                style={{ paddingRight: 0 }}
-              >
+              <section key={block.id} className="section">
                 <div
                   className={classNames(
                     'container SC-carousel-wrapper',

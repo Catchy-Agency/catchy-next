@@ -8,6 +8,24 @@ interface IServiceCarousel {
   description: string;
 }
 
+const calculateMovement = ({
+  containerWidth,
+  numberOfIndicators,
+  activeIndicator,
+  itemMargin,
+}: {
+  containerWidth: number;
+  numberOfIndicators: number;
+  activeIndicator: number;
+  itemMargin: number;
+}) => {
+  const margin =
+    numberOfIndicators - 1 === activeIndicator
+      ? itemMargin * activeIndicator - 1
+      : itemMargin * activeIndicator;
+  return containerWidth * activeIndicator + margin;
+};
+
 export const ServiceCarousel: FC<{
   items: IServiceCarousel[];
 }> = ({ items }) => {
@@ -21,17 +39,42 @@ export const ServiceCarousel: FC<{
   const scrollLeftRef = useRef<number>(0);
   const [itemWidth, setItemWidth] = useState<number>(0);
   const activeIndicatorRef = useRef(activeIndicator); // added to avoid putting dependency on useCallback as it affects the scroll behavior.
+  const [itemMargin, setItemMargin] = useState<number>(0);
 
   const handleResize = useCallback(() => {
     if (!containerRef.current || !carouselRef.current) return;
     const windowsWidth = window.innerWidth;
     const itemsAmt = getItemsAmount(windowsWidth);
     setItemsOnScreen(itemsAmt);
-    setItemWidth(Math.floor(containerRef.current.offsetWidth / itemsAmt));
+    // get the first panel-item-wrapper margin-right
+    const element =
+      containerRef.current.children[0]?.getElementsByClassName(
+        'panel-item-wrapper',
+      )[0];
+    const margin = element
+      ? window
+          .getComputedStyle(element)
+          .getPropertyValue('margin-right')
+          .replace('px', '')
+      : '0';
+    setItemMargin(Number(margin));
+
+    const containerWidth = containerRef.current.offsetWidth;
+    const itemWidth =
+      (containerWidth - Number(margin) * (itemsAmt - 1)) / itemsAmt;
+    setItemWidth(itemWidth);
+    const left = calculateMovement({
+      containerWidth: containerRef.current.offsetWidth,
+      activeIndicator: activeIndicatorRef.current,
+      numberOfIndicators,
+      itemMargin: Number(margin),
+    });
+
     carouselRef.current.scrollTo({
-      left: containerRef.current.offsetWidth * activeIndicatorRef.current,
+      left,
       behavior: 'auto',
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -55,9 +98,17 @@ export const ServiceCarousel: FC<{
     );
     if (newActiveIndicator === activeIndicator) return;
     setActiveIndicator(newActiveIndicator);
+    activeIndicatorRef.current = newActiveIndicator;
+
+    const left = calculateMovement({
+      containerWidth: containerRef.current.offsetWidth,
+      activeIndicator: newActiveIndicator,
+      numberOfIndicators,
+      itemMargin,
+    });
 
     carouselRef.current.scrollTo({
-      left: containerRef.current.offsetWidth * newActiveIndicator,
+      left,
       behavior: 'smooth',
     });
   }
@@ -67,8 +118,16 @@ export const ServiceCarousel: FC<{
     const newActiveIndicator = Math.max(activeIndicator - 1, 0);
     if (newActiveIndicator === activeIndicator) return;
     setActiveIndicator(newActiveIndicator);
+    activeIndicatorRef.current = newActiveIndicator;
+    const left = calculateMovement({
+      containerWidth: containerRef.current.offsetWidth,
+      activeIndicator: newActiveIndicator,
+      numberOfIndicators,
+      itemMargin,
+    });
+
     carouselRef.current.scrollTo({
-      left: containerRef.current.offsetWidth * newActiveIndicator,
+      left,
       behavior: 'smooth',
     });
   }
@@ -96,8 +155,14 @@ export const ServiceCarousel: FC<{
     } else if (pointerStart.current + 20 < e.clientX) {
       handleIndicatorClickLeft();
     } else {
+      const left = calculateMovement({
+        containerWidth: containerRef.current.offsetWidth,
+        activeIndicator,
+        numberOfIndicators,
+        itemMargin,
+      });
       carouselRef.current.scrollTo({
-        left: containerRef.current.offsetWidth * activeIndicator,
+        left,
         behavior: 'smooth',
       });
     }
@@ -128,8 +193,14 @@ export const ServiceCarousel: FC<{
     } else if (pointerStart.current - 20 < e.changedTouches[0].clientX) {
       handleIndicatorClickLeft();
     } else {
+      const left = calculateMovement({
+        containerWidth: containerRef.current.offsetWidth,
+        activeIndicator,
+        numberOfIndicators,
+        itemMargin,
+      });
       carouselRef.current.scrollTo({
-        left: containerRef.current.offsetWidth * activeIndicator,
+        left,
         behavior: 'smooth',
       });
     }
@@ -145,8 +216,15 @@ export const ServiceCarousel: FC<{
     )
       return;
     setActiveIndicator(position);
+    activeIndicatorRef.current = position;
+    const left = calculateMovement({
+      containerWidth: containerRef.current.offsetWidth,
+      activeIndicator: position,
+      numberOfIndicators,
+      itemMargin,
+    });
     carouselRef.current.scrollTo({
-      left: containerRef.current.offsetWidth * position,
+      left,
       behavior: 'smooth',
     });
   }
