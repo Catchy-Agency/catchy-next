@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { Image } from 'react-datocms';
 
+import { Image, ResponsiveImageType } from 'react-datocms';
 import { IPanelCard, PanelCards } from '../content-links/cards/PanelCards';
 
 export const StaticCardsStack: FC<{
@@ -17,13 +17,16 @@ export const StaticCardsStack: FC<{
         {items?.map((item, i) => {
           return (
             <div className="static-card-item-wrapper " key={i}>
-              {item.image && (
+              <div className="static-card-item">
                 <div className="card-item-image">
-                  <Image data={item.image} lazyLoad={false} />{' '}
+                  <Image
+                    data={item.image?.responsiveImage as ResponsiveImageType}
+                    lazyLoad={false}
+                  />{' '}
                 </div>
-              )}
-              <div className="static-card-item-content">
-                <PanelCards key={i} item={item} />
+                <div className="card-item-content">
+                  <PanelCards key={i} item={item} />
+                </div>
               </div>
             </div>
           );
