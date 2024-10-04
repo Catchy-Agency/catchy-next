@@ -27,7 +27,7 @@ export const ClientSet: FC<{
     <div className="soupWrapper">
       <div className="soupTitle">
         <div className="textContent">
-          <h2 className="title is-2">{block.title}</h2>
+          <h2 className="title is-2 mb-5">{block.title}</h2>
           <p className="content">{block.subtitle}</p>
         </div>
       </div>
