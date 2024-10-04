@@ -264,18 +264,29 @@ section:last-of-type {
     .breadcrumb li + .is-active a {
       color: $anthracite;
     }
+
+    .pretitle-work {
+      @include description-hero();
+      color: $pretitle-color;
+    }
     .title-blog,
     .title-work {
       color: $anthracite;
     }
-    /*    .subtitle-blog {
+    .subtitle-blog {
       @include blog-work();
     }
-    .description-blog {
+    .description-blog,
+    .description-work {
       @include description-hero();
-    } */
+      padding-top: 2.5rem;
+    }
+    .description-work {
+      padding-bottom: 2.5rem;
+    }
 
     .author-blog {
+      padding: 3rem 0;
       .author-image {
         clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 100%, 0% 50%);
       }
@@ -302,7 +313,8 @@ section:last-of-type {
   }
 
   .block-sections {
-    > .section.RichTextRecord {
+    > .section.RichTextRecord,
+    .section.ColumnRowRecord {
       padding: 0 18rem;
       color: $anthracite;
       @media (max-width: calc(1024px + 200px)) {
@@ -330,7 +342,8 @@ section:last-of-type {
       a,
       b,
       p,
-      em {
+      em,
+      span {
         color: $anthracite;
         @include bdy-md();
       }
@@ -347,7 +360,8 @@ section:last-of-type {
         strong,
         p,
         a,
-        ul {
+        ul,
+        span {
           color: #f2f2f2;
         }
       }

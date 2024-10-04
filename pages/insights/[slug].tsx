@@ -60,6 +60,8 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
               </ul>
             </nav>
             <h1 className="title is-1 title-blog">{data?.blogPost?.title}</h1>
+            <h2 className="subtitle-blog">{data?.blogPost?.subtitle}</h2>
+            <p className="description-blog">{data?.blogPost?.description}</p>
             {data?.blogPost?.author && <ByLine author={data.blogPost.author} />}
             <div className="tags are-medium">
               {data?.blogPost?.categories.map((cat) => (
@@ -73,10 +75,12 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
             </div>
           </div>
         </header>
-        <BlockSections
-          blocks={data?.blogPost?.blocks || []}
-          containerMax="widescreen"
-        />
+        <div className="block-sections">
+          <BlockSections
+            blocks={data?.blogPost?.blocks || []}
+            containerMax="widescreen"
+          />
+        </div>
       </div>
       {data?.footer && <Footer footer={data?.footer} />}
     </>

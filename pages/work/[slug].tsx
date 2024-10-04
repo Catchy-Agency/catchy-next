@@ -54,7 +54,9 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
                 </li>
               </ul>
             </nav>
+            <span className="pretitle-work">{data?.caseStudy?.pretitle}</span>
             <h1 className="title is-1 title-work">{data?.caseStudy?.title}</h1>
+            <p className="description-work">{data?.caseStudy?.description}</p>
             <div className="tags are-medium">
               {data?.caseStudy?.categories.map((cat) => (
                 <Link key={cat.id} href={`/work/category/${cat.slug || ''}`}>
