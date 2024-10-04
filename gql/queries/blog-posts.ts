@@ -84,7 +84,7 @@ export const allBlogPosts = gql`
       name
       slug
     }
-    primaryPage(filter: { slug: { eq: "blog" } }) {
+    primaryPage(filter: { slug: { eq: "insights" } }) {
       id
       title
       blocks {

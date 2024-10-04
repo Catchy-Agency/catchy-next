@@ -50,8 +50,8 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blog">
-                    <a>Blog</a>
+                  <Link href="/insights">
+                    <a>Insights</a>
                   </Link>
                 </li>
                 <li className="is-active">
@@ -63,7 +63,10 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
             {data?.blogPost?.author && <ByLine author={data.blogPost.author} />}
             <div className="tags are-medium">
               {data?.blogPost?.categories.map((cat) => (
-                <Link key={cat.id} href={`/blog/category/${cat.slug || ''}`}>
+                <Link
+                  key={cat.id}
+                  href={`/insights/category/${cat.slug || ''}`}
+                >
                   <a className="tag">{cat.name}</a>
                 </Link>
               ))}

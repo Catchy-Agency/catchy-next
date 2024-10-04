@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps<BlogPostListPageProps> = async (
 ) => ({
   props: {
     subscription: await createSubscription<AllBlogPosts>(context, allBlogPosts),
-    path: '/blog',
+    path: '/insights',
   },
 });
 

@@ -157,7 +157,7 @@ export const getBlogPostPaths = async (): Promise<string[]> => {
   const result = await client.query<AllBlogPostSlugs>({
     query: allBlogPostSlugs,
   });
-  return result.data.allBlogPosts.map(({ slug }) => `/blog/${slug || ''}`);
+  return result.data.allBlogPosts.map(({ slug }) => `/insights/${slug || ''}`);
 };
 
 export const getBlogCategoryPaths = async (): Promise<string[]> => {

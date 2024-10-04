@@ -109,7 +109,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     return (
       posts.map((post: AllBlogPosts_allBlogPosts) => ({
         id: post.id,
-        url: `/blog/${post.slug || ''}`,
+        url: `/insights/${post.slug || ''}`,
         title: post.title,
         subtitle: post.subtitle,
         description: post.description,
@@ -144,7 +144,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     }
     return false;
   }
-
+  console.log(data);
   return (
     <>
       <Head>
@@ -170,7 +170,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
               <h5 className="title is-5">Categories</h5>
               <div className="blog-category-list-container">
                 <div className="mb-2 mr-2 is-inline-block-mobile">
-                  <Link href={`/blog`} scroll={false}>
+                  <Link href={`/insights`} scroll={false}>
                     <a className="tag is-medium">All</a>
                   </Link>
                 </div>
@@ -180,7 +180,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
                     className="mb-2 mr-2 is-inline-block-mobile"
                   >
                     <Link
-                      href={`/blog?category=${cat.slug || ''}`}
+                      href={`/insights?category=${cat.slug || ''}`}
                       scroll={false}
                     >
                       <a className="tag is-medium">{cat.name}</a>
