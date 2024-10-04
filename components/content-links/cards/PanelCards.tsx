@@ -39,8 +39,18 @@ export const PanelCards: FC<{
       <>
         {item.slug && (
           <Link href={`/${item.slug}`}>
-            <a className="button is-primary mt-4">
-              {item.buttonLabel || 'Learn More'}
+            <a className="button is-primary">
+              <span>
+                {(item.buttonLabel || 'Learn More')
+                  .split(' ')
+                  .map((word, index) =>
+                    word.includes('-') ? (
+                      <span key={index}>{word}</span>
+                    ) : (
+                      word + ' '
+                    ),
+                  )}
+              </span>
             </a>
           </Link>
         )}
