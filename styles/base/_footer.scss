@@ -82,14 +82,13 @@ form {
   justify-content: space-between;
 
   .navbar-item {
-    width: 10vw;
+    width: 170px;
     padding: 0;
     display: flex;
     justify-content: flex-start;
 
     > img {
       max-height: unset;
-      width: fit-content;
       user-select: none;
     }
   }
