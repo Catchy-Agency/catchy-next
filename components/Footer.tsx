@@ -35,7 +35,7 @@ export const Footer: FC<{
                 ),
             )}
             <div className="control mt-4">
-              <Link href={'/contact'}>
+              <Link href={'/newsletter'}>
                 <a className="button is-primary" type="submit">
                   Join Our Mailing List
                 </a>
