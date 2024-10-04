@@ -19,7 +19,7 @@ footer {
     width: 1.65em;
   }
 
-  @media screen and (max-width: calc($tablet + 200px)) {
+  @media (max-width: calc($tablet + 300px)) {
     .columns {
       display: flex;
       flex-direction: column-reverse;
@@ -44,6 +44,37 @@ form {
       color: darken(#fff, 35%);
     }
   }
+
+  .scroll-text {
+    min-height: 5vh;
+    max-height: 5vh;
+    resize: none;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $text;
+      border-radius: 4px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .info-personal {
+      flex-direction: column;
+
+      .input-name {
+        margin-right: unset !important;
+        padding-bottom: 1.5rem;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .input-lastName {
+        margin-left: unset !important;
+      }
+    }
+  }
 }
 
 .information {
@@ -51,9 +82,22 @@ form {
   justify-content: space-between;
 
   .navbar-item {
+    width: 10vw;
     padding: 0;
     display: flex;
     justify-content: flex-start;
+
+    > img {
+      max-height: unset;
+      width: fit-content;
+      user-select: none;
+    }
+  }
+
+  .catchy-privacy {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .privacy p {
@@ -63,17 +107,21 @@ form {
     align-items: flex-start;
     gap: 10px;
     @include bdy-md;
+    user-select: none;
 
     //text-privacy-richText
     a {
       color: $text;
-      &:hover {
-        border-bottom: 1px solid $turquoise-interact;
+      &:hover,
+      &:active,
+      &:focus {
+        border-bottom: 1px solid $turquoise;
+        outline: none;
       }
     }
   }
 
-  @media (max-width: calc($tablet + 200px)) {
+  @media (max-width: calc($tablet + 300px)) {
     justify-content: unset;
     gap: 80px;
   }
