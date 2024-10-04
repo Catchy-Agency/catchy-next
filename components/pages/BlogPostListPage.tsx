@@ -144,7 +144,6 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     }
     return false;
   }
-  console.log(data);
   return (
     <>
       <Head>
