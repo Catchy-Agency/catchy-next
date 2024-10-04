@@ -1,10 +1,10 @@
 import classNames from 'classnames';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
 import { heroSvgObject } from '../../util/heroSvgObject';
+import { scrollToContact } from '../../util/scrollToContact';
 import { LeftUpSoup } from '../icons';
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
@@ -53,11 +53,9 @@ export const Banner: FC<{
           />
         )}
         {block.showContactButton === true && (
-          <Link href={block.link?.slug || ''}>
-            <a className="button is-ghost">{`${
-              block.contactButtonLabel || 'Contact Us'
-            }`}</a>
-          </Link>
+          <a className="button is-ghost" onClick={scrollToContact}>{`${
+            block.contactButtonLabel || 'Contact Us'
+          }`}</a>
         )}
       </div>
 
