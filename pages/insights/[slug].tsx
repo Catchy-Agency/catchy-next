@@ -65,7 +65,7 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
               {data?.blogPost?.categories.map((cat) => (
                 <Link
                   key={cat.id}
-                  href={`/insights/category/${cat.slug || ''}`}
+                  href={`/insights?category=${cat.slug || ''}`}
                 >
                   <a className="tag">{cat.name}</a>
                 </Link>
