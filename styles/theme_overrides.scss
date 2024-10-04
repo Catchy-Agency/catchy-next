@@ -1,6 +1,9 @@
 @import 'base/_mixins';
 @import 'base/_typography';
 @import 'base/_footer';
+.navbar-item {
+  padding: unset;
+}
 
 .title,
 .subtitle {
@@ -325,6 +328,7 @@ a.is-block-link:focus {
 
 .navbar {
   border-bottom: 1px solid #d4d6d969;
+  min-height: 5.5rem;
   &.is-transparent {
     background: none;
   }
@@ -525,7 +529,6 @@ a.navbar-item.is-tab:not(.button):hover {
 }
 
 .navbar-item {
-  min-width: 105px;
   text-align: center;
   justify-content: center;
   font-weight: 400;

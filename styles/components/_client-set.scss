@@ -5,7 +5,7 @@
   height: 100%;
 
   .soupTitle {
-    clip-path: polygon(47% 0, 100% 94%, 100% 100%, 0 100%, 0 80%);
+    clip-path: polygon(47% 0, 100% 95%, 100% 100%, 0 100%, 0 70%);
     height: 55vh;
     padding: 0 $global-padding;
     background-color: $soup-background;
@@ -65,9 +65,9 @@
   }
 
   .soupBottom {
-    clip-path: polygon(45% 100%, 100% 1%, 100% 0%, 0 0%, 0 15%);
+    clip-path: polygon(43% 100%, 100% 1%, 100% 0%, 0 0%, 0 15%);
     background-color: $soup-background;
-    height: 40vh;
+    height: 55vh;
     transform: translateY(-2px);
     padding: 2rem $global-padding;
     display: flex;
