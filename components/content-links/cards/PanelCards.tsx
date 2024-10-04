@@ -79,7 +79,10 @@ export const PanelCards: FC<{
         <div className="panel-item">
           <h3 className="panel-item-title">{item.title}</h3>
           {item.description && (
-            <div dangerouslySetInnerHTML={{ __html: item.description }} />
+            <div
+              className="panel-description"
+              dangerouslySetInnerHTML={{ __html: item.description }}
+            />
           )}
 
           <div className="card-button">{item.slug && renderLink(item)}</div>
