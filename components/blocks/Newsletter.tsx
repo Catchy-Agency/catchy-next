@@ -21,6 +21,7 @@ export const Newsletter: FC<{
             data={block.image.responsiveImage as ResponsiveImageType}
             lazyLoad={false}
             className="newsletterImage"
+            objectFit="cover"
           />
         )}
       </div>
