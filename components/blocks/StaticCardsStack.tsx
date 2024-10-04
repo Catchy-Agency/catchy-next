@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Image, ResponsiveImageType } from 'react-datocms';
+import { Image } from 'react-datocms';
 import { IPanelCard, PanelCards } from '../content-links/cards/PanelCards';
 
 export const StaticCardsStack: FC<{
@@ -20,10 +20,7 @@ export const StaticCardsStack: FC<{
               <div className="static-card-item">
                 {item.image && (
                   <div className="card-item-image">
-                    <Image
-                      data={item.image?.responsiveImage as ResponsiveImageType}
-                      lazyLoad={false}
-                    />{' '}
+                    <Image data={item.image} lazyLoad={false} />{' '}
                   </div>
                 )}
                 <div className="card-item-content">
