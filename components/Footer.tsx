@@ -9,7 +9,7 @@ export const Footer: FC<{
 }> = ({ footer }) => (
   <footer className="section Footer _has-background-grey-darker" data-footer>
     <div className="container is-max-widescreen">
-      <div className="columns">
+      <div className="columns form-footer">
         <div className="column is-flex-direction-column information">
           <div className="is-flex-direction-column">
             {footer.socialLinks?.map(

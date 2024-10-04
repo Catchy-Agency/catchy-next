@@ -143,3 +143,10 @@ form {
 .submit-btn {
   position: relative;
 }
+
+.form-footer {
+  gap: $global-padding;
+  @media (max-width: calc($tablet + 300px)) {
+    gap: unset;
+  }
+}
