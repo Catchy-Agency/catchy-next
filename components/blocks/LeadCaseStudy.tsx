@@ -33,7 +33,7 @@ export const LeadCaseStudy: FC<{
         )}
 
         {block.caseStudy && (
-          <Link href={block.caseStudy?.slug || ''}>
+          <Link href={`/work/${block.caseStudy?.slug ?? ''}` || ''}>
             <a className="button is-primary">{block.buttonLabel}</a>
           </Link>
         )}
