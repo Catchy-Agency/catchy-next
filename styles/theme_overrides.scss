@@ -3,6 +3,7 @@
 @import 'base/_footer';
 .navbar-item {
   padding: unset;
+  user-select: none;
 }
 
 .title,
@@ -544,7 +545,6 @@ a.navbar-item.is-tab:not(.button):hover {
   text-align: center;
   justify-content: center;
   font-weight: 400;
-  text-transform: capitalize;
 }
 
 @media (max-width: 1023px) {
