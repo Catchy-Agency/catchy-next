@@ -1,0 +1,109 @@
+.textStudy-content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+
+  .study-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .textStudy-description {
+      margin-bottom: 80px;
+      @include hdl4;
+    }
+  }
+
+  .imgStudy-container {
+    height: 80vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .imageStudy {
+      width: 100%;
+      height: 100%;
+      max-width: unset !important;
+      clip-path: polygon(48% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 26%);
+
+      > picture {
+        > img {
+          object-fit: cover;
+        }
+      }
+    }
+
+    .svg-leadCaseStudy {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 27%;
+
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: calc(1440px + 200px)) {
+    .imgStudy-container {
+      .imageStudy {
+        clip-path: polygon(50% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 25%);
+      }
+
+      .svg-leadCaseStudy {
+        width: 49%;
+        height: 26%;
+      }
+    }
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    padding: 10rem 0;
+    .imgStudy-container {
+      height: 60vh;
+    }
+  }
+
+  @media (max-width: calc($tablet + 200px)) {
+    height: 90vh;
+    .imgStudy-container {
+      height: 100%;
+      .imageStudy {
+        clip-path: polygon(55% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 22%);
+      }
+
+      .svg-leadCaseStudy {
+        width: 55%;
+        height: 22%;
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    height: unset;
+    flex-direction: column-reverse;
+    gap: 5rem;
+
+    .study-content {
+      padding: 0 1rem;
+    }
+
+    .imgStudy-container {
+      .imageStudy {
+        height: 45vh;
+        clip-path: polygon(42% 0, 100% 0%, 100% 50%, 100% 100%, 0 100%, 0 24%);
+      }
+      .svg-leadCaseStudy {
+        width: 40%;
+        height: 25%;
+      }
+    }
+  }
+}

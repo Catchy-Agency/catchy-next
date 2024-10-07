@@ -1,42 +1,44 @@
-import { NextPage } from 'next'
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { MouseEventHandler, useMemo } from 'react'
+import { NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { MouseEventHandler, useMemo } from 'react';
 import {
-  renderMetaTags,
   ResponsiveImageType,
+  renderMetaTags,
   useQuerySubscription,
-} from 'react-datocms'
-import { AllCaseStudies } from '../../gql/types/AllCaseStudies'
-import { Subscription } from '../../util/dato-cms'
-import { BlockSections } from '../BlockSections'
-import { PageError } from '../cms/PageError'
-import { PreviewBanner } from '../cms/PreviewBanner'
-import { ContentTileS } from '../content-links/cards/ContentTileS'
-import { Footer } from '../Footer'
-import { Header } from '../Header'
+} from 'react-datocms';
+import { AllCaseStudies } from '../../gql/types/AllCaseStudies';
+import { CaseStudyBySlug_caseStudy_blocks } from '../../gql/types/CaseStudyBySlug';
+import { Subscription } from '../../util/dato-cms';
+import { BlockSections } from '../BlockSections';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
+import { StaticCaseStudyCards } from '../blocks/StaticCaseStudyCards';
+import { PageError } from '../cms/PageError';
+import { PreviewBanner } from '../cms/PreviewBanner';
 
-const PAGE_SIZE = 9
+const PAGE_SIZE = 9;
 
 export interface CaseStudyListPageProps {
-  subscription: Subscription<AllCaseStudies>
-  path: string
+  subscription: Subscription<AllCaseStudies>;
+  path: string;
 }
 
 export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
   subscription,
   path,
 }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { data, error, status } =
-    useQuerySubscription<AllCaseStudies>(subscription)
+    useQuerySubscription<AllCaseStudies>(subscription);
 
   const links =
     data?.allCaseStudies.map((post) => ({
       id: post.id,
       url: `/work/${post.slug || ''}`,
       title: post.title,
+      pretitle: post.pretitle,
       description: post.description,
       image:
         (post.previewImage?.responsiveImage as ResponsiveImageType) || null,
@@ -47,23 +49,23 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       imageCol:
         (post.previewImageCol?.responsiveImage as ResponsiveImageType) || null,
       callToAction: 'Read More',
-    })) || []
+    })) || [];
 
-  const p = Number(router.query.p)
-  const pageNum = Number.isNaN(p) ? 1 : p
-  const pageCount = Math.ceil(links.length / PAGE_SIZE)
-  const pageIndex = pageNum - 1
+  const p = Number(router.query.p);
+  const pageNum = Number.isNaN(p) ? 1 : p;
+  const pageCount = Math.ceil(links.length / PAGE_SIZE);
+  const pageIndex = pageNum - 1;
   const visibleLinks = links.slice(
     pageIndex * PAGE_SIZE,
     (pageIndex + 1) * PAGE_SIZE,
-  )
+  );
 
   const sortedCategories = useMemo(() => {
-    if (!data?.allWorkCategories) return undefined
+    if (!data?.allWorkCategories) return undefined;
     return [...data.allWorkCategories].sort(
       (a, b) => a.name?.localeCompare(b.name ?? '') ?? 0,
-    )
-  }, [data?.allWorkCategories])
+    );
+  }, [data?.allWorkCategories]);
 
   return (
     <div className="primary-page">
@@ -95,12 +97,15 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         </header>
       )}
       <BlockSections
-        blocks={data?.primaryPage?.blocks || []}
+        blocks={
+          (data?.primaryPage?.blocks ||
+            []) as CaseStudyBySlug_caseStudy_blocks[]
+        }
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
       <section
-        className="section"
+        className="section CaseStudyPage"
         style={{ paddingTop: '0', marginBottom: '1.5rem' }}
       >
         <div className="container is-max-widescreen has-text-left">
@@ -141,12 +146,13 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         style={{ marginTop: '0' }}
       >
         <div className="container is-max-widescreen">
-          <ContentTileS
+          {/*       <ContentTileS
             contentSize={'Small'}
             displaySize={null}
             links={visibleLinks}
             isSlider={false}
-          />
+          /> */}
+          <StaticCaseStudyCards link={visibleLinks} />
           {links.length === 0 && (
             <div className="section is-size-3 is-italic has-text-centered">
               No work to show
@@ -156,57 +162,41 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       </section>
       <section className="section pt-4 pb-6">
         {pageCount > 1 && (
-          <div className="container is-max-widescreen has-text-centered">
-            {pageNum > 1 ? (
-              <Link href={`${path}?p=${pageNum - 1}`}>
-                <a>
-                  <button
-                    className="button is-small avoid-tf"
-                    onClick={buttonClickBlur}
-                  >
-                    ←
-                  </button>
-                </a>
-              </Link>
-            ) : (
+          <div className="container is-max-widescreen case-study-navigation">
+            <Link href={`${path}?p=${pageNum - 1}`}>
               <button
-                className="button is-small avoid-tf"
-                disabled={true}
-                style={{ visibility: 'hidden' }}
-              >
-                ←
-              </button>
-            )}
-            <span className="mx-5" style={{ verticalAlign: 'sub' }}>
+                className="button is-small avoid-tf case-study-navigation-button nav-left"
+                onClick={buttonClickBlur}
+                disabled={pageNum <= 1}
+                style={{ visibility: pageNum > 1 ? 'visible' : 'hidden' }}
+              />
+            </Link>
+
+            <span
+              className="mx-5 case-study-navigation-title"
+              style={{ verticalAlign: 'sub' }}
+            >
               Page {pageNum} of {pageCount}
             </span>
-            {pageNum < pageCount ? (
-              <Link href={`${path}?p=${pageNum + 1}`}>
-                <a>
-                  <button
-                    className="button is-small avoid-tf"
-                    onClick={buttonClickBlur}
-                  >
-                    →
-                  </button>
-                </a>
-              </Link>
-            ) : (
+
+            <Link href={`${path}?p=${pageNum + 1}`}>
               <button
-                className="button is-small avoid-tf"
-                disabled={true}
-                style={{ visibility: 'hidden' }}
-              >
-                →
-              </button>
-            )}
+                className="button is-small avoid-tf case-study-navigation-button"
+                onClick={buttonClickBlur}
+                disabled={pageNum >= pageCount}
+                style={{
+                  visibility: pageNum < pageCount ? 'visible' : 'hidden',
+                }}
+              />
+            </Link>
           </div>
         )}
       </section>
+
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
-  )
-}
+  );
+};
 
 const buttonClickBlur: MouseEventHandler<HTMLButtonElement> = (e) =>
-  e.currentTarget.blur()
+  e.currentTarget.blur();

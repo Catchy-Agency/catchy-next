@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allPrimaryPageSlugs = gql`
   query AllPrimaryPageSlugs {
@@ -6,7 +6,7 @@ export const allPrimaryPageSlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const primaryPageBySlug = gql`
   query PrimaryPageBySlug($slug: String) {
@@ -45,16 +45,13 @@ export const primaryPageBySlug = gql`
             }
           }
         }
-        ... on BannerRecord {
+        ... on ArticleRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
+          image {
             responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
             ) {
               aspectRatio
               height
@@ -67,6 +64,11 @@ export const primaryPageBySlug = gql`
               base64
             }
           }
+        }
+        ... on BannerRecord {
+          id
+          title
+          text
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -84,6 +86,12 @@ export const primaryPageBySlug = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         ... on ButtonExternalRecord {
           id
@@ -116,8 +124,154 @@ export const primaryPageBySlug = gql`
           align
           openInNewTab
         }
+        ... on CardStackRecord {
+          id
+          maxColumns
+          cards {
+            __typename
+            ... on ExternalCardItemRecord {
+              __typename
+              id
+              title
+              description
+              image {
+                responsiveImage(
+                  imgixParams: { fit: clip, maxW: 300, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              buttonLabel
+              buttonLink
+              openInNewTab
+            }
+            ... on InternalCardItemRecord {
+              __typename
+              link {
+                id
+                title
+                text
+                slug
+                themeColor
+                previewImage {
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 300, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on CarouselRecord {
+          id
+          buttonLabel
+          items {
+            __typename
+            ... on ExternalCardItemRecord {
+              id
+              title
+              description
+            }
+            ... on InternalCardItemRecord {
+              link {
+                id
+                themeColor
+                title
+                text
+              }
+            }
+          }
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
+        }
+        ... on CaseStudyTileRecord {
+          id
+          title
+          overline
+          buttonLabel
+          caseStudy {
+            slug
+            description
+            previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageSm {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageCol {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
+        }
         ... on ClientSetRecord {
           id
+          title
+          subtitle
+          buttonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
           clientSet {
             id
             name
@@ -216,6 +370,7 @@ export const primaryPageBySlug = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(
@@ -282,6 +437,7 @@ export const primaryPageBySlug = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(
@@ -758,6 +914,41 @@ export const primaryPageBySlug = gql`
             detailLinkLabel
           }
         }
+        ... on NewsletterRecord {
+          id
+          title
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              __typename
+              id
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+              grouped
+            }
+          }
+        }
         ... on RichTextRecord {
           id
           richText
@@ -771,7 +962,7 @@ export const primaryPageBySlug = gql`
             title
             text
             fontAwesomeIcon
-            serviceImage {
+            previewImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
               ) {
@@ -809,6 +1000,36 @@ export const primaryPageBySlug = gql`
                 title
                 base64
               }
+            }
+          }
+        }
+        ... on TextImageSmallRecord {
+          id
+          title
+          text
+          buttonLabel
+          externalLink
+          inverted
+          internalLink {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+              title
+            }
+          }
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
             }
           }
         }
@@ -893,12 +1114,22 @@ export const primaryPageBySlug = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug
@@ -929,4 +1160,4 @@ export const primaryPageBySlug = gql`
       richText
     }
   }
-`
+`;

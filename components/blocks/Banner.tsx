@@ -1,49 +1,67 @@
-import classNames from 'classnames'
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
-
-import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug'
-import { scrollToContact } from '../../util/scrollToContact'
-
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
+import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
+import { heroSvgObject } from '../../util/heroSvgObject';
+import { scrollToContact } from '../../util/scrollToContact';
+import { LeftUpSoup } from '../icons';
 export const Banner: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord
-}> = ({ block }) => (
-  <div className="columns is-vcentered">
-    <div className="column">
-      {block.titleOverline && (
-        <p className="overline mb-2">{block.titleOverline}</p>
-      )}
-      {block.title && (
-        <h1
-          className={classNames('title is-1', {
-            'has-green-line': block.addGreenLine,
-          })}
-        >
-          {block.title}
-        </h1>
-      )}
-      {block.subTitle && (
-        <h2 className="title is-3 has-text-primary">{block.subTitle}</h2>
-      )}
-      {block.text && (
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: block.text }}
-        />
-      )}
-      {block.showContactButton === true && (
-        <button className="button is-primary mt-4" onClick={scrollToContact}>
-          {block.contactButtonLabel}
-        </button>
-      )}
-    </div>
-    {block.foregroundImage && (
-      <div className="column is-hidden-mobile">
+  block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
+  maxClass: { [key: string]: boolean };
+}> = ({ block, maxClass }) => {
+  const router = useRouter();
+
+  const slug = router.asPath;
+
+  function getHeroSvg(slug: string | undefined) {
+    if (!slug) return;
+    let slugName = '';
+
+    switch (slug) {
+      case '/':
+        slugName = 'home';
+        break;
+      case '/work':
+        slugName = 'work';
+        break;
+      default:
+        slugName = slug.replace('/', '');
+        break;
+    }
+
+    return heroSvgObject[slugName] || heroSvgObject['what-we-do'];
+  }
+
+  return (
+    <div className="custom-flex-columns">
+      {block.backgroundImage && (
         <Image
-          data={block.foregroundImage.responsiveImage as ResponsiveImageType}
+          data={block.backgroundImage.responsiveImage as ResponsiveImageType}
           lazyLoad={false}
+          className="imageHero"
+          objectFit="cover"
         />
+      )}
+
+      <div className={classNames('container data-container', maxClass)}>
+        {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
+        {block.text && (
+          <div
+            className="content text-description"
+            dangerouslySetInnerHTML={{ __html: block.text }}
+          />
+        )}
+        {block.showContactButton === true && (
+          <a className="button is-ghost" onClick={scrollToContact}>{`${
+            block.contactButtonLabel || 'Contact Us'
+          }`}</a>
+        )}
       </div>
-    )}
-  </div>
-)
+
+      <div className="svg-right">{getHeroSvg(slug)}</div>
+
+      <div className="svg-left">{LeftUpSoup}</div>
+    </div>
+  );
+};

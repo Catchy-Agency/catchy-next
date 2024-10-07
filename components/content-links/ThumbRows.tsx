@@ -1,39 +1,65 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { FC } from 'react'
-import { Image } from 'react-datocms'
+import Link from 'next/link';
+import { FC } from 'react';
+import { Image } from 'react-datocms';
 
-import { LinkData } from './LinkData'
+import {
+  IconTextImageLeft,
+  InsightsImageBottomEven,
+  InsightsImageBottomOdd,
+  InsightsImageTop,
+} from '../icons';
+import { LinkData } from './LinkData';
 
 export const ThumbRows: FC<{
-  links: LinkData[]
-  imageAlign?: string | null
-}> = ({ links, imageAlign }) => (
-  <div
-    className={classNames('thumb-rows', {
-      'link-alternating': imageAlign === 'Alternating',
-      'link-left': imageAlign === 'Left',
-    })}
-  >
-    {links.map((link) => (
-      <div key={link.id} className="columns">
-        <div className="column is-7">
-          <Link href={link.url || ''}>
-            <a className="is-block-link">
-              {link.title && <div className="title is-2">{link.title}</div>}
-              {link.description && (
-                <div className="content has-text-light">{link.description}</div>
-              )}
-              <button className="button is-primary">{link.callToAction}</button>
-            </a>
-          </Link>
+  links: LinkData[];
+  imageAlign?: string | null;
+  isBreakpoint: (index: number) => boolean;
+}> = ({ links, isBreakpoint }) => {
+  return (
+    <div className={'post-list-wrapper'}>
+      {links.map((link, i) => (
+        <div
+          key={link.id}
+          className="single-post-wrapper"
+          data-is-breakpoint={isBreakpoint(i)}
+        >
+          <div className="single-post-left-side is-relative">
+            <InsightsImageTop className="insightsImageSvg" />
+            <div className="single-post-image">
+              <Link href={link.url || ''} className="image-link">
+                <a>
+                  {link.image && (
+                    <Image
+                      className="image"
+                      objectFit="cover"
+                      data={link.imageSm || link.image}
+                      lazyLoad={false}
+                    />
+                  )}
+                </a>
+              </Link>
+            </div>
+            {i % 2 === 0 ? (
+              <InsightsImageBottomEven className="insightsImageSvg insightsImageSvg-bottom" />
+            ) : (
+              <InsightsImageBottomOdd className="insightsImageSvg insightsImageSvg-bottom" />
+            )}
+          </div>
+          <div className="single-blog-body-svg">{IconTextImageLeft}</div>
+          <div className="single-post-body img-container">
+            {link.title && <h3 className="is-2">{link.title}</h3>}
+            {link.subtitle && <p className="subtitle is-3">{link.subtitle}</p>}
+            {link.description && (
+              <div className="content">{link.description}</div>
+            )}
+            <Link href={link.url ?? '/insights'}>
+              <a className="button is-ghost revert-button content">
+                {link.callToAction}
+              </a>
+            </Link>
+          </div>
         </div>
-        <div className="column is-5">
-          <Link href={link.url || ''}>
-            <a>{link.image && <Image data={link.image} lazyLoad={false} />}</a>
-          </Link>
-        </div>
-      </div>
-    ))}
-  </div>
-)
+      ))}
+    </div>
+  );
+};

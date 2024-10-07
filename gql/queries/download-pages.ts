@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allDownloadPageSlugs = gql`
   query AllDownloadPageSlugs {
@@ -41,12 +41,22 @@ export const downloadPageBySlug = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug

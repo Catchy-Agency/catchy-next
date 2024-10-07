@@ -1,0 +1,111 @@
+.blog-posts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  .blog-categories {
+    display: flex;
+    justify-content: space-between;
+
+    .blog-category-list-container {
+      display: flex;
+    }
+  }
+}
+
+.post-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  .single-post-wrapper {
+    display: flex;
+    position: relative;
+    color: $anthracite;
+    min-height: 640px;
+    padding: 0;
+    .single-post-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      gap: 40px;
+      width: 100%;
+      padding: clamp(20px, 6vw, 80px);
+      color: inherit;
+      background-color: $soup-background;
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          150deg,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(255, 255, 255, 0) calc(85% - 1px),
+          $anthracite 85%
+        );
+      }
+
+      .is-2 {
+        @include hdl2();
+        @media screen and (min-width: 1216px) and (max-width: 1440px) {
+          @include font-size(40px, !important);
+        }
+      }
+
+      .subtitle {
+        color: $anthracite;
+        margin-bottom: 0;
+      }
+
+      .content {
+        line-height: 40px !important; // .content applies !important to line-height
+        @include text-clamp(5);
+      }
+    }
+    .single-blog-body-svg {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: clamp(300px, 21.5vw, 340px);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .single-post-left-side {
+      flex: 1;
+      background-color: $soup-background;
+      @media screen and (max-width: 1215px) {
+        display: none;
+      }
+
+      .insightsImageSvg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+
+        &.insightsImageSvg-bottom {
+          bottom: 0;
+          top: auto;
+          width: 100%;
+          height: auto;
+        }
+      }
+      .image-link {
+        height: 100%;
+      }
+      .single-post-image {
+        min-width: clamp(250px, 22vw, 320px);
+        max-width: 320px;
+        height: 320px;
+        .image {
+          height: 100%;
+          clip-path: polygon(50% 0, 100% 30%, 100% 100%, 0 100%, 0 0);
+        }
+      }
+    }
+  }
+}

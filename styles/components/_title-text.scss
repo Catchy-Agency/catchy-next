@@ -17,7 +17,8 @@
   .title {
     position: relative;
     margin-bottom: $bottom;
-    @include green-line(1rem);
+    /*     @include green-line(1rem);
+ */
   }
 
   .has-text-centered {
@@ -37,9 +38,9 @@
     }
   }
   @media (min-width: calc(#{$mobile} + 1px)) {
-    .content {
+    /*  .content {
       padding-left: 96px;
-    }
+    } */
     .title {
       &:before {
         bottom: calc(-#{$bottom} - #{$height} - 1px);

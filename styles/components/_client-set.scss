@@ -1,0 +1,110 @@
+.soupWrapper {
+  padding: unset;
+  margin: unset;
+  width: 100%;
+  height: 100%;
+
+  .soupTitle {
+    clip-path: polygon(47% 0, 100% 95%, 100% 100%, 0 100%, 0 70%);
+    height: 55vh;
+    padding: 0 $global-padding;
+    background-color: $soup-background;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transform: translateY(1px);
+
+    .textContent {
+      max-width: 1440px;
+      width: 100%;
+
+      > h2 {
+        max-width: 80%;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      > h2,
+      p {
+        color: var(--Text-Anthracite, #212121);
+      }
+    }
+  }
+  > .columns {
+    margin: unset;
+  }
+  .imageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .soupContent {
+    background-color: $soup-background;
+    padding: 5rem $global-padding;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+
+    .imageContent {
+      max-width: 1440px;
+    }
+    @media (max-width: 1200px) {
+      padding: 3rem $global-padding;
+      > .columns.is-variable.is-5 {
+        --columnGap: 0.5rem;
+      }
+    }
+    @media (max-width: $tablet) {
+      padding: 2rem 1rem;
+      > .columns.is-variable.is-5 {
+        --columnGap: 1.25rem;
+      }
+    }
+  }
+
+  .soupBottom {
+    clip-path: polygon(43% 100%, 100% 1%, 100% 0%, 0 0%, 0 15%);
+    background-color: $soup-background;
+    height: 55vh;
+    transform: translateY(-2px);
+    padding: 2rem $global-padding;
+    display: flex;
+    justify-content: center;
+
+    .buttonContent {
+      width: 100%;
+      max-width: 1440px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .soupTitle {
+      clip-path: polygon(100% 0, 100% 60%, 100% 100%, 0 100%, 0 50%);
+      padding: 0 1rem;
+    }
+
+    .soupBottom {
+      clip-path: polygon(0% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
+      padding: 0 1rem;
+    }
+  }
+  @media (max-width: 1200px) {
+    .soupTitle {
+      height: 50vh;
+    }
+    .soupBottom {
+      height: 40vh;
+    }
+  }
+  @media (min-width: 2300px) {
+    .soupTitle {
+      height: 25vh;
+    }
+    .soupBottom {
+      height: 20vh;
+    }
+  }
+}

@@ -6,8 +6,8 @@ $cam-link: #2ba2c3;
 $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
-
 $border-color-gray: #444f57;
+$global-padding: 10rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -24,10 +24,24 @@ $border-color-gray: #444f57;
 // .section {
 //   border: 1px dotted red;
 // }
-
+html.has-navbar-fixed-top,
+body.has-navbar-fixed-top {
+  padding-top: 5.5rem;
+}
 section:not(.has-background-grey-darker) {
-  padding: 0 3%;
+  padding: 0 $global-padding;
+  margin: 5.6% 0;
+  @media (max-width: $tablet) {
+    padding: 0 1rem;
+  }
+}
+
+.section.Footer {
+  padding: 5rem $global-padding;
   margin: 3% 0;
+  @media (max-width: $tablet) {
+    padding: 2rem 1rem;
+  }
 }
 
 section:last-of-type {
@@ -35,20 +49,152 @@ section:last-of-type {
 }
 
 .section.BannerRecord {
-  margin-top: 0%;
-  padding-top: 5%;
-  padding-bottom: 4%;
+  margin: 0;
+  padding: 0;
 
   .column {
     img {
       object-fit: contain;
     }
   }
+
+  @media (max-width: calc($tablet + 200px)) {
+    overflow: hidden;
+  }
+}
+
+.section.CaseStudyPage {
+  .tag:not(body) {
+    background-color: unset;
+    padding-left: unset;
+  }
+}
+.case-study-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .case-study-navigation-button {
+    border: unset;
+    background-color: unset;
+  }
+  .nav-left {
+    transform: rotate(180deg);
+  }
 }
 
 .section.ClientSetRecord {
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
+  padding: unset;
+  position: relative;
+  overflow: hidden;
+
+  > .container {
+    margin: unset;
+    padding: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  .absoluteSvg {
+    width: fit-content;
+    position: absolute;
+    pointer-events: none;
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+  .LeftUp {
+    top: 0;
+    @media (max-width: $tablet) {
+      display: unset;
+    }
+  }
+  .leftDown {
+    bottom: 0;
+  }
+  .RightDown {
+    bottom: 0;
+    right: 0;
+    @media (max-width: $tablet) {
+      display: unset;
+      transform: translateX(30%);
+      > svg {
+        width: 80%;
+      }
+    }
+  }
+  .RightUp {
+    top: 0;
+    right: 0;
+  }
+}
+
+.section.Newsletter {
+  padding-right: unset;
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+  @media (min-width: 1700px) {
+    padding-left: calc((100vw - 1440px) / 2);
+  }
+  @media (max-width: $tablet) {
+    padding-left: unset;
+  }
+}
+
+.section.TextImage {
+  padding: unset;
+  position: relative;
+
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    padding: unset;
+  }
+}
+
+.section.LeadCaseStudy {
+  padding-right: unset;
+  position: relative;
+
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  @media (min-width: 1700px) {
+    padding-left: calc((100vw - 1440px) / 2);
+  }
+
+  @media (max-width: $tablet) {
+    padding-left: unset;
+  }
+}
+
+.section.TextImage {
+  padding: unset;
+  position: relative;
+
+  > .container {
+    margin: unset;
+    width: 100%;
+    height: 100%;
+    max-width: unset;
+  }
+
+  @media (max-width: calc(1024px + 200px)) {
+    padding: unset;
+  }
 }
 
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
@@ -92,10 +238,179 @@ section:last-of-type {
     padding-bottom: 0;
   }
 }
+.content-post,
+.content-page {
+  background-color: #f2f2f2;
+  .container {
+    color: $anthracite;
+  }
+
+  .is-blog {
+    :first-child {
+      max-width: unset !important;
+    }
+  }
+
+  .section.Work,
+  .section.Blog,
+  .block-sections {
+    padding: 3rem $global-padding;
+    @media (max-width: $tablet) {
+      padding: 1rem;
+    }
+    .breadcrumb a {
+      color: $primary;
+      transition: color 200ms ease;
+      text-wrap: wrap;
+      &:hover,
+      &.has-text-primary:hover {
+        color: $lagoon;
+      }
+      &:focus,
+      &.has-text-primary:focus {
+        text-decoration: underline;
+      }
+    }
+    .breadcrumb li + .is-active a {
+      color: $anthracite;
+    }
+
+    .pretitle-work {
+      @include description-hero();
+      color: $pretitle-color;
+    }
+    .title-blog,
+    .title-work {
+      color: $anthracite;
+    }
+    .subtitle-blog {
+      @include blog-work();
+    }
+    .description-blog,
+    .description-work {
+      @include description-hero();
+      padding-top: 2.5rem;
+    }
+    .description-work {
+      padding-bottom: 2.5rem;
+    }
+
+    .author-blog {
+      padding: 3rem 0;
+      .author-image {
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 100%, 0% 50%);
+      }
+      .media-content {
+        p {
+          color: $anthracite;
+          @include bdy-md();
+        }
+        .author-name {
+          font-weight: 700;
+        }
+      }
+    }
+    .tags {
+      .tag {
+        background-color: unset;
+        color: $anthracite;
+        @include bdy-md();
+        font-weight: 700;
+        padding-left: unset;
+        padding-right: unset;
+      }
+    }
+  }
+
+  .block-sections {
+    padding: 0 18rem;
+    @media (max-width: calc(1024px + 200px)) {
+      padding: 0 10rem;
+    }
+    > .section.RichTextRecord,
+    .section.ColumnRowRecord {
+      color: $anthracite;
+
+      @media (max-width: $tablet) {
+        padding: 0 1rem;
+      }
+      a {
+        text-decoration: underline;
+      }
+
+      h3,
+      strong {
+        color: $anthracite;
+        @include blog-work();
+      }
+
+      h4 {
+        color: $anthracite;
+      }
+      b {
+        @include hdl4();
+        > em {
+          @include bdy-md();
+        }
+      }
+      ul,
+      a,
+      b,
+      p,
+      em,
+      span {
+        color: $anthracite;
+        @include bdy-md();
+      }
+      blockquote {
+        background-color: $anthracite;
+        border-left: 5px solid $turquoise;
+        @include bdy-md();
+
+        strong {
+          font-size: 16px !important;
+          font-weight: 700;
+        }
+
+        strong,
+        p,
+        a,
+        ul,
+        span {
+          color: #f2f2f2;
+        }
+      }
+    }
+
+    > .section.ColumnRowRecord {
+      padding: 0 18rem;
+    }
+
+    > .section.TeamRecord {
+      .img-container {
+        background-color: $anthracite;
+      }
+      h4 {
+        color: $anthracite !important;
+      }
+    }
+  }
+}
+
+.block-sections {
+  padding: unset !important;
+}
+
+.block-sections :is(.ImageSetRecord, .VideoRecord):first-of-type {
+  padding: unset !important;
+  > div {
+    padding: unset;
+    max-width: unset;
+  }
+}
 
 //
 // More fragile hacks
-//
 
 .section.ServiceSetRecord {
   .title.is-5:not(:last-child) {
@@ -137,11 +452,6 @@ section:last-of-type {
 // Own utilitites
 //
 
-.circle-crop {
-  border-radius: 1000px;
-  overflow: hidden;
-}
-
 .has-cover-image * {
   width: 100%;
   height: 100%;
@@ -151,18 +461,32 @@ section:last-of-type {
 @import 'components/_banner';
 @import 'components/_content-links';
 @import 'components/_items-panel';
+@import 'components/service-carousel';
 @import 'pages/_primary-pages';
 @import 'pages/_content-pages';
+@import 'pages/blog_page';
+@import 'components/_client-set';
+@import 'components/_panel-cards';
+@import 'components/lead-case-full-width';
+@import 'components/_static-cards-stack';
+@import 'components/text-image';
+@import 'components/newsletter';
+@import 'components/lead-case-study';
 
-//
+@import 'components/_static-case-study-cards';
+@import 'components/team';
 // "content" adjustments
 // https://bulma.io/documentation/elements/content
 //
-
 .content table {
   border-color: transparent;
 }
 
 .content table td:not(:last-of-type) {
   border-right-width: 1px;
+}
+
+.bg-pattern-svg {
+  position: absolute;
+  z-index: -1;
 }

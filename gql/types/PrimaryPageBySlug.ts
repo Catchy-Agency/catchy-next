@@ -48,7 +48,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord {
   readonly columns: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord_columns>;
 }
 
-export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage {
+export interface PrimaryPageBySlug_primaryPage_blocks_ArticleRecord_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -61,9 +61,17 @@ export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundIma
   readonly base64: string | null;
 }
 
-export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage {
+export interface PrimaryPageBySlug_primaryPage_blocks_ArticleRecord_image {
   readonly __typename: "FileField";
-  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage_responsiveImage | null;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ArticleRecord_image_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ArticleRecord {
+  readonly __typename: "ArticleRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly image: PrimaryPageBySlug_primaryPage_blocks_ArticleRecord_image | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage {
@@ -84,18 +92,20 @@ export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundIma
   readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage_responsiveImage | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_BannerRecord {
   readonly __typename: "BannerRecord";
   readonly id: any;
-  readonly titleOverline: string | null;
   readonly title: string | null;
-  readonly addGreenLine: any | null;
-  readonly subTitle: string | null;
   readonly text: string | null;
-  readonly foregroundImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_foregroundImage | null;
   readonly backgroundImage: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_backgroundImage | null;
   readonly showContactButton: any | null;
   readonly contactButtonLabel: string | null;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_BannerRecord_link | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord {
@@ -143,6 +153,189 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord {
   readonly openInNewTab: any | null;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly description: string | null;
+  readonly image: PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord_image | null;
+  readonly buttonLabel: string | null;
+  readonly buttonLink: string | null;
+  readonly openInNewTab: any | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly slug: string | null;
+  readonly themeColor: string | null;
+  readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link_previewImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord_link | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards = PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_ExternalCardItemRecord | PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards_InternalCardItemRecord;
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CardStackRecord {
+  readonly __typename: "CardStackRecord";
+  readonly id: any;
+  readonly maxColumns: any | null;
+  readonly cards: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_CardStackRecord_cards>;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord {
+  readonly __typename: "ExternalCardItemRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly description: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord_link {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly themeColor: string | null;
+  readonly title: string | null;
+  readonly text: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord {
+  readonly __typename: "InternalCardItemRecord";
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord_link | null;
+}
+
+export type PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items = PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_ExternalCardItemRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items_InternalCardItemRecord;
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CarouselRecord {
+  readonly __typename: "CarouselRecord";
+  readonly id: any;
+  readonly buttonLabel: string | null;
+  readonly items: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_items>;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_CarouselRecord_link | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy {
+  readonly __typename: "CaseStudyRecord";
+  readonly slug: string | null;
+  readonly description: string | null;
+  readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImage | null;
+  readonly previewImageSm: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageSm | null;
+  readonly previewImageCol: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy_previewImageCol | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord {
+  readonly __typename: "CaseStudyTileRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly overline: string | null;
+  readonly buttonLabel: string | null;
+  readonly caseStudy: PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord_caseStudy | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet_logo_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -171,6 +364,10 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet 
 export interface PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord {
   readonly __typename: "ClientSetRecord";
   readonly id: any;
+  readonly title: string | null;
+  readonly subtitle: string | null;
+  readonly buttonLabel: string | null;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_link | null;
   readonly clientSet: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord_clientSet>;
 }
 
@@ -335,6 +532,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
@@ -419,6 +617,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
@@ -989,13 +1188,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord {
   readonly panelItems: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord_panelItems>;
 }
 
-export interface PrimaryPageBySlug_primaryPage_blocks_RichTextRecord {
-  readonly __typename: "RichTextRecord";
-  readonly id: any;
-  readonly richText: string | null;
-}
-
-export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_serviceImage_responsiveImage {
+export interface PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
   readonly height: any;
@@ -1008,9 +1201,61 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_
   readonly base64: string | null;
 }
 
-export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_serviceImage {
+export interface PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_image {
   readonly __typename: "FileField";
-  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_serviceImage_responsiveImage | null;
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_image_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_form_formFields {
+  readonly __typename: "FormFieldRecord";
+  readonly id: any;
+  readonly label: string | null;
+  readonly fieldName: string | null;
+  readonly fieldType: string | null;
+  readonly required: any | null;
+  readonly invisible: any | null;
+  readonly grouped: any | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_form {
+  readonly __typename: "FormRecord";
+  readonly title: string | null;
+  readonly name: string | null;
+  readonly action: string | null;
+  readonly method: string | null;
+  readonly formFields: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_form_formFields>;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord {
+  readonly __typename: "NewsletterRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly image: PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_image | null;
+  readonly form: PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord_form | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_RichTextRecord {
+  readonly __typename: "RichTextRecord";
+  readonly id: any;
+  readonly richText: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_previewImage_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_previewImage {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_previewImage_responsiveImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services {
@@ -1019,7 +1264,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services 
   readonly title: string | null;
   readonly text: string | null;
   readonly fontAwesomeIcon: string | null;
-  readonly serviceImage: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_serviceImage | null;
+  readonly previewImage: PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services_previewImage | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
@@ -1061,6 +1306,42 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord {
   readonly id: any;
   readonly teamTitle: string | null;
   readonly members: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members>;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_internalLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_image_responsiveImage | null;
+}
+
+export interface PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord {
+  readonly __typename: "TextImageSmallRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly buttonLabel: string | null;
+  readonly externalLink: string | null;
+  readonly inverted: any | null;
+  readonly internalLink: PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_internalLink | null;
+  readonly image: PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord_image | null;
 }
 
 export interface PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord {
@@ -1139,7 +1420,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord {
   readonly url: string | null;
 }
 
-export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
+export type PrimaryPageBySlug_primaryPage_blocks = PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord | PrimaryPageBySlug_primaryPage_blocks_ArticleRecord | PrimaryPageBySlug_primaryPage_blocks_BannerRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonExternalRecord | PrimaryPageBySlug_primaryPage_blocks_ButtonInternalRecord | PrimaryPageBySlug_primaryPage_blocks_CardStackRecord | PrimaryPageBySlug_primaryPage_blocks_CarouselRecord | PrimaryPageBySlug_primaryPage_blocks_CaseStudyTileRecord | PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord | PrimaryPageBySlug_primaryPage_blocks_ContentLinkSetRecord | PrimaryPageBySlug_primaryPage_blocks_ColumnRowRecord | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord | PrimaryPageBySlug_primaryPage_blocks_FormulaRecord | PrimaryPageBySlug_primaryPage_blocks_ImageSetRecord | PrimaryPageBySlug_primaryPage_blocks_ItemsPanelRecord | PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord | PrimaryPageBySlug_primaryPage_blocks_RichTextRecord | PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord | PrimaryPageBySlug_primaryPage_blocks_TeamRecord | PrimaryPageBySlug_primaryPage_blocks_TextImageSmallRecord | PrimaryPageBySlug_primaryPage_blocks_TitleTextRecord | PrimaryPageBySlug_primaryPage_blocks_VideoRecord | PrimaryPageBySlug_primaryPage_blocks_VideoInternalRecord | PrimaryPageBySlug_primaryPage_blocks_ViewMoreLinkRecord;
 
 export interface PrimaryPageBySlug_primaryPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -1156,7 +1437,7 @@ export interface PrimaryPageBySlug_primaryPage {
   readonly blocks: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks>;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<PrimaryPageBySlug_primaryPage__seoMetaTags>;
 }
@@ -1187,14 +1468,28 @@ export interface PrimaryPageBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface PrimaryPageBySlug_header_serviceLinks {
+export interface PrimaryPageBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface PrimaryPageBySlug_header_resourceLinks {
+export interface PrimaryPageBySlug_header_whatWeDoLinks {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface PrimaryPageBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -1205,8 +1500,10 @@ export interface PrimaryPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: PrimaryPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<PrimaryPageBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<PrimaryPageBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<PrimaryPageBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: PrimaryPageBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<PrimaryPageBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: PrimaryPageBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<PrimaryPageBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

@@ -23,7 +23,7 @@ export interface DownloadPageBySlug_downloadPage {
   readonly linkText: string | null;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<DownloadPageBySlug_downloadPage__seoMetaTags>;
 }
@@ -54,14 +54,28 @@ export interface DownloadPageBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface DownloadPageBySlug_header_serviceLinks {
+export interface DownloadPageBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface DownloadPageBySlug_header_resourceLinks {
+export interface DownloadPageBySlug_header_whatWeDoLinks {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface DownloadPageBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface DownloadPageBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -72,8 +86,10 @@ export interface DownloadPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: DownloadPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<DownloadPageBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<DownloadPageBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<DownloadPageBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: DownloadPageBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<DownloadPageBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: DownloadPageBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<DownloadPageBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

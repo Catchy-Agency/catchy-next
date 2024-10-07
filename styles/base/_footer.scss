@@ -3,58 +3,129 @@
  *
  */
 footer {
-  border-top: 1px solid $grey-dark;
-
   a {
-    @include btn-link;
-    text-decoration: underline;
-    text-transform: uppercase;
+    @include bdy-md;
+    text-decoration: none;
 
-    color: $primary;
+    color: $text;
     transition: 0.2s ease-out;
     &:hover,
     &.has-text-primary {
       //social-icons
-      color: lighten($primary, 10%) !important;
+      color: $turquoise;
     }
   }
   .fa-stack {
     width: 1.65em;
   }
-  form {
-    .select select,
-    .textarea,
-    .input {
-      @include bdy-md;
-      border: none;
-      border-bottom: 1px solid #fff;
-      &:hover,
-      &:focus {
-        box-shadow: none;
-        border-color: $primary;
+
+  @media (max-width: calc($tablet + 300px)) {
+    .columns {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+form {
+  .select select,
+  .textarea,
+  .input {
+    @include bdy-md;
+    border: none;
+    border-bottom: 1px solid #fff;
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      border-color: $primary;
+    }
+    padding: 0;
+    &::placeholder {
+      color: darken(#fff, 35%);
+    }
+  }
+
+  .scroll-text {
+    min-height: 5vh;
+    max-height: 5vh;
+    resize: none;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $text;
+      border-radius: 4px;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .info-personal {
+      flex-direction: column;
+
+      .input-name {
+        margin-right: unset !important;
+        padding-bottom: 1.5rem;
+        margin-bottom: 0.75rem !important;
       }
-      padding: 0;
-      &::placeholder {
-        color: darken(#fff, 35%);
+
+      .input-lastName {
+        margin-left: unset !important;
       }
     }
   }
 }
-.footer-bottom {
-  margin-top: 90px;
-  align-items: center;
+
+.information {
   display: flex;
-  flex-flow: column;
-  justify-content: center;
-  @media screen and (min-width: $tablet) {
-    align-items: flex-end;
-    flex-flow: row;
-    justify-content: space-between;
-  }
+  justify-content: space-between;
+
   .navbar-item {
+    width: 170px;
     padding: 0;
+    display: flex;
+    justify-content: flex-start;
+
+    > img {
+      max-height: unset;
+      user-select: none;
+    }
+  }
+
+  .catchy-privacy {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .privacy p {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    @include bdy-md;
+    user-select: none;
+
+    //text-privacy-richText
+    a {
+      color: $text;
+      &:hover,
+      &:active,
+      &:focus {
+        border-bottom: 1px solid $turquoise;
+        outline: none;
+      }
+    }
+  }
+
+  @media (max-width: calc($tablet + 300px)) {
+    justify-content: unset;
+    gap: 80px;
   }
 }
+
 .form-notice {
   .content {
     @include bdy-md;
@@ -69,25 +140,12 @@ footer {
 }
 
 .submit-btn {
-  min-width: 178px;
   position: relative;
-  svg {
-    display: none;
-  }
-  &:after {
-    content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%230D202C%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-    position: absolute;
-    right: 0.5em;
-    top: 50%;
-    transform: translateY(-75%);
-    width: 1em;
-    height: 1em;
-    pointer-events: none;
-  }
-  &:hover:after {
-    content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%2353fabe%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
-  }
-  &:focus:after {
-    content: url('data:image/svg+xml,%3Csvg%20width%3D%228%22%20height%3D%2212%22%20viewBox%3D%220%200%208%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.408%200L0%201.41L4.574%206L0%2010.59L1.408%2012L7.4%206L1.408%200Z%22%20fill%3D%22%231dbc83%22%20fill-opacity%3D%220.9%22%2F%3E%0A%3C%2Fsvg%3E%0A');
+}
+
+.form-footer {
+  gap: $global-padding;
+  @media (max-width: calc($tablet + 300px)) {
+    gap: unset;
   }
 }

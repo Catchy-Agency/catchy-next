@@ -130,24 +130,6 @@ export interface ContentPageBySlug_contentPage_children {
   readonly previewImageCol: ContentPageBySlug_contentPage_children_previewImageCol | null;
 }
 
-export interface ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage_responsiveImage {
-  readonly __typename: "ResponsiveImage";
-  readonly aspectRatio: any;
-  readonly height: any;
-  readonly width: any;
-  readonly sizes: string;
-  readonly src: string;
-  readonly srcSet: string;
-  readonly alt: string | null;
-  readonly title: string | null;
-  readonly base64: string | null;
-}
-
-export interface ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage {
-  readonly __typename: "FileField";
-  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage_responsiveImage | null;
-}
-
 export interface ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -166,18 +148,20 @@ export interface ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundIma
   readonly responsiveImage: ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage_responsiveImage | null;
 }
 
+export interface ContentPageBySlug_contentPage_blocks_BannerRecord_link {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+}
+
 export interface ContentPageBySlug_contentPage_blocks_BannerRecord {
   readonly __typename: "BannerRecord";
   readonly id: any;
-  readonly titleOverline: string | null;
   readonly title: string | null;
-  readonly addGreenLine: any | null;
-  readonly subTitle: string | null;
   readonly text: string | null;
-  readonly foregroundImage: ContentPageBySlug_contentPage_blocks_BannerRecord_foregroundImage | null;
   readonly backgroundImage: ContentPageBySlug_contentPage_blocks_BannerRecord_backgroundImage | null;
   readonly showContactButton: any | null;
   readonly contactButtonLabel: string | null;
+  readonly link: ContentPageBySlug_contentPage_blocks_BannerRecord_link | null;
 }
 
 export interface ContentPageBySlug_contentPage_blocks_ButtonExternalRecord {
@@ -566,6 +550,7 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
@@ -650,6 +635,7 @@ export interface ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly pretitle: string | null;
   readonly description: string | null;
   readonly previewImage: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
@@ -968,11 +954,11 @@ export interface ContentPageBySlug_contentPage {
   readonly __typename: "ContentPageRecord";
   readonly title: string | null;
   readonly parent: ContentPageBySlug_contentPage_parent | null;
-  readonly children: ReadonlyArray<(ContentPageBySlug_contentPage_children | null)> | null;
+  readonly children: ReadonlyArray<ContentPageBySlug_contentPage_children>;
   readonly blocks: ReadonlyArray<ContentPageBySlug_contentPage_blocks>;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<ContentPageBySlug_contentPage__seoMetaTags>;
 }
@@ -1003,14 +989,28 @@ export interface ContentPageBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface ContentPageBySlug_header_serviceLinks {
+export interface ContentPageBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface ContentPageBySlug_header_resourceLinks {
+export interface ContentPageBySlug_header_whatWeDoLinks {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface ContentPageBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface ContentPageBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -1021,8 +1021,10 @@ export interface ContentPageBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: ContentPageBySlug_header_logo | null;
   readonly links: ReadonlyArray<ContentPageBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<ContentPageBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<ContentPageBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: ContentPageBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<ContentPageBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: ContentPageBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<ContentPageBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

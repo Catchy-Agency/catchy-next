@@ -1,4 +1,4 @@
-import gql from 'graphql-tag'
+import gql from 'graphql-tag';
 
 export const allCaseStudySlugs = gql`
   query AllCaseStudySlugs {
@@ -6,7 +6,7 @@ export const allCaseStudySlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const allCaseStudies = gql`
   query AllCaseStudies {
@@ -14,6 +14,7 @@ export const allCaseStudies = gql`
       id
       slug
       title
+      pretitle
       description
       previewImage {
         responsiveImage(
@@ -117,26 +118,8 @@ export const allCaseStudies = gql`
         }
         ... on BannerRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
-            responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
-            ) {
-              aspectRatio
-              height
-              width
-              sizes
-              src
-              srcSet
-              alt
-              title
-              base64
-            }
-          }
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -154,6 +137,12 @@ export const allCaseStudies = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
         __typename
         ... on ButtonExternalRecord {
@@ -186,6 +175,61 @@ export const allCaseStudies = gql`
           }
           align
           openInNewTab
+        }
+        ... on CaseStudyTileRecord {
+          id
+          title
+          overline
+          buttonLabel
+          caseStudy {
+            slug
+            description
+            previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageSm {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageCol {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
         }
         ... on ClientSetRecord {
           id
@@ -287,6 +331,7 @@ export const allCaseStudies = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(
@@ -354,6 +399,7 @@ export const allCaseStudies = gql`
               slug
               title
               description
+              pretitle
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
@@ -842,7 +888,7 @@ export const allCaseStudies = gql`
             title
             text
             fontAwesomeIcon
-            serviceImage {
+            previewImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
               ) {
@@ -963,12 +1009,22 @@ export const allCaseStudies = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug
@@ -999,7 +1055,7 @@ export const allCaseStudies = gql`
       richText
     }
   }
-`
+`;
 
 export const caseStudiesByCategoryId = gql`
   query CaseStudiesByCategoryId($id: ItemId) {
@@ -1011,6 +1067,7 @@ export const caseStudiesByCategoryId = gql`
       id
       slug
       title
+      pretitle
       description
       previewImage {
         responsiveImage(
@@ -1112,16 +1169,13 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
-        ... on BannerRecord {
+        ... on ArticleRecord {
           id
-          titleOverline
           title
-          addGreenLine
-          subTitle
           text
-          foregroundImage {
+          image {
             responsiveImage(
-              imgixParams: { fit: clip, maxW: 750, auto: format }
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
             ) {
               aspectRatio
               height
@@ -1134,6 +1188,11 @@ export const caseStudiesByCategoryId = gql`
               base64
             }
           }
+        }
+        ... on BannerRecord {
+          id
+          title
+          text
           backgroundImage {
             responsiveImage(
               imgixParams: { fit: clip, maxW: 1920, auto: format }
@@ -1151,8 +1210,13 @@ export const caseStudiesByCategoryId = gql`
           }
           showContactButton
           contactButtonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
         }
-        __typename
         ... on ButtonExternalRecord {
           id
           label
@@ -1184,8 +1248,154 @@ export const caseStudiesByCategoryId = gql`
           align
           openInNewTab
         }
+        ... on CardStackRecord {
+          id
+          maxColumns
+          cards {
+            __typename
+            ... on ExternalCardItemRecord {
+              __typename
+              id
+              title
+              description
+              image {
+                responsiveImage(
+                  imgixParams: { fit: clip, maxW: 300, auto: format }
+                ) {
+                  aspectRatio
+                  height
+                  width
+                  sizes
+                  src
+                  srcSet
+                  alt
+                  title
+                  base64
+                }
+              }
+              buttonLabel
+              buttonLink
+              openInNewTab
+            }
+            ... on InternalCardItemRecord {
+              __typename
+              link {
+                id
+                title
+                text
+                slug
+                themeColor
+                previewImage {
+                  responsiveImage(
+                    imgixParams: { fit: clip, maxW: 300, auto: format }
+                  ) {
+                    aspectRatio
+                    height
+                    width
+                    sizes
+                    src
+                    srcSet
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+            }
+          }
+        }
+        ... on CarouselRecord {
+          id
+          buttonLabel
+          items {
+            __typename
+            ... on ExternalCardItemRecord {
+              id
+              title
+              description
+            }
+            ... on InternalCardItemRecord {
+              link {
+                id
+                themeColor
+                title
+                text
+              }
+            }
+          }
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
+        }
+        ... on CaseStudyTileRecord {
+          id
+          title
+          overline
+          buttonLabel
+          caseStudy {
+            slug
+            description
+            previewImage {
+              responsiveImage(
+                imgixParams: { fit: clip, maxW: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageSm {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 450, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+            previewImageCol {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "8:9", w: 720, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
+        }
         ... on ClientSetRecord {
           id
+          title
+          subtitle
+          buttonLabel
+          link {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+            }
+          }
           clientSet {
             id
             name
@@ -1284,6 +1494,7 @@ export const caseStudiesByCategoryId = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(
@@ -1350,6 +1561,7 @@ export const caseStudiesByCategoryId = gql`
               id
               slug
               title
+              pretitle
               description
               previewImage {
                 responsiveImage(
@@ -1743,6 +1955,26 @@ export const caseStudiesByCategoryId = gql`
             }
           }
         }
+        ... on ImageSetRecord {
+          id
+          imageSet {
+            id
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1344, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+          verticallyCenterAcrossImages
+        }
         ... on ItemsPanelRecord {
           id
           panelItems {
@@ -1806,12 +2038,12 @@ export const caseStudiesByCategoryId = gql`
             detailLinkLabel
           }
         }
-        ... on ImageSetRecord {
+        ... on NewsletterRecord {
           id
-          imageSet {
-            id
+          title
+          image {
             responsiveImage(
-              imgixParams: { fit: clip, maxW: 1344, auto: format }
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
             ) {
               aspectRatio
               height
@@ -1824,7 +2056,22 @@ export const caseStudiesByCategoryId = gql`
               base64
             }
           }
-          verticallyCenterAcrossImages
+          form {
+            title
+            name
+            action
+            method
+            formFields {
+              __typename
+              id
+              label
+              fieldName
+              fieldType
+              required
+              invisible
+              grouped
+            }
+          }
         }
         ... on RichTextRecord {
           id
@@ -1839,7 +2086,7 @@ export const caseStudiesByCategoryId = gql`
             title
             text
             fontAwesomeIcon
-            serviceImage {
+            previewImage {
               responsiveImage(
                 imgixParams: { fit: clip, maxW: 750, auto: format }
               ) {
@@ -1877,6 +2124,36 @@ export const caseStudiesByCategoryId = gql`
                 title
                 base64
               }
+            }
+          }
+        }
+        ... on TextImageSmallRecord {
+          id
+          title
+          text
+          buttonLabel
+          externalLink
+          inverted
+          internalLink {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+              title
+            }
+          }
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
             }
           }
         }
@@ -1960,12 +2237,22 @@ export const caseStudiesByCategoryId = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug
@@ -1997,13 +2284,15 @@ export const caseStudiesByCategoryId = gql`
       richText
     }
   }
-`
+`;
 
 export const caseStudyBySlug = gql`
   query CaseStudyBySlug($slug: String) {
     caseStudy(filter: { slug: { eq: $slug } }) {
       title
       date
+      pretitle
+      description
       blocks {
         __typename
         ... on ButtonExternalRecord {
@@ -2242,6 +2531,7 @@ export const caseStudyBySlug = gql`
               id
               slug
               title
+              subtitle
               description
               previewImage {
                 responsiveImage(
@@ -2309,6 +2599,7 @@ export const caseStudyBySlug = gql`
               slug
               title
               description
+              pretitle
               previewImage {
                 responsiveImage(
                   imgixParams: { fit: crop, ar: "16:9", w: 750, auto: format }
@@ -2609,6 +2900,30 @@ export const caseStudyBySlug = gql`
         ... on RichTextRecord {
           id
           richText
+        }
+        ... on TeamRecord {
+          id
+          teamTitle
+          members {
+            id
+            name
+            title
+            image {
+              responsiveImage(
+                imgixParams: { fit: crop, ar: "1:1", w: 300, auto: format }
+              ) {
+                aspectRatio
+                height
+                width
+                sizes
+                src
+                srcSet
+                alt
+                title
+                base64
+              }
+            }
+          }
         }
         ... on VideoRecord {
           id
@@ -2684,12 +2999,22 @@ export const caseStudyBySlug = gql`
         title
         slug
       }
-      serviceLinks {
+      whatWeDoPageLink {
         id
         title
         slug
       }
-      resourceLinks {
+      whatWeDoLinks {
+        id
+        title
+        slug
+      }
+      aboutCatchyPageLink {
+        id
+        title
+        slug
+      }
+      aboutCatchyLinks {
         id
         title
         slug
@@ -2721,4 +3046,4 @@ export const caseStudyBySlug = gql`
       richText
     }
   }
-`
+`;

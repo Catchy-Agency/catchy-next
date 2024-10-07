@@ -84,6 +84,7 @@ export interface BlogPostsByCategoryId_allBlogPosts {
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: BlogPostsByCategoryId_allBlogPosts_previewImage | null;
   readonly previewImageLg: BlogPostsByCategoryId_allBlogPosts_previewImageLg | null;
@@ -110,7 +111,7 @@ export interface BlogPostsByCategoryId_primaryPage {
   readonly id: any;
   readonly title: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<BlogPostsByCategoryId_primaryPage__seoMetaTags>;
 }
@@ -141,14 +142,28 @@ export interface BlogPostsByCategoryId_header_links {
   readonly slug: string | null;
 }
 
-export interface BlogPostsByCategoryId_header_serviceLinks {
+export interface BlogPostsByCategoryId_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface BlogPostsByCategoryId_header_resourceLinks {
+export interface BlogPostsByCategoryId_header_whatWeDoLinks {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface BlogPostsByCategoryId_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface BlogPostsByCategoryId_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -159,8 +174,10 @@ export interface BlogPostsByCategoryId_header {
   readonly __typename: "HeaderRecord";
   readonly logo: BlogPostsByCategoryId_header_logo | null;
   readonly links: ReadonlyArray<BlogPostsByCategoryId_header_links>;
-  readonly serviceLinks: ReadonlyArray<BlogPostsByCategoryId_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<BlogPostsByCategoryId_header_resourceLinks>;
+  readonly whatWeDoPageLink: BlogPostsByCategoryId_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<BlogPostsByCategoryId_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: BlogPostsByCategoryId_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<BlogPostsByCategoryId_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

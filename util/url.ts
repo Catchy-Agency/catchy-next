@@ -1,9 +1,9 @@
 export const prefixByTypename = {
-  BlogPostRecord: '/blog/',
+  BlogPostRecord: '/insights/',
   CaseStudyRecord: '/work/',
   ContentPageRecord: '/',
   DownloadPageRecord: '/downloads/',
   PrimaryPageRecord: '/',
-} as const
+} as const;
 
-export const reservedPaths = new Set(['/blog', '/work'])
+export const reservedPaths = new Set(['/insights', '/work']);

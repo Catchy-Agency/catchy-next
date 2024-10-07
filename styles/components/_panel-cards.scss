@@ -1,0 +1,100 @@
+.panel-item-wrapper {
+  display: flex;
+  flex: 0 0 var(--items-width);
+  user-select: none;
+  position: relative;
+  flex-direction: column;
+  padding-top: 40px;
+  height: 100%;
+  justify-content: space-between;
+  &:not(:last-child) {
+    // 7.14% came from a calculous based on the desktop design
+    margin-right: clamp(20px, 5vw, 7.14%);
+  }
+  .panel-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 420px;
+    transform: translateX(3px);
+    @media (max-width: 768px) {
+      max-width: unset;
+    }
+
+    .panel-item-title {
+      margin-bottom: 20px;
+    }
+
+    .panel-dropdown {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-bottom: 1px solid white;
+        > svg {
+          transform: rotate(180deg);
+          transition: transform 250ms ease-in-out;
+          path {
+            fill: $turquoise;
+          }
+        }
+      }
+    }
+
+    .panel-content {
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-content.open-dropdown {
+      padding-top: 1rem;
+      opacity: 1;
+      max-height: 1000px;
+    }
+
+    .button {
+      margin-top: 80px;
+      span {
+        max-width: 245px;
+        display: inline-block;
+      }
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    background-color: var(--theme-color, white);
+    top: 0;
+    left: 0;
+    background-clip: content-box;
+    clip-path: polygon(0% 0%, 94% 0%, 100% 100%, 100% 100%, 00% 100%);
+  }
+  .rotate-svg {
+    border-bottom: 1px solid white;
+    > svg {
+      transform: rotate(180deg);
+      transition: transform 250ms ease-in-out;
+      path {
+        fill: $turquoise;
+      }
+    }
+  }
+  .card-button {
+    width: 100%;
+    margin-top: auto;
+    > a {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: unset;
+    }
+  }
+}

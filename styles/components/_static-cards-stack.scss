@@ -1,0 +1,108 @@
+.static-cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  gap: 4rem;
+  justify-content: space-between;
+
+  .static-card-item-wrapper {
+    flex: 1 1 calc(25% - 4rem);
+
+    max-width: calc(25% - 4rem);
+    padding-bottom: 1rem;
+
+    .static-card-item {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .card-item-image {
+        min-height: 400px;
+        max-height: 400px;
+        margin-bottom: 40px;
+        > div {
+          max-width: unset !important;
+          height: 100%;
+          img {
+            object-fit: contain;
+          }
+        }
+      }
+      .card-item-content {
+        height: 100%;
+        > li {
+          padding-right: unset;
+          &::before {
+            clip-path: polygon(0% 0%, 94% 0%, 100% 100%, 100% 100%, 0% 100%);
+            padding-right: unset;
+          }
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    flex: 1 1 calc(25% - 4rem);
+    max-width: calc(25% - 4rem);
+  }
+
+  @media (max-width: 1200px) {
+    .static-card-item-wrapper {
+      flex: 1 1 calc(33.33% - 3rem);
+      max-width: calc(33.33% - 3rem);
+    }
+
+    &::after {
+      flex: 1 1 calc(33.33% - 3rem);
+      max-width: calc(33.33% - 3rem);
+    }
+  }
+}
+.three-columns {
+  .static-card-item-wrapper {
+    flex: 1 1 calc(33.33% - 3rem);
+    max-width: calc(33.33% - 3rem);
+  }
+
+  &::after {
+    flex: 1 1 calc(33.33% - 3rem);
+    max-width: calc(33.33% - 3rem);
+  }
+}
+
+.static-cards-list,
+.three-columns {
+  @media (max-width: 1100px) {
+    .static-card-item-wrapper {
+      flex: 1 1 calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+      .static-card-item {
+        .card-item-image {
+          min-height: 300px;
+          max-height: 300px;
+          padding: 5%;
+        }
+      }
+    }
+
+    &::after {
+      flex: 1 1 calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .static-card-item-wrapper {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+
+    &::after {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}

@@ -393,6 +393,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_Blo
   readonly id: any;
   readonly slug: string | null;
   readonly title: string | null;
+  readonly subtitle: string | null;
   readonly description: string | null;
   readonly previewImage: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImage | null;
   readonly previewImageLg: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_BlogPostRecord_previewImageLg | null;
@@ -478,6 +479,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_Cas
   readonly slug: string | null;
   readonly title: string | null;
   readonly description: string | null;
+  readonly pretitle: string | null;
   readonly previewImage: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImage | null;
   readonly previewImageLg: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageLg | null;
   readonly previewImageSm: CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord_links_CaseStudyRecord_previewImageSm | null;
@@ -808,6 +810,39 @@ export interface CaseStudyBySlug_caseStudy_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image_responsiveImage | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members {
+  readonly __typename: "MemberRecord";
+  readonly id: any;
+  readonly name: string | null;
+  readonly title: string | null;
+  readonly image: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image | null;
+}
+
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord {
+  readonly __typename: "TeamRecord";
+  readonly id: any;
+  readonly teamTitle: string | null;
+  readonly members: ReadonlyArray<CaseStudyBySlug_caseStudy_blocks_TeamRecord_members>;
+}
+
 export interface CaseStudyBySlug_caseStudy_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
   readonly height: any;
@@ -868,7 +903,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord {
   readonly video: CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord_video | null;
 }
 
-export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
+export type CaseStudyBySlug_caseStudy_blocks = CaseStudyBySlug_caseStudy_blocks_ButtonExternalRecord | CaseStudyBySlug_caseStudy_blocks_ButtonInternalRecord | CaseStudyBySlug_caseStudy_blocks_ColumnRowRecord | CaseStudyBySlug_caseStudy_blocks_ContentLinkSetRecord | CaseStudyBySlug_caseStudy_blocks_FormBlockRecord | CaseStudyBySlug_caseStudy_blocks_ItemsPanelRecord | CaseStudyBySlug_caseStudy_blocks_ImageSetRecord | CaseStudyBySlug_caseStudy_blocks_RichTextRecord | CaseStudyBySlug_caseStudy_blocks_TeamRecord | CaseStudyBySlug_caseStudy_blocks_VideoRecord | CaseStudyBySlug_caseStudy_blocks_VideoInternalRecord;
 
 export interface CaseStudyBySlug_caseStudy_categories {
   readonly __typename: "WorkCategoryRecord";
@@ -888,11 +923,13 @@ export interface CaseStudyBySlug_caseStudy {
   readonly __typename: "CaseStudyRecord";
   readonly title: string | null;
   readonly date: any | null;
+  readonly pretitle: string | null;
+  readonly description: string | null;
   readonly blocks: ReadonlyArray<CaseStudyBySlug_caseStudy_blocks>;
   readonly categories: ReadonlyArray<CaseStudyBySlug_caseStudy_categories>;
   readonly slug: string | null;
   /**
-   * SEO meta tags
+   * Generates SEO and Social card meta tags to be used in your frontend
    */
   readonly _seoMetaTags: ReadonlyArray<CaseStudyBySlug_caseStudy__seoMetaTags>;
 }
@@ -923,14 +960,28 @@ export interface CaseStudyBySlug_header_links {
   readonly slug: string | null;
 }
 
-export interface CaseStudyBySlug_header_serviceLinks {
+export interface CaseStudyBySlug_header_whatWeDoPageLink {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
 
-export interface CaseStudyBySlug_header_resourceLinks {
+export interface CaseStudyBySlug_header_whatWeDoLinks {
+  readonly __typename: "ServiceRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface CaseStudyBySlug_header_aboutCatchyPageLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export interface CaseStudyBySlug_header_aboutCatchyLinks {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
@@ -941,8 +992,10 @@ export interface CaseStudyBySlug_header {
   readonly __typename: "HeaderRecord";
   readonly logo: CaseStudyBySlug_header_logo | null;
   readonly links: ReadonlyArray<CaseStudyBySlug_header_links>;
-  readonly serviceLinks: ReadonlyArray<CaseStudyBySlug_header_serviceLinks>;
-  readonly resourceLinks: ReadonlyArray<CaseStudyBySlug_header_resourceLinks>;
+  readonly whatWeDoPageLink: CaseStudyBySlug_header_whatWeDoPageLink | null;
+  readonly whatWeDoLinks: ReadonlyArray<CaseStudyBySlug_header_whatWeDoLinks>;
+  readonly aboutCatchyPageLink: CaseStudyBySlug_header_aboutCatchyPageLink | null;
+  readonly aboutCatchyLinks: ReadonlyArray<CaseStudyBySlug_header_aboutCatchyLinks>;
   readonly contactLinkLabel: string | null;
 }
 

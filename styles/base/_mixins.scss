@@ -36,7 +36,7 @@
   }
 }
 
-@mixin green-line($bottom: 0) {
+/* @mixin green-line($bottom: 0) {
   position: relative;
   $height: 5px;
   &:before {
@@ -48,4 +48,37 @@
     border-bottom: $height solid #1dbc83;
     margin-right: 1.5rem;
   }
+}
+ */
+
+//clip-path for the image of the TextImage component
+@mixin clip-path-right($size) {
+  @if $size == 'default' {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%, 0 70%);
+  } @else if $size == 'large' {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 41% 100%, 0 72%);
+  } @else if $size == 'medium' {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 71%);
+  } @else if $size == 'small' {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 39% 100%, 0 74%);
+  }
+}
+
+@mixin clip-path-left($size) {
+  @if $size == 'default' {
+    clip-path: polygon(0 0, 100% 0, 100% 62%, 41% 100%, 0 100%, 0% 50%);
+  } @else if $size == 'large' {
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 41% 100%, 0 100%, 0% 50%);
+  } @else if $size == 'medium' {
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 40% 100%, 0 100%, 0% 50%);
+  } @else if $size == 'small' {
+    clip-path: polygon(0 0, 100% 0, 100% 63%, 42% 100%, 0 100%, 0% 50%);
+  }
+}
+
+@mixin text-clamp($lines) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
 }
