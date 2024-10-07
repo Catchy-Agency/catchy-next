@@ -6,9 +6,11 @@
   .blog-categories {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .blog-category-list-container {
       display: flex;
+      flex-wrap: wrap;
     }
   }
 }
