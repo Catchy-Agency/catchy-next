@@ -319,13 +319,13 @@ section:last-of-type {
   }
 
   .block-sections {
+    padding: 0 18rem;
+    @media (max-width: calc(1024px + 200px)) {
+      padding: 0 10rem;
+    }
     > .section.RichTextRecord,
     .section.ColumnRowRecord {
-      padding: 0 18rem;
       color: $anthracite;
-      @media (max-width: calc(1024px + 200px)) {
-        padding: 0 10rem;
-      }
 
       @media (max-width: $tablet) {
         padding: 0 1rem;
