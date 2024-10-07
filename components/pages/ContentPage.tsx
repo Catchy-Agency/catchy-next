@@ -92,10 +92,12 @@ export const ContentPage: NextPage<{
             </h1>
           </div>
         </header>
-        <BlockSections
-          blocks={data?.contentPage?.blocks || []}
-          containerMax="desktop"
-        />
+        <div className="block-sections">
+          <BlockSections
+            blocks={data?.contentPage?.blocks || []}
+            containerMax="desktop"
+          />
+        </div>
         {links.length > 0 && (
           <section className="section">
             <div className="container is-max-desktop">
