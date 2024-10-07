@@ -5,7 +5,9 @@
 
   .blog-categories {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
     .blog-category-list-container {
       display: flex;
       flex-wrap: nowrap;

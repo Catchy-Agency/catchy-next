@@ -69,6 +69,20 @@ section:last-of-type {
     background-color: unset;
     padding-left: unset;
   }
+
+  .categories-case-study {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+
+    div {
+      flex: 0 0 auto;
+    }
+  }
 }
 .case-study-navigation {
   display: flex;

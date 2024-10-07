@@ -112,33 +112,38 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
           <h2 className="title is-2" style={{ maxWidth: '100%' }}>
             Check out our work
           </h2>
-          {sortedCategories?.map((cat) => (
-            <div key={cat.id} className="mb-2 mr-2 is-inline-block">
-              {cat.slug === router.query.slug ? (
-                <div className="tags are-medium has-addons">
-                  <span className="tag is-primary">
-                    {cat.name}
-                    &nbsp; &nbsp;
-                    <Link href="/work" scroll={false}>
-                      <a
-                        className="has-text-white"
-                        style={{
-                          margin: '-0.33rem -1rem',
-                          padding: '0.33rem 1rem',
-                        }}
-                      >
-                        ✕
-                      </a>
-                    </Link>
-                  </span>
-                </div>
-              ) : (
-                <Link href={`/work/category/${cat.slug || ''}`} scroll={false}>
-                  <a className="tag is-medium">{cat.name}</a>
-                </Link>
-              )}
-            </div>
-          ))}
+          <div className="categories-case-study">
+            {sortedCategories?.map((cat) => (
+              <div key={cat.id} className="mb-2 mr-2 is-inline-block">
+                {cat.slug === router.query.slug ? (
+                  <div className="tags are-medium has-addons">
+                    <span className="tag is-primary">
+                      {cat.name}
+                      &nbsp; &nbsp;
+                      <Link href="/work" scroll={false}>
+                        <a
+                          className="has-text-white"
+                          style={{
+                            margin: '-0.33rem -1rem',
+                            padding: '0.33rem 1rem',
+                          }}
+                        >
+                          ✕
+                        </a>
+                      </Link>
+                    </span>
+                  </div>
+                ) : (
+                  <Link
+                    href={`/work/category/${cat.slug || ''}`}
+                    scroll={false}
+                  >
+                    <a className="tag is-medium">{cat.name}</a>
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <section
