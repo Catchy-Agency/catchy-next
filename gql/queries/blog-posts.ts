@@ -1202,9 +1202,16 @@ export const allBlogPosts = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
@@ -1504,9 +1511,16 @@ export const blogPostsByCategoryId = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
@@ -2226,9 +2240,16 @@ export const blogPostBySlug = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }

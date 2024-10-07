@@ -1489,12 +1489,21 @@ export interface PrimaryPageBySlug_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface PrimaryPageBySlug_header_aboutCatchyLinks {
+export interface PrimaryPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface PrimaryPageBySlug_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type PrimaryPageBySlug_header_aboutCatchyLinks = PrimaryPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord | PrimaryPageBySlug_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface PrimaryPageBySlug_header {
   readonly __typename: "HeaderRecord";

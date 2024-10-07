@@ -54,9 +54,15 @@ export const ContentPage: NextPage<{
       )
       .filter(notEmpty) || [];
 
+  const pageType =
+    data?.contentPage?.slug === 'careers' ? 'primary' : 'content';
   return (
     <>
-      <div className="content-page">
+      <div
+        className={`${
+          pageType === 'primary' ? 'primary-page' : 'content-page'
+        }`}
+      >
         <Head>
           {renderMetaTags([
             ...(data?.contentPage?._seoMetaTags || []),
@@ -66,32 +72,34 @@ export const ContentPage: NextPage<{
         <PreviewBanner status={status} />
         {error && <PageError error={error} />}
         {data?.header && <Header header={data?.header} />}
-        <header className="section Blog">
-          <div className="container is-max-desktop">
-            <nav className="breadcrumb" aria-label="breadcrumbs">
-              <ul>
-                <li>
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                {ancestors.map((ancestor) => (
-                  <li key={ancestor.id}>
-                    <Link href={`/${ancestor.slug || ''}`}>
-                      <a>{ancestor.title}</a>
+        {pageType === 'content' && (
+          <header className="section Blog">
+            <div className="container is-max-desktop">
+              <nav className="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                  <li>
+                    <Link href="/">
+                      <a>Home</a>
                     </Link>
                   </li>
-                ))}
-                <li className="is-active">
-                  <a aria-current="page">{data?.contentPage?.title}</a>
-                </li>
-              </ul>
-            </nav>
-            <h1 className="title is-1 title-blog">
-              {data?.contentPage?.title}
-            </h1>
-          </div>
-        </header>
+                  {ancestors.map((ancestor) => (
+                    <li key={ancestor.id}>
+                      <Link href={`/${ancestor.slug || ''}`}>
+                        <a>{ancestor.title}</a>
+                      </Link>
+                    </li>
+                  ))}
+                  <li className="is-active">
+                    <a aria-current="page">{data?.contentPage?.title}</a>
+                  </li>
+                </ul>
+              </nav>
+              <h1 className="title is-1 title-blog">
+                {data?.contentPage?.title}
+              </h1>
+            </div>
+          </header>
+        )}
         <div className="block-sections">
           <BlockSections
             blocks={data?.contentPage?.blocks || []}

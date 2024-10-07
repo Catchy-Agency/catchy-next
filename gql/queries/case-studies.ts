@@ -1025,9 +1025,16 @@ export const allCaseStudies = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
@@ -2253,9 +2260,16 @@ export const caseStudiesByCategoryId = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
@@ -3015,9 +3029,16 @@ export const caseStudyBySlug = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }

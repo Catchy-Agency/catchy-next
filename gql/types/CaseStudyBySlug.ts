@@ -981,12 +981,21 @@ export interface CaseStudyBySlug_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface CaseStudyBySlug_header_aboutCatchyLinks {
+export interface CaseStudyBySlug_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface CaseStudyBySlug_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type CaseStudyBySlug_header_aboutCatchyLinks = CaseStudyBySlug_header_aboutCatchyLinks_PrimaryPageRecord | CaseStudyBySlug_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface CaseStudyBySlug_header {
   readonly __typename: "HeaderRecord";

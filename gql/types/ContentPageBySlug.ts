@@ -881,6 +881,51 @@ export interface ContentPageBySlug_contentPage_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
+export interface ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_internalLink {
+  readonly __typename: "PrimaryPageRecord";
+  readonly slug: string | null;
+  readonly title: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_image_responsiveImage {
+  readonly __typename: "ResponsiveImage";
+  readonly aspectRatio: any;
+  readonly height: any;
+  readonly width: any;
+  readonly sizes: string;
+  readonly src: string;
+  readonly srcSet: string;
+  readonly alt: string | null;
+  readonly title: string | null;
+  readonly base64: string | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_image {
+  readonly __typename: "FileField";
+  readonly responsiveImage: ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_image_responsiveImage | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_TextImageSmallRecord {
+  readonly __typename: "TextImageSmallRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly buttonLabel: string | null;
+  readonly externalLink: string | null;
+  readonly inverted: any | null;
+  readonly internalLink: ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_internalLink | null;
+  readonly image: ContentPageBySlug_contentPage_blocks_TextImageSmallRecord_image | null;
+}
+
+export interface ContentPageBySlug_contentPage_blocks_TitleTextRecord {
+  readonly __typename: "TitleTextRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly text: string | null;
+  readonly maxWidth: any | null;
+  readonly addLightBackground: any | null;
+}
+
 export interface ContentPageBySlug_contentPage_blocks_VideoRecord_video {
   readonly __typename: "VideoField";
   readonly height: any;
@@ -941,7 +986,7 @@ export interface ContentPageBySlug_contentPage_blocks_VideoInternalRecord {
   readonly video: ContentPageBySlug_contentPage_blocks_VideoInternalRecord_video | null;
 }
 
-export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_BannerRecord | ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_VideoInternalRecord;
+export type ContentPageBySlug_contentPage_blocks = ContentPageBySlug_contentPage_blocks_BannerRecord | ContentPageBySlug_contentPage_blocks_ButtonExternalRecord | ContentPageBySlug_contentPage_blocks_ButtonInternalRecord | ContentPageBySlug_contentPage_blocks_ColumnRowRecord | ContentPageBySlug_contentPage_blocks_ContentLinkSetRecord | ContentPageBySlug_contentPage_blocks_FormBlockRecord | ContentPageBySlug_contentPage_blocks_ImageSetRecord | ContentPageBySlug_contentPage_blocks_RichTextRecord | ContentPageBySlug_contentPage_blocks_TextImageSmallRecord | ContentPageBySlug_contentPage_blocks_TitleTextRecord | ContentPageBySlug_contentPage_blocks_VideoRecord | ContentPageBySlug_contentPage_blocks_VideoInternalRecord;
 
 export interface ContentPageBySlug_contentPage__seoMetaTags {
   readonly __typename: "Tag";
@@ -1010,12 +1055,21 @@ export interface ContentPageBySlug_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface ContentPageBySlug_header_aboutCatchyLinks {
+export interface ContentPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface ContentPageBySlug_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type ContentPageBySlug_header_aboutCatchyLinks = ContentPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord | ContentPageBySlug_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface ContentPageBySlug_header {
   readonly __typename: "HeaderRecord";

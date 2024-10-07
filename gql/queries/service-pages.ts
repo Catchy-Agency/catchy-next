@@ -1098,9 +1098,16 @@ export const servicePagesBySlug = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
