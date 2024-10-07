@@ -537,10 +537,13 @@ a.navbar-item.is-tab:not(.button):hover {
   font-weight: 400;
   text-transform: capitalize;
 }
-@media screen and (max-width: 1023px) {
+
+@media (max-width: 1024px) {
   .navbar {
     padding-left: clamp(2rem, 8vw, 5rem);
-    padding-right: clamp(2rem, 8vw, 5rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .navbar-end {
@@ -590,6 +593,12 @@ a.navbar-item.is-tab:not(.button):hover {
       $color: $navbar-item-active-background-color-mobile,
       $amount: 0.95
     );
+  }
+}
+
+@media (max-width: $tablet) {
+  .navbar {
+    padding-left: 1rem;
   }
 }
 

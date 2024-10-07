@@ -22,6 +22,8 @@
     }
 
     .panel-item-title {
+      font-size: 32px !important;
+      line-height: 48px !important;
       margin-bottom: 20px;
     }
 
@@ -29,17 +31,22 @@
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      justify-content: space-between;
 
-      &:hover,
-      &:active,
-      &:focus {
-        border-bottom: 1px solid white;
-        > svg {
-          transform: rotate(180deg);
-          transition: transform 250ms ease-in-out;
-          path {
-            fill: $turquoise;
+      > svg {
+        margin-left: 10px;
+        transition: transform 250ms ease-in-out;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover:not(.rotate-svg),
+        &:active,
+        &:focus {
+          border-bottom: 1px solid white;
+          > svg {
+            transition: transform 250ms ease-in-out;
+            path {
+              fill: $white;
+            }
           }
         }
       }
@@ -78,12 +85,12 @@
     clip-path: polygon(0% 0%, 94% 0%, 100% 100%, 100% 100%, 00% 100%);
   }
   .rotate-svg {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid transparent;
     > svg {
       transform: rotate(180deg);
       transition: transform 250ms ease-in-out;
       path {
-        fill: $turquoise;
+        fill: $white;
       }
     }
   }
