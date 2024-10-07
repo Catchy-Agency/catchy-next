@@ -1,9 +1,6 @@
 $textPaddingLarge: 14rem;
 $textPaddingSmall: 3rem;
 
-$svgWidthLarge: 40vh;
-$svgWidthMedium: 36vh;
-
 .textImage-content {
   width: 100%;
   display: flex;
@@ -19,7 +16,10 @@ $svgWidthMedium: 36vh;
 
     .text-description {
       margin-bottom: 80px;
-      @include bdy-md;
+
+      > p {
+        @include bdy-md;
+      }
     }
   }
 
@@ -29,7 +29,6 @@ $svgWidthMedium: 36vh;
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 100%;
 
     .imageText {
       height: 100%;
@@ -39,12 +38,11 @@ $svgWidthMedium: 36vh;
 
     .svg-textImageRight {
       position: absolute;
-      top: 42vh;
-      right: 47vh;
+      bottom: 0;
+      left: 0;
 
       > svg {
-        width: 30vh;
-        max-width: 100%;
+        height: 16vh;
       }
     }
 
@@ -66,15 +64,6 @@ $svgWidthMedium: 36vh;
       .imageText {
         @include clip-path-right('large');
       }
-
-      .svg-textImageRight {
-        top: 43vh;
-        right: 20vw;
-
-        > svg {
-          width: 35vh;
-        }
-      }
     }
   }
 
@@ -86,11 +75,6 @@ $svgWidthMedium: 36vh;
     .img-container {
       .imageText {
         @include clip-path-right('medium');
-      }
-
-      .svg-textImageRight {
-        top: 43vh;
-        right: 41vh;
       }
     }
   }
@@ -104,15 +88,13 @@ $svgWidthMedium: 36vh;
       padding: 5rem 0;
 
       .imageText {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 71%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 73%);
       }
 
       .svg-textImageRight {
-        top: 39vh;
-        right: 24vh;
-
         > svg {
-          width: 20vh;
+          width: 19vh;
+          height: 28vh;
         }
       }
     }
@@ -132,12 +114,8 @@ $svgWidthMedium: 36vh;
       }
 
       .svg-textImageRight {
-        top: 37vh;
-        right: 29vh;
-
         > svg {
-          width: 21vh;
-          max-width: unset;
+          transform: translate(-15%, 0%);
         }
       }
     }
@@ -163,12 +141,11 @@ $svgWidthMedium: 36vh;
       .svg-textImageLeft {
         display: block;
         position: absolute;
-        top: 37vh;
-        left: 28vh;
+        bottom: 0;
+        right: 0;
 
         > svg {
-          width: $svgWidthLarge;
-          max-width: 100%;
+          width: 38vh;
         }
       }
     }
@@ -186,15 +163,6 @@ $svgWidthMedium: 36vh;
         .imageText {
           @include clip-path-left('large');
         }
-
-        .svg-textImageLeft {
-          top: 36vh;
-          left: 30vh;
-
-          > svg {
-            width: $svgWidthLarge;
-          }
-        }
       }
     }
 
@@ -206,15 +174,6 @@ $svgWidthMedium: 36vh;
       .img-container {
         .imageText {
           @include clip-path-left('medium');
-        }
-
-        .svg-textImageLeft {
-          top: 39vh;
-          left: 24vh;
-
-          > svg {
-            width: $svgWidthMedium;
-          }
         }
       }
     }
@@ -230,11 +189,9 @@ $svgWidthMedium: 36vh;
         }
 
         .svg-textImageLeft {
-          top: 36vh;
-          left: 19vh;
-
           > svg {
-            width: 25vh;
+            width: 26vh;
+            height: 32vh;
           }
         }
       }
@@ -257,12 +214,9 @@ $svgWidthMedium: 36vh;
         }
 
         .svg-textImageLeft {
-          top: 39vh;
-          left: 28vh;
-
           > svg {
-            width: 18vh;
-            max-width: unset;
+            width: 17vh;
+            height: 27vh;
           }
         }
       }
