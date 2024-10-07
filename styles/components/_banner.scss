@@ -139,10 +139,17 @@
     @media (max-width: $tablet) {
       .data-container {
         padding: 0 1rem;
-        padding-top: $global-padding;
+        padding-top: 5rem;
         .title.titleHero,
         .text-description {
           width: unset;
+
+          > p {
+            font-size: 24px;
+            &:last-child {
+              margin-bottom: 60px;
+            }
+          }
         }
       }
       .svg-left {

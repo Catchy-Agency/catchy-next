@@ -540,6 +540,7 @@ a.navbar-item.is-tab:not(.button):hover {
 @media screen and (max-width: 1023px) {
   .navbar {
     padding-left: clamp(2rem, 8vw, 5rem);
+    padding-right: clamp(2rem, 8vw, 5rem);
   }
 
   .navbar-end {
