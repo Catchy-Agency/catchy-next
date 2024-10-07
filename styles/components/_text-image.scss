@@ -147,7 +147,6 @@ $svgWidthMedium: 36vh;
   // Invert component
   &.image-left {
     flex-direction: row-reverse;
-    padding-right: $global-padding;
 
     .info-texts {
       padding: 0 $textPaddingLarge;

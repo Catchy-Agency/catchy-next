@@ -233,5 +233,10 @@ module.exports = [
     "source": "/blog/what-is-developer-marketing",
     "destination": "/developer-marketing-guide-introduction",
     "permanent": true
+  },
+  {
+    "source": '/blog/:path*',
+    "destination": '/insights/:path*',
+    "permanent": false
   }
 ];
