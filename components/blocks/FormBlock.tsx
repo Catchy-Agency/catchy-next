@@ -35,9 +35,15 @@ export const FormBlock: FC<{
           case 'Group': {
             const group = fieldOrGroup;
             return (
-              <div key={group.id} className="field is-grouped pb-5">
+              <div
+                key={group.id}
+                className="field is-grouped pb-5 info-newsletter"
+              >
                 {group.fields.map((field) => (
-                  <div key={field?.id} className="control is-expanded">
+                  <div
+                    key={field?.id}
+                    className="control is-expanded newsletter-name"
+                  >
                     <FieldElement field={field} />
                   </div>
                 ))}
