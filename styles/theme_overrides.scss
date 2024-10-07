@@ -380,6 +380,15 @@ a.is-block-link:focus {
   padding-right: 0;
 }
 
+.navbar-brand {
+  min-height: 5.5rem;
+  align-items: center;
+  .navbar-burger {
+    height: 16px;
+    width: 16px;
+  }
+}
+
 a.navbar-item.is-tab.is-active:not(.button),
 a.navbar-item.is-tab:not(.button):hover {
   color: #fff;
@@ -538,9 +547,9 @@ a.navbar-item.is-tab:not(.button):hover {
   text-transform: capitalize;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .navbar {
-    padding-left: clamp(2rem, 8vw, 5rem);
+    padding: 0 clamp(2rem, 8vw, 5rem);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -551,7 +560,6 @@ a.navbar-item.is-tab:not(.button):hover {
     flex-direction: column;
     gap: 0;
     align-items: flex-end;
-    padding-right: clamp(2rem, 5vw, 3rem);
     > .navbar-item.has-dropdown {
       display: flex;
       flex-direction: column;
@@ -598,7 +606,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 @media (max-width: $tablet) {
   .navbar {
-    padding-left: 1rem;
+    padding: 0 $mobile-padding;
   }
 }
 
