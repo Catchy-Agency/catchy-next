@@ -14,14 +14,21 @@
       align-items: baseline;
       justify-content: space-between;
 
-      &:hover,
-      &:active,
-      &:focus {
-        > svg {
-          transform: rotate(180deg);
-          transition: transform 250ms ease-in-out;
-          path {
-            fill: $turquoise;
+      > svg {
+        margin-left: 10px;
+        transition: transform 250ms ease-in-out;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover:not(.rotate-svg),
+        &:active,
+        &:focus {
+          border-bottom: 1px solid white;
+          > svg {
+            transition: transform 250ms ease-in-out;
+            path {
+              fill: $white;
+            }
           }
         }
       }
