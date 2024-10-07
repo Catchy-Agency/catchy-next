@@ -1,22 +1,21 @@
-import { NextPage } from 'next'
-import { renderMetaTags, useQuerySubscription } from 'react-datocms'
-import Head from 'next/head'
-import Link from 'next/link'
+import { NextPage } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 
-import { Subscription } from '../../util/dato-cms'
-import { PrimaryPageBySlug } from '../../gql/types/PrimaryPageBySlug'
-import { PreviewBanner } from '../cms/PreviewBanner'
-import { PageError } from '../cms/PageError'
-import { Header } from '../Header'
-import { Footer } from '../Footer'
-import { BlockSections } from '../BlockSections'
+import { PrimaryPageBySlug } from '../../gql/types/PrimaryPageBySlug';
+import { Subscription } from '../../util/dato-cms';
+import { BlockSections } from '../BlockSections';
+import { PageError } from '../cms/PageError';
+import { PreviewBanner } from '../cms/PreviewBanner';
+import { Footer } from '../Footer';
+import { Header } from '../Header';
 
 export const PrimaryPage: NextPage<{
-  subscription: Subscription<PrimaryPageBySlug>
+  subscription: Subscription<PrimaryPageBySlug>;
 }> = ({ subscription }) => {
   const { data, error, status } =
-    useQuerySubscription<PrimaryPageBySlug>(subscription)
-
+    useQuerySubscription<PrimaryPageBySlug>(subscription);
   return (
     <div className="primary-page">
       <Head>
@@ -53,5 +52,5 @@ export const PrimaryPage: NextPage<{
       />
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
-  )
-}
+  );
+};

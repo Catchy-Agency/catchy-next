@@ -17,11 +17,15 @@
     height: 100%;
     max-width: 420px;
     transform: translateX(3px);
+    -webkit-tap-highlight-color: transparent; /* Prevent blue highlight on mobile devices */
+    user-select: none;
     @media (max-width: 768px) {
       max-width: unset;
     }
 
     .panel-item-title {
+      font-size: 32px !important;
+      line-height: 48px !important;
       margin-bottom: 20px;
     }
 
@@ -29,17 +33,23 @@
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      justify-content: space-between;
+      // justify-content: space-between; removed to align with design CWU-138
 
-      &:hover,
-      &:active,
-      &:focus {
-        border-bottom: 1px solid white;
-        > svg {
-          transform: rotate(180deg);
-          transition: transform 250ms ease-in-out;
-          path {
-            fill: $turquoise;
+      > svg {
+        margin-left: 10px;
+        transition: transform 250ms ease-in-out;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover:not(.rotate-svg),
+        &:active,
+        &:focus {
+          border-bottom: 1px solid white;
+          > svg {
+            transition: transform 250ms ease-in-out;
+            path {
+              fill: $white;
+            }
           }
         }
       }
@@ -78,12 +88,12 @@
     clip-path: polygon(0% 0%, 94% 0%, 100% 100%, 100% 100%, 00% 100%);
   }
   .rotate-svg {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid transparent;
     > svg {
       transform: rotate(180deg);
       transition: transform 250ms ease-in-out;
       path {
-        fill: $turquoise;
+        fill: $white;
       }
     }
   }

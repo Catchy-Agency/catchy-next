@@ -8,6 +8,7 @@ $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 $border-color-gray: #444f57;
 $global-padding: 10rem;
+$mobile-padding: 2.5rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -32,7 +33,7 @@ section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 5.6% 0;
   @media (max-width: $tablet) {
-    padding: 0 1rem;
+    padding: $mobile-padding;
   }
 }
 
@@ -40,7 +41,7 @@ section:not(.has-background-grey-darker) {
   padding: 5rem $global-padding;
   margin: 3% 0;
   @media (max-width: $tablet) {
-    padding: 2rem 1rem;
+    padding: $mobile-padding;
   }
 }
 
@@ -67,6 +68,20 @@ section:last-of-type {
   .tag:not(body) {
     background-color: unset;
     padding-left: unset;
+  }
+
+  .categories-case-study {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+
+    div {
+      flex: 0 0 auto;
+    }
   }
 }
 .case-study-navigation {
@@ -145,22 +160,6 @@ section:last-of-type {
   }
 }
 
-.section.TextImage {
-  padding: unset;
-  position: relative;
-
-  > .container {
-    margin: unset;
-    width: 100%;
-    height: 100%;
-    max-width: unset;
-  }
-
-  @media (max-width: calc(1024px + 200px)) {
-    padding: unset;
-  }
-}
-
 .section.LeadCaseStudy {
   padding-right: unset;
   position: relative;
@@ -203,6 +202,9 @@ section:last-of-type {
 .section.TeamRecord {
   .is-4 {
     margin-top: 1.25em;
+  }
+  @media (max-width: $tablet) {
+    padding: 1rem $mobile-padding;
   }
 }
 
@@ -256,8 +258,9 @@ section:last-of-type {
   .block-sections {
     padding: 3rem $global-padding;
     @media (max-width: $tablet) {
-      padding: 1rem;
+      padding: $mobile-padding;
     }
+
     .breadcrumb a {
       color: $primary;
       transition: color 200ms ease;
@@ -289,7 +292,7 @@ section:last-of-type {
     .description-blog,
     .description-work {
       @include description-hero();
-      padding-top: 2.5rem;
+      padding-top: $mobile-padding;
     }
     .description-work {
       padding-bottom: 2.5rem;
@@ -332,8 +335,9 @@ section:last-of-type {
       color: $anthracite;
 
       @media (max-width: $tablet) {
-        padding: 0 1rem;
+        padding: $mobile-padding;
       }
+
       a {
         text-decoration: underline;
       }
@@ -399,6 +403,9 @@ section:last-of-type {
 
 .block-sections {
   padding: unset !important;
+  @media (max-width: $tablet) {
+    padding: unset !important;
+  }
 }
 
 .block-sections :is(.ImageSetRecord, .VideoRecord):first-of-type {
@@ -406,6 +413,14 @@ section:last-of-type {
   > div {
     padding: unset;
     max-width: unset;
+    .columns.is-vcentered {
+      width: 100%;
+      margin-left: unset;
+      margin-right: unset;
+      > .column {
+        padding: unset;
+      }
+    }
   }
 }
 

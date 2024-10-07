@@ -6,7 +6,7 @@ export const allDownloadPageSlugs = gql`
       slug
     }
   }
-`
+`;
 
 export const downloadPageBySlug = gql`
   query DownloadPageBySlug($slug: String) {
@@ -57,9 +57,16 @@ export const downloadPageBySlug = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }
@@ -87,4 +94,4 @@ export const downloadPageBySlug = gql`
       richText
     }
   }
-`
+`;

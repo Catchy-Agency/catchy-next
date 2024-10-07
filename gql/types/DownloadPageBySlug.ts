@@ -75,12 +75,21 @@ export interface DownloadPageBySlug_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface DownloadPageBySlug_header_aboutCatchyLinks {
+export interface DownloadPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface DownloadPageBySlug_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type DownloadPageBySlug_header_aboutCatchyLinks = DownloadPageBySlug_header_aboutCatchyLinks_PrimaryPageRecord | DownloadPageBySlug_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface DownloadPageBySlug_header {
   readonly __typename: "HeaderRecord";

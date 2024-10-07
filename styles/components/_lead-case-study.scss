@@ -65,7 +65,6 @@
   }
 
   @media (max-width: calc(1024px + 200px)) {
-    padding: 10rem 0;
     .imgStudy-container {
       height: 60vh;
     }
@@ -92,7 +91,7 @@
     gap: 5rem;
 
     .study-content {
-      padding: 0 1rem;
+      padding: $mobile-padding;
     }
 
     .imgStudy-container {

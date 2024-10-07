@@ -675,6 +675,43 @@ export const contentPageBySlug = gql`
           id
           richText
         }
+        ... on TextImageSmallRecord {
+          id
+          title
+          text
+          buttonLabel
+          externalLink
+          inverted
+          internalLink {
+            __typename
+            ... on PrimaryPageRecord {
+              slug
+              title
+            }
+          }
+          image {
+            responsiveImage(
+              imgixParams: { fit: clip, maxW: 1920, auto: format }
+            ) {
+              aspectRatio
+              height
+              width
+              sizes
+              src
+              srcSet
+              alt
+              title
+              base64
+            }
+          }
+        }
+        ... on TitleTextRecord {
+          id
+          title
+          text
+          maxWidth
+          addLightBackground
+        }
         ... on VideoRecord {
           id
           video {
@@ -760,9 +797,17 @@ export const contentPageBySlug = gql`
         slug
       }
       aboutCatchyLinks {
-        id
-        title
-        slug
+        __typename
+        ... on PrimaryPageRecord {
+          id
+          title
+          slug
+        }
+        ... on ContentPageRecord {
+          id
+          title
+          slug
+        }
       }
       contactLinkLabel
     }

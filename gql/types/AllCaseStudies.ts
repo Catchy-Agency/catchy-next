@@ -1362,12 +1362,21 @@ export interface AllCaseStudies_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface AllCaseStudies_header_aboutCatchyLinks {
+export interface AllCaseStudies_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface AllCaseStudies_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type AllCaseStudies_header_aboutCatchyLinks = AllCaseStudies_header_aboutCatchyLinks_PrimaryPageRecord | AllCaseStudies_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface AllCaseStudies_header {
   readonly __typename: "HeaderRecord";

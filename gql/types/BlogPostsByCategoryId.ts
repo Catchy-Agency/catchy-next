@@ -163,12 +163,21 @@ export interface BlogPostsByCategoryId_header_aboutCatchyPageLink {
   readonly slug: string | null;
 }
 
-export interface BlogPostsByCategoryId_header_aboutCatchyLinks {
+export interface BlogPostsByCategoryId_header_aboutCatchyLinks_PrimaryPageRecord {
   readonly __typename: "PrimaryPageRecord";
   readonly id: any;
   readonly title: string | null;
   readonly slug: string | null;
 }
+
+export interface BlogPostsByCategoryId_header_aboutCatchyLinks_ContentPageRecord {
+  readonly __typename: "ContentPageRecord";
+  readonly id: any;
+  readonly title: string | null;
+  readonly slug: string | null;
+}
+
+export type BlogPostsByCategoryId_header_aboutCatchyLinks = BlogPostsByCategoryId_header_aboutCatchyLinks_PrimaryPageRecord | BlogPostsByCategoryId_header_aboutCatchyLinks_ContentPageRecord;
 
 export interface BlogPostsByCategoryId_header {
   readonly __typename: "HeaderRecord";
