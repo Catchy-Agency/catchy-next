@@ -606,7 +606,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 @media (max-width: $tablet) {
   .navbar {
-    padding: 0 1rem;
+    padding: 0 $mobile-padding;
   }
 }
 
