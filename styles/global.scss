@@ -244,8 +244,9 @@ section:last-of-type {
   .block-sections {
     padding: 3rem $global-padding;
     @media (max-width: $tablet) {
-      padding: $mobile-padding !important;
+      padding: $mobile-padding;
     }
+
     .breadcrumb a {
       color: $primary;
       transition: color 200ms ease;
@@ -388,6 +389,9 @@ section:last-of-type {
 
 .block-sections {
   padding: unset !important;
+  @media (max-width: $tablet) {
+    padding: unset !important;
+  }
 }
 
 .block-sections :is(.ImageSetRecord, .VideoRecord):first-of-type {
@@ -395,6 +399,14 @@ section:last-of-type {
   > div {
     padding: unset;
     max-width: unset;
+    .columns.is-vcentered {
+      width: 100%;
+      margin-left: unset;
+      margin-right: unset;
+      > .column {
+        padding: unset;
+      }
+    }
   }
 }
 
