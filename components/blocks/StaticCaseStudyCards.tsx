@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Image } from 'react-datocms';
 import { LinkData } from '../content-links/LinkData';
@@ -7,6 +8,15 @@ import { CaseStudySvg } from '../icons';
 export const StaticCaseStudyCards: FC<{
   link: LinkData[];
 }> = ({ link }) => {
+  const router = useRouter();
+
+  const getLinkClassName = (url: string) => {
+    const isWorkSubPath = /\/work\/.+/.test(router.asPath);
+    return `button is-primary mt-4 ${
+      isWorkSubPath && url.includes('/work/') ? 'is-dark' : ''
+    }`;
+  };
+
   return (
     <div className="case-study-wrapper">
       <ul className="case-study-wrapper__list">
@@ -40,7 +50,7 @@ export const StaticCaseStudyCards: FC<{
                   {item.url && (
                     <div className="card-button">
                       <Link href={item.url}>
-                        <a className="button is-primary mt-4">
+                        <a className={getLinkClassName(item.url)}>
                           {item.callToAction || 'Read as More'}
                         </a>
                       </Link>

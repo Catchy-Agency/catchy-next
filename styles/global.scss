@@ -24,7 +24,10 @@ $global-padding: 10rem;
 // .section {
 //   border: 1px dotted red;
 // }
-
+html.has-navbar-fixed-top,
+body.has-navbar-fixed-top {
+  padding-top: 5.5rem;
+}
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 5.6% 0;
@@ -253,11 +256,12 @@ section:last-of-type {
   .block-sections {
     padding: 3rem $global-padding;
     @media (max-width: $tablet) {
-      padding: 0 1rem;
+      padding: 1rem;
     }
     .breadcrumb a {
       color: $primary;
       transition: color 200ms ease;
+      text-wrap: wrap;
       &:hover,
       &.has-text-primary:hover {
         color: $lagoon;
@@ -319,13 +323,13 @@ section:last-of-type {
   }
 
   .block-sections {
+    padding: 0 18rem;
+    @media (max-width: calc(1024px + 200px)) {
+      padding: 0 10rem;
+    }
     > .section.RichTextRecord,
     .section.ColumnRowRecord {
-      padding: 0 18rem;
       color: $anthracite;
-      @media (max-width: calc(1024px + 200px)) {
-        padding: 0 10rem;
-      }
 
       @media (max-width: $tablet) {
         padding: 0 1rem;
