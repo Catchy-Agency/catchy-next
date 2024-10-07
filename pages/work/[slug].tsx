@@ -25,7 +25,7 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
 
   return (
     <>
-      <div className="content-post">
+      <div className="content-post SingleCaseStudy">
         <Head>
           {renderMetaTags([
             ...(data?.caseStudy?._seoMetaTags || []),
