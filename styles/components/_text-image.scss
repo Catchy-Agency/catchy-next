@@ -122,8 +122,7 @@ $svgWidthMedium: 36vh;
     flex-direction: column-reverse;
 
     .info-texts {
-      padding: 0 $textPaddingSmall;
-      padding-bottom: 10rem;
+      padding: 0 $mobile-padding;
     }
 
     .img-container {

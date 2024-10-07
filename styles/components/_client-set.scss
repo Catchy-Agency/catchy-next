@@ -83,12 +83,16 @@
   @media (max-width: $tablet) {
     .soupTitle {
       clip-path: polygon(100% 0, 100% 60%, 100% 100%, 0 100%, 0 50%);
-      padding: 0 1rem;
+      padding: $mobile-padding;
+    }
+
+    .soupContent {
+      padding: $mobile-padding;
     }
 
     .soupBottom {
       clip-path: polygon(0% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
-      padding: 0 1rem;
+      padding: $mobile-padding;
     }
   }
   @media (max-width: 1200px) {

@@ -138,7 +138,7 @@
 
     @media (max-width: $tablet) {
       .data-container {
-        padding: 0 1rem;
+        padding: $mobile-padding;
         padding-top: 5rem;
         .title.titleHero,
         .text-description {

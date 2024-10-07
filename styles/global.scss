@@ -8,6 +8,7 @@ $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 $border-color-gray: #444f57;
 $global-padding: 10rem;
+$mobile-padding: 2.5rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -32,7 +33,7 @@ section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 5.6% 0;
   @media (max-width: $tablet) {
-    padding: 0 1rem;
+    padding: $mobile-padding;
   }
 }
 
@@ -40,7 +41,7 @@ section:not(.has-background-grey-darker) {
   padding: 5rem $global-padding;
   margin: 3% 0;
   @media (max-width: $tablet) {
-    padding: 2rem 1rem;
+    padding: $mobile-padding;
   }
 }
 
@@ -256,7 +257,7 @@ section:last-of-type {
   .block-sections {
     padding: 3rem $global-padding;
     @media (max-width: $tablet) {
-      padding: 1rem;
+      padding: $mobile-padding !important;
     }
     .breadcrumb a {
       color: $primary;
@@ -289,7 +290,7 @@ section:last-of-type {
     .description-blog,
     .description-work {
       @include description-hero();
-      padding-top: 2.5rem;
+      padding-top: $mobile-padding;
     }
     .description-work {
       padding-bottom: 2.5rem;
@@ -332,8 +333,9 @@ section:last-of-type {
       color: $anthracite;
 
       @media (max-width: $tablet) {
-        padding: 0 1rem;
+        padding: $mobile-padding;
       }
+
       a {
         text-decoration: underline;
       }
