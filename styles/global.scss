@@ -114,7 +114,10 @@ section:last-of-type {
     right: 0;
     @media (max-width: $tablet) {
       display: unset;
-      transform: translate(40%, 20%);
+      transform: translateX(30%);
+      > svg {
+        width: 80%;
+      }
     }
   }
   .RightUp {
@@ -330,10 +333,15 @@ section:last-of-type {
       a {
         text-decoration: underline;
       }
+
       h3,
       strong {
         color: $anthracite;
         @include blog-work();
+      }
+
+      h4 {
+        color: $anthracite;
       }
       b {
         @include hdl4();

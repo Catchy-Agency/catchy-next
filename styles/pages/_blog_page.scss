@@ -72,6 +72,7 @@
       bottom: 0;
       width: clamp(300px, 21.5vw, 340px);
       z-index: 1;
+      pointer-events: none;
     }
     .single-post-left-side {
       flex: 1;
