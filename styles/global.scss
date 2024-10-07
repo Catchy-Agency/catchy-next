@@ -146,22 +146,6 @@ section:last-of-type {
   }
 }
 
-.section.TextImage {
-  padding: unset;
-  position: relative;
-
-  > .container {
-    margin: unset;
-    width: 100%;
-    height: 100%;
-    max-width: unset;
-  }
-
-  @media (max-width: calc(1024px + 200px)) {
-    padding: unset;
-  }
-}
-
 .section.LeadCaseStudy {
   padding-right: unset;
   position: relative;
@@ -204,6 +188,9 @@ section:last-of-type {
 .section.TeamRecord {
   .is-4 {
     margin-top: 1.25em;
+  }
+  @media (max-width: $tablet) {
+    padding: 1rem $mobile-padding;
   }
 }
 
