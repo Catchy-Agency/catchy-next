@@ -13,6 +13,8 @@
       flex-direction: row;
       align-items: baseline;
       justify-content: space-between;
+      -webkit-tap-highlight-color: transparent; /* Prevent blue highlight on mobile devices */
+      user-select: none;
 
       > svg {
         margin-left: 10px;
@@ -97,6 +99,43 @@
       transition: transform 250ms ease-in-out;
       path {
         fill: $turquoise;
+      }
+    }
+  }
+}
+
+.SingleCaseStudy {
+  .TeamRecord {
+    .team-dropdown {
+      > svg {
+        path {
+          fill: $anthracite;
+        }
+      }
+      @media (hover: hover) and (pointer: fine) {
+        &:hover:not(.rotate-svg),
+        &:active,
+        &:focus {
+          border-bottom: 1px solid $anthracite;
+          > svg {
+            transition: transform 250ms ease-in-out;
+            path {
+              fill: $anthracite;
+            }
+          }
+        }
+      }
+    }
+    .team-wrapper {
+      .rotate-svg {
+        border-bottom: 1px solid transparent;
+        > svg {
+          transform: rotate(180deg);
+          transition: transform 250ms ease-in-out;
+          path {
+            fill: $turquoise;
+          }
+        }
       }
     }
   }
