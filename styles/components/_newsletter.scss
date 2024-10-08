@@ -44,7 +44,7 @@
     height: unset;
     gap: 5rem;
     .newsletter-content {
-      padding: 0 1rem;
+      padding: 0 $mobile-padding;
 
       .info-newsletter {
         flex-direction: column;
