@@ -17,8 +17,6 @@
     height: 100%;
     max-width: 420px;
     transform: translateX(3px);
-    -webkit-tap-highlight-color: transparent; /* Prevent blue highlight on mobile devices */
-    user-select: none;
     @media (max-width: 768px) {
       max-width: unset;
     }
@@ -37,6 +35,7 @@
       // justify-content: space-between; removed to align with design CWU-138
       border-bottom: 1px solid transparent;
       cursor: pointer;
+      max-width: fit-content;
 
       > svg {
         transition: transform 250ms ease-in-out;

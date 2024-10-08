@@ -43,9 +43,11 @@ export const TextImage: FC<{
             objectFit="cover"
           />
         )}
-
-        <div className="svg-textImageRight">{IconTextImageRight}</div>
-        <div className="svg-textImageLeft">{IconTextImageLeft}</div>
+        {!block.inverted ? (
+          <div className="svg-textImageRight">{IconTextImageRight}</div>
+        ) : (
+          <div className="svg-textImageLeft">{IconTextImageLeft}</div>
+        )}{' '}
       </div>
     </div>
   );

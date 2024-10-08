@@ -32,7 +32,6 @@ a.is-block-link:focus {
 
 .button {
   box-sizing: border-box;
-  text-transform: capitalize;
   position: relative;
   height: unset !important;
   max-width: 400px;
@@ -625,6 +624,10 @@ a.navbar-item.is-tab:not(.button):hover {
       &.is-expanded {
         display: flex;
       }
+    }
+
+    &.is-active {
+      height: 100vh;
     }
   }
 

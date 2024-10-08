@@ -13,8 +13,6 @@
       flex-direction: row;
       align-items: baseline;
       justify-content: space-between;
-      -webkit-tap-highlight-color: transparent; /* Prevent blue highlight on mobile devices */
-      user-select: none;
       border-bottom: 1px solid transparent;
       > svg {
         margin-left: 10px;

@@ -1,19 +1,15 @@
-$textPaddingLarge: 14rem;
-$textPaddingSmall: 3rem;
-
 .textImage-content {
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-
+  flex-direction: row;
+  gap: 10%;
+  height: 60vh;
   .info-texts {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 0 $textPaddingLarge;
-
+    gap: 1rem;
+    padding-left: 10rem;
     .text-description {
       margin-bottom: 80px;
 
@@ -21,7 +17,106 @@ $textPaddingSmall: 3rem;
         @include bdy-md;
       }
     }
+
+    @media (min-width: 1700px) {
+      padding-left: calc((100vw - 1440px) / 2);
+    }
   }
+  .img-container {
+    flex: 1;
+    position: relative;
+    .svg-textImageRight {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40%;
+      height: 25%;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      @media (max-width: 1024px) {
+        width: 60%;
+      }
+      @media (max-width: $tablet) {
+        width: 40%;
+      }
+    }
+    .imageText {
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 45% 100%, 0 70%);
+      max-width: unset !important;
+      img {
+        object-position: 0 25%; // Remove when image gets changed
+        @media (max-width: $tablet) {
+          object-position: unset;
+        }
+      }
+    }
+  }
+}
+
+.image-left {
+  flex-direction: row-reverse;
+  .info-texts {
+    padding-left: unset;
+    padding-right: 10rem;
+    @media (min-width: 1700px) {
+      padding-right: calc((100vw - 1440px) / 2);
+    }
+  }
+  .img-container {
+    flex: 1;
+    position: relative;
+    .svg-textImageLeft {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 35%;
+      > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .imageText {
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(0 0, 100% 0, 100% 70%, 45% 100%, 0 100%, 0% 100%);
+      max-width: unset !important;
+      img {
+        object-position: 0 25%;
+        @media (max-width: $tablet) {
+          object-position: unset;
+        }
+      }
+    }
+  }
+}
+
+.textImage-content,
+.image-left {
+  @media (max-width: calc(1024px + 200px)) {
+    height: 50vh;
+    @media (max-width: $tablet) {
+      flex-direction: column-reverse;
+      height: unset;
+      .info-texts {
+        padding: $mobile-padding;
+      }
+    }
+  }
+}
+/*svg-textImageRight
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 $textPaddingLarge;
+
 
   .img-container {
     height: 60vh;
@@ -223,3 +318,4 @@ $textPaddingSmall: 3rem;
     }
   }
 }
+ */
