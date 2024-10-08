@@ -17,8 +17,6 @@
     height: 100%;
     max-width: 420px;
     transform: translateX(3px);
-    -webkit-tap-highlight-color: transparent; /* Prevent blue highlight on mobile devices */
-    user-select: none;
     @media (max-width: 768px) {
       max-width: unset;
     }

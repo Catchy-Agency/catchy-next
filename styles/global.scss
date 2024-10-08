@@ -520,3 +520,11 @@ section:last-of-type {
   position: absolute;
   z-index: -1;
 }
+
+/* Prevent blue highlight on mobile devices */
+a,
+button,
+.panel-item,
+.team-dropdown {
+  @include remove-tap-highlight();
+}
