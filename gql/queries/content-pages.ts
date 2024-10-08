@@ -12,6 +12,7 @@ export const contentPageBySlug = gql`
   query ContentPageBySlug($slug: String) {
     contentPage(filter: { slug: { eq: $slug } }) {
       title
+      lightTheme
       parent {
         id
         title
