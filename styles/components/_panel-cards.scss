@@ -26,18 +26,19 @@
     .panel-item-title {
       font-size: 32px !important;
       line-height: 48px !important;
-      margin-bottom: 20px;
     }
 
     .panel-dropdown {
       display: flex;
       flex-direction: row;
       align-items: baseline;
+      gap: 10px;
+      align-items: center;
+      // justify-content: space-between; removed to align with design CWU-138
       border-bottom: 1px solid transparent;
       cursor: pointer;
-      // justify-content: space-between; removed to align with design CWU-138
+
       > svg {
-        margin-left: 10px;
         transition: transform 250ms ease-in-out;
       }
 
@@ -66,7 +67,7 @@
     }
     .panel-content {
       overflow: hidden;
-      padding-top: 1rem;
+      padding-top: 20px;
       height: 100%;
     }
 
@@ -75,6 +76,18 @@
       span {
         max-width: 245px;
         display: inline-block;
+      }
+    }
+
+    @media screen and (max-width: $mobile) {
+      .panel-item-title {
+        margin-bottom: 5px;
+      }
+      .panel-content.open-dropdown {
+        padding-top: 20px;
+      }
+      .button {
+        margin-top: 40px;
       }
     }
   }

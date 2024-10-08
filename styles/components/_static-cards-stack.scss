@@ -42,6 +42,9 @@
         }
       }
     }
+    @media screen and (max-width: $mobile) {
+      padding-bottom: 0;
+    }
   }
 
   &::after {
