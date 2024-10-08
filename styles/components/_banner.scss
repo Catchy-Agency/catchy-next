@@ -24,10 +24,6 @@
     height: 100vh;
     user-select: none;
 
-    @media (max-width: $tablet) {
-      align-items: flex-start;
-    }
-
     .imageHero {
       height: 100%;
       max-width: unset !important;
@@ -138,7 +134,16 @@
     }
 
     @media (max-width: $tablet) {
+      align-items: flex-start;
+      display: grid;
+      min-height: 100vh;
+      height: fit-content;
+      .imageHero {
+        grid-area: 1 / 1;
+      }
       .data-container {
+        grid-area: 1 / 1;
+        position: relative;
         padding: $mobile-padding;
         padding-top: 5rem;
         .title.titleHero,
