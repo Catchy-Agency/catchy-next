@@ -76,8 +76,7 @@ section:last-of-type {
     overflow-x: auto;
     gap: 1rem;
     padding-bottom: 1rem;
-    scrollbar-width: thin;
-    -webkit-overflow-scrolling: touch;
+    @include custom-scrollbar();
 
     div {
       flex: 0 0 auto;
@@ -261,11 +260,22 @@ section:last-of-type {
     @media (max-width: $tablet) {
       padding: $mobile-padding;
     }
-
+    .breadcrumb {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      @include custom-scrollbar();
+    }
+    .breadcrumb ul {
+      flex-wrap: nowrap;
+    }
     .breadcrumb a {
       color: $primary;
       transition: color 200ms ease;
-      text-wrap: wrap;
+
+      @include custom-scrollbar();
       &:hover,
       &.has-text-primary:hover {
         color: $lagoon;

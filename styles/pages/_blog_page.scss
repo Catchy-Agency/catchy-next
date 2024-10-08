@@ -14,8 +14,7 @@
       overflow-x: auto;
       gap: 1rem;
       padding-bottom: 1rem;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
+      @include custom-scrollbar();
 
       div {
         flex: 0 0 auto;

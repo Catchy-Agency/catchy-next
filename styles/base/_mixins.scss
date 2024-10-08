@@ -82,3 +82,35 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
 }
+
+@mixin custom-scrollbar(
+  $track-color: #d4d6d9,
+  $thumb-color: rgba(0 0 0 / 0.7),
+  $thumb-color-hover: rgba(0 0 0 / 0.7),
+  $width-size: 5px,
+  $height-size: 5px,
+  $border-radius: 8px,
+  $border: 4px solid rgba(0 0 0 / 0),
+  $box-shadow: inset -1px -1px 0 rgba(0 0 0 / 0.05) inset 1px 1px 0
+    rgba(0 0 0 / 0.05)
+) {
+  &::-webkit-scrollbar {
+    width: $width-size;
+    height: $height-size;
+
+    &-track {
+      background: $track-color;
+      border-radius: $border-radius;
+    }
+
+    &-thumb {
+      background: $thumb-color;
+      border-radius: $border-radius;
+      border: $border;
+
+      &:hover {
+        background: $thumb-color-hover;
+      }
+    }
+  }
+}
