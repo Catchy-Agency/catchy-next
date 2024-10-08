@@ -41,47 +41,47 @@ export const Team: FC<{
             {AngleDown}
           </div>
           <div
-            className={`columns is-mobile is-multiline team-content ${
-              isOpen ? 'open-dropdown' : ''
-            }`}
+            className={`team-dropdown-wrapper ${isOpen ? 'open-dropdown' : ''}`}
           >
-            {block.members.map((member) => (
-              <div
-                key={member.id}
-                className="column is-6-mobile pb-5"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="img-container">
-                  {member.image?.responsiveImage && (
-                    <figure className="mb-3">
-                      <Image
-                        data={
-                          member.image.responsiveImage as ResponsiveImageType
-                        }
-                        lazyLoad={false}
-                        className="image-team"
-                      />
-                    </figure>
-                  )}
-                  <div className="svg-iconTeam">{IconImageTeam}</div>
+            <div className={`columns is-mobile is-multiline team-content`}>
+              {block.members.map((member) => (
+                <div
+                  key={member.id}
+                  className="column is-6-mobile pb-5"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="img-container">
+                    {member.image?.responsiveImage && (
+                      <figure className="mb-3">
+                        <Image
+                          data={
+                            member.image.responsiveImage as ResponsiveImageType
+                          }
+                          lazyLoad={false}
+                          className="image-team"
+                        />
+                      </figure>
+                    )}
+                    <div className="svg-iconTeam">{IconImageTeam}</div>
+                  </div>
+                  <div className="team-line">
+                    {member.name && (
+                      <h4
+                        className="title is-size-6 has-text-weight-bold hover-underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {member.name}
+                      </h4>
+                    )}
+                    {member.title && (
+                      <h4 className="subtitle is-size-6 has-text-weight-normal has-text-white">
+                        {member.title}
+                      </h4>
+                    )}
+                  </div>
                 </div>
-                <div className="team-line">
-                  {member.name && (
-                    <h4
-                      className="title is-size-6 has-text-weight-bold hover-underline"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {member.name}
-                    </h4>
-                  )}
-                  {member.title && (
-                    <h4 className="subtitle is-size-6 has-text-weight-normal has-text-white">
-                      {member.title}
-                    </h4>
-                  )}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       ) : (
