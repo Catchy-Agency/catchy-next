@@ -584,6 +584,10 @@ a.navbar-item.is-tab:not(.button):hover {
         display: flex;
       }
     }
+
+    &.is-active {
+      height: 100vh;
+    }
   }
 
   a.navbar-item.is-tab,
