@@ -69,20 +69,23 @@ export const PanelCards: FC<{
       }
     >
       {device === 'mobile' && item.image ? (
-        <div
-          className={`panel-item`}
-          onClick={toggleDropdown}
-          style={{ cursor: 'pointer' }}
-        >
-          <div className={`panel-dropdown ${isOpen ? 'rotate-svg' : ''}`}>
+        <div className={`panel-item`}>
+          <div
+            className={`panel-dropdown ${isOpen ? 'rotate-svg' : ''}`}
+            onClick={toggleDropdown}
+          >
             <h3 className="panel-item-title">{item.title}</h3>
             {AngleDown}
           </div>
-          <div className={`panel-content ${isOpen ? 'open-dropdown' : ''}`}>
-            {item.description && (
-              <div dangerouslySetInnerHTML={{ __html: item.description }} />
-            )}
-            {renderLink(item)}
+          <div
+            className={`panel-content-wrapper ${isOpen ? 'open-dropdown' : ''}`}
+          >
+            <div className={`panel-content`}>
+              {item.description && (
+                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+              )}
+              {renderLink(item)}
+            </div>
           </div>
         </div>
       ) : (

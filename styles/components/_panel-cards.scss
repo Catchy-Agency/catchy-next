@@ -33,8 +33,9 @@
       display: flex;
       flex-direction: row;
       align-items: baseline;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
       // justify-content: space-between; removed to align with design CWU-138
-
       > svg {
         margin-left: 10px;
         transition: transform 250ms ease-in-out;
@@ -54,18 +55,19 @@
         }
       }
     }
-
-    .panel-content {
-      transition: opacity 0.3s ease, max-height 0.3s ease;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
+    .panel-content-wrapper {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 200ms ease-in-out;
     }
 
-    .panel-content.open-dropdown {
+    .panel-content-wrapper.open-dropdown {
+      grid-template-rows: 1fr;
+    }
+    .panel-content {
+      overflow: hidden;
       padding-top: 1rem;
-      opacity: 1;
-      max-height: 1000px;
+      height: 100%;
     }
 
     .button {
