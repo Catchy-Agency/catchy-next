@@ -25,13 +25,12 @@ export const ClientSet: FC<{
   }, []);
   return (
     <div className="soupWrapper">
-      <div className="soupTitle">
+      <div className="soupTitle" />
+      <div className="soupContent">
         <div className="textContent">
           <h2 className="title is-2 mb-5">{block.title}</h2>
           <p className="content">{block.subtitle}</p>
         </div>
-      </div>
-      <div className="soupContent">
         <div className="columns is-mobile is-multiline is-variable is-5 imageContent">
           {block.clientSet.map((client) => (
             <div
