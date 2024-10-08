@@ -45,7 +45,10 @@
       object-fit: cover;
       max-width: unset !important;
       img {
-        object-position: 0 25%; // Remove when image gets changed
+        object-position: 0 25%;
+        @media (max-width: $tablet) {
+          object-position: unset;
+        }
       }
     }
   }
