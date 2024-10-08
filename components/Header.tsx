@@ -58,7 +58,8 @@ export const Header: FC<{
               />
             </a>
           </Link>
-          <a
+
+          {/*  <a
             role="button"
             className={classNames('navbar-burger', { 'is-active': isOpen })}
             aria-label="menu"
@@ -68,6 +69,17 @@ export const Header: FC<{
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
+          </a>*/}
+          <a
+            role="button"
+            className={classNames('burger-menu', { 'is-active': isOpen })}
+            aria-label="menu"
+            aria-expanded="false"
+            onClick={toggleOpen}
+          >
+            <span className="menu-line" />
+            <span className="menu-line" />
+            <span className="menu-line" />
           </a>
         </div>
 

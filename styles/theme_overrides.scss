@@ -384,9 +384,54 @@ a.is-block-link:focus {
 .navbar-brand {
   min-height: 5.5rem;
   align-items: center;
-  .navbar-burger {
-    height: 16px;
-    width: 16px;
+  justify-content: space-between;
+  .burger-menu {
+    height: 30px;
+    width: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex-direction: column;
+    .menu-line {
+      height: 5px;
+      width: 100%;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: transform 150ms ease-in-out, opacity 150ms ease-in-out,
+        background-color 100ms ease-in-out;
+      &:nth-child(1) {
+        transform-origin: right;
+      }
+      &:nth-child(3) {
+        transform-origin: right;
+      }
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      .menu-line {
+        background-color: $turquoise;
+      }
+    }
+    &.is-active {
+      .menu-line {
+        background-color: $turquoise;
+        border-radius: 0px;
+        height: 2px;
+      }
+      .menu-line:nth-child(1) {
+        transform: rotate(-45deg) translate(3px, -2px);
+      }
+      .menu-line:nth-child(2) {
+        transform: translateX(2px);
+        opacity: 0;
+      }
+      .menu-line:nth-child(3) {
+        transform: rotate(45deg) translate(6px, 4px);
+      }
+    }
   }
 }
 
