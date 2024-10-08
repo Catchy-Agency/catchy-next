@@ -337,14 +337,17 @@ section:last-of-type {
   }
 
   .block-sections {
-    padding: 0 18rem;
-    @media (max-width: calc(1024px + 200px)) {
-      padding: 0 10rem;
+    padding: unset !important;
+    @media (max-width: $tablet) {
+      padding: unset !important;
     }
     > .section.RichTextRecord,
     .section.ColumnRowRecord {
       color: $anthracite;
-
+      padding: 0 18rem;
+      @media (max-width: 1024px) {
+        padding: 0 $global-padding;
+      }
       @media (max-width: $tablet) {
         padding: $mobile-padding;
       }
@@ -359,6 +362,7 @@ section:last-of-type {
         @include blog-work();
       }
 
+      h2,
       h4 {
         color: $anthracite;
       }
