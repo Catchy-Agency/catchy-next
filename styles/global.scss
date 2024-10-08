@@ -132,7 +132,7 @@ section:last-of-type {
     right: 0;
     @media (max-width: $tablet) {
       display: unset;
-      transform: translateX(30%);
+      transform: translate(30%, 25%);
       > svg {
         width: 80%;
       }
