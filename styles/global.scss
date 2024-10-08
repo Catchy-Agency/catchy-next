@@ -205,6 +205,7 @@ section:last-of-type {
   }
   @media (max-width: $tablet) {
     padding: 1rem $mobile-padding;
+    margin: 0;
   }
 }
 
