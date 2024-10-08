@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 10%;
   height: 80vh;
+  user-select: none;
 
   .newsletter-content {
     flex: 1;

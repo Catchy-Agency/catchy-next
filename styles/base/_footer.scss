@@ -145,6 +145,7 @@ form {
 
 .form-footer {
   gap: $global-padding;
+  user-select: none;
   @media (max-width: calc($tablet + 300px)) {
     gap: unset;
   }

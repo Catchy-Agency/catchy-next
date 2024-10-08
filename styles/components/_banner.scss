@@ -22,6 +22,7 @@
     justify-content: center;
     position: relative;
     height: 100vh;
+    user-select: none;
 
     @media (max-width: $tablet) {
       align-items: flex-start;
