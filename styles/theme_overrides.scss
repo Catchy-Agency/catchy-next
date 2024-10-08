@@ -387,6 +387,10 @@ a.is-block-link:focus {
   .navbar-burger {
     height: 16px;
     width: 16px;
+
+    &:hover {
+      color: $turquoise;
+    }
   }
 }
 
