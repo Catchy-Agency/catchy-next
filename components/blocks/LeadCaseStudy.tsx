@@ -17,6 +17,8 @@ export const LeadCaseStudy: FC<{
 
     return undefined;
   }
+
+  console.log(block);
   const image = getImage();
   return (
     <div className="textStudy-content">
@@ -45,6 +47,7 @@ export const LeadCaseStudy: FC<{
             data={image as ResponsiveImageType}
             lazyLoad={false}
             className="imageStudy"
+            objectFit="cover"
           />
         )}
 

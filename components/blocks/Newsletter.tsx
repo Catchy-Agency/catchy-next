@@ -15,7 +15,6 @@ export const Newsletter: FC<{
       </div>
       <div className="newsletter-image">
         <div className="newsletter-svg">{IconNewsletter}</div>
-
         {block.image && (
           <Image
             data={block.image.responsiveImage as ResponsiveImageType}
