@@ -46,6 +46,7 @@ import {
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
   textAlign?: string | null;
+  pageTheme?: string;
   blocks: ReadonlyArray<
     | PrimaryPageBySlug_primaryPage_blocks
     | BlogPostBySlug_blogPost_blocks
@@ -53,7 +54,7 @@ export const BlockSections: FC<{
     | CaseStudyBySlug_caseStudy_blocks
     | null
   >;
-}> = ({ blocks, containerMax, textAlign }) => {
+}> = ({ blocks, containerMax, textAlign, pageTheme }) => {
   const alignClass = {
     'has-text-centered': textAlign === 'Center',
     'has-text-right': textAlign === 'Right',
@@ -146,8 +147,8 @@ export const BlockSections: FC<{
                   : item.link?.text ?? '',
               themeColor:
                 item.__typename === 'ExternalCardItemRecord'
-                  ? '#ffffff'
-                  : item.link?.themeColor ?? undefined,
+                  ? pageTheme ?? '#ffffff'
+                  : (item.link?.themeColor || pageTheme) ?? undefined,
             }));
             return (
               <section key={block.id} className="section">
@@ -205,8 +206,8 @@ export const BlockSections: FC<{
                   : false,
               themeColor:
                 item.__typename === 'ExternalCardItemRecord'
-                  ? '#ffffff'
-                  : item.link?.themeColor ?? undefined,
+                  ? pageTheme ?? '#ffffff'
+                  : (item.link?.themeColor || pageTheme) ?? undefined,
             }));
 
             return (
