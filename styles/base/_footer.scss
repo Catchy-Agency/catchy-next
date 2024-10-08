@@ -141,6 +141,29 @@ form {
 
 .submit-btn {
   position: relative;
+
+  button {
+    display: flex;
+    gap: 20px;
+    &.is-ghost {
+      padding: 0 0 5px 0;
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      width: fit-content;
+      height: auto;
+      position: relative;
+      transform: none;
+      right: unset;
+
+      @media screen and (max-width: $tablet) {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .form-footer {
