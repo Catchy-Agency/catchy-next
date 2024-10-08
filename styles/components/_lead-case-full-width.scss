@@ -37,12 +37,6 @@
       clip-path: polygon(0 0, 100% 0, 100% 67%, 81% 100%, 0 100%, 0% 50%);
       position: relative;
       overflow: hidden;
-
-      > picture {
-        > img {
-          object-fit: cover;
-        }
-      }
     }
 
     .info {

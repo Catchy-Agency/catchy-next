@@ -12,6 +12,7 @@ export const LeadCaseFullWidth: FC<{
           data={block.image.responsiveImage as ResponsiveImageType}
           lazyLoad={false}
           className="imageLead"
+          objectFit="cover"
         />
       )}
 
