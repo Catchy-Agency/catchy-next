@@ -98,7 +98,9 @@ export const PanelCards: FC<{
             />
           )}
 
-          <div className="card-button">{item.slug && renderLink(item)}</div>
+          {item.buttonLabel && (
+            <div className="card-button">{renderLink(item)}</div>
+          )}
         </div>
       )}
     </li>
