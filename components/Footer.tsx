@@ -82,6 +82,7 @@ export const Footer: FC<{
                     type="text"
                     name="firstname"
                     placeholder={footer.firstNameLabel || 'First Name'}
+                    required
                   />
                 </div>
                 <div className="control is-expanded _has-icons-left ml-5 input-lastName">
@@ -90,6 +91,7 @@ export const Footer: FC<{
                     type="text"
                     name="lastname"
                     placeholder={footer.lastNameLabel || 'Last Name'}
+                    required
                   />
                 </div>
               </div>
@@ -100,6 +102,7 @@ export const Footer: FC<{
                     type="email"
                     name="_replyto"
                     placeholder={footer.emailAddressLabel || undefined}
+                    required
                   />
                 </div>
               </div>
@@ -110,6 +113,7 @@ export const Footer: FC<{
                     name="message"
                     placeholder={footer.messageLabel || undefined}
                     rows={1}
+                    required
                   />
                 </div>
               </div>

@@ -12,6 +12,11 @@
   .title {
     display: inline-block;
     max-width: 12.75em;
+    @include text-clamp(2);
+  }
+
+  .content {
+    @include text-clamp(5);
   }
 
   .title {
