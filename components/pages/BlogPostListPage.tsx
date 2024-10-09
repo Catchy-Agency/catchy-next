@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -144,6 +143,19 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
     }
     return false;
   }
+  function changeQueryParam(url: string | null) {
+    if (url === null || url === router.query.category) {
+      void router.push({ pathname: '/insights' }, undefined, {
+        scroll: false,
+      });
+      return;
+    }
+    void router.push(
+      { pathname: '/insights', query: { category: url } },
+      undefined,
+      { scroll: false },
+    );
+  }
   return (
     <>
       <Head>
@@ -169,21 +181,28 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
               <h5 className="title is-5">Categories</h5>
               <div className="blog-category-list-container">
                 <div className="mb-2 mr-2 is-inline-block-mobile">
-                  <Link href={`/insights`} scroll={false}>
-                    <a className="tag is-medium">All</a>
-                  </Link>
+                  <button
+                    className={`category-button tag is-medium ${
+                      router.query.category ? '' : 'active'
+                    }`}
+                    onClick={() => changeQueryParam(null)}
+                  >
+                    All
+                  </button>
                 </div>
                 {sortedCategories?.map((cat) => (
                   <div
                     key={cat.id}
                     className="mb-2 mr-2 is-inline-block-mobile"
                   >
-                    <Link
-                      href={`/insights?category=${cat.slug || ''}`}
-                      scroll={false}
+                    <button
+                      className={`category-button tag is-medium 4 ${
+                        cat.slug === router.query.category ? 'active' : ''
+                      }`}
+                      onClick={() => changeQueryParam(cat.slug)}
                     >
-                      <a className="tag is-medium">{cat.name}</a>
-                    </Link>
+                      {cat.name}
+                    </button>
                   </div>
                 ))}
               </div>

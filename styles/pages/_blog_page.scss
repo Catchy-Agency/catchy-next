@@ -15,7 +15,20 @@
       gap: 1rem;
       padding-bottom: 1rem;
       @include custom-scrollbar();
-
+      .category-button {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid transparent;
+        padding: 0;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        &:hover {
+          border-bottom: 1px solid #fff;
+        }
+        &.active {
+          border-bottom: 1px solid #fff;
+        }
+      }
       div {
         flex: 0 0 auto;
       }
