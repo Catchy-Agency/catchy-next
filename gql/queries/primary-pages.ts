@@ -1163,6 +1163,7 @@ export const primaryPageBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }

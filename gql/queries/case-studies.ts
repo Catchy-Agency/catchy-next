@@ -1058,6 +1058,7 @@ export const allCaseStudies = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }
@@ -2294,6 +2295,7 @@ export const caseStudiesByCategoryId = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }
@@ -3063,6 +3065,7 @@ export const caseStudyBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }

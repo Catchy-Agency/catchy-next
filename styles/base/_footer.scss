@@ -169,6 +169,17 @@ form {
 .form-footer {
   gap: $global-padding;
   user-select: none;
+  .footer-icons-container {
+    display: flex;
+    gap: 30px;
+    > .footer-icon {
+      > .fa-stack {
+        width: fit-content;
+        height: fit-content;
+      }
+    }
+  }
+
   @media (max-width: calc($tablet + 300px)) {
     gap: unset;
   }

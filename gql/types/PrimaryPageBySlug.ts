@@ -1528,6 +1528,7 @@ export interface PrimaryPageBySlug_footer_socialLinks {
   readonly id: any;
   readonly fontAwesomeIcon: string | null;
   readonly url: string | null;
+  readonly email: string | null;
 }
 
 export interface PrimaryPageBySlug_footer {

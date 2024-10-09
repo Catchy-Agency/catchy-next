@@ -832,6 +832,7 @@ export const contentPageBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }
