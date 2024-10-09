@@ -12,7 +12,11 @@ export const Header: FC<{
 }> = ({ header }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const toggleOpen = () => {
+    if (!isOpen) {
+      setScrollY(window.scrollY);
+    }
     setOpen(!isOpen);
     if (!isOpen) {
       setTimeout(() =>
@@ -26,8 +30,10 @@ export const Header: FC<{
   useEffect(() => {
     if (isOpen) {
       document.body.classList.add('no-scroll');
+      window.scrollTo(0, scrollY);
     } else {
       document.body.classList.remove('no-scroll');
+      window.scrollTo(0, scrollY);
     }
 
     return () => {

@@ -5,6 +5,7 @@
   position: relative;
   overflow: hidden;
   height: 100vh;
+  user-select: none;
   .bg-image {
     position: absolute;
     width: 100%;

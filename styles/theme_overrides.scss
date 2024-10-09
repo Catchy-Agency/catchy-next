@@ -64,12 +64,20 @@ a.is-block-link:focus {
   border: none;
   color: $text;
   position: relative;
-  padding-top: 0.25rem;
-  padding-left: unset;
-  padding-bottom: 0.25rem;
-  padding-right: 4.25rem;
+  padding: 0 0 5px 0;
   @include hdl3();
   font-weight: 400;
+  display: flex;
+  gap: 20px;
+
+  &::after {
+    position: relative;
+    width: fit-content;
+    height: auto;
+    position: relative;
+    transform: none;
+    right: unset;
+  }
 
   &::before {
     content: '';
@@ -79,7 +87,7 @@ a.is-block-link:focus {
     bottom: 0;
     height: 2px;
     background-color: $text;
-    width: 85%;
+    width: 100%;
     transform: scaleX(0);
     transition: transform 0.1s ease-in-out;
   }
@@ -113,15 +121,16 @@ a.is-block-link:focus {
   }
   &.revert-button {
     color: $anthracite;
+    display: flex;
     @include hdl4();
     &::before {
       background-color: $anthracite;
-      width: 80%;
+      // width: 80%;
     }
     &::after {
       content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23212121%22%20stroke%3D%22%23212121%22%2F%3E%3C%2Fsvg%3E');
-      right: 15%;
-      top: 45%;
+      // right: 15%;
+      // top: 45%;
     }
     &:hover,
     &:focus,
