@@ -87,6 +87,24 @@
       .content {
         line-height: 40px !important; // .content applies !important to line-height
         @include text-clamp(5);
+        &.is-ghost {
+          display: flex;
+          gap: 20px;
+          &::after {
+            position: relative;
+            width: fit-content;
+            height: auto;
+            position: relative;
+            transform: none;
+            right: unset;
+            top: unset;
+            line-height: normal;
+            top: 1px;
+            max-height: 16px;
+            display: flex;
+            align-items: center;
+          }
+        }
       }
     }
     .single-blog-body-svg {
