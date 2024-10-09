@@ -17,6 +17,7 @@
     height: 100%;
     max-width: 420px;
     transform: translateX(3px);
+    gap: 5px;
     @media (max-width: 768px) {
       max-width: unset;
     }
