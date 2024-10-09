@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
-import { FC, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
 import { scrollToContact } from '../util/scrollToContact';
@@ -22,6 +22,18 @@ export const Header: FC<{
       );
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isOpen]);
 
   const isServicesActive = useMemo(() => {
     return header.whatWeDoLinks?.some((link) => {
