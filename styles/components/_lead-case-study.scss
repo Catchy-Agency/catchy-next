@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 10%;
   height: 80vh;
+  user-select: none;
 
   .study-content {
     flex: 1;
@@ -13,6 +14,7 @@
     .textStudy-description {
       margin-bottom: 80px;
       @include hdl4;
+      line-height: 1.5 !important;
     }
   }
 

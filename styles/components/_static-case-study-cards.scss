@@ -5,6 +5,7 @@
   margin: 0;
   list-style: none;
   justify-content: space-between;
+  user-select: none;
 
   .link-item-wrapper {
     flex: 1 1 calc(33.333% - 5%);
