@@ -97,7 +97,7 @@ export const BlockSections: FC<{
                 key={block.id}
                 className="section BannerRecord hero has-background-grey-darkest is-relative"
               >
-                <Banner block={block} maxClass={maxClass} />
+                <Banner block={block} />
               </section>
             );
 
