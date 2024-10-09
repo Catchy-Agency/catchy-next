@@ -26,8 +26,6 @@ export const Footer: FC<{
                   <a
                     key={link.fontAwesomeIcon}
                     href={getIconLink(link)}
-                    target="_blank"
-                    rel="noreferrer"
                     className="is-size-3 footer-icon"
                   >
                     <span className="fa-stack">
