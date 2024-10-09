@@ -238,7 +238,8 @@ section:last-of-type {
   }
 
   .is-blog {
-    :first-child {
+    padding: unset;
+    &:first-child {
       max-width: unset !important;
     }
   }
