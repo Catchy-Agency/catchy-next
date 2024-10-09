@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
@@ -8,8 +7,7 @@ import { scrollToContact } from '../../util/scrollToContact';
 import { LeftUpSoup } from '../icons';
 export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
-  maxClass: { [key: string]: boolean };
-}> = ({ block, maxClass }) => {
+}> = ({ block }) => {
   const router = useRouter();
 
   const slug = router.asPath;
@@ -33,18 +31,22 @@ export const Banner: FC<{
     return heroSvgObject[slugName] || heroSvgObject['what-we-do'];
   }
 
+  console.log(getHeroSvg(slug));
+
   return (
     <div className="custom-flex-columns">
-      {block.backgroundImage && (
-        <Image
-          data={block.backgroundImage.responsiveImage as ResponsiveImageType}
-          lazyLoad={false}
-          className="imageHero"
-          objectFit="cover"
-        />
-      )}
+      <div className="bg-image">
+        {block.backgroundImage && (
+          <Image
+            data={block.backgroundImage.responsiveImage as ResponsiveImageType}
+            lazyLoad={false}
+            className="imageHero"
+            objectFit="cover"
+          />
+        )}
+      </div>
 
-      <div className={classNames('container data-container', maxClass)}>
+      <div className="text-container">
         {block.title && <h1 className="title is-1 titleHero">{block.title}</h1>}
         {block.text && (
           <div
@@ -60,7 +62,6 @@ export const Banner: FC<{
       </div>
 
       <div className="svg-right">{getHeroSvg(slug)}</div>
-
       <div className="svg-left">{LeftUpSoup}</div>
     </div>
   );

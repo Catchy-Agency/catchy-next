@@ -52,16 +52,6 @@ section:last-of-type {
 .section.BannerRecord {
   margin: 0;
   padding: 0;
-
-  .column {
-    img {
-      object-fit: contain;
-    }
-  }
-
-  @media (max-width: calc($tablet + 200px)) {
-    overflow: hidden;
-  }
 }
 
 .section.CaseStudyPage {
