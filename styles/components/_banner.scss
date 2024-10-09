@@ -61,7 +61,8 @@
       line-height: 1.5 !important;
     }
     .text-description {
-      line-height: 1.5 !important;
+      @include description-hero();
+      margin-bottom: 80px;
     }
     @media (min-width: 1700px) {
       padding-left: calc((100vw - 1440px) / 2);
