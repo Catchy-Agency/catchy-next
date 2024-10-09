@@ -594,6 +594,27 @@ a.navbar-item.is-tab:not(.button):hover {
       align-items: flex-end;
     }
   }
+  @media (min-width: 1024px) {
+    &:hover,
+    &:active,
+    &:focus {
+      > .navbar-item.is-tab {
+        color: #fff;
+        text-decoration: none;
+        &::before {
+          transform: scaleX(1);
+        }
+        > button {
+          svg {
+            transform: rotate(180deg);
+            > path {
+              fill: $turquoise;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .navbar-end {
