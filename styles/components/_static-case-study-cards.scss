@@ -53,6 +53,18 @@
           flex-direction: column;
           margin-bottom: 1.5rem;
           gap: 5px;
+
+          .text-item-pretitle {
+            @include text-clamp(1);
+          }
+
+          .text-item-title {
+            @include text-clamp(2);
+          }
+        }
+
+        .text-item-description {
+          @include text-clamp(5);
         }
 
         .card-button {
