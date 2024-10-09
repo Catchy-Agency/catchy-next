@@ -180,8 +180,10 @@ const DropdownLinks: FC<{
       <a
         className={classNames('navbar-item', 'is-tab', {
           'is-active': isDropdownActive || isPrimaryPageActive,
+          'is-active-dropdown-title': isPrimaryPageActive,
         })}
         {...(slug ? { href: `/${slug}` } : {})}
+        onClick={(e) => avoidSameRouteNavigation(e, `/${slug}`, router.asPath)}
       >
         {title}
         <button
@@ -205,6 +207,7 @@ const DropdownLinks: FC<{
               <a
                 className={classNames('navbar-item', {
                   'is-active': isActive,
+                  'is-active-dropdown-item': isActive,
                 })}
                 onClick={(e) =>
                   avoidSameRouteNavigation(e, href, router.asPath)

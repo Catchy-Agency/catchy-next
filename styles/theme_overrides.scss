@@ -690,6 +690,10 @@ a.navbar-item.is-tab:not(.button):hover {
     );
   }
 }
+a.navbar-item.is-active-dropdown-title,
+a.navbar-item.is-active-dropdown-item {
+  cursor: initial;
+}
 
 @media (max-width: $tablet) {
   .navbar {
