@@ -199,6 +199,9 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
                       className={`category-button tag is-medium 4 ${
                         cat.slug === router.query.category ? 'active' : ''
                       }`}
+                      title={`${
+                        cat.slug === router.query.category ? 'Remove' : 'Add'
+                      } Category filter`}
                       onClick={() => changeQueryParam(cat.slug)}
                     >
                       {cat.name}
