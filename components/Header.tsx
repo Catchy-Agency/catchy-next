@@ -4,6 +4,7 @@ import { NextRouter, useRouter } from 'next/router';
 import { FC, useEffect, useMemo, useState } from 'react';
 
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
+import avoidSameRouteNavigation from '../util/avoidSameRouteNavigation';
 import { scrollToContact } from '../util/scrollToContact';
 import { AngleDown } from './icons';
 
@@ -76,18 +77,6 @@ export const Header: FC<{
               />
             </a>
           </Link>
-
-          {/*  <a
-            role="button"
-            className={classNames('navbar-burger', { 'is-active': isOpen })}
-            aria-label="menu"
-            aria-expanded="false"
-            onClick={toggleOpen}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </a>*/}
           <a
             role="button"
             className={classNames('burger-menu', { 'is-active': isOpen })}
@@ -126,6 +115,9 @@ export const Header: FC<{
                     className={classNames('navbar-item', 'is-tab', {
                       'is-active': isActive,
                     })}
+                    onClick={(e) =>
+                      avoidSameRouteNavigation(e, href, router.asPath)
+                    }
                   >
                     {link.title}
                   </a>
@@ -214,6 +206,9 @@ const DropdownLinks: FC<{
                 className={classNames('navbar-item', {
                   'is-active': isActive,
                 })}
+                onClick={(e) =>
+                  avoidSameRouteNavigation(e, href, router.asPath)
+                }
               >
                 {link.title}
               </a>
