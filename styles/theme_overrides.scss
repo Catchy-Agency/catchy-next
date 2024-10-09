@@ -398,8 +398,8 @@ a.is-block-link:focus {
       width: 100%;
       border-radius: 5px;
       background-color: #fff;
-      transition: transform 150ms ease-in-out, opacity 150ms ease-in-out,
-        background-color 100ms ease-in-out;
+      transition: transform 150ms ease-in-out, opacity 50ms ease-in-out,
+        height 150ms ease-in-out, background-color 100ms ease-in-out;
       &:nth-child(1) {
         transform-origin: right;
       }
@@ -431,6 +431,14 @@ a.is-block-link:focus {
         transform: rotate(45deg) translate(6px, 4px);
       }
     }
+  }
+  @media (min-width: 1024px) {
+    .burger-menu {
+      display: none;
+    }
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
   }
 }
 
