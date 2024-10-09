@@ -61,6 +61,7 @@
       line-height: 1.5 !important;
     }
     .text-description {
+      @include text-clamp(6);
       @include description-hero();
       margin-bottom: 80px;
     }
