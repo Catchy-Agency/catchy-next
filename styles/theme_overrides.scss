@@ -361,6 +361,7 @@ a.is-block-link:focus {
       &.is-active {
         color: #fff;
         border-bottom: 1px solid #fff;
+        background-color: transparent;
         &:hover {
           &::before {
             transform: scaleX(0);
