@@ -31,8 +31,6 @@ export const Banner: FC<{
     return heroSvgObject[slugName] || heroSvgObject['what-we-do'];
   }
 
-  console.log(getHeroSvg(slug));
-
   return (
     <div className="custom-flex-columns">
       <div className="bg-image">
