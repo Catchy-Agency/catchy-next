@@ -998,6 +998,7 @@ export interface ContentPageBySlug_contentPage__seoMetaTags {
 export interface ContentPageBySlug_contentPage {
   readonly __typename: "ContentPageRecord";
   readonly title: string | null;
+  readonly lightTheme: any | null;
   readonly parent: ContentPageBySlug_contentPage_parent | null;
   readonly children: ReadonlyArray<ContentPageBySlug_contentPage_children>;
   readonly blocks: ReadonlyArray<ContentPageBySlug_contentPage_blocks>;
@@ -1094,6 +1095,7 @@ export interface ContentPageBySlug_footer_socialLinks {
   readonly id: any;
   readonly fontAwesomeIcon: string | null;
   readonly url: string | null;
+  readonly email: string | null;
 }
 
 export interface ContentPageBySlug_footer {

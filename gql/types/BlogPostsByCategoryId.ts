@@ -202,6 +202,7 @@ export interface BlogPostsByCategoryId_footer_socialLinks {
   readonly id: any;
   readonly fontAwesomeIcon: string | null;
   readonly url: string | null;
+  readonly email: string | null;
 }
 
 export interface BlogPostsByCategoryId_footer {

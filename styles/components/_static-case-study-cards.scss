@@ -5,6 +5,7 @@
   margin: 0;
   list-style: none;
   justify-content: space-between;
+  user-select: none;
 
   .link-item-wrapper {
     flex: 1 1 calc(33.333% - 5%);
@@ -52,6 +53,18 @@
           flex-direction: column;
           margin-bottom: 1.5rem;
           gap: 5px;
+
+          .text-item-pretitle {
+            @include text-clamp(1);
+          }
+
+          .text-item-title {
+            @include text-clamp(2);
+          }
+        }
+
+        .text-item-description {
+          @include text-clamp(5);
         }
 
         .card-button {
@@ -81,6 +94,7 @@
     .link-item-wrapper {
       flex: 1 1 100%;
       max-width: unset;
+      padding-bottom: 20%;
     }
     &::after {
       flex: 1 1 100%;

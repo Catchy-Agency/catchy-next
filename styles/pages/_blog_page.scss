@@ -6,7 +6,7 @@
   .blog-categories {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     gap: 3rem;
     .blog-category-list-container {
       display: flex;
@@ -14,9 +14,19 @@
       overflow-x: auto;
       gap: 1rem;
       padding-bottom: 1rem;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-
+      @include custom-scrollbar();
+      .category-button {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid transparent;
+        padding: 0;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        &:hover,
+        &.active {
+          border-bottom: 1px solid $lagoon;
+        }
+      }
       div {
         flex: 0 0 auto;
       }
@@ -75,6 +85,24 @@
       .content {
         line-height: 40px !important; // .content applies !important to line-height
         @include text-clamp(5);
+        &.is-ghost {
+          display: flex;
+          gap: 20px;
+          &::after {
+            position: relative;
+            width: fit-content;
+            height: auto;
+            position: relative;
+            transform: none;
+            right: unset;
+            top: unset;
+            line-height: normal;
+            top: 1px;
+            max-height: 16px;
+            display: flex;
+            align-items: center;
+          }
+        }
       }
     }
     .single-blog-body-svg {

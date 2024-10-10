@@ -1,5 +1,5 @@
-import classNames from 'classnames'
-import Link from 'next/link'
+import classNames from 'classnames';
+import Link from 'next/link';
 import {
   Dispatch,
   FC,
@@ -7,27 +7,27 @@ import {
   useEffect,
   useMemo,
   useState,
-} from 'react'
-import { Image } from 'react-datocms'
+} from 'react';
+import { Image } from 'react-datocms';
 
-import { LeftSliderArrow, RightSliderArrow } from '../../icons'
-import { LinkData } from '../LinkData'
+import { LeftSliderArrow, RightSliderArrow } from '../../icons';
+import { LinkData } from '../LinkData';
 
-import { Navigation } from 'swiper' //Pagination
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper'; //Pagination
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { useMediaQuery } from '../../hooks/useMediaQuery'
+import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 interface CardProps {
-  link: LinkData
-  contentKey: string
-  setActiveCard: Dispatch<SetStateAction<string>>
-  activeCard: string | null
-  contentSize: string | null
-  deviceSize: string | null
+  link: LinkData;
+  contentKey: string;
+  setActiveCard: Dispatch<SetStateAction<string>>;
+  activeCard: string | null;
+  contentSize: string | null;
+  deviceSize: string | null;
 }
 
 const CardContent: FC<CardProps> = ({
@@ -37,11 +37,11 @@ const CardContent: FC<CardProps> = ({
   setActiveCard,
   contentSize,
 }) => {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    setIsActive(activeCard == contentKey)
-  }, [activeCard, contentKey])
+    setIsActive(activeCard == contentKey);
+  }, [activeCard, contentKey]);
 
   return (
     <div
@@ -51,77 +51,68 @@ const CardContent: FC<CardProps> = ({
       style={{ height: '100%' }}
       tabIndex={1}
       onClick={() => {
-        setActiveCard(contentKey)
+        setActiveCard(contentKey);
         if (!isActive) {
-          setIsActive(true)
+          setIsActive(true);
         }
       }}
     >
       {link.image && (
         <div className="card-image">
           <Link href={link.url || ''}>
-            <a className="fillall">
-              <span className="is-sr-only">View</span>
+            <a aria-label={`View ${link.title || 'more'}`}>
+              {link.image && contentSize == 'Medium' && (
+                <Image
+                  data={link.image}
+                  lazyLoad={false}
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              )}
             </a>
           </Link>
-          {link.image && contentSize == 'Medium' && (
-            <Image
-              data={link.image}
-              lazyLoad={false}
-              layout="responsive"
-              objectFit="cover"
-            />
-          )}
         </div>
       )}
       <div className="card-content">
-        <Link href={link.url || ''}>
-          <a className="fillall">
-            <span className="is-sr-only">View</span>
-          </a>
-        </Link>
         {link.title && <h3 className="title is-3">{link.title}</h3>}
         {link.description && <div className="content">{link.description}</div>}
         <Link href={link.url || ''}>
-          <a>
-            <button
-              className="button is-ghost mt-3"
-              style={{
-                padding: 0,
-              }}
-            >
-              {link.callToAction}
-            </button>
+          <a
+            className="button is-ghost mt-3"
+            aria-label={`${
+              link.callToAction || `View ${link?.title || 'more'}`
+            }`}
+          >
+            {link.callToAction}
           </a>
         </Link>
       </div>
     </div>
-    // </Link>
-  )
-}
+  );
+};
 
-let count = 0
+let count = 0;
 
 export const ContentTileM: FC<{
-  links: LinkData[]
-  isSlider: boolean
-  contentSize: string | null
-  displaySize: string | null
+  links: LinkData[];
+  isSlider: boolean;
+  contentSize: string | null;
+  displaySize: string | null;
 }> = ({ links, isSlider, contentSize = 'Small' }) => {
-  const [activeCard, setActiveCard] = useState('')
-  const deviceSize = useMediaQuery()
+  const [activeCard, setActiveCard] = useState('');
+  const deviceSize = useMediaQuery();
 
   // Update pagination ID if props change
   const paginationID = useMemo(() => {
     // Force props as dependencies
-    links
-    isSlider
-    contentSize
-    return `ContentTileM${count++}`
-  }, [links, isSlider, contentSize])
+    links;
+    isSlider;
+    contentSize;
+    return `ContentTileM${count++}`;
+  }, [links, isSlider, contentSize]);
 
-  const paginationNextClass = `swiper-button-next-btn-${paginationID}`
-  const paginationPrevClass = `swiper-button-prev-btn-${paginationID}`
+  const paginationNextClass = `swiper-button-next-btn-${paginationID}`;
+  const paginationPrevClass = `swiper-button-prev-btn-${paginationID}`;
 
   return (
     <div className={classNames('card-columns', deviceSize.toLowerCase())}>
@@ -200,5 +191,5 @@ export const ContentTileM: FC<{
         </div>
       )}
     </div>
-  )
-}
+  );
+};

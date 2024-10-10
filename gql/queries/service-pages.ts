@@ -1132,6 +1132,7 @@ export const servicePagesBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }

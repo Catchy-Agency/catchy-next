@@ -47,7 +47,7 @@ form {
 
   .scroll-text {
     min-height: 5vh;
-    max-height: 5vh;
+    max-height: 10vh;
     resize: none;
 
     &::-webkit-scrollbar {
@@ -141,10 +141,45 @@ form {
 
 .submit-btn {
   position: relative;
+
+  button {
+    display: flex;
+    gap: 20px;
+    &.is-ghost {
+      padding: 0 0 5px 0;
+      &::before {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      width: fit-content;
+      height: auto;
+      position: relative;
+      transform: none;
+      right: unset;
+
+      @media screen and (max-width: $tablet) {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .form-footer {
   gap: $global-padding;
+  user-select: none;
+  .footer-icons-container {
+    display: flex;
+    gap: 30px;
+    > .footer-icon {
+      > .fa-stack {
+        width: fit-content;
+        height: fit-content;
+      }
+    }
+  }
+
   @media (max-width: calc($tablet + 300px)) {
     gap: unset;
   }

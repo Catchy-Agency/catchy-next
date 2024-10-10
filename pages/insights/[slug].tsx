@@ -69,7 +69,7 @@ const BlogPostPage: NextPage<PageProps> = ({ subscription }) => {
                   key={cat.id}
                   href={`/insights?category=${cat.slug || ''}`}
                 >
-                  <a className="tag">{cat.name}</a>
+                  <a className="tag tag--lagoon">{cat.name}</a>
                 </Link>
               ))}
             </div>

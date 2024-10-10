@@ -109,7 +109,10 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         style={{ paddingTop: '0', marginBottom: '1.5rem' }}
       >
         <div className="container is-max-widescreen has-text-left">
-          <h2 className="title is-2" style={{ maxWidth: '100%' }}>
+          <h2
+            className="title is-2"
+            style={{ maxWidth: '100%', userSelect: 'none' }}
+          >
             Check out our work
           </h2>
           <div className="categories-case-study">
@@ -138,7 +141,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
                     href={`/work/category/${cat.slug || ''}`}
                     scroll={false}
                   >
-                    <a className="tag is-medium">{cat.name}</a>
+                    <a className="tag tag--lagoon is-medium">{cat.name}</a>
                   </Link>
                 )}
               </div>

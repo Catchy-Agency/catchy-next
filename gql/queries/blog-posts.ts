@@ -1235,6 +1235,7 @@ export const allBlogPosts = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }
@@ -1545,6 +1546,7 @@ export const blogPostsByCategoryId = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }
@@ -2274,6 +2276,7 @@ export const blogPostBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }

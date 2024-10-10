@@ -53,14 +53,15 @@ export const ContentPage: NextPage<{
           },
       )
       .filter(notEmpty) || [];
-
-  const pageType =
-    data?.contentPage?.slug === 'careers' ? 'primary' : 'content';
+  const hideBreadcrumb =
+    data?.contentPage &&
+    data.contentPage.blocks.length > 0 &&
+    data.contentPage.blocks[0]?.__typename === 'BannerRecord';
   return (
     <>
       <div
         className={`${
-          pageType === 'primary' ? 'primary-page' : 'content-page'
+          data?.contentPage?.lightTheme ? 'content-page' : 'primary-page'
         }`}
       >
         <Head>
@@ -72,7 +73,7 @@ export const ContentPage: NextPage<{
         <PreviewBanner status={status} />
         {error && <PageError error={error} />}
         {data?.header && <Header header={data?.header} />}
-        {pageType === 'content' && (
+        {!hideBreadcrumb && (
           <header className="section Blog">
             <div className="container is-max-desktop">
               <nav className="breadcrumb" aria-label="breadcrumbs">

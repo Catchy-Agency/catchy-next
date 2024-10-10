@@ -32,6 +32,7 @@ export const ServiceLPage: NextPage<ServicePageListProps> = ({
       <BlockSections
         blocks={data?.service?.blocks || []}
         containerMax="widescreen"
+        pageTheme={data?.service?.themeColor ?? undefined}
       />
       {data?.footer && <Footer footer={data?.footer} />}
     </div>

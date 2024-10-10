@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
-import { FC, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
+import avoidSameRouteNavigation from '../util/avoidSameRouteNavigation';
 import { scrollToContact } from '../util/scrollToContact';
 import { AngleDown } from './icons';
 
@@ -12,7 +13,11 @@ export const Header: FC<{
 }> = ({ header }) => {
   const router = useRouter();
   const [isOpen, setOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const toggleOpen = () => {
+    if (!isOpen) {
+      setScrollY(window.scrollY);
+    }
     setOpen(!isOpen);
     if (!isOpen) {
       setTimeout(() =>
@@ -22,6 +27,20 @@ export const Header: FC<{
       );
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('no-scroll');
+      window.scrollTo(0, scrollY);
+    } else {
+      document.body.classList.remove('no-scroll');
+      window.scrollTo(0, scrollY);
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isOpen]);
 
   const isServicesActive = useMemo(() => {
     return header.whatWeDoLinks?.some((link) => {
@@ -60,14 +79,14 @@ export const Header: FC<{
           </Link>
           <a
             role="button"
-            className={classNames('navbar-burger', { 'is-active': isOpen })}
+            className={classNames('burger-menu', { 'is-active': isOpen })}
             aria-label="menu"
             aria-expanded="false"
             onClick={toggleOpen}
           >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
+            <span className="menu-line" />
+            <span className="menu-line" />
+            <span className="menu-line" />
           </a>
         </div>
 
@@ -95,7 +114,11 @@ export const Header: FC<{
                   <a
                     className={classNames('navbar-item', 'is-tab', {
                       'is-active': isActive,
+                      'is-active-title': isActive,
                     })}
+                    onClick={(e) =>
+                      avoidSameRouteNavigation(e, href, router.asPath)
+                    }
                   >
                     {link.title}
                   </a>
@@ -158,8 +181,10 @@ const DropdownLinks: FC<{
       <a
         className={classNames('navbar-item', 'is-tab', {
           'is-active': isDropdownActive || isPrimaryPageActive,
+          'is-active-dropdown-title': isPrimaryPageActive,
         })}
         {...(slug ? { href: `/${slug}` } : {})}
+        onClick={(e) => avoidSameRouteNavigation(e, `/${slug}`, router.asPath)}
       >
         {title}
         <button
@@ -183,7 +208,11 @@ const DropdownLinks: FC<{
               <a
                 className={classNames('navbar-item', {
                   'is-active': isActive,
+                  'is-active-dropdown-item': isActive,
                 })}
+                onClick={(e) =>
+                  avoidSameRouteNavigation(e, href, router.asPath)
+                }
               >
                 {link.title}
               </a>

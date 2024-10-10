@@ -85,6 +85,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
           type="email"
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
+          required={field.required}
         />
       );
     case 'Text':
@@ -94,6 +95,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
           type="text"
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
+          required={field.required}
         />
       );
     case 'Text Area':
@@ -103,6 +105,7 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
           name={field.fieldName || undefined}
           placeholder={field.label || undefined}
           rows={1}
+          required={field.required}
         />
       );
     case 'Submit':

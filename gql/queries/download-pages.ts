@@ -90,6 +90,7 @@ export const downloadPageBySlug = gql`
         id
         fontAwesomeIcon
         url
+        email
       }
       richText
     }

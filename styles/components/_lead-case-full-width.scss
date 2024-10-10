@@ -59,19 +59,19 @@
   @media (min-width: 2300px) {
     .svg-bottomlead {
       top: 36vh;
-      right: 44vh;
+      right: 34vh;
     }
 
     .svg-rightlead {
       top: 25vh;
-      right: 27vh;
+      right: 17vh;
     }
 
     .container-fullWidth {
       padding: 0 35rem;
 
       .imageLead {
-        clip-path: polygon(0 0, 100% 0, 100% 65%, 74% 100%, 0 100%, 0% 50%);
+        clip-path: polygon(0 0, 100% 0, 100% 65%, 67% 100%, 0 100%, 0% 50%);
       }
     }
   }
@@ -101,20 +101,25 @@
   @media (max-width: calc(1024px + 200px)) {
     .svg-bottomlead {
       top: 36vh;
-      right: 17vh;
+      right: 0;
+      > svg {
+        width: 34vh;
+      }
     }
 
     .svg-rightlead {
-      top: 25vh;
+      display: none;
     }
 
     .container-fullWidth {
+      padding: unset;
+
       .imageLead {
-        clip-path: polygon(0 0, 100% 0, 100% 65%, 62% 100%, 0 100%, 0% 50%);
+        clip-path: polygon(0 0, 100% 0, 100% 66%, 73% 100%, 0 100%, 0% 50%);
       }
 
       .info {
-        padding: unset;
+        padding: 0 10rem;
       }
     }
   }
@@ -128,10 +133,6 @@
       > svg {
         width: 26vh;
       }
-    }
-
-    .svg-rightlead {
-      display: none;
     }
 
     .container-fullWidth {

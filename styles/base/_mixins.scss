@@ -76,9 +76,44 @@
   }
 }
 
-@mixin text-clamp($lines) {
+@mixin text-clamp($lines, $line-height: 1.5) {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
+  line-height: $line-height !important;
+}
+
+@mixin custom-scrollbar(
+  $track-color: #d4d6d9,
+  $thumb-color: rgba(0 0 0 / 0.7),
+  $thumb-color-hover: rgba(0 0 0 / 0.7),
+  $width-size: 5px,
+  $height-size: 5px,
+  $border: 4px solid rgba(0 0 0 / 0),
+  $box-shadow: inset -1px -1px 0 rgba(0 0 0 / 0.05) inset 1px 1px 0
+    rgba(0 0 0 / 0.05)
+) {
+  &::-webkit-scrollbar {
+    width: $width-size;
+    height: $height-size;
+
+    &-track {
+      background: $track-color;
+    }
+
+    &-thumb {
+      background: $thumb-color;
+      border: $border;
+
+      &:hover {
+        background: $thumb-color-hover;
+      }
+    }
+  }
+}
+
+@mixin remove-tap-highlight() {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }

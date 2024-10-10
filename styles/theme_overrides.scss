@@ -32,7 +32,6 @@ a.is-block-link:focus {
 
 .button {
   box-sizing: border-box;
-  text-transform: capitalize;
   position: relative;
   height: unset !important;
   max-width: 400px;
@@ -65,12 +64,20 @@ a.is-block-link:focus {
   border: none;
   color: $text;
   position: relative;
-  padding-top: 0.25rem;
-  padding-left: unset;
-  padding-bottom: 0.25rem;
-  padding-right: 4.25rem;
+  padding: 0 0 5px 0;
   @include hdl3();
   font-weight: 400;
+  display: flex;
+  gap: 20px;
+
+  &::after {
+    position: relative;
+    width: fit-content;
+    height: auto;
+    position: relative;
+    transform: none;
+    right: unset;
+  }
 
   &::before {
     content: '';
@@ -80,7 +87,7 @@ a.is-block-link:focus {
     bottom: 0;
     height: 2px;
     background-color: $text;
-    width: 85%;
+    width: 100%;
     transform: scaleX(0);
     transition: transform 0.1s ease-in-out;
   }
@@ -114,15 +121,13 @@ a.is-block-link:focus {
   }
   &.revert-button {
     color: $anthracite;
+    display: flex;
     @include hdl4();
     &::before {
       background-color: $anthracite;
-      width: 80%;
     }
     &::after {
       content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23212121%22%20stroke%3D%22%23212121%22%2F%3E%3C%2Fsvg%3E');
-      right: 15%;
-      top: 45%;
     }
     &:hover,
     &:focus,
@@ -297,8 +302,25 @@ a.is-block-link:focus {
   }
 }
 
-.tag {
+.tag,
+a.tag {
   border-radius: $radius;
+  &--lagoon {
+    border-bottom: 1px solid transparent;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom: 1px solid $turquoise;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.has-addons .tag {
+  border-bottom: 1px solid $turquoise;
+  outline: none;
+  text-decoration: none;
 }
 
 .menu-list {
@@ -362,6 +384,7 @@ a.is-block-link:focus {
       &.is-active {
         color: #fff;
         border-bottom: 1px solid #fff;
+        background-color: transparent;
         &:hover {
           &::before {
             transform: scaleX(0);
@@ -384,9 +407,62 @@ a.is-block-link:focus {
 .navbar-brand {
   min-height: 5.5rem;
   align-items: center;
-  .navbar-burger {
-    height: 16px;
-    width: 16px;
+  justify-content: space-between;
+  .burger-menu {
+    height: 30px;
+    width: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex-direction: column;
+    .menu-line {
+      height: 5px;
+      width: 100%;
+      border-radius: 5px;
+      background-color: #fff;
+      transition: transform 150ms ease-in-out, opacity 50ms ease-in-out,
+        height 150ms ease-in-out, background-color 100ms ease-in-out;
+      &:nth-child(1) {
+        transform-origin: right;
+      }
+      &:nth-child(3) {
+        transform-origin: right;
+      }
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      .menu-line {
+        background-color: $turquoise;
+      }
+    }
+    &.is-active {
+      .menu-line {
+        background-color: $turquoise;
+        border-radius: 0px;
+        height: 2px;
+      }
+      .menu-line:nth-child(1) {
+        transform: rotate(-45deg) translate(3px, -2px);
+      }
+      .menu-line:nth-child(2) {
+        transform: translateX(2px);
+        opacity: 0;
+      }
+      .menu-line:nth-child(3) {
+        transform: rotate(45deg) translate(6px, 4px);
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    .burger-menu {
+      display: none;
+    }
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
   }
 }
 
@@ -532,6 +608,27 @@ a.navbar-item.is-tab:not(.button):hover {
       align-items: flex-end;
     }
   }
+  @media (min-width: 1024px) {
+    &:hover,
+    &:active,
+    &:focus {
+      > .navbar-item.is-tab {
+        color: #fff;
+        text-decoration: none;
+        &::before {
+          transform: scaleX(1);
+        }
+        > button {
+          svg {
+            transform: rotate(180deg);
+            > path {
+              fill: $turquoise;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .navbar-end {
@@ -581,6 +678,10 @@ a.navbar-item.is-tab:not(.button):hover {
         display: flex;
       }
     }
+
+    &.is-active {
+      height: 100vh;
+    }
   }
 
   a.navbar-item.is-tab,
@@ -602,6 +703,11 @@ a.navbar-item.is-tab:not(.button):hover {
       $amount: 0.95
     );
   }
+}
+a.navbar-item.is-active-dropdown-title,
+a.navbar-item.is-active-dropdown-item,
+a.navbar-item.is-active-title {
+  cursor: default;
 }
 
 @media (max-width: $tablet) {
@@ -743,4 +849,9 @@ body > .navbar {
       padding-right: $global-padding;
     }
   }
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
