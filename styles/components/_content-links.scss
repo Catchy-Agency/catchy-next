@@ -270,6 +270,7 @@ div[class^='swiper-button-'] {
 .swiper-button-next-btn {
   right: 0;
   transform: translate(50%, -50%);
+  cursor: pointer;
 }
 
 div[class*='swiper-pagination-container'] {
