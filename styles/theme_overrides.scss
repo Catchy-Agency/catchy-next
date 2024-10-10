@@ -320,6 +320,12 @@ a.tag {
   }
 }
 
+.has-addons .tag {
+  border-bottom: 1px solid $turquoise;
+  outline: none;
+  text-decoration: none;
+}
+
 .menu-list {
   a {
     transition: color 300ms ease;
