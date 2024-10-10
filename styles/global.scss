@@ -336,6 +336,16 @@ section:last-of-type {
         font-weight: 700;
         padding-left: unset;
         padding-right: unset;
+        &--lagoon {
+          border-bottom: 1px solid transparent;
+          &:hover,
+          &:active,
+          &:focus {
+            border-bottom: 1px solid $turquoise;
+            outline: none;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

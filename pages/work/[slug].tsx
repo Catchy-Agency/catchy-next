@@ -60,7 +60,7 @@ const CaseStudyPage: NextPage<PageProps> = ({ subscription }) => {
             <div className="tags are-medium">
               {data?.caseStudy?.categories.map((cat) => (
                 <Link key={cat.id} href={`/work/category/${cat.slug || ''}`}>
-                  <a className="tag">{cat.name}</a>
+                  <a className="tag tag--lagoon">{cat.name}</a>
                 </Link>
               ))}
             </div>
