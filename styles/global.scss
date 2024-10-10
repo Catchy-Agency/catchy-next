@@ -363,47 +363,70 @@ section:last-of-type {
         text-decoration: underline;
       }
 
-      h3,
-      strong {
-        color: $anthracite;
-        @include blog-work();
-      }
-
-      h2,
-      h4 {
-        color: $anthracite;
-      }
-      b {
-        @include hdl4();
-        > em {
-          @include bdy-md();
-        }
-      }
-      ul,
-      a,
-      b,
-      p,
-      em,
-      span {
-        color: $anthracite;
-        @include bdy-md();
-      }
-      blockquote {
-        background-color: $anthracite;
-        border-left: 5px solid $turquoise;
-        @include bdy-md();
-
-        strong {
-          font-size: 16px !important;
-          font-weight: 700;
+      .content {
+        * {
+          color: $anthracite;
         }
 
-        strong,
         p,
-        a,
         ul,
-        span {
-          color: #f2f2f2;
+        ol {
+          @include bdy-com();
+        }
+
+        h2 {
+          @include hdl2();
+          color: $anthracite;
+          > b,
+          > strong {
+            font-weight: 300;
+          }
+        }
+
+        h3 {
+          @include hdl3();
+          color: $anthracite;
+          > b,
+          > strong {
+            font-weight: 400;
+          }
+        }
+
+        h4 {
+          @include hdl4();
+          color: $anthracite;
+          > b,
+          > strong {
+            font-weight: 400;
+          }
+        }
+
+        h5 {
+          @include hdl5();
+          color: $anthracite;
+          > b,
+          > strong {
+            font-weight: 400;
+          }
+        }
+
+        a:hover {
+          color: $turquoise;
+        }
+
+        blockquote {
+          background-color: $anthracite;
+          border-left: 5px solid $turquoise;
+          @include bdy-md();
+
+          strong {
+            font-size: 16px !important;
+            font-weight: 700;
+          }
+
+          * {
+            color: #f2f2f2;
+          }
         }
       }
     }

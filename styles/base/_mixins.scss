@@ -76,11 +76,12 @@
   }
 }
 
-@mixin text-clamp($lines) {
+@mixin text-clamp($lines, $line-height: 1.5) {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines;
+  line-height: $line-height !important;
 }
 
 @mixin custom-scrollbar(
