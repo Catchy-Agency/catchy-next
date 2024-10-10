@@ -89,7 +89,6 @@
   $thumb-color-hover: rgba(0 0 0 / 0.7),
   $width-size: 5px,
   $height-size: 5px,
-  $border-radius: 8px,
   $border: 4px solid rgba(0 0 0 / 0),
   $box-shadow: inset -1px -1px 0 rgba(0 0 0 / 0.05) inset 1px 1px 0
     rgba(0 0 0 / 0.05)
@@ -100,12 +99,10 @@
 
     &-track {
       background: $track-color;
-      border-radius: $border-radius;
     }
 
     &-thumb {
       background: $thumb-color;
-      border-radius: $border-radius;
       border: $border;
 
       &:hover {
