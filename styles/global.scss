@@ -330,6 +330,7 @@ section:last-of-type {
       }
     }
     .tags {
+      gap: 1rem;
       .tag {
         background-color: unset;
         color: $anthracite;
@@ -337,6 +338,7 @@ section:last-of-type {
         font-weight: 700;
         padding-left: unset;
         padding-right: unset;
+        margin-right: unset;
       }
     }
   }
