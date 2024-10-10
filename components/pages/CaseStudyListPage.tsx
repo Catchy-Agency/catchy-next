@@ -141,7 +141,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
                     href={`/work/category/${cat.slug || ''}`}
                     scroll={false}
                   >
-                    <a className="tag is-medium">{cat.name}</a>
+                    <a className="tag tag--lagoon is-medium">{cat.name}</a>
                   </Link>
                 )}
               </div>
