@@ -239,7 +239,7 @@ section:last-of-type {
 
   .is-blog {
     padding: unset;
-    &:first-child {
+    :first-child {
       max-width: unset !important;
     }
   }
