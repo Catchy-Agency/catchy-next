@@ -1,5 +1,6 @@
 .section.TitleTextRecord {
   padding-top: 6%;
+  user-select: none;
 }
 
 .section.AgencyModelRecord .TitleTextRecord,
@@ -17,6 +18,7 @@
 
   .content {
     @include text-clamp(5);
+    line-height: 1.5 !important;
   }
 
   .title {
