@@ -305,8 +305,25 @@ a.is-block-link:focus {
   }
 }
 
-.tag {
+.tag,
+a.tag {
   border-radius: $radius;
+  &--lagoon {
+    border-bottom: 1px solid transparent;
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom: 1px solid $turquoise;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+}
+
+.has-addons .tag {
+  border-bottom: 1px solid $turquoise;
+  outline: none;
+  text-decoration: none;
 }
 
 .menu-list {
