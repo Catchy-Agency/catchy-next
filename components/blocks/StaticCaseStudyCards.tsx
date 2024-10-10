@@ -14,7 +14,9 @@ export const StaticCaseStudyCards: FC<{
     const isWorkSubPath = /\/work\/.+/.test(router.asPath);
     const isCategorySubPath = /\/work\/category\/.+/.test(router.asPath);
     return `button is-primary mt-4 ${
-      isWorkSubPath && url.includes('/work/') && !isCategorySubPath ? 'is-dark' : ''
+      isWorkSubPath && url.includes('/work/') && !isCategorySubPath
+        ? 'is-dark'
+        : ''
     }`;
   };
 
@@ -45,6 +47,7 @@ export const StaticCaseStudyCards: FC<{
                   </div>
                   {item.description && (
                     <div
+                      className="text-item-description"
                       dangerouslySetInnerHTML={{ __html: item.description }}
                     />
                   )}
