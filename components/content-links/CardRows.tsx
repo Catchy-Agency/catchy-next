@@ -1,13 +1,13 @@
-import classNames from 'classnames'
-import Link from 'next/link'
-import { FC } from 'react'
-import { Image } from 'react-datocms'
+import classNames from 'classnames';
+import Link from 'next/link';
+import { FC } from 'react';
+import { Image } from 'react-datocms';
 
-import { LinkData } from './LinkData'
+import { LinkData } from './LinkData';
 
 export const CardRows: FC<{
-  links: LinkData[]
-  imageAlign?: string | null
+  links: LinkData[];
+  imageAlign?: string | null;
 }> = ({ links, imageAlign }) => (
   <div
     className={classNames('card-rows', {
@@ -22,32 +22,25 @@ export const CardRows: FC<{
         style={{
           flexWrap: 'wrap',
           alignItems: 'stretch',
+          userSelect: 'none',
         }}
       >
         <div className="column is-7">
-          <Link href={link.url || ''}>
-            <a>
-              <div className="p-6">
-                {link.title && <div className="title is-4">{link.title}</div>}
-                {link.description && (
-                  <div className="content has-text-light">
-                    {link.description}
-                  </div>
-                )}
+          <div className="p-6">
+            {link.title && <div className="title is-4">{link.title}</div>}
+            {link.description && (
+              <div className="content has-text-light">{link.description}</div>
+            )}
 
-                <button className="button is-primary">
-                  {link.callToAction}
-                </button>
-              </div>
-            </a>
-          </Link>
+            <Link href={link.url || ''}>
+              <button className="button is-primary">{link.callToAction}</button>
+            </Link>
+          </div>
         </div>
         <div className="column is-5 has-cover-image">
-          <Link href={link.url || ''}>
-            <a>{link.image && <Image data={link.image} lazyLoad={false} />}</a>
-          </Link>
+          {link.image && <Image data={link.image} lazyLoad={false} />}
         </div>
       </div>
     ))}
   </div>
-)
+);
