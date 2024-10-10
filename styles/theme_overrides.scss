@@ -691,8 +691,9 @@ a.navbar-item.is-tab:not(.button):hover {
   }
 }
 a.navbar-item.is-active-dropdown-title,
-a.navbar-item.is-active-dropdown-item {
-  cursor: initial;
+a.navbar-item.is-active-dropdown-item,
+a.navbar-item.is-active-title {
+  cursor: default;
 }
 
 @media (max-width: $tablet) {

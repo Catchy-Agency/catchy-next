@@ -114,6 +114,7 @@ export const Header: FC<{
                   <a
                     className={classNames('navbar-item', 'is-tab', {
                       'is-active': isActive,
+                      'is-active-title': isActive,
                     })}
                     onClick={(e) =>
                       avoidSameRouteNavigation(e, href, router.asPath)
