@@ -338,7 +338,11 @@ section:last-of-type {
       }
     }
     .tags {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 1rem;
+      @include custom-scrollbar();
       .tag {
         background-color: unset;
         color: $anthracite;
