@@ -160,7 +160,7 @@ section:last-of-type {
     height: 100%;
     max-width: unset;
 
-    @media (max-width: calc($tablet + 200px)) {
+    @media (max-width: calc(1024px + 200px)) {
       padding: $global-padding 0;
     }
   }
