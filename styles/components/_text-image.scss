@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   gap: 10%;
-  height: 60vh;
   .info-texts {
     flex: 1;
     display: flex;
@@ -12,7 +11,7 @@
     padding-left: 10rem;
     .text-description {
       margin-bottom: 80px;
-
+      @include text-clamp(10);
       > p {
         @include bdy-md;
       }
@@ -98,224 +97,11 @@
 
 .textImage-content,
 .image-left {
-  @media (max-width: calc(1024px + 200px)) {
-    height: 50vh;
-    @media (max-width: $tablet) {
-      flex-direction: column-reverse;
-      height: unset;
-      .info-texts {
-        padding: $mobile-padding;
-      }
-    }
-  }
-}
-/*svg-textImageRight
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 $textPaddingLarge;
-
-
-  .img-container {
-    height: 60vh;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    .imageText {
-      height: 100%;
-      max-width: unset !important;
-      @include clip-path-right('default');
-    }
-
-    .svg-textImageRight {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-
-      > svg {
-        height: 16vh;
-      }
-    }
-
-    .svg-textImageLeft {
-      display: none;
-    }
-  }
-
-  @media (min-width: 2300px) {
-    .info-texts {
-      padding-left: 42rem;
-
-      .text-description {
-        font-size: 24px;
-      }
-    }
-
-    .img-container {
-      .imageText {
-        @include clip-path-right('large');
-      }
-    }
-  }
-
-  @media (max-width: calc(1440px + 200px)) {
-    .info-texts {
-      padding: 0 $global-padding;
-    }
-
-    .img-container {
-      .imageText {
-        @include clip-path-right('medium');
-      }
-    }
-  }
-
-  @media (max-width: calc(1024px + 200px)) {
-    .info-texts {
-      padding: 0 $global-padding;
-    }
-
-    .img-container {
-      padding: 5rem 0;
-
-      .imageText {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 43% 100%, 0 73%);
-      }
-
-      .svg-textImageRight {
-        > svg {
-          width: 19vh;
-          height: 28vh;
-        }
-      }
-    }
-  }
-
   @media (max-width: $tablet) {
     flex-direction: column-reverse;
-
+    height: unset;
     .info-texts {
-      padding: 0 $mobile-padding;
-    }
-
-    .img-container {
-      .imageText {
-        height: 40vh;
-        @include clip-path-right('small');
-      }
-
-      .svg-textImageRight {
-        > svg {
-          transform: translate(-15%, 0%);
-        }
-      }
-    }
-  }
-
-  // Invert component
-  &.image-left {
-    flex-direction: row-reverse;
-
-    .info-texts {
-      padding: 0 $textPaddingLarge;
-    }
-
-    .img-container {
-      .imageText {
-        @include clip-path-left('default');
-      }
-
-      .svg-textImageRight {
-        display: none;
-      }
-
-      .svg-textImageLeft {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        > svg {
-          width: 38vh;
-        }
-      }
-    }
-
-    @media (min-width: 2300px) {
-      .info-texts {
-        padding-right: 36rem;
-
-        .text-description {
-          font-size: 24px;
-        }
-      }
-
-      .img-container {
-        .imageText {
-          @include clip-path-left('large');
-        }
-      }
-    }
-
-    @media (max-width: calc(1440px + 200px)) {
-      .info-texts {
-        padding: 0 $global-padding;
-      }
-
-      .img-container {
-        .imageText {
-          @include clip-path-left('medium');
-        }
-      }
-    }
-
-    @media (max-width: calc(1024px + 200px)) {
-      padding-right: unset;
-
-      .img-container {
-        padding: 5rem 0;
-
-        .imageText {
-          clip-path: polygon(0 0, 100% 0, 100% 64%, 41% 100%, 0 100%, 0% 50%);
-        }
-
-        .svg-textImageLeft {
-          > svg {
-            width: 26vh;
-            height: 32vh;
-          }
-        }
-      }
-    }
-
-    @media (max-width: $tablet) {
-      flex-direction: column-reverse;
-
-      .info-texts {
-        padding: 0 $textPaddingSmall;
-        padding-bottom: 10rem;
-      }
-
-      .img-container {
-        padding: 5rem 0;
-
-        .imageText {
-          height: 40vh;
-          @include clip-path-left('small');
-        }
-
-        .svg-textImageLeft {
-          > svg {
-            width: 17vh;
-            height: 27vh;
-          }
-        }
-      }
+      padding: $mobile-padding;
     }
   }
 }
- */

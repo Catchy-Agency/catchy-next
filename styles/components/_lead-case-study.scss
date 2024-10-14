@@ -1,9 +1,7 @@
 .study-wrapper {
-  height: 80vh;
   user-select: none;
 
   .textStudy-content {
-    height: 100%;
     display: flex;
     flex-direction: row;
     gap: 10%;
@@ -16,12 +14,14 @@
 
       > .title.is-1 {
         margin-bottom: 2.5rem;
+        @include text-clamp(2);
       }
 
       .textStudy-description {
         margin-bottom: 80px;
         @include hdl4;
         line-height: 1.5 !important;
+        @include text-clamp(10);
       }
     }
 
@@ -40,9 +40,6 @@
           height: 100%;
         }
 
-        @media (max-width: 1024px) {
-          width: 85%;
-        }
         @media (max-width: $tablet) {
           width: 55%;
         }
@@ -63,9 +60,6 @@
     }
   }
 
-  @media (max-width: calc(1024px + 200px)) {
-    height: 60vh;
-  }
   @media (max-width: $tablet) {
     height: unset;
 

@@ -109,28 +109,49 @@ section:last-of-type {
     }
   }
   .LeftUp {
-    top: 0;
+    top: 75px;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 40vh;
+        width: 10vw;
+      }
+    }
     @media (max-width: $tablet) {
       display: unset;
     }
   }
   .leftDown {
     bottom: 0;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 40vh;
+        width: 10vw;
+      }
+    }
   }
   .RightDown {
     bottom: 0;
     right: 0;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 60vh;
+        width: 45vw;
+      }
+    }
     @media (max-width: $tablet) {
       display: unset;
-      transform: translate(30%, 25%);
-      > svg {
-        width: 80%;
-      }
+      transform: translateX(48%);
     }
   }
   .RightUp {
     top: 0;
     right: 0;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 60vh;
+        width: 43vw;
+      }
+    }
   }
 }
 

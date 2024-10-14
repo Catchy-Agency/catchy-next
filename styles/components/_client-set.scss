@@ -3,17 +3,31 @@
   margin: unset;
   width: 100%;
   height: 100%;
+  position: relative;
 
   .soupTitle {
-    clip-path: polygon(47% 0, 100% 95%, 100% 100%, 0 100%, 0 70%);
-    height: 50vh;
-    padding: 0 $global-padding;
-    background-color: $soup-background;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     transform: translateY(1px);
+
+    &::before {
+      content: '';
+      user-select: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      background-image: conic-gradient(
+        from 241deg at 47% 0%,
+        transparent 240deg,
+        #d4d6d9 230deg
+      );
+    }
   }
   > .columns {
     margin: unset;
@@ -21,7 +35,7 @@
 
   .soupContent {
     background-color: $soup-background;
-    padding: 5rem $global-padding;
+    padding: 0 $global-padding;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +45,7 @@
     .textContent {
       max-width: 1440px;
       width: 100%;
-
+      z-index: 1;
       > h2 {
         max-width: 80%;
         display: -webkit-box;
@@ -46,10 +60,11 @@
         color: var(--Text-Anthracite, #212121);
       }
       p {
-        @include text-clamp(5);
+        @include text-clamp(4);
         line-height: 1.5 !important;
       }
     }
+
     .imageContent {
       display: flex;
       justify-content: center;
@@ -57,13 +72,13 @@
       max-width: 1440px;
     }
     @media (max-width: 1200px) {
-      padding: 3rem $global-padding;
+      padding: 0 $global-padding;
       > .columns.is-variable.is-5 {
         --columnGap: 0.5rem;
       }
     }
     @media (max-width: $tablet) {
-      padding: 2rem 1rem;
+      padding: 0 1rem;
       > .columns.is-variable.is-5 {
         --columnGap: 1.25rem;
       }
@@ -71,9 +86,7 @@
   }
 
   .soupBottom {
-    clip-path: polygon(43% 100%, 100% 1%, 100% 0%, 0 0%, 0 15%);
-    background-color: $soup-background;
-    height: 55vh;
+    height: 60vh;
     transform: translateY(-2px);
     padding: 2rem $global-padding;
     display: flex;
@@ -83,36 +96,70 @@
       width: 100%;
       max-width: 1440px;
     }
+
+    &::before {
+      content: '';
+      user-select: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+
+      background-image: conic-gradient(
+        from 60deg at 42% 100%,
+        transparent 235deg,
+        $soup-background 235deg
+      );
+    }
   }
 
-  @media (min-width: 2300px) {
+  @media (min-width: 1500px) {
+    .soupTitle {
+      height: 70vh;
+    }
     .soupBottom {
-      height: 20vh;
+      height: 80vh;
     }
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     .soupTitle {
-      height: 30vh;
-    }
-    .soupBottom {
       height: 40vh;
     }
+    .soupBottom {
+      height: 50vh;
+    }
   }
+
   @media (max-width: $tablet) {
     .soupTitle {
-      clip-path: polygon(100% 0, 100% 60%, 100% 100%, 0 100%, 0 100%);
-      padding: $mobile-padding;
-      height: 30vh;
+      transform: translateY(110px);
+      height: 60vh;
+
+      &:before {
+        background-image: linear-gradient(
+          150deg,
+          transparent 40%,
+          $soup-background 40%
+        );
+      }
     }
 
     .soupContent {
-      padding: $mobile-padding;
+      padding: 0 $mobile-padding;
     }
 
     .soupBottom {
-      clip-path: polygon(0% 100%, 100% 40%, 100% 0%, 0 0%, 0 50%);
       padding: $mobile-padding;
-      height: 40vh;
+      height: 60vh;
+
+      &:before {
+        background-image: linear-gradient(
+          -30deg,
+          transparent 40%,
+          $soup-background 40%
+        );
+      }
     }
   }
 }
