@@ -25,6 +25,11 @@ $mobile-padding: 2.5rem;
 // .section {
 //   border: 1px dotted red;
 // }
+html,
+body {
+  @include custom-scrollbar;
+}
+
 html.has-navbar-fixed-top,
 body.has-navbar-fixed-top {
   padding-top: 5.5rem;
