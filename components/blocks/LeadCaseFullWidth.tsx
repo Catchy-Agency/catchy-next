@@ -17,7 +17,9 @@ export const LeadCaseFullWidth: FC<{
       )}
 
       <div className="info">
-        {block.title && <h2 className="title is-2">{block.title}</h2>}
+        {block.title && (
+          <h2 className="lead-case-title title is-2">{block.title}</h2>
+        )}
 
         {block.text && (
           <div
