@@ -8,6 +8,10 @@
     justify-content: space-between;
     align-items: baseline;
     gap: 3rem;
+    .title {
+      @include bdy-com;
+      font-weight: 700;
+    }
     .blog-category-list-container {
       display: flex;
       flex-wrap: nowrap;

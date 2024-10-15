@@ -66,6 +66,9 @@ $font-helvetica: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue'
 @mixin bdy-com {
   font-family: $font-helvetica !important;
   @include clamp('font-size', 14px, 3vw, 16px);
+  @media screen and (min-width: 1441px) {
+    @include clamp('font-size', 14px, 3vw, 18px);
+  }
   line-height: 1.5 !important;
   letter-spacing: 0em !important;
 }

@@ -64,6 +64,8 @@ section:last-of-type {
     background-color: unset;
     padding-left: unset;
     padding-right: unset;
+    @include bdy-com;
+    font-weight: 700;
   }
 
   .categories-case-study {
@@ -295,6 +297,8 @@ section:last-of-type {
       overflow-x: auto;
       gap: 1rem;
       padding-bottom: 1rem;
+      font-weight: 700;
+      @include bdy-com;
       @include custom-scrollbar();
     }
     .breadcrumb ul {
