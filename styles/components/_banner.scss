@@ -28,13 +28,13 @@
         z-index: 1;
 
         background: linear-gradient(
-            211deg,
+            210deg,
             transparent,
             hsla(0, 0%, 100%, 0) calc(82.5% - 1px),
             $anthracite 82.5%
           ),
           linear-gradient(
-            149.2deg,
+            149.8deg,
             transparent,
             hsla(0, 0%, 100%, 0) calc(61.2% - 1px),
             $anthracite 61.2%
@@ -54,7 +54,7 @@
   .text-container {
     z-index: 1;
     padding: 5rem $global-padding;
-    max-width: 70%;
+    max-width: 92%;
     width: 100%;
     .titleHero {
       @include text-clamp(4);
@@ -77,7 +77,7 @@
   }
   .svg-right {
     position: absolute;
-    bottom: 15vw;
+    bottom: 22vh;
     right: 0;
     z-index: 1;
     width: clamp(calc(400px), 30vw, 600px);
@@ -88,7 +88,7 @@
   }
   .svg-left {
     position: absolute;
-    bottom: 10vh;
+    bottom: 7vh;
     left: 0;
     z-index: 1;
   }
