@@ -25,6 +25,7 @@
     .panel-item-title {
       font-size: 32px !important;
       line-height: 48px !important;
+      @include text-clamp(2);
     }
 
     .panel-dropdown {
@@ -71,6 +72,9 @@
       height: 100%;
     }
 
+    .panel-description {
+      @include text-clamp(8);
+    }
     .button {
       margin-top: 80px;
       span {
