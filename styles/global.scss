@@ -95,7 +95,10 @@ section:last-of-type {
 .section.ClientSetRecord {
   padding: unset;
   position: relative;
-  overflow: hidden;
+
+  @media (max-width: $tablet) {
+    overflow: hidden;
+  }
 
   > .container {
     margin: unset;
@@ -114,7 +117,7 @@ section:last-of-type {
     }
   }
   .LeftUp {
-    top: 75px;
+    top: 110px;
     @media (min-width: 1700px) {
       > svg {
         height: 40vh;
@@ -135,7 +138,7 @@ section:last-of-type {
     }
   }
   .RightDown {
-    bottom: 0;
+    bottom: -30px;
     right: 0;
     @media (min-width: 1700px) {
       > svg {
@@ -149,7 +152,7 @@ section:last-of-type {
     }
   }
   .RightUp {
-    top: 0;
+    top: -46px;
     right: 0;
     @media (min-width: 1700px) {
       > svg {
