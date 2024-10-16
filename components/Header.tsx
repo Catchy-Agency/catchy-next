@@ -137,8 +137,9 @@ export const Header: FC<{
             )}
             {/* Contact link */}
             <a
-              className="navbar-item is-tab button is-ghost"
+              className="navbar-item is-tab is-ghost"
               onClick={scrollToContact}
+              tabIndex={0}
             >
               {header.contactLinkLabel}
             </a>
