@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   PrimaryPageBySlug_footer,
   PrimaryPageBySlug_footer_socialLinks,
@@ -15,6 +15,16 @@ export const Footer: FC<{
     if (link.email) return `mailto:${link.email}`;
     return undefined;
   }
+
+  useEffect(() => {
+    const form = document.getElementById(
+      'contact-form',
+    ) as HTMLFormElement | null;
+    if (form) {
+      form.reset();
+    }
+  }, []);
+
   return (
     <footer className="section Footer _has-background-grey-darker" data-footer>
       <div className="container is-max-widescreen">
@@ -122,7 +132,9 @@ export const Footer: FC<{
                   <button
                     type="submit"
                     className="button is-ghost"
-                    onClick={() => pageview('/contact')}
+                    onClick={() => {
+                      pageview('/contact');
+                    }}
                   >
                     Submit
                   </button>

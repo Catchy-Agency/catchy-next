@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import {
   PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord,
@@ -23,11 +23,22 @@ export const FormBlock: FC<{
     | PrimaryPageBySlug_primaryPage_blocks_FormBlockRecord
     | PrimaryPageBySlug_primaryPage_blocks_NewsletterRecord;
 }> = ({ block: { form } }) => {
+  useEffect(() => {
+    if (!form) return;
+    const newsletterForm = document.getElementById(
+      form.name ?? 'contact-form',
+    ) as HTMLFormElement | null;
+    if (newsletterForm) {
+      newsletterForm.reset();
+    }
+  }, []);
+
   return (
     <form
       action={form?.action || undefined}
       method={form?.method || undefined}
       name={form?.name || undefined}
+      id={form?.name || 'contact-form'}
     >
       {form?.title && <h3 className="has-text-white mb-6">{form.title}</h3>}
       {groupFields(Array.from(form?.formFields || [])).map((fieldOrGroup) => {
@@ -110,12 +121,6 @@ const FieldElement: FC<{ field: Field }> = ({ field }) => {
       );
     case 'Submit':
       return (
-        /*      <button
-          className="button is-ghost"
-          type="submit"
-          name={field.fieldName || undefined}
-          value={field.label || 'Submit'}
-        /> */
         <button
           type="submit"
           className="button is-ghost "
