@@ -53,9 +53,11 @@ export const Banner: FC<{
           />
         )}
         {block.showContactButton === true && (
-          <a className="button is-ghost" onClick={scrollToContact}>{`${
-            block.contactButtonLabel || 'Contact Us'
-          }`}</a>
+          <a
+            className="button is-ghost"
+            onClick={scrollToContact}
+            tabIndex={0}
+          >{`${block.contactButtonLabel || 'Contact Us'}`}</a>
         )}
       </div>
 

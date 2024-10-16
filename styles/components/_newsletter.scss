@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   gap: 10%;
-  height: 80vh;
   user-select: none;
 
   .newsletter-content {
@@ -43,9 +42,7 @@
       }
     }
   }
-  @media (max-width: calc(1024px + 200px)) {
-    height: 60vh;
-  }
+
   @media (max-width: $tablet) {
     flex-direction: column-reverse;
     height: unset;

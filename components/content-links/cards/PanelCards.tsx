@@ -82,7 +82,10 @@ export const PanelCards: FC<{
           >
             <div className={`panel-content`}>
               {item.description && (
-                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                <div
+                  className="panel-description"
+                  dangerouslySetInnerHTML={{ __html: item.description }}
+                />
               )}
               {renderLink(item)}
             </div>

@@ -260,7 +260,6 @@ export const ServiceCarousel: FC<{
           {items.map((_, i) => {
             return i % itemsOnScreen === 0 ? (
               <button
-                tabIndex={-1}
                 data-index={i}
                 title={`Indicator Position ${Math.ceil(i / itemsOnScreen)}`}
                 key={`indicator-item-${i}`}

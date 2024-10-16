@@ -12,7 +12,6 @@
 
   .title {
     display: inline-block;
-    max-width: 12.75em;
     @include text-clamp(2);
   }
 
@@ -24,8 +23,6 @@
   .title {
     position: relative;
     margin-bottom: $bottom;
-    /*     @include green-line(1rem);
- */
   }
 
   .has-text-centered {
@@ -38,16 +35,12 @@
   }
   @media (max-width: $mobile) {
     .title {
-      padding-bottom: 1.5rem;
       &:before {
         bottom: -$height;
       }
     }
   }
   @media (min-width: calc(#{$mobile} + 1px)) {
-    /*  .content {
-      padding-left: 96px;
-    } */
     .title {
       &:before {
         bottom: calc(-#{$bottom} - #{$height} - 1px);

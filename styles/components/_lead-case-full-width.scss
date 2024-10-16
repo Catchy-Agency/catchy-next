@@ -47,6 +47,11 @@
       margin-top: 80px;
       padding: 0 7.5rem;
 
+      .lead-case-title {
+        @include text-clamp(3);
+        line-height: 1.5 !important;
+      }
+
       .description-info {
         > p {
           @include bdy-md;

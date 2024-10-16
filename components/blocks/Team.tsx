@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_TeamRecord } from '../../gql/types/PrimaryPageBySlug';
 import { useMediaQuery } from '../hooks/useMediaQuery';
@@ -9,24 +9,10 @@ export const Team: FC<{
 }> = ({ block }) => {
   const device = useMediaQuery();
   const [isOpen, setIsOpen] = useState(false);
-  const [columnSize, setColumnSize] = useState('20%');
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setColumnSize('20%');
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <div className="team-wrapper">
@@ -60,6 +46,7 @@ export const Team: FC<{
                           lazyLoad={false}
                           className="image-team"
                         />
+                        <div className="clip-me" />
                       </figure>
                     )}
                     <div className="svg-iconTeam">{IconImageTeam}</div>
@@ -89,14 +76,7 @@ export const Team: FC<{
           <h4 className="title">{block.teamTitle}</h4>
           <div className="columns is-mobile is-multiline">
             {block.members.map((member) => (
-              <div
-                key={member.id}
-                className="column is-narrow pb-5"
-                style={{
-                  flexBasis: columnSize,
-                  maxWidth: columnSize,
-                }}
-              >
+              <div key={member.id} className="column is-narrow pb-5">
                 <div className="img-container">
                   {member.image?.responsiveImage && (
                     <figure className="mb-3">
@@ -107,6 +87,7 @@ export const Team: FC<{
                         lazyLoad={false}
                         className="image-team"
                       />
+                      <div className="clip-me" />
                     </figure>
                   )}
                   <div className="svg-iconTeam">{IconImageTeam}</div>

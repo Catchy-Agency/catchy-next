@@ -710,6 +710,10 @@ a.navbar-item.is-active-title {
   cursor: default;
 }
 
+a.navbar-item:focus-within {
+  color: unset;
+}
+
 @media (max-width: $tablet) {
   .navbar {
     padding: 0 $mobile-padding;

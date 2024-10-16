@@ -25,6 +25,11 @@ $mobile-padding: 2.5rem;
 // .section {
 //   border: 1px dotted red;
 // }
+html,
+body {
+  @include custom-scrollbar;
+}
+
 html.has-navbar-fixed-top,
 body.has-navbar-fixed-top {
   padding-top: 5.5rem;
@@ -59,6 +64,8 @@ section:last-of-type {
     background-color: unset;
     padding-left: unset;
     padding-right: unset;
+    @include bdy-com;
+    font-weight: 700;
   }
 
   .categories-case-study {
@@ -90,7 +97,10 @@ section:last-of-type {
 .section.ClientSetRecord {
   padding: unset;
   position: relative;
-  overflow: hidden;
+
+  @media (max-width: $tablet) {
+    overflow: hidden;
+  }
 
   > .container {
     margin: unset;
@@ -109,28 +119,49 @@ section:last-of-type {
     }
   }
   .LeftUp {
-    top: 0;
+    top: 110px;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 40vh;
+        width: 10vw;
+      }
+    }
     @media (max-width: $tablet) {
       display: unset;
     }
   }
   .leftDown {
-    bottom: 0;
-  }
-  .RightDown {
-    bottom: 0;
-    right: 0;
-    @media (max-width: $tablet) {
-      display: unset;
-      transform: translate(30%, 25%);
+    bottom: -15px;
+    @media (min-width: 1700px) {
       > svg {
-        width: 80%;
+        height: 40vh;
+        width: 10vw;
       }
     }
   }
-  .RightUp {
-    top: 0;
+  .RightDown {
+    bottom: -55px;
     right: 0;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 60vh;
+        width: 45vw;
+      }
+    }
+    @media (max-width: $tablet) {
+      display: unset;
+      transform: translateX(48%);
+    }
+  }
+  .RightUp {
+    top: -45px;
+    right: 0;
+    @media (min-width: 1700px) {
+      > svg {
+        height: 60vh;
+        width: 43vw;
+      }
+    }
   }
 }
 
@@ -160,7 +191,7 @@ section:last-of-type {
     height: 100%;
     max-width: unset;
 
-    @media (max-width: calc($tablet + 200px)) {
+    @media (max-width: calc(1024px + 200px)) {
       padding: $global-padding 0;
     }
   }
@@ -266,6 +297,8 @@ section:last-of-type {
       overflow-x: auto;
       gap: 1rem;
       padding-bottom: 1rem;
+      font-weight: 700;
+      @include bdy-com;
       @include custom-scrollbar();
     }
     .breadcrumb ul {
@@ -338,7 +371,11 @@ section:last-of-type {
       }
     }
     .tags {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 1rem;
+      @include custom-scrollbar();
       .tag {
         background-color: unset;
         color: $anthracite;

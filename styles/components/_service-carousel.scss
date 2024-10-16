@@ -35,7 +35,7 @@ $item-responsive-gap: 5vw;
       align-items: center;
       justify-content: center;
       gap: clamp(10px, 3vw, 40px);
-
+      padding: 0.5rem;
       .SC-indicator-items-wrapper {
         display: flex;
         align-items: center;
