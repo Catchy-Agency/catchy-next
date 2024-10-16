@@ -70,8 +70,8 @@
       padding-top: 20vh;
       max-width: 80%;
     }
-    @media (max-width: 1024px) {
-      padding: 0 $global-padding;
+    @media (max-width: 1023px) {
+      padding: 0 $tablet-padding;
     }
   }
   .svg-right {

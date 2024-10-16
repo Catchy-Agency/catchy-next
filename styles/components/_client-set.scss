@@ -131,6 +131,16 @@
     }
   }
 
+  @media (max-width: 1023px) {
+    .soupContent {
+      padding: 0 $tablet-padding;
+    }
+
+    .soupBottom {
+      padding: 2rem $tablet-padding;
+    }
+  }
+
   @media (max-width: $tablet) {
     .soupTitle {
       transform: translateY(110px);

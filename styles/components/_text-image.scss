@@ -20,6 +20,10 @@
     @media (min-width: 1700px) {
       padding-left: calc((100vw - 1440px) / 2);
     }
+
+    @media (max-width: 1023px) {
+      padding-left: $tablet-padding;
+    }
   }
   .img-container {
     flex: 1;
@@ -64,6 +68,9 @@
     padding-right: 10rem;
     @media (min-width: 1700px) {
       padding-right: calc((100vw - 1440px) / 2);
+    }
+    @media (max-width: 1023px) {
+      padding-right: $tablet-padding;
     }
   }
   .img-container {

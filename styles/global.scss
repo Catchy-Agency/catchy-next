@@ -9,6 +9,7 @@ $cam-gray3: #56636b;
 $border-color-gray: #444f57;
 $global-padding: 10rem;
 $mobile-padding: 2.5rem;
+$tablet-padding: 5rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -37,6 +38,9 @@ body.has-navbar-fixed-top {
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 5.6% 0;
+  @media (max-width: 1023px) {
+    padding: 0 $tablet-padding;
+  }
   @media (max-width: $tablet) {
     padding: $mobile-padding;
   }
@@ -45,6 +49,9 @@ section:not(.has-background-grey-darker) {
 .section.Footer {
   padding: 5rem $global-padding;
   margin: 3% 0;
+  @media (max-width: 1023px) {
+    padding: 5rem $tablet-padding;
+  }
   @media (max-width: $tablet) {
     padding: $mobile-padding;
   }
@@ -218,10 +225,6 @@ section:last-of-type {
     width: 100%;
     height: 100%;
     max-width: unset;
-  }
-
-  @media (max-width: calc(1024px + 200px)) {
-    padding: unset;
   }
 }
 

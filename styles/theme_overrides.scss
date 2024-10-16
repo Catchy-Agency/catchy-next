@@ -646,7 +646,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 @media (max-width: 1023px) {
   .navbar {
-    padding: 0 clamp(2rem, 8vw, 5rem);
+    padding: 0 $tablet-padding;
     display: flex;
     flex-direction: row;
     align-items: center;
