@@ -516,7 +516,15 @@ section:last-of-type {
     }
   }
 }
-
+.box {
+  background-color: $soup-background;
+  h1 {
+    color: $anthracite;
+  }
+  a {
+    color: $turquoise;
+  }
+}
 //
 // More fragile hacks
 
