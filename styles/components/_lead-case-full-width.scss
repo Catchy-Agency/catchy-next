@@ -28,7 +28,8 @@
   }
 
   .container-fullWidth {
-    padding: 0 10rem;
+    padding: 0 $global-padding;
+    user-select: none;
 
     .imageLead {
       width: 100%;
