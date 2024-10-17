@@ -74,6 +74,9 @@ section:last-of-type {
     @include bdy-com;
     font-weight: 700;
   }
+  .tags.are-medium .tag:not(.is-normal):not(.is-large) {
+    @include bdy-com;
+  }
 
   .categories-case-study {
     display: flex;
