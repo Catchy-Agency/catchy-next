@@ -58,6 +58,7 @@
       padding: clamp(20px, 6vw, 80px);
       color: inherit;
       background-color: $soup-background;
+      user-select: none;
       &::before {
         content: '';
         position: absolute;
@@ -80,10 +81,13 @@
           @include font-size(40px, !important);
         }
       }
-
+      > h3 {
+        @include text-clamp(4);
+      }
       .subtitle {
         color: $anthracite;
         margin-bottom: 0;
+        @include text-clamp(3);
       }
 
       .content {

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   gap: 10%;
+  user-select: none;
   .info-texts {
     flex: 1;
     display: flex;
@@ -9,11 +10,16 @@
     justify-content: center;
     gap: 1rem;
     padding-left: 10rem;
-    .text-description {
-      margin-bottom: 80px;
-      @include text-clamp(10);
-      > p {
-        @include bdy-md;
+    .texts {
+      > h2 {
+        @include text-clamp(3);
+      }
+      .text-description {
+        margin-bottom: 80px;
+        @include text-clamp(10);
+        > p {
+          @include bdy-md;
+        }
       }
     }
 
