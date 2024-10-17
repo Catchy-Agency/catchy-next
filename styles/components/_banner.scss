@@ -54,7 +54,7 @@
   .text-container {
     z-index: 10;
     padding: 5rem $global-padding;
-    max-width: 90%;
+    max-width: 80%;
     .titleHero {
       @include text-clamp(4);
       line-height: 1.5 !important;
