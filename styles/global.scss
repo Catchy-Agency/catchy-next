@@ -107,6 +107,8 @@ section:last-of-type {
 
   @media (max-width: $tablet) {
     overflow: hidden;
+    padding-bottom: 120px;
+    padding-top: 60px;
   }
 
   > .container {
@@ -126,48 +128,66 @@ section:last-of-type {
     }
   }
   .LeftUp {
-    top: 110px;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 40vh;
-        width: 10vw;
-      }
+    left: 0;
+    padding-top: 141px;
+    width: 51.8%;
+    padding-right: 583px;
+    justify-content: flex-end;
+    display: flex;
+
+    > svg {
+      display: block;
+      margin: 0px;
+      flex-shrink: 0;
     }
-    @media (max-width: $tablet) {
-      display: unset;
+
+    @media screen and (max-width: $tablet) {
+      width: 100%;
+      padding-top: 0;
+      aspect-ratio: 430/250;
+      top: -32px;
+      padding-right: clamp(265px, 100% - 174px, 100% - 174px);
+      align-items: flex-end;
+      > svg {
+        display: block;
+        margin: 0;
+      }
     }
   }
   .leftDown {
-    bottom: -15px;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 40vh;
-        width: 10vw;
-      }
+    width: 48%;
+    bottom: 95px;
+    left: 0;
+    > svg {
+      display: flex;
+      margin: 0px 528px 0px auto;
     }
   }
   .RightDown {
-    bottom: -55px;
+    width: 52%;
     right: 0;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 60vh;
-        width: 45vw;
-      }
+    bottom: -102px;
+    > svg {
+      margin: 0px auto 0px 145px;
+      display: flex;
     }
-    @media (max-width: $tablet) {
-      display: unset;
-      transform: translateX(48%);
+
+    @media screen and (max-width: $tablet) {
+      display: block;
+      width: 100%;
+      bottom: -120px;
+
+      > svg {
+        margin: 0px auto 0px 110px;
+      }
     }
   }
   .RightUp {
-    top: -45px;
     right: 0;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 60vh;
-        width: 43vw;
-      }
+    width: 51.2%;
+
+    > svg {
+      margin: 0px auto 0px 126px;
     }
   }
 }

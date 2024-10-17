@@ -34,14 +34,7 @@ import { ViewMoreLink } from './blocks/ViewMoreLink';
 import { ContentBannerL } from './content-links/banners/ContentBannerL';
 import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
 import { ContentTileM } from './content-links/cards/ContentTileM';
-import {
-  DownSoup,
-  IconBottomLeadFullWidth,
-  IconRightLeadFullWidth,
-  LeftHero,
-  LeftUpSoup,
-  UpSoup,
-} from './icons';
+import { IconBottomLeadFullWidth, IconRightLeadFullWidth } from './icons';
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
@@ -233,13 +226,9 @@ export const BlockSections: FC<{
           case 'ClientSetRecord':
             return (
               <section key={block.id} className="section ClientSetRecord">
-                <div className="container">
+                <div className="container container-Soup">
                   <ClientSet block={block} />
                 </div>
-                <div className="absoluteSvg LeftUp">{LeftUpSoup}</div>
-                <div className="absoluteSvg RightUp">{UpSoup}</div>
-                <div className="absoluteSvg leftDown">{LeftHero}</div>
-                <div className="absoluteSvg RightDown">{DownSoup}</div>
               </section>
             );
 
