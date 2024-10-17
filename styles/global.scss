@@ -291,6 +291,9 @@ section:last-of-type {
   .section.Blog,
   .block-sections {
     padding: 3rem $global-padding;
+    @media (max-width: 1023px) {
+      padding: 3rem $tablet-padding;
+    }
     @media (max-width: $tablet) {
       padding: $mobile-padding;
     }
@@ -400,6 +403,9 @@ section:last-of-type {
     .section.ColumnRowRecord {
       color: $anthracite;
       padding: 0 18rem;
+      @media (max-width: 1100px) {
+        padding: 0 12rem;
+      }
       @media (max-width: 1024px) {
         padding: 0 $global-padding;
       }
@@ -479,10 +485,6 @@ section:last-of-type {
       }
     }
 
-    > .section.ColumnRowRecord {
-      padding: 0 18rem;
-    }
-
     > .section.TeamRecord {
       .img-container {
         background-color: $anthracite;
@@ -491,13 +493,6 @@ section:last-of-type {
         color: $anthracite !important;
       }
     }
-  }
-}
-
-.block-sections {
-  padding: unset !important;
-  @media (max-width: $tablet) {
-    padding: unset !important;
   }
 }
 

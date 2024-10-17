@@ -351,7 +351,17 @@ a.tag {
 
 .navbar {
   > .container {
-    max-width: unset;
+    padding: 0 $global-padding;
+    @media (min-width: 1700px) {
+      padding: unset;
+      max-width: 1440px;
+    }
+    @media (max-width: 1023px) {
+      padding: 0 $tablet-padding;
+    }
+    @media (max-width: $tablet) {
+      padding: unset;
+    }
   }
   border-bottom: 1px solid #d4d6d969;
   min-height: 5.5rem;
@@ -645,13 +655,6 @@ a.navbar-item.is-tab:not(.button):hover {
 }
 
 @media (max-width: 1023px) {
-  .navbar {
-    padding: 0 $tablet-padding;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
   .navbar-end {
     display: flex;
     flex-direction: column;
@@ -846,13 +849,13 @@ body > .navbar {
   .primary-page .container {
     max-width: 1440px;
   }
-  .navbar {
-    > .container {
-      max-width: unset;
-      padding-left: $global-padding;
-      padding-right: $global-padding;
-    }
-  }
+  // .navbar {
+  //   > .container {
+  //     max-width: unset;
+  //     padding-left: $global-padding;
+  //     padding-right: $global-padding;
+  //   }
+  // }
 }
 
 .no-scroll {
