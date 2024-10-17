@@ -75,7 +75,7 @@ export const ContentPage: NextPage<{
         {data?.header && <Header header={data?.header} />}
         {!hideBreadcrumb && (
           <header className="section Blog">
-            <div className="container is-max-desktop">
+            <div className="container is-max-widescreen">
               <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li>
