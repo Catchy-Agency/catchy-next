@@ -3,6 +3,7 @@ import { Image, ResponsiveImageType } from 'react-datocms';
 
 import Link from 'next/link';
 import { PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord } from '../../gql/types/PrimaryPageBySlug';
+import { DownSoup, LeftHero, LeftUpSoup, UpSoup } from '../icons';
 
 export const ClientSet: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_ClientSetRecord;
@@ -25,7 +26,15 @@ export const ClientSet: FC<{
   }, []);
   return (
     <div className="soupWrapper">
-      <div className="soupTitle" />
+      <div className="triangleTopRight" />
+      <div className="triangleTopLeft" />
+      <div className="triangleBottomRight" />
+      <div className="triangleBottomLeft" />
+      <div className="absoluteSvg RightUp">{UpSoup}</div>
+      <div className="absoluteSvg LeftUp">{LeftUpSoup}</div>
+      <div className="absoluteSvg leftDown">{LeftHero}</div>
+      <div className="absoluteSvg RightDown">{DownSoup}</div>
+
       <div className="soupContent">
         <div className="textContent">
           <h2 className="title is-2 mb-5">{block.title}</h2>
@@ -50,8 +59,6 @@ export const ClientSet: FC<{
             </div>
           ))}
         </div>
-      </div>
-      <div className="soupBottom">
         {block.link?.slug && (
           <div className="buttonContent">
             <Link href={block.link?.slug}>
