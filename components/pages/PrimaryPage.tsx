@@ -16,8 +16,9 @@ export const PrimaryPage: NextPage<{
 }> = ({ subscription }) => {
   const { data, error, status } =
     useQuerySubscription<PrimaryPageBySlug>(subscription);
+  const slug = data?.primaryPage?.slug || '';
   return (
-    <div className="primary-page">
+    <div className={`primary-page ${slug}`}>
       <Head>
         {renderMetaTags([
           ...(data?.primaryPage?._seoMetaTags || []),

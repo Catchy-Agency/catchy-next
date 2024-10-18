@@ -78,7 +78,7 @@
     .button {
       margin-top: 80px;
       span {
-        max-width: clamp(216px, 10vw, 245px);
+        max-width: clamp(230px, 10vw, 245px);
         display: inline-block;
       }
     }
@@ -125,5 +125,11 @@
       width: 100%;
       max-width: unset;
     }
+  }
+}
+
+.what-we-do {
+  .panel-item-wrapper .panel-item .button span {
+    max-width: clamp(216px, 10vw, 245px);
   }
 }

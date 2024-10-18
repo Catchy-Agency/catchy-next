@@ -33,7 +33,7 @@ export const PanelCards: FC<{
         target="_blank"
         rel="noreferrer"
       >
-        {item.buttonLabel || 'Learn More'}
+        <span>{item.buttonLabel || 'Learn More'}</span>
       </a>
     ) : (
       <>
