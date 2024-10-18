@@ -643,6 +643,11 @@ section:last-of-type {
   object-fit: cover;
 }
 
+.has-cover-image.is-careers {
+  background: rgb(9 21 33);
+  background: linear-gradient(180deg, rgb(9 21 33) 0%, rgb(5 27 41) 98%);
+}
+
 @import 'components/_banner';
 @import 'components/_content-links';
 @import 'components/_items-panel';

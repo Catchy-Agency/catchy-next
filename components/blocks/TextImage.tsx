@@ -41,6 +41,7 @@ export const TextImage: FC<{
             lazyLoad={false}
             className="imageText"
             objectFit="cover"
+            objectPosition="50% 50%"
           />
         )}
         {!block.inverted ? (
