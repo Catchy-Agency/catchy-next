@@ -78,7 +78,7 @@
     .button {
       margin-top: 80px;
       span {
-        max-width: 245px;
+        max-width: clamp(216px, 10vw, 245px);
         display: inline-block;
       }
     }
