@@ -111,6 +111,16 @@
       display: none;
     }
   }
+
+  @media (pointer: coarse) and (hover: none) and (orientation: landscape) and (max-width: $desktop),
+    (orientation: portrait) and (pointer: coarse) and (hover: none) {
+    min-height: fit-content;
+    padding-bottom: 25%;
+    .text-container {
+      max-width: unset;
+    }
+  }
+
   @media (max-width: $tablet) {
     .text-container {
       padding: 5rem $mobile-padding;
