@@ -8,6 +8,10 @@
     flex-direction: column;
     height: 100%;
 
+    .title {
+      @include text-clamp(1);
+    }
+
     .team-dropdown {
       display: flex;
       flex-direction: row;
@@ -100,6 +104,10 @@
         &:hover::after {
           background-color: $turquoise;
         }
+      }
+
+      .subtitle {
+        @include text-clamp(2);
       }
     }
 
