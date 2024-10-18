@@ -47,7 +47,8 @@ export const LeadCaseStudy: FC<{
               data={image as ResponsiveImageType}
               lazyLoad={false}
               className="imageStudy"
-              objectFit="cover"
+              objectFit="contain"
+              objectPosition="left top"
             />
           )}
 
