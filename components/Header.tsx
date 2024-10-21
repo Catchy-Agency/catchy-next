@@ -74,7 +74,7 @@ export const Header: FC<{
             <a className="navbar-item">
               <img
                 src={header.logo?.url}
-                alt={header.logo?.alt || undefined}
+                alt={header.logo?.alt || 'Catchy company logo'}
                 title={header.logo?.title || undefined}
               />
             </a>
@@ -198,6 +198,11 @@ const DropdownLinks: FC<{
             'is-expanded': isExpanded,
           })}
           onClick={handleExpand}
+          aria-label={
+            isExpanded
+              ? 'Collapse navigation dropdown'
+              : 'Open navigation dropdown'
+          }
         >
           {AngleDown}
         </button>

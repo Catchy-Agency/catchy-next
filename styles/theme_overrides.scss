@@ -491,7 +491,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 .navbar-item.is-tab {
   display: flex;
-  gap: 10px;
+  gap: 3px;
   padding-left: 0px;
   padding-right: 0px;
   min-width: unset;
@@ -506,8 +506,10 @@ a.navbar-item.is-tab:not(.button):hover {
     border: none;
     padding: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    height: 24px;
+    width: 24px;
     > svg {
       transform: rotate(0deg);
       transition: transform 250ms ease-in-out;

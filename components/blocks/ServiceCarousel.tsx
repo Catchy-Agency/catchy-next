@@ -253,6 +253,7 @@ export const ServiceCarousel: FC<{
           tabIndex={activeIndicator === 0 ? -1 : 0}
           onClick={handleIndicatorClickLeft}
           data-button="left"
+          aria-label="Scroll left"
         >
           {RightCarouselArrow}
         </button>
@@ -284,6 +285,7 @@ export const ServiceCarousel: FC<{
           tabIndex={activeIndicator === numberOfIndicators - 1 ? -1 : 0}
           onClick={handleIndicatorClickRight}
           data-button="right"
+          aria-label="Scroll right"
         >
           {RightCarouselArrow}
         </button>

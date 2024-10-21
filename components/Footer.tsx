@@ -16,6 +16,13 @@ export const Footer: FC<{
     return undefined;
   }
 
+  const socialMediaLabel = (url = '') => {
+    const hostname = url ? new URL(url)?.hostname || '' : '';
+    const domainParts = hostname.split('.');
+    const domain = domainParts.length > 1 ? domainParts[1] : domainParts[0];
+    return domain ? `Follow us on ${domain}` : 'Send us an email';
+  };
+
   useEffect(() => {
     const form = document.getElementById(
       'contact-form',
@@ -37,6 +44,7 @@ export const Footer: FC<{
                     key={link.fontAwesomeIcon}
                     href={getIconLink(link)}
                     className="is-size-3 footer-icon"
+                    aria-label={socialMediaLabel(link?.url || '')}
                   >
                     <span className="fa-stack">
                       <i
@@ -63,7 +71,7 @@ export const Footer: FC<{
                 <a className="navbar-item">
                   <img
                     src={footer.footerLogo?.url}
-                    alt={footer.footerLogo?.alt || undefined}
+                    alt={footer.footerLogo?.alt || 'Catchy company logo'}
                     title={footer.footerLogo?.title || undefined}
                   />
                 </a>
