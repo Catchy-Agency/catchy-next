@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
+import { useStopInfiniteScroll } from '../../contexts/stopInfiniteScroll';
 import { PrimaryPageBySlug_primaryPage_blocks_BannerRecord } from '../../gql/types/PrimaryPageBySlug';
 import { heroSvgObject } from '../../util/heroSvgObject';
 import { scrollToContact } from '../../util/scrollToContact';
@@ -9,6 +10,7 @@ export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => {
   const router = useRouter();
+  const { setStopInfiniteScroll } = useStopInfiniteScroll();
 
   const slug = router.asPath;
 
@@ -55,7 +57,15 @@ export const Banner: FC<{
         {block.showContactButton === true && (
           <a
             className="button is-ghost"
-            onClick={scrollToContact}
+            onClick={() => {
+              const triggerItem = document.querySelector(
+                '[data-is-breakpoint=true]',
+              );
+              if (triggerItem) {
+                setStopInfiniteScroll(true);
+              }
+              scrollToContact();
+            }}
             tabIndex={0}
           >{`${block.contactButtonLabel || 'Contact Us'}`}</a>
         )}
