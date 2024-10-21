@@ -60,6 +60,11 @@
         }
       }
     }
+
+    @media (min-width: 1700px) {
+      padding-right: calc((100vw - 1440px) / 2);
+      padding-left: calc((100vw - 1440px) / 2);
+    }
   }
 
   @media (min-width: 2300px) {
@@ -74,8 +79,6 @@
     }
 
     .container-fullWidth {
-      padding: 0 35rem;
-
       .imageLead {
         clip-path: polygon(0 0, 100% 0, 100% 65%, 67% 100%, 0 100%, 0% 50%);
       }
