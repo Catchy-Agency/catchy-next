@@ -10,7 +10,7 @@ export const Banner: FC<{
   block: PrimaryPageBySlug_primaryPage_blocks_BannerRecord;
 }> = ({ block }) => {
   const router = useRouter();
-  const { setStopInfiniteScroll } = useStopInfiniteScroll();
+  const { handleStopInfiniteScroll } = useStopInfiniteScroll();
 
   const slug = router.asPath;
 
@@ -58,12 +58,7 @@ export const Banner: FC<{
           <a
             className="button is-ghost"
             onClick={() => {
-              const triggerItem = document.querySelector(
-                '[data-is-breakpoint=true]',
-              );
-              if (triggerItem) {
-                setStopInfiniteScroll(true);
-              }
+              handleStopInfiniteScroll('[data-is-breakpoint=true]');
               scrollToContact();
             }}
             tabIndex={0}

@@ -5,6 +5,7 @@ import React, { createContext, ReactNode, useContext, useState } from 'react';
 interface StopInfiniteScrollContextType {
   stopInfiniteScroll: boolean;
   setStopInfiniteScroll: React.Dispatch<React.SetStateAction<boolean>>;
+  handleStopInfiniteScroll: (triggerItemSelector: string) => void;
 }
 
 export const StopInfiniteScrollContext = createContext<
@@ -19,6 +20,7 @@ export const useStopInfiniteScroll = (): StopInfiniteScrollContextType => {
     return {
       stopInfiniteScroll: false,
       setStopInfiniteScroll: () => undefined,
+      handleStopInfiniteScroll: () => undefined,
     };
   }
   return context;
@@ -31,9 +33,21 @@ export const StopInfiniteScrollProvider = ({
 }) => {
   const [stopInfiniteScroll, setStopInfiniteScroll] = useState<boolean>(false);
 
+  const handleStopInfiniteScroll = (triggerItemSelector: string) => {
+    if (!triggerItemSelector) return;
+    const triggerItem = document.querySelector(triggerItemSelector);
+    if (triggerItem) {
+      setStopInfiniteScroll(true);
+    }
+  };
+
   return (
     <StopInfiniteScrollContext.Provider
-      value={{ stopInfiniteScroll, setStopInfiniteScroll }}
+      value={{
+        stopInfiniteScroll,
+        setStopInfiniteScroll,
+        handleStopInfiniteScroll,
+      }}
     >
       {children}
     </StopInfiniteScrollContext.Provider>
