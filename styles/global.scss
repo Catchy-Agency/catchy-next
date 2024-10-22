@@ -629,6 +629,36 @@ section:last-of-type {
   .content {
     @include text-clamp(3);
   }
+
+  .is-careers-item {
+    flex-wrap: 'wrap';
+    align-items: 'stretch';
+    user-select: 'none';
+
+    .card-rows-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .button:not(.is-ghost, .avoid-tf) {
+      @include font-size(16px, !important);
+      display: flex;
+      padding: 1rem;
+      letter-spacing: 0.05rem;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0;
+      margin-top: auto;
+
+      &::after {
+        position: relative;
+        transform: none;
+        right: unset;
+        top: unset;
+      }
+    }
+  }
 }
 
 // Flip content link images on mobile
