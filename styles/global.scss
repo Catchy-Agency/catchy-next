@@ -621,6 +621,16 @@ section:last-of-type {
   }
 }
 
+.card-rows {
+  .title {
+    @include text-clamp(2);
+  }
+
+  .content {
+    @include text-clamp(3);
+  }
+}
+
 // Flip content link images on mobile
 @media screen and (max-width: 768px) {
   .card-rows,
