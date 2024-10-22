@@ -22,6 +22,7 @@ import { PageError } from '../cms/PageError';
 import { PreviewBanner } from '../cms/PreviewBanner';
 import { LinkData } from '../content-links/LinkData';
 import { ThumbRows } from '../content-links/ThumbRows';
+import useBackgroundPattern from '../hooks/useBackgroundPattern';
 
 export interface BlogPostListPageProps {
   subscription: Subscription<AllBlogPosts>;
@@ -182,8 +183,9 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
       { scroll: false },
     );
   }
+  useBackgroundPattern();
   return (
-    <>
+    <div className={`primary-page`}>
       <Head>
         {renderMetaTags([
           ...(data?.primaryPage?._seoMetaTags || []),
@@ -200,7 +202,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
         }
         containerMax="widescreen"
       />
-      <section className="section CaseStudyPage">
+      <section className="section CaseStudyPage ignoreBg">
         <div className="container is-max-widescreen">
           <div className="blog-posts-container">
             <div className="blog-categories">
@@ -252,6 +254,6 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
         </div>
       </section>
       {data?.footer && <Footer footer={data?.footer} />}
-    </>
+    </div>
   );
 };

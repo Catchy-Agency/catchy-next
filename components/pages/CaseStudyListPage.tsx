@@ -17,6 +17,7 @@ import { Header } from '../Header';
 import { StaticCaseStudyCards } from '../blocks/StaticCaseStudyCards';
 import { PageError } from '../cms/PageError';
 import { PreviewBanner } from '../cms/PreviewBanner';
+import useBackgroundPattern from '../hooks/useBackgroundPattern';
 
 const PAGE_SIZE = 9;
 
@@ -66,7 +67,7 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       (a, b) => a.name?.localeCompare(b.name ?? '') ?? 0,
     );
   }, [data?.allWorkCategories]);
-
+  useBackgroundPattern();
   return (
     <div className="primary-page">
       <Head>
@@ -104,97 +105,98 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         textAlign={data?.primaryPage?.textAlign}
         containerMax="widescreen"
       />
-      <section
-        className="section CaseStudyPage"
-        style={{ paddingTop: '0', marginBottom: '1.5rem' }}
-      >
-        <div className="container is-max-widescreen has-text-left">
-          <h2
-            className="title is-2"
-            style={{ maxWidth: '100%', userSelect: 'none' }}
-          >
-            Check out our work
-          </h2>
-          <div className="categories-case-study">
-            {sortedCategories?.map((cat) => (
-              <div key={cat.id} className="mb-2 mr-2 is-inline-block">
-                {cat.slug === router.query.slug ? (
-                  <div className="tags are-medium has-addons">
-                    <span className="tag is-primary">
-                      {cat.name}
-                      &nbsp; &nbsp;
-                      <Link href="/work" scroll={false}>
-                        <a
-                          className="has-text-white"
-                          style={{
-                            margin: '-0.33rem -1rem',
-                            padding: '0.33rem 1rem',
-                          }}
-                        >
-                          ✕
-                        </a>
-                      </Link>
-                    </span>
-                  </div>
-                ) : (
-                  <Link
-                    href={`/work/category/${cat.slug || ''}`}
-                    scroll={false}
-                  >
-                    <a className="tag tag--lagoon is-medium">{cat.name}</a>
-                  </Link>
-                )}
-              </div>
-            ))}
+      <section>
+        <div
+          className="section CaseStudyPage"
+          style={{ paddingTop: '0', marginBottom: '1.5rem' }}
+        >
+          <div className="container is-max-widescreen has-text-left">
+            <h2
+              className="title is-2"
+              style={{ maxWidth: '100%', userSelect: 'none' }}
+            >
+              Check out our work
+            </h2>
+            <div className="categories-case-study">
+              {sortedCategories?.map((cat) => (
+                <div key={cat.id} className="mb-2 mr-2 is-inline-block">
+                  {cat.slug === router.query.slug ? (
+                    <div className="tags are-medium has-addons">
+                      <span className="tag is-primary">
+                        {cat.name}
+                        &nbsp; &nbsp;
+                        <Link href="/work" scroll={false}>
+                          <a
+                            className="has-text-white"
+                            style={{
+                              margin: '-0.33rem -1rem',
+                              padding: '0.33rem 1rem',
+                            }}
+                          >
+                            ✕
+                          </a>
+                        </Link>
+                      </span>
+                    </div>
+                  ) : (
+                    <Link
+                      href={`/work/category/${cat.slug || ''}`}
+                      scroll={false}
+                    >
+                      <a className="tag tag--lagoon is-medium">{cat.name}</a>
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
-      <section
-        className="ContentLinkSetRecord card--columns"
-        style={{ marginTop: '0' }}
-      >
-        <div className="container is-max-widescreen">
-          <StaticCaseStudyCards link={visibleLinks} />
-          {links.length === 0 && (
-            <div className="section is-size-3 is-italic has-text-centered">
-              No work to show
+        <div
+          className="ContentLinkSetRecord card--columns"
+          style={{ marginTop: '0' }}
+        >
+          <div className="container is-max-widescreen">
+            <StaticCaseStudyCards link={visibleLinks} />
+            {links.length === 0 && (
+              <div className="section is-size-3 is-italic has-text-centered">
+                No work to show
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="section pt-4 pb-6">
+          {pageCount > 1 && (
+            <div className="container is-max-widescreen case-study-navigation">
+              <Link href={`${path}?p=${pageNum - 1}`}>
+                <button
+                  className="button is-small avoid-tf case-study-navigation-button nav-left"
+                  onClick={buttonClickBlur}
+                  disabled={pageNum <= 1}
+                  style={{ visibility: pageNum > 1 ? 'visible' : 'hidden' }}
+                />
+              </Link>
+
+              <span
+                className="mx-5 case-study-navigation-title"
+                style={{ verticalAlign: 'sub' }}
+              >
+                Page {pageNum} of {pageCount}
+              </span>
+
+              <Link href={`${path}?p=${pageNum + 1}`}>
+                <button
+                  className="button is-small avoid-tf case-study-navigation-button"
+                  onClick={buttonClickBlur}
+                  disabled={pageNum >= pageCount}
+                  style={{
+                    visibility: pageNum < pageCount ? 'visible' : 'hidden',
+                  }}
+                />
+              </Link>
             </div>
           )}
         </div>
       </section>
-      <section className="section pt-4 pb-6">
-        {pageCount > 1 && (
-          <div className="container is-max-widescreen case-study-navigation">
-            <Link href={`${path}?p=${pageNum - 1}`}>
-              <button
-                className="button is-small avoid-tf case-study-navigation-button nav-left"
-                onClick={buttonClickBlur}
-                disabled={pageNum <= 1}
-                style={{ visibility: pageNum > 1 ? 'visible' : 'hidden' }}
-              />
-            </Link>
-
-            <span
-              className="mx-5 case-study-navigation-title"
-              style={{ verticalAlign: 'sub' }}
-            >
-              Page {pageNum} of {pageCount}
-            </span>
-
-            <Link href={`${path}?p=${pageNum + 1}`}>
-              <button
-                className="button is-small avoid-tf case-study-navigation-button"
-                onClick={buttonClickBlur}
-                disabled={pageNum >= pageCount}
-                style={{
-                  visibility: pageNum < pageCount ? 'visible' : 'hidden',
-                }}
-              />
-            </Link>
-          </div>
-        )}
-      </section>
-
       {data?.footer && <Footer footer={data?.footer} />}
     </div>
   );

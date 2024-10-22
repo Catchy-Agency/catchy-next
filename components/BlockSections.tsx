@@ -216,7 +216,10 @@ export const BlockSections: FC<{
           }
           case 'CaseStudyTileRecord':
             return (
-              <section key={block.id} className="section LeadCaseStudy">
+              <section
+                key={block.id}
+                className={`section LeadCaseStudy rightImage`}
+              >
                 <div className={classNames('container', maxClass)}>
                   <LeadCaseStudy block={block} />
                 </div>
@@ -474,7 +477,12 @@ export const BlockSections: FC<{
 
           case 'TextImageSmallRecord':
             return (
-              <section key={block.id} className="section TextImage">
+              <section
+                key={block.id}
+                className={`section TextImage ${
+                  block.inverted ? 'leftImage' : 'rightImage'
+                }`}
+              >
                 <div className={classNames('container', maxClass)}>
                   <TextImage block={block} />
                 </div>
@@ -485,9 +493,14 @@ export const BlockSections: FC<{
             return (
               <section
                 key={block.id}
-                className={classNames('section', 'TitleTextRecord', {
-                  'has-background-grey-darker': block.addLightBackground,
-                })}
+                className={classNames(
+                  'section',
+                  'TitleTextRecord',
+                  'ignoreBg',
+                  {
+                    'has-background-grey-darker': block.addLightBackground,
+                  },
+                )}
               >
                 <div className={classNames('container', maxClass, alignClass)}>
                   <TitleText block={block} />
