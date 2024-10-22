@@ -154,12 +154,6 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
         style={{ marginTop: '0' }}
       >
         <div className="container is-max-widescreen">
-          {/*       <ContentTileS
-            contentSize={'Small'}
-            displaySize={null}
-            links={visibleLinks}
-            isSlider={false}
-          /> */}
           <StaticCaseStudyCards link={visibleLinks} />
           {links.length === 0 && (
             <div className="section is-size-3 is-italic has-text-centered">

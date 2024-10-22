@@ -97,6 +97,9 @@ form {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    @media (max-width: $tablet) {
+      height: 20vh;
+    }
   }
 
   .privacy p {

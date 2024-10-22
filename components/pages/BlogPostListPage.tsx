@@ -8,6 +8,7 @@ import {
   useQuerySubscription,
 } from 'react-datocms';
 
+import { useStopInfiniteScroll } from '../../contexts/stopInfiniteScroll';
 import {
   AllBlogPosts,
   AllBlogPosts_allBlogPosts,
@@ -39,6 +40,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
   const [currentDisplay, setCurrentDisplay] = useState<number>(0);
   const AMOUNT_OF_ITEMS = 10;
   const observer = useRef<IntersectionObserver>();
+  const { stopInfiniteScroll, setStopInfiniteScroll } = useStopInfiniteScroll();
 
   useEffect(() => {
     getPosts(0).catch((err: Error) => {
@@ -53,7 +55,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
 
   useEffect(() => {
     const triggerItem = document.querySelector('[data-is-breakpoint=true]');
-    if (!triggerItem) return;
+    if (!triggerItem || stopInfiniteScroll) return;
     observer.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -82,7 +84,31 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
 
     return () => observer.current && observer.current.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentDisplay, blogPosts]);
+  }, [currentDisplay, blogPosts, stopInfiniteScroll]);
+
+  useEffect(() => {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            setStopInfiniteScroll(false);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(contactForm);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [setStopInfiniteScroll]);
 
   const sortedCategories = useMemo(() => {
     if (!data?.allCategories) return undefined;

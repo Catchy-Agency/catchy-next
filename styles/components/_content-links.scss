@@ -253,13 +253,13 @@ div[class^='swiper-button-'] {
 .swiper-button-prev-btn {
   align-items: center;
   left: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(-80%, -50%);
   z-index: 10;
   cursor: pointer;
 }
 .swiper-button-next-btn {
   right: 0;
-  transform: translate(50%, -50%);
+  transform: translate(80%, -50%);
   cursor: pointer;
 }
 
@@ -295,6 +295,8 @@ div[class*='swiper-pagination-container'] {
 .SingleCaseStudy {
   .ContentLinkSetRecord {
     .card {
+      display: flex;
+      flex-direction: column;
       h3,
       &-content,
       a,
@@ -311,6 +313,19 @@ div[class*='swiper-pagination-container'] {
 
       &-content {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        h3 {
+          @include text-clamp(3);
+        }
+        > div {
+          @include text-clamp(8);
+        }
+        .card-button {
+          margin-top: auto;
+        }
         .is-ghost {
           &::before {
             background-color: $anthracite;

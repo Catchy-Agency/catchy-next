@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import {
   PrimaryPageBySlug_footer,
   PrimaryPageBySlug_footer_socialLinks,
@@ -15,6 +15,23 @@ export const Footer: FC<{
     if (link.email) return `mailto:${link.email}`;
     return undefined;
   }
+
+  const socialMediaLabel = (url = '') => {
+    const hostname = url ? new URL(url)?.hostname || '' : '';
+    const domainParts = hostname.split('.');
+    const domain = domainParts.length > 1 ? domainParts[1] : domainParts[0];
+    return domain ? `Follow us on ${domain}` : 'Send us an email';
+  };
+
+  useEffect(() => {
+    const form = document.getElementById(
+      'contact-form',
+    ) as HTMLFormElement | null;
+    if (form) {
+      form.reset();
+    }
+  }, []);
+
   return (
     <footer className="section Footer _has-background-grey-darker" data-footer>
       <div className="container is-max-widescreen">
@@ -27,6 +44,7 @@ export const Footer: FC<{
                     key={link.fontAwesomeIcon}
                     href={getIconLink(link)}
                     className="is-size-3 footer-icon"
+                    aria-label={socialMediaLabel(link?.url || '')}
                   >
                     <span className="fa-stack">
                       <i
@@ -53,7 +71,7 @@ export const Footer: FC<{
                 <a className="navbar-item">
                   <img
                     src={footer.footerLogo?.url}
-                    alt={footer.footerLogo?.alt || undefined}
+                    alt={footer.footerLogo?.alt || 'Catchy company logo'}
                     title={footer.footerLogo?.title || undefined}
                   />
                 </a>
@@ -122,7 +140,9 @@ export const Footer: FC<{
                   <button
                     type="submit"
                     className="button is-ghost"
-                    onClick={() => pageview('/contact')}
+                    onClick={() => {
+                      pageview('/contact');
+                    }}
                   >
                     Submit
                   </button>

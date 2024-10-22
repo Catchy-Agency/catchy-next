@@ -9,6 +9,7 @@ $cam-gray3: #56636b;
 $border-color-gray: #444f57;
 $global-padding: 10rem;
 $mobile-padding: 2.5rem;
+$tablet-padding: 5rem;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -37,6 +38,9 @@ body.has-navbar-fixed-top {
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
   margin: 5.6% 0;
+  @media (max-width: 1023px) {
+    padding: 0 $tablet-padding;
+  }
   @media (max-width: $tablet) {
     padding: $mobile-padding;
   }
@@ -45,6 +49,9 @@ section:not(.has-background-grey-darker) {
 .section.Footer {
   padding: 5rem $global-padding;
   margin: 3% 0;
+  @media (max-width: 1023px) {
+    padding: 5rem $tablet-padding;
+  }
   @media (max-width: $tablet) {
     padding: $mobile-padding;
   }
@@ -66,6 +73,9 @@ section:last-of-type {
     padding-right: unset;
     @include bdy-com;
     font-weight: 700;
+  }
+  .tags.are-medium .tag:not(.is-normal):not(.is-large) {
+    @include bdy-com;
   }
 
   .categories-case-study {
@@ -100,6 +110,8 @@ section:last-of-type {
 
   @media (max-width: $tablet) {
     overflow: hidden;
+    padding-bottom: 120px;
+    padding-top: 60px;
   }
 
   > .container {
@@ -119,48 +131,66 @@ section:last-of-type {
     }
   }
   .LeftUp {
-    top: 110px;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 40vh;
-        width: 10vw;
-      }
+    left: 0;
+    padding-top: 141px;
+    width: 51.8%;
+    padding-right: 583px;
+    justify-content: flex-end;
+    display: flex;
+
+    > svg {
+      display: block;
+      margin: 0px;
+      flex-shrink: 0;
     }
-    @media (max-width: $tablet) {
-      display: unset;
+
+    @media screen and (max-width: $tablet) {
+      width: 100%;
+      padding-top: 0;
+      aspect-ratio: 430/250;
+      top: -32px;
+      padding-right: clamp(265px, 100% - 174px, 100% - 174px);
+      align-items: flex-end;
+      > svg {
+        display: block;
+        margin: 0;
+      }
     }
   }
   .leftDown {
-    bottom: -15px;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 40vh;
-        width: 10vw;
-      }
+    width: 48%;
+    bottom: 95px;
+    left: 0;
+    > svg {
+      display: flex;
+      margin: 0px 528px 0px auto;
     }
   }
   .RightDown {
-    bottom: -55px;
+    width: 52%;
     right: 0;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 60vh;
-        width: 45vw;
-      }
+    bottom: -102px;
+    > svg {
+      margin: 0px auto 0px 145px;
+      display: flex;
     }
-    @media (max-width: $tablet) {
-      display: unset;
-      transform: translateX(48%);
+
+    @media screen and (max-width: $tablet) {
+      display: block;
+      width: 100%;
+      bottom: -120px;
+
+      > svg {
+        margin: 0px auto 0px 110px;
+      }
     }
   }
   .RightUp {
-    top: -45px;
     right: 0;
-    @media (min-width: 1700px) {
-      > svg {
-        height: 60vh;
-        width: 43vw;
-      }
+    width: 51.2%;
+
+    > svg {
+      margin: 0px auto 0px 126px;
     }
   }
 }
@@ -218,10 +248,6 @@ section:last-of-type {
     width: 100%;
     height: 100%;
     max-width: unset;
-  }
-
-  @media (max-width: calc(1024px + 200px)) {
-    padding: unset;
   }
 }
 
@@ -288,6 +314,9 @@ section:last-of-type {
   .section.Blog,
   .block-sections {
     padding: 3rem $global-padding;
+    @media (max-width: 1023px) {
+      padding: 3rem $tablet-padding;
+    }
     @media (max-width: $tablet) {
       padding: $mobile-padding;
     }
@@ -397,6 +426,9 @@ section:last-of-type {
     .section.ColumnRowRecord {
       color: $anthracite;
       padding: 0 18rem;
+      @media (max-width: 1100px) {
+        padding: 0 12rem;
+      }
       @media (max-width: 1024px) {
         padding: 0 $global-padding;
       }
@@ -404,8 +436,29 @@ section:last-of-type {
         padding: $mobile-padding;
       }
 
-      a {
-        text-decoration: underline;
+      .button {
+        color: $anthracite;
+        &::after {
+          content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23212121%22%20stroke%3D%22%23212121%22%2F%3E%3C%2Fsvg%3E');
+        }
+        &:hover,
+        &:focus,
+        &:active {
+          &:after {
+            content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%231dbc83%22%20stroke%3D%22%231dbc83%22%2F%3E%3C%2Fsvg%3E');
+          }
+        }
+
+        &.is-primary {
+          border: 1px solid $anthracite;
+          &:hover,
+          &:focus,
+          &:active {
+            box-shadow: unset;
+            border: 1px solid $catchy-50;
+            text-decoration: none;
+          }
+        }
       }
 
       .content {
@@ -476,10 +529,6 @@ section:last-of-type {
       }
     }
 
-    > .section.ColumnRowRecord {
-      padding: 0 18rem;
-    }
-
     > .section.TeamRecord {
       .img-container {
         background-color: $anthracite;
@@ -488,13 +537,36 @@ section:last-of-type {
         color: $anthracite !important;
       }
     }
-  }
-}
 
-.block-sections {
-  padding: unset !important;
-  @media (max-width: $tablet) {
-    padding: unset !important;
+    > .section.ContentLinkSetRecord {
+      .button {
+        color: $anthracite;
+        &::after {
+          content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%23212121%22%20stroke%3D%22%23212121%22%2F%3E%3C%2Fsvg%3E');
+        }
+        &:hover,
+        &:focus,
+        &:active {
+          &:after {
+            content: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2219%22%20viewBox%3D%220%200%2017%2019%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M1%200.90332L1%202.42166L12.4566%209.03399L0.999999%2015.6463L0.999999%2017.1647L15.0857%209.03399L1%200.90332Z%22%20fill%3D%22%231dbc83%22%20stroke%3D%22%231dbc83%22%2F%3E%3C%2Fsvg%3E');
+          }
+        }
+
+        &.is-primary {
+          border: 1px solid $anthracite;
+          &:hover,
+          &:focus,
+          &:active {
+            box-shadow: unset;
+            border: 1px solid $catchy-50;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .has-background-grey-darker {
+    background-color: $anthracite !important;
   }
 }
 
@@ -513,7 +585,15 @@ section:last-of-type {
     }
   }
 }
-
+.box {
+  background-color: $soup-background;
+  h1 {
+    color: $anthracite;
+  }
+  a {
+    color: $turquoise;
+  }
+}
 //
 // More fragile hacks
 
@@ -561,6 +641,11 @@ section:last-of-type {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.has-cover-image.is-careers {
+  background: rgb(9 21 33);
+  background: linear-gradient(180deg, rgb(9 21 33) 0%, rgb(5 27 41) 98%);
 }
 
 @import 'components/_banner';

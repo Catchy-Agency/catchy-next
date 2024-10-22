@@ -7,6 +7,7 @@ import {
   useQuerySubscription,
 } from 'react-datocms';
 
+import classNames from 'classnames';
 import {
   ContentPageBySlug,
   ContentPageBySlug_contentPage_parent,
@@ -25,6 +26,8 @@ export const ContentPage: NextPage<{
 }> = ({ subscription }) => {
   const { data, error, status } =
     useQuerySubscription<ContentPageBySlug>(subscription);
+
+  const slug = data?.contentPage?.slug || '';
 
   const ancestors = extractAncestors(data?.contentPage?.parent || null, []);
 
@@ -75,7 +78,7 @@ export const ContentPage: NextPage<{
         {data?.header && <Header header={data?.header} />}
         {!hideBreadcrumb && (
           <header className="section Blog">
-            <div className="container is-max-desktop">
+            <div className="container is-max-widescreen">
               <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li>
@@ -110,7 +113,12 @@ export const ContentPage: NextPage<{
         {links.length > 0 && (
           <section className="section">
             <div className="container is-max-desktop">
-              <CardRows links={links} />
+              <CardRows
+                className={classNames('', {
+                  'is-careers': slug === 'careers',
+                })}
+                links={links}
+              />
             </div>
           </section>
         )}

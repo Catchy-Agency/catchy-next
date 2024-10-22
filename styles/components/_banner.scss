@@ -54,19 +54,25 @@
   .text-container {
     z-index: 10;
     padding: 5rem $global-padding;
-    width: 95%;
+    max-width: 80%;
     .titleHero {
       @include text-clamp(4);
       line-height: 1.5 !important;
+      text-wrap: balance;
     }
     .text-description {
       @include text-clamp(6);
       @include description-hero();
       margin-bottom: 80px;
+      text-wrap: balance;
     }
     @media (min-width: 1700px) {
       padding-left: calc((100vw - 1440px) / 2);
       padding-top: 20vh;
+      max-width: 75%;
+    }
+    @media (max-width: 1023px) {
+      padding: 3rem $tablet-padding;
     }
   }
   .svg-right {
@@ -97,11 +103,6 @@
   @media (max-width: 1024px) {
     height: 100vh;
 
-    .text-container {
-      padding: 0 $global-padding;
-      width: unset;
-    }
-
     .svg-right {
       display: none;
     }
@@ -110,6 +111,16 @@
       display: none;
     }
   }
+
+  @media (pointer: coarse) and (hover: none) and (orientation: landscape) and (max-width: $desktop),
+    (orientation: portrait) and (pointer: coarse) and (hover: none) {
+    min-height: fit-content;
+    padding-bottom: 25%;
+    .text-container {
+      max-width: unset;
+    }
+  }
+
   @media (max-width: $tablet) {
     .text-container {
       padding: 5rem $mobile-padding;

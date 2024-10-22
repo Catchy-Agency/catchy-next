@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
 import { FC, useEffect, useMemo, useState } from 'react';
 
+import { useStopInfiniteScroll } from '../contexts/stopInfiniteScroll';
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
 import avoidSameRouteNavigation from '../util/avoidSameRouteNavigation';
 import { scrollToContact } from '../util/scrollToContact';
@@ -12,6 +13,7 @@ export const Header: FC<{
   header: PrimaryPageBySlug_header;
 }> = ({ header }) => {
   const router = useRouter();
+  const { handleStopInfiniteScroll } = useStopInfiniteScroll();
   const [isOpen, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const toggleOpen = () => {
@@ -72,7 +74,7 @@ export const Header: FC<{
             <a className="navbar-item">
               <img
                 src={header.logo?.url}
-                alt={header.logo?.alt || undefined}
+                alt={header.logo?.alt || 'Catchy company logo'}
                 title={header.logo?.title || undefined}
               />
             </a>
@@ -137,8 +139,12 @@ export const Header: FC<{
             )}
             {/* Contact link */}
             <a
-              className="navbar-item is-tab button is-ghost"
-              onClick={scrollToContact}
+              className="navbar-item is-tab is-ghost"
+              onClick={() => {
+                handleStopInfiniteScroll('[data-is-breakpoint=true]');
+                scrollToContact();
+              }}
+              tabIndex={0}
             >
               {header.contactLinkLabel}
             </a>
@@ -192,6 +198,11 @@ const DropdownLinks: FC<{
             'is-expanded': isExpanded,
           })}
           onClick={handleExpand}
+          aria-label={
+            isExpanded
+              ? 'Collapse navigation dropdown'
+              : 'Open navigation dropdown'
+          }
         >
           {AngleDown}
         </button>

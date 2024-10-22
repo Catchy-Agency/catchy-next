@@ -76,16 +76,18 @@ const CardContent: FC<CardProps> = ({
       <div className="card-content">
         {link.title && <h3 className="title is-3">{link.title}</h3>}
         {link.description && <div className="content">{link.description}</div>}
-        <Link href={link.url || ''}>
-          <a
-            className="button is-ghost mt-3"
-            aria-label={`${
-              link.callToAction || `View ${link?.title || 'more'}`
-            }`}
-          >
-            {link.callToAction}
-          </a>
-        </Link>
+        <div className="card-button">
+          <Link href={link.url || ''}>
+            <a
+              className="button is-ghost mt-3"
+              aria-label={`${
+                link.callToAction || `View ${link?.title || 'more'}`
+              }`}
+            >
+              {link.callToAction}
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );

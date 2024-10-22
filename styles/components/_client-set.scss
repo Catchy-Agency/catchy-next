@@ -1,47 +1,101 @@
+.container-Soup {
+  background-color: $soup-background;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.triangleTopRight {
+  width: 55.2%;
+  width: 51.2%;
+  background-color: #212121;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  position: absolute;
+  right: 0;
+  top: -2px;
+  aspect-ratio: 882 / 512;
+  background-color: $anthracite;
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.triangleTopLeft {
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 50.8%;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  aspect-ratio: 1440 / 831.42;
+
+  background-color: $anthracite;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+    top: -1px;
+    aspect-ratio: 430/250;
+  }
+}
+
+.triangleBottomRight {
+  aspect-ratio: 980 / 567;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  width: 52%;
+  background-color: $anthracite;
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+    aspect-ratio: 430/250;
+  }
+}
+
+.triangleBottomLeft {
+  aspect-ratio: 806 / 465;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 48%;
+  background-color: $anthracite;
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
 .soupWrapper {
   padding: unset;
   margin: unset;
   width: 100%;
   height: 100%;
   position: relative;
+  //////
+  display: flex;
+  justify-content: center;
 
-  .soupTitle {
-    height: 55vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    transform: translateY(1px);
-
-    &::before {
-      content: '';
-      user-select: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-
-      background-image: conic-gradient(
-        from 240deg at 47% 0%,
-        transparent 240deg,
-        #d4d6d9 230deg
-      );
-    }
-  }
   > .columns {
     margin: unset;
   }
 
   .soupContent {
     background-color: $soup-background;
-    padding: 0 $global-padding;
+    padding: 30vh $global-padding;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     user-select: none;
     gap: 2.5rem;
+    ////
+    max-width: 1440px;
+    height: fit-content;
+    padding: 0 10rem;
+    max-height: 1370px;
+    min-height: 1355px;
+
     .textContent {
       max-width: 1440px;
       width: 100%;
@@ -71,6 +125,11 @@
       align-items: center;
       max-width: 1440px;
     }
+
+    .buttonContent {
+      align-self: baseline;
+    }
+
     @media (max-width: 1200px) {
       padding: 0 $global-padding;
       > .columns.is-variable.is-5 {
@@ -85,81 +144,16 @@
     }
   }
 
-  .soupBottom {
-    height: 60vh;
-    transform: translateY(-2px);
-    padding: 2rem $global-padding;
-    display: flex;
-    justify-content: center;
-
-    .buttonContent {
-      width: 100%;
-      max-width: 1440px;
-    }
-
-    &::before {
-      content: '';
-      user-select: none;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-
-      background-image: conic-gradient(
-        from 60deg at 42% 100%,
-        transparent 235deg,
-        $soup-background 235deg
-      );
-    }
-  }
-
-  @media (min-width: 1500px) {
-    .soupTitle {
-      height: 70vh;
-    }
-    .soupBottom {
-      height: 80vh;
-    }
-  }
-  @media (max-width: 1024px) {
-    .soupTitle {
-      height: 40vh;
-    }
-    .soupBottom {
-      height: 50vh;
+  @media (max-width: 1023px) {
+    .soupContent {
+      padding: 0 $tablet-padding;
     }
   }
 
   @media (max-width: $tablet) {
-    .soupTitle {
-      transform: translateY(110px);
-      height: 60vh;
-
-      &:before {
-        background-image: linear-gradient(
-          150deg,
-          transparent 40%,
-          $soup-background 40%
-        );
-      }
-    }
-
     .soupContent {
-      padding: 0 $mobile-padding;
-    }
-
-    .soupBottom {
-      padding: $mobile-padding;
-      height: 60vh;
-
-      &:before {
-        background-image: linear-gradient(
-          -30deg,
-          transparent 40%,
-          $soup-background 40%
-        );
-      }
+      min-height: fit-content;
+      padding: 35vh $mobile-padding 22vh $mobile-padding;
     }
   }
 }
