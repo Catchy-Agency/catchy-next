@@ -17,13 +17,11 @@ export const StaticCardsStack: FC<{
         {items?.map((item, i) => (
           <li className="static-card-item-wrapper" key={item.id || i}>
             <div className="static-card-item">
-              <div className="card-item-image">
-                {item.image && (
-                  <div className="card-item-image">
-                    <Image data={item.image} lazyLoad={false} />
-                  </div>
-                )}
-              </div>
+              {item.image && (
+                <div className="card-item-image">
+                  <Image data={item.image} lazyLoad={false} />
+                </div>
+              )}
 
               <ul className="card-item-content">
                 <PanelCards key={`item-${item.id || i}`} item={item} />

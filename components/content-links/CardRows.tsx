@@ -23,18 +23,19 @@ export const CardRows: FC<
       {links.map((link) => (
         <div
           key={link.id}
-          className="columns is-gapless has-background-grey-darker"
-          style={{
-            flexWrap: 'wrap',
-            alignItems: 'stretch',
-            userSelect: 'none',
-          }}
+          className={`columns is-gapless has-background-grey-darker ${classNames(
+            {
+              'is-careers-item': isCareers,
+            },
+          )}`}
         >
           <div className="column is-7">
-            <div className="p-6">
-              {link.title && <div className="title is-4">{link.title}</div>}
+            <div className="p-6 card-rows-content">
+              {link.title && <h3 className="title">{link.title}</h3>}
               {link.description && (
-                <div className="content has-text-light">{link.description}</div>
+                <h4 className="subtitle is-5 has-text-light">
+                  {link.description}
+                </h4>
               )}
 
               <Link href={link.url || ''}>
