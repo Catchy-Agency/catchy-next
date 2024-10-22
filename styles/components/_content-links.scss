@@ -237,12 +237,19 @@ div[class^='swiper-button-'] {
   circle {
     transition: 0.2s fill ease-out;
   }
+  circle {
+    fill: $anthracite;
+    stroke: $turquoise;
+  }
+  path {
+    fill: $turquoise;
+  }
   &:hover {
     path {
-      fill: $grey-darkest;
+      fill: $anthracite;
     }
     circle {
-      fill: $primary;
+      fill: $turquoise;
       fill-opacity: 1;
     }
   }
