@@ -92,6 +92,7 @@ export const Footer: FC<{
               id="contact-form"
               action={footer.destinationEmail || ''}
               method="POST"
+              autoComplete="off"
             >
               <div className="field is-grouped pb-5 info-personal">
                 <div className="control is-expanded _has-icons-left mr-5 input-name">
@@ -101,6 +102,7 @@ export const Footer: FC<{
                     name="firstname"
                     placeholder={footer.firstNameLabel || 'First Name'}
                     required
+                    autoComplete="off"
                   />
                 </div>
                 <div className="control is-expanded _has-icons-left ml-5 input-lastName">
@@ -110,6 +112,7 @@ export const Footer: FC<{
                     name="lastname"
                     placeholder={footer.lastNameLabel || 'Last Name'}
                     required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -121,6 +124,7 @@ export const Footer: FC<{
                     name="_replyto"
                     placeholder={footer.emailAddressLabel || undefined}
                     required
+                    autoComplete="off"
                   />
                 </div>
               </div>
@@ -132,6 +136,7 @@ export const Footer: FC<{
                     placeholder={footer.messageLabel || undefined}
                     rows={1}
                     required
+                    autoComplete="off"
                   />
                 </div>
               </div>
