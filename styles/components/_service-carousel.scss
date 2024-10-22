@@ -42,10 +42,10 @@ $item-responsive-gap: 5vw;
         gap: clamp(10px, 2vw, 20px);
         .SC-indicator-item {
           width: 15px;
-          height: 15px;
           border: 1px solid #ffffff;
           border-radius: 50%;
           transition: background-color 150ms ease-in-out;
+          aspect-ratio: 1 / 1;
 
           cursor: pointer;
           &:hover {
