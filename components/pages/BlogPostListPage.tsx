@@ -243,7 +243,7 @@ export const BlogPostListPage: NextPage<BlogPostListPageProps> = ({
                 isBreakpoint={isBreakpoint}
               />
               {blogPosts.length === 0 && (
-                <div className="section is-size-3 is-italic has-text-centered">
+                <div className="section is-size-3 has-text-centered">
                   No posts to show
                 </div>
               )}
