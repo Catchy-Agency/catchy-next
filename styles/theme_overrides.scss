@@ -491,7 +491,7 @@ a.navbar-item.is-tab:not(.button):hover {
 
 .navbar-item.is-tab {
   display: flex;
-  gap: 3px;
+  gap: 10px;
   padding-left: 0px;
   padding-right: 0px;
   min-width: unset;
@@ -506,13 +506,23 @@ a.navbar-item.is-tab:not(.button):hover {
     border: none;
     padding: 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 24px;
     width: 24px;
     > svg {
       transform: rotate(0deg);
       transition: transform 250ms ease-in-out;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      svg {
+        transform: rotate(180deg);
+        > path {
+          fill: $turquoise;
+        }
+      }
     }
   }
   &::before {
@@ -547,14 +557,6 @@ a.navbar-item.is-tab:not(.button):hover {
       text-decoration: none;
       &::before {
         transform: scaleX(1);
-      }
-      > button {
-        svg {
-          transform: rotate(180deg);
-          > path {
-            fill: $turquoise;
-          }
-        }
       }
     }
   }
