@@ -108,7 +108,12 @@ export const CaseStudyListPage: NextPage<CaseStudyListPageProps> = ({
       <section>
         <div
           className="section CaseStudyPage"
-          style={{ paddingTop: '0', marginBottom: '1.5rem' }}
+          style={{
+            paddingTop: '0',
+            paddingLeft: '0',
+            paddingRight: '0',
+            marginBottom: '1.5rem',
+          }}
         >
           <div className="container is-max-widescreen has-text-left">
             <h2

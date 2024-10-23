@@ -716,17 +716,27 @@ section:not(.has-background-grey-darker) {
   position: relative;
   width: 100%;
   display: flex;
-  margin: -9vw auto;
+  margin: max(-200px, -9vw) auto;
   z-index: -1;
   max-width: 2100px;
   justify-content: flex-end;
   max-height: 400px;
   > svg {
-    width: clamp(280px, 25vw, 350px);
+    > {
+      g {
+        width: 100%;
+      }
+    }
+    width: min(100%, clamp(280px, 25vw, 350px));
   }
   &.left {
     justify-content: flex-start;
-    margin: -9vw auto;
+    margin: max(-200px, -9vw) auto;
+    &.inverted {
+      > svg {
+        transform: rotateY(180deg);
+      }
+    }
   }
   @media (max-width: 1023px) {
     display: none;

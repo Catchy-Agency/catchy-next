@@ -11,10 +11,16 @@ import {
 export default function useBackgroundPattern() {
   const router = useRouter();
 
-  function getElementAlignment() {
-    if (router.asPath === '/work') {
+  function getElementAlignment(element: HTMLElement) {
+    if (
+      router.asPath === '/work' ||
+      element.classList.contains('rightImage') ||
+      (element.nextSibling &&
+        (element.nextSibling as HTMLElement).classList.contains('rightImage'))
+    ) {
       return 'left';
     }
+
     return 'right';
   }
 
@@ -35,6 +41,10 @@ export default function useBackgroundPattern() {
       default:
         return `${BackgroundPatternHome}`;
     }
+  }
+  function shouldInvert(alignment: string) {
+    if (router.asPath === '/work') return 'regular';
+    return alignment === 'left' ? 'inverted' : 'regular';
   }
 
   const handlePositioning = useCallback(() => {
@@ -62,12 +72,13 @@ export default function useBackgroundPattern() {
     const filteredSections = sections.filter(
       (section) => !section.classList.contains('ignoreBg'),
     );
-    const position = Math.min(
-      Math.floor(Math.random() * filteredSections.length) + 1,
-      filteredSections.length - 1,
-    );
+    const position =
+      filteredSections.length <= 2
+        ? 0
+        : Math.min(Math.floor(Math.random() * filteredSections.length));
     const element = filteredSections[position] as HTMLElement;
-    div.classList.add(getElementAlignment());
+    const alignment = getElementAlignment(element);
+    div.classList.add(alignment, shouldInvert(alignment));
     if (element && element.parentNode) {
       element.parentNode.insertBefore(div, element.nextSibling);
     }

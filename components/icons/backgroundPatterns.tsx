@@ -122,7 +122,7 @@ export const BackgroundPatternHome = `
     </g>
   </svg>`;
 
-export const BackgroundPatternWhatWeDo = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 280.3 416">
+export const BackgroundPatternWhatWeDo = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 280.3 416" preserveAspectRatio="xMaxYMin meet">
   <defs>
     <style>
       .cls-1 {
