@@ -637,6 +637,13 @@ a.navbar-item.is-tab:not(.button):hover {
   }
 }
 
+.navbar-item.has-dropdown.is-hovered .navbar-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
 .navbar-end {
   align-items: center;
   gap: 30px;

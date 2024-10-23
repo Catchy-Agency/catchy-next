@@ -165,24 +165,42 @@ const DropdownLinks: FC<{
   slug: string;
 }> = ({ title, links, isDropdownActive, router, slug }) => {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [hovered, setHovered] = useState(false);
 
-  function handleExpand(e: React.MouseEvent) {
+  function handleExpand(e: React.MouseEvent | React.KeyboardEvent) {
     e.preventDefault();
     e.stopPropagation();
     if (typeof window === 'undefined') return;
     if (window.innerWidth > 1024) return;
     setExpanded((prevExpanded) => (prevExpanded === title ? null : title));
   }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (e.key === 'Enter') {
+      setHovered((prevHovered) => !prevHovered);
+    }
+  }
+
+  function handleBlur(e: React.FocusEvent<HTMLDivElement>) {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setHovered(false);
+    }
+  }
+
   const isPrimaryPageActive = slug === router.query.slug;
   const isExpanded = expanded === title;
 
   return (
     <div
-      className="navbar-item has-dropdown is-hoverable"
+      className={classNames('navbar-item has-dropdown is-hoverable', {
+        'is-hovered': hovered,
+      })}
       onClick={(e) => {
         // Prevent dropdown from hanging around
         (e.target as HTMLElement).blur();
       }}
+      onBlur={handleBlur}
+      tabIndex={-1}
     >
       <a
         className={classNames('navbar-item', 'is-tab', {
@@ -198,6 +216,7 @@ const DropdownLinks: FC<{
             'is-expanded': isExpanded,
           })}
           onClick={handleExpand}
+          onKeyDown={handleKeyDown}
           aria-label={
             isExpanded
               ? 'Collapse navigation dropdown'
@@ -207,7 +226,7 @@ const DropdownLinks: FC<{
           {AngleDown}
         </button>
       </a>
-      <div className={`navbar-dropdown ${isExpanded ? 'is-expanded' : ''}`}>
+      <div className={`navbar-dropdown ${hovered ? 'is-expanded' : ''}`}>
         {links.map((link) => {
           const href = `/${link.slug || ''}`;
           const isActive =
