@@ -184,6 +184,7 @@ const DropdownLinks: FC<{
   function handleBlur(e: React.FocusEvent<HTMLDivElement>) {
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setHovered(false);
+      setExpanded(null);
     }
   }
 
@@ -226,7 +227,12 @@ const DropdownLinks: FC<{
           {AngleDown}
         </button>
       </a>
-      <div className={`navbar-dropdown ${hovered ? 'is-expanded' : ''}`}>
+      <div
+        className={classNames('navbar-dropdown', {
+          'is-expanded': isExpanded,
+          'is-hovered': hovered,
+        })}
+      >
         {links.map((link) => {
           const href = `/${link.slug || ''}`;
           const isActive =
