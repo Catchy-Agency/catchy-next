@@ -10,6 +10,7 @@ $border-color-gray: #444f57;
 $global-padding: 10rem;
 $mobile-padding: 2.5rem;
 $tablet-padding: 5rem;
+$global-margin: 7.6%;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -37,7 +38,7 @@ body.has-navbar-fixed-top {
 }
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
-  margin: 7.6% 0;
+  margin: $global-margin 0;
   @media (max-width: 1023px) {
     padding: 0 $tablet-padding;
   }
@@ -245,6 +246,10 @@ section:not(.has-background-grey-darker) {
     height: 100%;
     max-width: unset;
   }
+}
+
+.section.ClientSetRecord {
+  margin-top: calc($global-margin * -1 + 0.2%);
 }
 
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
