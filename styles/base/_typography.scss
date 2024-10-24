@@ -159,4 +159,8 @@ h5 {
   &.is-5 {
     @include hdl5();
   }
+
+  &.has-text-light {
+    font-weight: 300 !important;
+  }
 }

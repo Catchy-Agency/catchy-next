@@ -85,14 +85,14 @@
 }
 
 @mixin custom-scrollbar(
-  $track-color: #d4d6d9,
+  $track-color: rgba(90, 90, 90, 0.7),
   $thumb-color: rgba(0 0 0 / 0.7),
   $thumb-color-hover: rgba(0 0 0 / 0.7),
   $width-size: 5px,
   $height-size: 5px,
-  $border: 4px solid rgba(0 0 0 / 0),
-  $box-shadow: inset -1px -1px 0 rgba(0 0 0 / 0.05) inset 1px 1px 0
-    rgba(0 0 0 / 0.05)
+  $border: 4px solid #d4d6d9,
+  $box-shadow: inset -1px -1px 0 rgba(212, 214, 217, 0.5) inset 1px 1px 0
+    rgba(212, 214, 217, 0.5)
 ) {
   &::-webkit-scrollbar {
     width: $width-size;

@@ -10,6 +10,7 @@ import { PageError } from '../cms/PageError';
 import { PreviewBanner } from '../cms/PreviewBanner';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
+import useBackgroundPattern from '../hooks/useBackgroundPattern';
 
 export const PrimaryPage: NextPage<{
   subscription: Subscription<PrimaryPageBySlug>;
@@ -17,6 +18,9 @@ export const PrimaryPage: NextPage<{
   const { data, error, status } =
     useQuerySubscription<PrimaryPageBySlug>(subscription);
   const slug = data?.primaryPage?.slug || '';
+
+  useBackgroundPattern();
+
   return (
     <div className={`primary-page ${slug}`}>
       <Head>

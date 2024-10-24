@@ -37,7 +37,7 @@ body.has-navbar-fixed-top {
 }
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
-  margin: 5.6% 0;
+  margin: 7.6% 0;
   @media (max-width: 1023px) {
     padding: 0 $tablet-padding;
   }
@@ -55,10 +55,6 @@ section:not(.has-background-grey-darker) {
   @media (max-width: $tablet) {
     padding: $mobile-padding;
   }
-}
-
-section:last-of-type {
-  margin-bottom: 0 !important;
 }
 
 .section.BannerRecord {
@@ -621,6 +617,46 @@ section:last-of-type {
   }
 }
 
+.card-rows {
+  .title {
+    @include text-clamp(2);
+  }
+
+  .content {
+    @include text-clamp(3);
+  }
+
+  .is-careers-item {
+    flex-wrap: 'wrap';
+    align-items: 'stretch';
+    user-select: 'none';
+
+    .card-rows-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .button:not(.is-ghost, .avoid-tf) {
+      @include font-size(16px, !important);
+      display: flex;
+      padding: 1rem;
+      letter-spacing: 0.05rem;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0;
+      margin-top: auto;
+
+      &::after {
+        position: relative;
+        transform: none;
+        right: unset;
+        top: unset;
+      }
+    }
+  }
+}
+
 // Flip content link images on mobile
 @media screen and (max-width: 768px) {
   .card-rows,
@@ -677,8 +713,34 @@ section:last-of-type {
 }
 
 .bg-pattern-svg {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin: max(-200px, -9vw) auto;
   z-index: -1;
+  max-width: 2100px;
+  justify-content: flex-end;
+  max-height: 400px;
+  > svg {
+    > {
+      g {
+        width: 100%;
+      }
+    }
+    width: min(100%, clamp(280px, 25vw, 350px));
+  }
+  &.left {
+    justify-content: flex-start;
+    margin: max(-200px, -9vw) auto;
+    &.inverted {
+      > svg {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
 
 /* Prevent blue highlight on mobile devices */

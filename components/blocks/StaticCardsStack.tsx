@@ -14,22 +14,21 @@ export const StaticCardsStack: FC<{
           maxColumns === 3 ? 'three-columns' : ''
         }`}
       >
-        {items?.map((item, i) => {
-          return (
-            <div className="static-card-item-wrapper " key={i}>
-              <div className="static-card-item">
-                {item.image && (
-                  <div className="card-item-image">
-                    <Image data={item.image} lazyLoad={false} />{' '}
-                  </div>
-                )}
-                <div className="card-item-content">
-                  <PanelCards key={i} item={item} />
+        {items?.map((item, i) => (
+          <li className="static-card-item-wrapper" key={item.id || i}>
+            <div className="static-card-item">
+              {item.image && (
+                <div className="card-item-image">
+                  <Image data={item.image} lazyLoad={false} />
                 </div>
-              </div>
+              )}
+
+              <ul className="card-item-content">
+                <PanelCards key={`item-${item.id || i}`} item={item} />
+              </ul>
             </div>
-          );
-        })}
+          </li>
+        ))}
       </ul>
     </div>
   );
