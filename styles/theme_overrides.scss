@@ -518,7 +518,8 @@ a.navbar-item.is-tab:not(.button):hover {
     }
     @media (hover: hover) and (pointer: fine) {
       &:hover,
-      &:active {
+      &:active,
+      &:focus {
         svg {
           transform: rotate(180deg);
           > path {
@@ -554,7 +555,8 @@ a.navbar-item.is-tab:not(.button):hover {
 
   @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
     &:hover,
-    &:active {
+    &:active,
+    &:focus {
       color: #fff;
       text-decoration: none;
       &::before {
