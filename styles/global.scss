@@ -788,3 +788,21 @@ button,
 .team-dropdown {
   @include remove-tap-highlight();
 }
+
+/* override cookie banner */
+.cky-consent-container .cky-consent-bar {
+  border-color: #212121 !important;
+  background-color: #212121 !important;
+  box-shadow: 0 -1px 10px 0 #2121214d !important;
+}
+
+.cky-notice .cky-title,
+.cky-notice-des {
+  color: #fff !important;
+}
+
+.cky-btn:last-child {
+  color: #212121 !important;
+  border-color: rgb(29, 188, 131) !important;
+  background-color: rgb(29, 188, 131) !important;
+}
