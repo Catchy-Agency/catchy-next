@@ -435,11 +435,13 @@ a.tag {
         transform-origin: right;
       }
     }
-    &:hover,
-    &:active,
-    &:focus {
-      .menu-line {
-        background-color: $turquoise;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover,
+      &:active,
+      &:focus {
+        .menu-line {
+          background-color: $turquoise;
+        }
       }
     }
     &.is-active {
@@ -514,13 +516,14 @@ a.navbar-item.is-tab:not(.button):hover {
       transform: rotate(0deg);
       transition: transform 250ms ease-in-out;
     }
-    &:hover,
-    &:active,
-    &:focus {
-      svg {
-        transform: rotate(180deg);
-        > path {
-          fill: $turquoise;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover,
+      &:active {
+        svg {
+          transform: rotate(180deg);
+          > path {
+            fill: $turquoise;
+          }
         }
       }
     }
@@ -549,10 +552,9 @@ a.navbar-item.is-tab:not(.button):hover {
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
     &:hover,
-    &:active,
-    &:focus {
+    &:active {
       color: #fff;
       text-decoration: none;
       &::before {

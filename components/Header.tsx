@@ -184,7 +184,6 @@ const DropdownLinks: FC<{
   function handleBlur(e: React.FocusEvent<HTMLDivElement>) {
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setHovered(false);
-      setExpanded(null);
     }
   }
 
