@@ -796,18 +796,41 @@ button,
 
 /* override cookie banner */
 .cky-consent-container .cky-consent-bar {
-  border-color: #212121 !important;
-  background-color: #212121 !important;
+  border-color: $anthracite !important;
+  background-color: $anthracite !important;
   box-shadow: 0 -1px 10px 0 #2121214d !important;
 }
 
 .cky-notice .cky-title,
-.cky-notice-des {
+.cky-notice-des,
+.cky-accordion-header-des,
+.cky-accordion-header .cky-accordion-btn,
+.cky-preference-content-wrapper {
   color: #fff !important;
 }
 
 .cky-btn:last-child {
-  color: #212121 !important;
-  border-color: rgb(29, 188, 131) !important;
-  background-color: rgb(29, 188, 131) !important;
+  color: $anthracite !important;
+  border-color: $turquoise !important;
+  background-color: $turquoise !important;
+}
+
+.cky-preference-wrapper,
+.cky-preference-center,
+.cky-audit-table {
+  color: #fff !important;
+  background-color: $anthracite !important;
+}
+
+.cky-footer-shadow {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    $anthracite 100%
+  ) !important;
+}
+
+.cky-preference-content-wrapper .cky-show-desc-btn,
+button.cky-show-desc-btn:not(:hover):not(:active) {
+  color: $turquoise !important;
 }
