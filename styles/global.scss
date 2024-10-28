@@ -480,10 +480,6 @@ section:not(.has-background-grey-darker) {
           @include bdy-com();
         }
 
-        p {
-          @include text-clamp(4);
-        }
-
         h2 {
           @include hdl2();
           color: $anthracite;
@@ -495,7 +491,6 @@ section:not(.has-background-grey-darker) {
 
         h3 {
           @include hdl3();
-          @include text-clamp(4);
           color: $anthracite;
           > b,
           > strong {

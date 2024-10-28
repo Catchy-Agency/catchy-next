@@ -7,6 +7,7 @@ import { useStopInfiniteScroll } from '../contexts/stopInfiniteScroll';
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
 import avoidSameRouteNavigation from '../util/avoidSameRouteNavigation';
 import { scrollToContact } from '../util/scrollToContact';
+import { useMediaQuery } from './hooks/useMediaQuery';
 import { AngleDown } from './icons';
 
 export const Header: FC<{
@@ -16,6 +17,9 @@ export const Header: FC<{
   const { handleStopInfiniteScroll } = useStopInfiniteScroll();
   const [isOpen, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const device = useMediaQuery();
+
   const toggleOpen = () => {
     if (!isOpen) {
       setScrollY(window.scrollY);
@@ -31,6 +35,14 @@ export const Header: FC<{
   };
 
   useEffect(() => {
+    setIsMobile(
+      /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      ),
+    );
+  }, [device]);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add('no-scroll');
       window.scrollTo(0, scrollY);
@@ -38,7 +50,6 @@ export const Header: FC<{
       document.body.classList.remove('no-scroll');
       window.scrollTo(0, scrollY);
     }
-
     return () => {
       document.body.classList.remove('no-scroll');
     };
@@ -144,6 +155,7 @@ export const Header: FC<{
                 handleStopInfiniteScroll('[data-is-breakpoint=true]');
                 scrollToContact();
               }}
+              {...(isMobile && { href: '#contact-form' })}
               tabIndex={0}
             >
               {header.contactLinkLabel}
