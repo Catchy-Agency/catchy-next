@@ -22,6 +22,7 @@ export const ServiceSet: FC<{
                     service.previewImage?.responsiveImage as ResponsiveImageType
                   }
                   lazyLoad={false}
+                  objectFit="contain"
                 />
               </figure>
             ) : (

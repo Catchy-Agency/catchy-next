@@ -49,18 +49,32 @@
   $ssr-spacing: var(--ssr-spacing);
   .ServiceSetRecord {
     .service-item {
-      background: rgba(68, 79, 87, 0.2);
-      border: 1px solid $primary;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      user-select: none;
     }
     .content-wrap {
       min-height: 7rem;
       border-top: unset;
       padding: 6%;
-      border-top: 1px solid $primary;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 10px;
+        width: 100%;
+        background-color: var(--theme-color, $turquoise);
+        top: 0;
+        left: 0;
+        background-clip: content-box;
+        clip-path: polygon(0% 0%, 94% 0%, 100% 100%, 100% 100%, 00% 100%);
+      }
+
       .is-5 {
         @include bulletList();
       }
@@ -74,10 +88,20 @@
       place-items: center;
     }
     figure {
+      min-height: 320px;
+      max-height: 320px;
+      margin-bottom: 40px;
+      padding: 1.5rem;
+      user-select: none;
       &.image {
         display: flex;
         justify-content: center;
         margin-bottom: 0;
+      }
+
+      > div {
+        max-width: unset !important;
+        height: 100%;
       }
     }
   }
