@@ -63,10 +63,7 @@ export const BlockSections: FC<{
         switch (block?.__typename) {
           case 'AgencyModelRecord':
             return (
-              <section
-                key={block.id}
-                className="section has-background-grey-darker AgencyModelRecord"
-              >
+              <section key={block.id} className="section AgencyModelRecord">
                 <div className={classNames('container', maxClass)}>
                   <AgencyModel block={block} />
                 </div>
