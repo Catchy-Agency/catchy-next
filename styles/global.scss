@@ -301,7 +301,7 @@ section:not(.has-background-grey-darker) {
 }
 .content-post,
 .content-page {
-  background-color: #f2f2f2;
+  background-color: $background-linen;
   user-select: none;
   .container {
     color: $anthracite;
@@ -503,6 +503,7 @@ section:not(.has-background-grey-darker) {
 
         h4 {
           @include hdl4();
+          font-size: 1.4rem !important;
           color: $anthracite;
           > b,
           > strong {
