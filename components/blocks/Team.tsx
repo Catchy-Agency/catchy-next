@@ -55,7 +55,7 @@ export const Team: FC<{
                   <div className="team-line">
                     {member.name &&
                       (member.link !== null ? (
-                        <Link href={member.link?.slug || ''}>
+                        <Link href={`insights/${member.link?.slug}` || ''}>
                           <a className="title is-size-6 has-text-weight-bold hover-underline">
                             {member.name}
                           </a>
@@ -100,7 +100,7 @@ export const Team: FC<{
                 <div className="team-line">
                   {member.name &&
                     (member.link !== null ? (
-                      <Link href={member.link?.slug || ''}>
+                      <Link href={`insights/${member.link?.slug}` || ''}>
                         <a className="title is-size-6 has-text-weight-bold hover-underline">
                           {member.name}
                         </a>
