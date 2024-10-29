@@ -643,6 +643,15 @@ a.navbar-item.is-tab:not(.button):hover {
   }
 }
 
+.navbar-item {
+  > img {
+    &:hover {
+      filter: invert(56%) sepia(80%) saturate(2500%) hue-rotate(125deg)
+        brightness(90%) contrast(90%);
+    }
+  }
+}
+
 .navbar-item.has-dropdown.is-hovered .navbar-dropdown {
   display: flex;
   flex-direction: column;
