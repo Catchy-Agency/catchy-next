@@ -42,6 +42,14 @@
   display: flex;
   flex-direction: column;
   gap: 80px;
+
+  .single-post-wrapper:not(:first-of-type) .single-blog-body-svg {
+    width: clamp(280px, 19.5vw, 340px);
+    @media (max-width: $mobile) {
+      width: clamp(200px, 19.5vw, 340px);
+    }
+  }
+
   .single-post-wrapper {
     display: flex;
     position: relative;
@@ -121,6 +129,9 @@
       width: clamp(300px, 21.5vw, 340px);
       z-index: 1;
       pointer-events: none;
+      @media (max-width: $mobile) {
+        width: clamp(200px, 21.5vw, 340px);
+      }
     }
     .single-post-left-side {
       flex: 1;
