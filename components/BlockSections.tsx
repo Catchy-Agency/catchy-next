@@ -34,7 +34,6 @@ import { ViewMoreLink } from './blocks/ViewMoreLink';
 import { ContentBannerL } from './content-links/banners/ContentBannerL';
 import { ContentBannerMS } from './content-links/banners/ContentBannerMS';
 import { ContentTileM } from './content-links/cards/ContentTileM';
-import { IconBottomLeadFullWidth, IconRightLeadFullWidth } from './icons';
 
 export const BlockSections: FC<{
   containerMax?: 'desktop' | 'widescreen';
@@ -76,8 +75,6 @@ export const BlockSections: FC<{
                 <div className={classNames('container', maxClass)}>
                   <LeadCaseFullWidth block={block} />
                 </div>
-                <div className="svg-bottomlead">{IconBottomLeadFullWidth}</div>
-                <div className="svg-rightlead">{IconRightLeadFullWidth}</div>
               </section>
             );
 
