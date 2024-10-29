@@ -39,7 +39,7 @@ export const Team: FC<{
                 >
                   <div className="img-container">
                     {member.image?.responsiveImage && (
-                      <figure className="mb-3">
+                      <figure>
                         <Image
                           data={
                             member.image.responsiveImage as ResponsiveImageType
@@ -84,7 +84,7 @@ export const Team: FC<{
               <div key={member.id} className="column is-narrow pb-5">
                 <div className="img-container">
                   {member.image?.responsiveImage && (
-                    <figure className="mb-3">
+                    <figure>
                       <Image
                         data={
                           member.image.responsiveImage as ResponsiveImageType
