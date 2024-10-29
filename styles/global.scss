@@ -478,6 +478,9 @@ section:not(.has-background-grey-darker) {
         ul,
         ol {
           @include bdy-com();
+          a {
+            text-decoration: underline;
+          }
         }
 
         h2 {
