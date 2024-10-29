@@ -754,7 +754,7 @@ section:not(.has-background-grey-darker) {
   position: relative;
   width: 100%;
   display: flex;
-  margin: max(-200px, -9vw) auto;
+  margin: max(-200px, -9vw) auto calc(-25px - 3%);
   z-index: -1;
   max-width: 2100px;
   justify-content: flex-end;
