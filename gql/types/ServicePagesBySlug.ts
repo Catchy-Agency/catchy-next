@@ -1275,6 +1275,11 @@ export interface ServicePagesBySlug_service_blocks_ServiceSetRecord {
   readonly services: ReadonlyArray<ServicePagesBySlug_service_blocks_ServiceSetRecord_services>;
 }
 
+export interface ServicePagesBySlug_service_blocks_TeamRecord_members_link {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+}
+
 export interface ServicePagesBySlug_service_blocks_TeamRecord_members_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1298,6 +1303,7 @@ export interface ServicePagesBySlug_service_blocks_TeamRecord_members {
   readonly id: any;
   readonly name: string | null;
   readonly title: string | null;
+  readonly link: ServicePagesBySlug_service_blocks_TeamRecord_members_link | null;
   readonly image: ServicePagesBySlug_service_blocks_TeamRecord_members_image | null;
 }
 

@@ -810,6 +810,11 @@ export interface CaseStudyBySlug_caseStudy_blocks_RichTextRecord {
   readonly richText: string | null;
 }
 
+export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_link {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+}
+
 export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -833,6 +838,7 @@ export interface CaseStudyBySlug_caseStudy_blocks_TeamRecord_members {
   readonly id: any;
   readonly name: string | null;
   readonly title: string | null;
+  readonly link: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_link | null;
   readonly image: CaseStudyBySlug_caseStudy_blocks_TeamRecord_members_image | null;
 }
 

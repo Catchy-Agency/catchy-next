@@ -1367,6 +1367,11 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_ServiceSetRecord {
   readonly services: ReadonlyArray<CaseStudiesByCategoryId_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
+export interface CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members_link {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+}
+
 export interface CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1390,6 +1395,7 @@ export interface CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members {
   readonly id: any;
   readonly name: string | null;
   readonly title: string | null;
+  readonly link: CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members_link | null;
   readonly image: CaseStudiesByCategoryId_primaryPage_blocks_TeamRecord_members_image | null;
 }
 
