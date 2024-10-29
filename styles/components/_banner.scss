@@ -54,13 +54,14 @@
   .text-container {
     z-index: 10;
     padding: 5rem $global-padding;
-    max-width: 80%;
+    max-width: 100%;
     .titleHero {
       @include text-clamp(4);
       line-height: 1.5 !important;
       text-wrap: balance;
     }
     .text-description {
+      width: 90%;
       @include text-clamp(6);
       @include description-hero();
       margin-bottom: 80px;

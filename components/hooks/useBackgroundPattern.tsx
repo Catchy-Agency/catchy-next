@@ -57,6 +57,9 @@ export default function useBackgroundPattern() {
     if (!footer) return;
     const div = document.createElement('div');
     div.classList.add('bg-pattern-svg');
+    div.classList.add(
+      `bg-pattern-svg--${currentPath.replace(/\//g, '') || 'home'}`,
+    );
     div.innerHTML = getBgPattern();
     if (
       patternOverFooterPaths.includes(currentPath) &&

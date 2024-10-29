@@ -7,9 +7,12 @@ $cam-gray1: #263641;
 $cam-gray2: #3d4d56;
 $cam-gray3: #56636b;
 $border-color-gray: #444f57;
+$global-padding-2k: 18rem;
 $global-padding: 10rem;
 $mobile-padding: 2.5rem;
 $tablet-padding: 5rem;
+$global-margin: 7.6%;
+$global-margin-2k: 5%;
 
 // Bulma theme & core
 // $widescreen-enabled: false;
@@ -37,7 +40,7 @@ body.has-navbar-fixed-top {
 }
 section:not(.has-background-grey-darker) {
   padding: 0 $global-padding;
-  margin: 7.6% 0;
+  margin: $global-margin 0;
   @media (max-width: 1023px) {
     padding: 0 $tablet-padding;
   }
@@ -247,6 +250,10 @@ section:not(.has-background-grey-darker) {
   }
 }
 
+.section.ClientSetRecord {
+  margin-top: calc($global-margin * -1 + 0.2%);
+}
+
 .section.ContentLinkSetRecord + .section.ContentLinkSetRecord {
   padding-top: 0;
 }
@@ -295,6 +302,7 @@ section:not(.has-background-grey-darker) {
 .content-post,
 .content-page {
   background-color: #f2f2f2;
+  user-select: none;
   .container {
     color: $anthracite;
   }
@@ -353,6 +361,7 @@ section:not(.has-background-grey-darker) {
     }
     .title-blog,
     .title-work {
+      @include text-clamp(4);
       color: $anthracite;
     }
     .subtitle-blog {
@@ -411,6 +420,9 @@ section:not(.has-background-grey-darker) {
         margin-right: unset;
       }
     }
+    @media (min-width: 1700px) {
+      padding: 3rem $global-padding-2k;
+    }
   }
 
   .block-sections {
@@ -421,7 +433,7 @@ section:not(.has-background-grey-darker) {
     > .section.RichTextRecord,
     .section.ColumnRowRecord {
       color: $anthracite;
-      padding: 0 18rem;
+      padding: 0 $global-padding-2k;
       @media (max-width: 1100px) {
         padding: 0 12rem;
       }
@@ -466,6 +478,9 @@ section:not(.has-background-grey-darker) {
         ul,
         ol {
           @include bdy-com();
+          a {
+            text-decoration: underline;
+          }
         }
 
         h2 {
@@ -523,6 +538,10 @@ section:not(.has-background-grey-darker) {
           }
         }
       }
+
+      .container {
+        max-width: 1440px;
+      }
     }
 
     > .section.TeamRecord {
@@ -560,9 +579,31 @@ section:not(.has-background-grey-darker) {
         }
       }
     }
+
+    > .section.ImageSetRecord,
+    .section.VideoRecord {
+      @media (min-width: 1700px) {
+        padding: 3rem $global-padding-2k !important;
+        margin: unset;
+
+        > div {
+          max-width: 1440px;
+        }
+      }
+    }
   }
   .has-background-grey-darker {
     background-color: $anthracite !important;
+  }
+}
+
+.content-post {
+  .block-sections {
+    > .section.RichTextRecord {
+      @media (min-width: 1700px) {
+        margin: $global-margin-2k $global-padding-2k;
+      }
+    }
   }
 }
 
@@ -622,7 +663,7 @@ section:not(.has-background-grey-darker) {
     @include text-clamp(2);
   }
 
-  .content {
+  .subtitle {
     @include text-clamp(3);
   }
 
@@ -716,7 +757,7 @@ section:not(.has-background-grey-darker) {
   position: relative;
   width: 100%;
   display: flex;
-  margin: max(-200px, -9vw) auto;
+  margin: max(-200px, -9vw) auto calc(-25px - 3%);
   z-index: -1;
   max-width: 2100px;
   justify-content: flex-end;
@@ -749,4 +790,45 @@ button,
 .panel-item,
 .team-dropdown {
   @include remove-tap-highlight();
+}
+
+/* override cookie banner */
+.cky-consent-container .cky-consent-bar {
+  border-color: $anthracite !important;
+  background-color: $anthracite !important;
+  box-shadow: 0 -1px 10px 0 #2121214d !important;
+}
+
+.cky-notice .cky-title,
+.cky-notice-des,
+.cky-accordion-header-des,
+.cky-accordion-header .cky-accordion-btn,
+.cky-preference-content-wrapper {
+  color: #fff !important;
+}
+
+.cky-btn:last-child {
+  color: $anthracite !important;
+  border-color: $turquoise !important;
+  background-color: $turquoise !important;
+}
+
+.cky-preference-wrapper,
+.cky-preference-center,
+.cky-audit-table {
+  color: #fff !important;
+  background-color: $anthracite !important;
+}
+
+.cky-footer-shadow {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    $anthracite 100%
+  ) !important;
+}
+
+.cky-preference-content-wrapper .cky-show-desc-btn,
+button.cky-show-desc-btn:not(:hover):not(:active) {
+  color: $turquoise !important;
 }

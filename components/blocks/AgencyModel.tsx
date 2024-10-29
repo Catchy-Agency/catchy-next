@@ -1,14 +1,14 @@
-import { FC } from 'react'
-import { Image, ResponsiveImageType } from 'react-datocms'
+import { FC } from 'react';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
-import { PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord } from '../../gql/types/PrimaryPageBySlug'
-import { TitleText } from './TitleText'
+import { PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord } from '../../gql/types/PrimaryPageBySlug';
+import { TitleText } from './TitleText';
 
 export const AgencyModel: FC<{
-  block: PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord
+  block: PrimaryPageBySlug_primaryPage_blocks_AgencyModelRecord;
 }> = ({ block }) => (
-  <>
-    <section key={block.id} className="_section TitleTextRecord">
+  <div className="agencyContainer">
+    <section key={block.id} className="section TitleTextRecord">
       <div>
         <TitleText
           block={{
@@ -23,9 +23,9 @@ export const AgencyModel: FC<{
       </div>
     </section>
 
-    <div className="columns">
+    <div className="agencyWrapper">
       {block.columns.map((column) => (
-        <div key={column.id} className="column mt-6">
+        <div key={column.id} className="mt-6">
           {column.image?.responsiveImage && (
             <figure className="image mb-2">
               <Image
@@ -38,9 +38,7 @@ export const AgencyModel: FC<{
           {column.title && <div className="title is-3">{column.title}</div>}
           {column.services.map((section) => (
             <div key={section.id} className="_column">
-              {section.title && (
-                <h5 className="has-text-primary">{section.title}</h5>
-              )}
+              {section.title && <h5>{section.title}</h5>}
               {section.text && (
                 <div
                   className="content"
@@ -53,5 +51,5 @@ export const AgencyModel: FC<{
       ))}
     </div>
     {/* {process.env.NODE_ENV != 'production' && console.info(block)} */}
-  </>
-)
+  </div>
+);

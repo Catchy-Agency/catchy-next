@@ -7,6 +7,7 @@ import { useStopInfiniteScroll } from '../contexts/stopInfiniteScroll';
 import { PrimaryPageBySlug_header } from '../gql/types/PrimaryPageBySlug';
 import avoidSameRouteNavigation from '../util/avoidSameRouteNavigation';
 import { scrollToContact } from '../util/scrollToContact';
+import { useMediaQuery } from './hooks/useMediaQuery';
 import { AngleDown } from './icons';
 
 export const Header: FC<{
@@ -16,6 +17,9 @@ export const Header: FC<{
   const { handleStopInfiniteScroll } = useStopInfiniteScroll();
   const [isOpen, setOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const device = useMediaQuery();
+
   const toggleOpen = () => {
     if (!isOpen) {
       setScrollY(window.scrollY);
@@ -31,6 +35,14 @@ export const Header: FC<{
   };
 
   useEffect(() => {
+    setIsMobile(
+      /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      ),
+    );
+  }, [device]);
+
+  useEffect(() => {
     if (isOpen) {
       document.body.classList.add('no-scroll');
       window.scrollTo(0, scrollY);
@@ -38,7 +50,6 @@ export const Header: FC<{
       document.body.classList.remove('no-scroll');
       window.scrollTo(0, scrollY);
     }
-
     return () => {
       document.body.classList.remove('no-scroll');
     };
@@ -144,6 +155,7 @@ export const Header: FC<{
                 handleStopInfiniteScroll('[data-is-breakpoint=true]');
                 scrollToContact();
               }}
+              {...(isMobile && { href: '#contact-form' })}
               tabIndex={0}
             >
               {header.contactLinkLabel}
@@ -165,24 +177,42 @@ const DropdownLinks: FC<{
   slug: string;
 }> = ({ title, links, isDropdownActive, router, slug }) => {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [hovered, setHovered] = useState(false);
 
-  function handleExpand(e: React.MouseEvent) {
+  function handleExpand(e: React.MouseEvent | React.KeyboardEvent) {
     e.preventDefault();
     e.stopPropagation();
     if (typeof window === 'undefined') return;
     if (window.innerWidth > 1024) return;
     setExpanded((prevExpanded) => (prevExpanded === title ? null : title));
   }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLButtonElement>) {
+    if (e.key === 'Enter') {
+      setHovered((prevHovered) => !prevHovered);
+    }
+  }
+
+  function handleBlur(e: React.FocusEvent<HTMLDivElement>) {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setHovered(false);
+    }
+  }
+
   const isPrimaryPageActive = slug === router.query.slug;
   const isExpanded = expanded === title;
 
   return (
     <div
-      className="navbar-item has-dropdown is-hoverable"
+      className={classNames('navbar-item has-dropdown is-hoverable', {
+        'is-hovered': hovered,
+      })}
       onClick={(e) => {
         // Prevent dropdown from hanging around
         (e.target as HTMLElement).blur();
       }}
+      onBlur={handleBlur}
+      tabIndex={-1}
     >
       <a
         className={classNames('navbar-item', 'is-tab', {
@@ -198,6 +228,7 @@ const DropdownLinks: FC<{
             'is-expanded': isExpanded,
           })}
           onClick={handleExpand}
+          onKeyDown={handleKeyDown}
           aria-label={
             isExpanded
               ? 'Collapse navigation dropdown'
@@ -207,7 +238,12 @@ const DropdownLinks: FC<{
           {AngleDown}
         </button>
       </a>
-      <div className={`navbar-dropdown ${isExpanded ? 'is-expanded' : ''}`}>
+      <div
+        className={classNames('navbar-dropdown', {
+          'is-expanded': isExpanded,
+          'is-hovered': hovered,
+        })}
+      >
         {links.map((link) => {
           const href = `/${link.slug || ''}`;
           const isActive =
