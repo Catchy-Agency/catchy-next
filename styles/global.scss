@@ -533,6 +533,11 @@ section:not(.has-background-grey-darker) {
             font-size: 16px !important;
             font-weight: 700;
           }
+
+          li::marker {
+            @include bdy-md();
+            font-weight: 700;
+          }
         }
       }
 
