@@ -775,6 +775,7 @@ section:not(.has-background-grey-darker) {
   &.left {
     justify-content: flex-start;
     margin: max(-200px, -9vw) auto;
+    height: 50vh;
     &.inverted {
       > svg {
         transform: rotateY(180deg);
