@@ -525,17 +525,13 @@ section:not(.has-background-grey-darker) {
         }
 
         blockquote {
-          background-color: $anthracite;
-          border-left: 5px solid $turquoise;
+          background-color: transparent;
+          border: unset;
           @include bdy-md();
 
           strong {
             font-size: 16px !important;
             font-weight: 700;
-          }
-
-          * {
-            color: #f2f2f2;
           }
         }
       }
