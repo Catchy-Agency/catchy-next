@@ -58,6 +58,11 @@
       @media (max-width: $tablet) {
         width: 40%;
       }
+      @media (max-width: $mobile) {
+        transform: translateX(-22%);
+        width: 60%;
+        height: 13vh;
+      }
     }
     .imageText {
       width: 100%;
