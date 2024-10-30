@@ -45,8 +45,18 @@
 
   .single-post-wrapper:not(:first-of-type) .single-blog-body-svg {
     width: clamp(280px, 19.5vw, 340px);
+    @media (max-width: $tablet) {
+      width: clamp(255px, 19.5vw, 340px);
+    }
     @media (max-width: $mobile) {
       width: clamp(200px, 19.5vw, 340px);
+    }
+  }
+
+  .single-post-wrapper:first-child .single-post-body {
+    @media (max-width: $mobile) {
+      justify-content: space-evenly;
+      gap: 20px;
     }
   }
 
@@ -129,6 +139,9 @@
       width: clamp(300px, 21.5vw, 340px);
       z-index: 1;
       pointer-events: none;
+      @media (max-width: $tablet) {
+        width: clamp(270px, 21.5vw, 340px);
+      }
       @media (max-width: $mobile) {
         width: clamp(200px, 21.5vw, 340px);
       }
