@@ -301,7 +301,7 @@ section:not(.has-background-grey-darker) {
 }
 .content-post,
 .content-page {
-  background-color: #f2f2f2;
+  background-color: $background-linen;
   user-select: none;
   .container {
     color: $anthracite;
@@ -478,6 +478,9 @@ section:not(.has-background-grey-darker) {
         ul,
         ol {
           @include bdy-com();
+          a {
+            text-decoration: underline;
+          }
         }
 
         h2 {
@@ -500,6 +503,7 @@ section:not(.has-background-grey-darker) {
 
         h4 {
           @include hdl4();
+          font-size: 1.4rem !important;
           color: $anthracite;
           > b,
           > strong {
@@ -521,17 +525,17 @@ section:not(.has-background-grey-darker) {
         }
 
         blockquote {
-          background-color: $anthracite;
-          border-left: 5px solid $turquoise;
+          background-color: transparent;
+          border: unset;
           @include bdy-md();
 
           strong {
-            font-size: 16px !important;
             font-weight: 700;
           }
 
-          * {
-            color: #f2f2f2;
+          li::marker {
+            @include bdy-md();
+            font-weight: 700;
           }
         }
       }
@@ -545,6 +549,7 @@ section:not(.has-background-grey-darker) {
       .img-container {
         background-color: $anthracite;
       }
+      a,
       h4 {
         color: $anthracite !important;
       }
@@ -754,7 +759,7 @@ section:not(.has-background-grey-darker) {
   position: relative;
   width: 100%;
   display: flex;
-  margin: max(-200px, -9vw) auto;
+  margin: max(-200px, -9vw) auto calc(-25px - 3%);
   z-index: -1;
   max-width: 2100px;
   justify-content: flex-end;
@@ -770,6 +775,7 @@ section:not(.has-background-grey-darker) {
   &.left {
     justify-content: flex-start;
     margin: max(-200px, -9vw) auto;
+    height: 50vh;
     &.inverted {
       > svg {
         transform: rotateY(180deg);

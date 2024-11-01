@@ -985,6 +985,12 @@ export const servicePagesBySlug = gql`
             id
             name
             title
+            link {
+              __typename
+              ... on BlogPostRecord {
+                slug
+              }
+            }
             image {
               responsiveImage(
                 imgixParams: { fit: crop, ar: "1:1", w: 300, auto: format }

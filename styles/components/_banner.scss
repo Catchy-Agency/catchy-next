@@ -4,7 +4,7 @@
   align-items: flex-start;
   position: relative;
   overflow: hidden;
-  height: 120vh;
+  height: 125vh;
   user-select: none;
   .bg-image {
     position: absolute;
@@ -36,8 +36,8 @@
           linear-gradient(
             149.8deg,
             transparent,
-            hsla(0, 0%, 100%, 0) calc(61.2% - 1px),
-            $anthracite 61.2%
+            hsla(0, 0%, 100%, 0) calc(61.6% - 1px),
+            $anthracite 61.6%
           );
 
         @media (max-width: $tablet) {
@@ -54,13 +54,14 @@
   .text-container {
     z-index: 10;
     padding: 5rem $global-padding;
-    max-width: 80%;
+    max-width: 100%;
     .titleHero {
       @include text-clamp(4);
       line-height: 1.5 !important;
       text-wrap: balance;
     }
     .text-description {
+      width: 90%;
       @include text-clamp(6);
       @include description-hero();
       margin-bottom: 80px;
@@ -77,7 +78,7 @@
   }
   .svg-right {
     position: absolute;
-    bottom: 22vh;
+    bottom: 25vh;
     right: 0;
     z-index: 1;
     width: clamp(calc(400px), 30vw, 600px);
@@ -88,21 +89,19 @@
   }
   .svg-left {
     position: absolute;
-    bottom: 7vh;
+    bottom: 9vh;
     left: 0;
     z-index: 1;
   }
   @media (min-width: 1980px) {
     .svg-right {
-      bottom: 36vh;
+      bottom: 37vh;
     }
     .svg-left {
-      bottom: 21vh;
+      bottom: 22vh;
     }
   }
   @media (max-width: 1024px) {
-    height: 100vh;
-
     .svg-right {
       display: none;
     }
@@ -112,18 +111,9 @@
     }
   }
 
-  @media (pointer: coarse) and (hover: none) and (orientation: landscape) and (max-width: $desktop),
-    (orientation: portrait) and (pointer: coarse) and (hover: none) {
-    min-height: fit-content;
-    padding-bottom: 25%;
-    .text-container {
-      max-width: unset;
-    }
-  }
-
   @media (max-width: $tablet) {
     .text-container {
-      padding: 5rem $mobile-padding;
+      padding: $tablet-padding $mobile-padding;
       margin: unset;
       display: flex;
       flex-direction: column;
@@ -132,9 +122,8 @@
 
     .svg-right {
       display: block;
-      transform: translate(266px, 90px);
+      transform: translate(67%, 7%);
       bottom: 0;
-      height: 60vh;
       > svg {
         width: 100%;
         height: 100%;
@@ -143,5 +132,10 @@
     .svg-left {
       display: none;
     }
+  }
+
+  @media (max-height: 670px) {
+    height: fit-content;
+    padding-bottom: $tablet-padding;
   }
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FC, useState } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import { PrimaryPageBySlug_primaryPage_blocks_TeamRecord } from '../../gql/types/PrimaryPageBySlug';
@@ -38,7 +39,7 @@ export const Team: FC<{
                 >
                   <div className="img-container">
                     {member.image?.responsiveImage && (
-                      <figure className="mb-3">
+                      <figure>
                         <Image
                           data={
                             member.image.responsiveImage as ResponsiveImageType
@@ -52,14 +53,20 @@ export const Team: FC<{
                     <div className="svg-iconTeam">{IconImageTeam}</div>
                   </div>
                   <div className="team-line">
-                    {member.name && (
-                      <h4
-                        className="title is-size-6 has-text-weight-bold hover-underline"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {member.name}
-                      </h4>
-                    )}
+                    {member.name &&
+                      (member.link !== null ? (
+                        <Link
+                          href={`insights/${member.link?.slug || ''}` || ''}
+                        >
+                          <a className="title is-size-6 has-text-weight-bold hover-underline">
+                            {member.name}
+                          </a>
+                        </Link>
+                      ) : (
+                        <h4 className="title is-size-6 has-text-weight-bold ">
+                          {member.name}
+                        </h4>
+                      ))}
                     {member.title && (
                       <h4 className="subtitle is-size-6 has-text-weight-normal has-text-white">
                         {member.title}
@@ -79,7 +86,7 @@ export const Team: FC<{
               <div key={member.id} className="column is-narrow pb-5">
                 <div className="img-container">
                   {member.image?.responsiveImage && (
-                    <figure className="mb-3">
+                    <figure>
                       <Image
                         data={
                           member.image.responsiveImage as ResponsiveImageType
@@ -93,11 +100,20 @@ export const Team: FC<{
                   <div className="svg-iconTeam">{IconImageTeam}</div>
                 </div>
                 <div className="team-line">
-                  {member.name && (
-                    <h4 className="title is-size-6 has-text-weight-bold hover-underline">
-                      {member.name}
-                    </h4>
-                  )}
+                  {member.name &&
+                    (member.link !== null ? (
+                      <Link
+                        href={`/insights/${member.link?.slug || ''} ` || ''}
+                      >
+                        <a className="title is-size-6 has-text-weight-bold hover-underline">
+                          {member.name}
+                        </a>
+                      </Link>
+                    ) : (
+                      <h4 className="title is-size-6 has-text-weight-bold ">
+                        {member.name}
+                      </h4>
+                    ))}
                   {member.title && (
                     <h4 className="subtitle is-size-6 has-text-weight-normal has-text-white">
                       {member.title}

@@ -1431,3 +1431,21 @@ export const InsightsImageBottomEven: FC<
     </defs>
   </svg>
 );
+export const formulaArrow = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.0"
+    width="140.000000pt"
+    height="140.000000pt"
+    viewBox="0 0 140.000000 140.000000"
+    preserveAspectRatio="xMidYMid meet"
+  >
+    <g
+      transform="translate(0.000000,140.000000) scale(0.100000,-0.100000)"
+      fill="#1dbc83"
+      stroke="none"
+    >
+      <path d="M200 700 c0 -314 3 -570 6 -570 11 0 984 564 984 570 0 6 -973 570 -984 570 -3 0 -6 -256 -6 -570z" />
+    </g>
+  </svg>
+);

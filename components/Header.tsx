@@ -83,10 +83,12 @@ export const Header: FC<{
         <div className="navbar-brand">
           <Link href="/">
             <a className="navbar-item">
-              <img
-                src={header.logo?.url}
-                alt={header.logo?.alt || 'Catchy company logo'}
-                title={header.logo?.title || undefined}
+              <div
+                className="logo-mask"
+                style={{
+                  maskImage: `url(${header.logo?.url || ''})`,
+                  WebkitMaskImage: `url(${header.logo?.url || ''})`,
+                }}
               />
             </a>
           </Link>

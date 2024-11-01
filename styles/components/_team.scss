@@ -58,10 +58,12 @@
       position: relative;
       margin-bottom: 20px;
       background-color: transparent !important;
+      overflow: hidden;
 
       .image-team {
         height: 100%;
         width: 100%;
+        border: 1px solid transparent;
       }
       .clip-me {
         clip-path: polygon(100% 78%, 60% 100%, 100% 100%);
@@ -69,8 +71,8 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 0px;
+        left: 0px;
       }
       .svg-iconTeam {
         position: absolute;
@@ -89,6 +91,10 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+
+      a:hover {
+        color: $title-color;
+      }
 
       .hover-underline {
         min-height: 28px;

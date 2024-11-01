@@ -1275,6 +1275,11 @@ export interface PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord {
   readonly services: ReadonlyArray<PrimaryPageBySlug_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
+export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_link {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+}
+
 export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1298,6 +1303,7 @@ export interface PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members {
   readonly id: any;
   readonly name: string | null;
   readonly title: string | null;
+  readonly link: PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_link | null;
   readonly image: PrimaryPageBySlug_primaryPage_blocks_TeamRecord_members_image | null;
 }
 

@@ -1,126 +1,57 @@
 export const BackgroundPatternHome = `
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 361 277">
-    <g>
-      <g id="Layer_1">
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M321,46.2l40-23.1v46.2l-40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M120,207.4l40-23.1v46.2l-40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M80,138.1l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M361,23.1L321,0v46.2l40,23.1V23.1Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M240,92l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M240,138.2l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M200,115.1l40-23.1v46.2l-40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M200,161.3l40-23.1v46.2l-40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M240,184.4l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M200,207.4l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M160,184.3l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M120,207.4l-40-23.1v46.2l40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M160,184.3l40-23.1v46.2l-40,23.1v-46.2Z"
-        />
-        <path
-          fill="none"
-          stroke="#fff"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth=".2px"
-          d="M0,138.2l80-46.2v46.2L0,184.4v-46.2Z"
-        />
-        <path fill="#8fb2cc" d="M280.1,253.7v-92.4l40-23.1v92.4l-40,23.1Z" />
-        <path fill="#bfb3a3" d="M240.1,276.4l80-45.9-80-46.1v92Z" />
-        <path fill="#008c81" d="M280.1,68.9v92.4l-80,46.2v-92.4l80-46.2Z" />
-        <path fill="#1dbc83" d="M160.1,92.4v-46.2l-40-23.1v46.2l40,23.1Z" />
-      </g>
+  <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 361 277">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #8fb2cc;
+      }
+
+      .cls-2 {
+        fill: #1dbc83;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .2px;
+      }
+
+      .cls-4 {
+        fill: #bfb3a3;
+      }
+
+      .cls-5 {
+        fill: #008c81;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="Layer_1">
+      <path class="cls-3" d="M321,46.2l40-23.1v46.2l-40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M120,207.4l40-23.1v46.2l-40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M80,138.1l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M361,23.1L321,0v46.2l40,23.1V23.1Z"/>
+      <path class="cls-3" d="M240,92l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M240,138.2l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M200,115.1l40-23.1v46.2l-40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M200,161.3l40-23.1v46.2l-40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M240,184.4l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M200,207.4l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M160,184.3l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M120,207.4l-40-23.1v46.2l40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M160,184.3l40-23.1v46.2l-40,23.1v-46.2Z"/>
+      <path class="cls-3" d="M0,138.2l80-46.2v46.2L0,184.4v-46.2Z"/>
+      <path class="cls-1" d="M280.1,253.7v-92.4l40-23.1v92.4l-40,23.1Z"/>
+      <path class="cls-4" d="M240.1,276.4l80-45.9-80-46.1v92Z"/>
+      <path class="cls-5" d="M280.1,68.9v92.4l-80,46.2v-92.4l80-46.2Z"/>
+      <path class="cls-2" d="M160.1,92.4v-46.2l-40-23.1v46.2l40,23.1Z"/>
     </g>
-  </svg>`;
+  </g>
+</svg>`;
 
 export const BackgroundPatternWhatWeDo = `<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 280.3 416" preserveAspectRatio="xMaxYMin meet">
   <defs>

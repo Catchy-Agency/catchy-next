@@ -9,22 +9,44 @@
     max-width: unset;
   }
 
+  .image-clip-container {
+    position: relative;
+  }
+
+  .clip-me {
+    background-color: #212121;
+    position: absolute;
+    z-index: 1;
+    clip-path: polygon(100% -1%, -1% 100%, 100% 100%);
+    height: 163px;
+    width: 280px;
+    bottom: -1px;
+    right: -1px;
+  }
+
   .svg-bottomlead {
     position: absolute;
-    width: 34vh;
-    top: 37vh;
-    right: 17vh;
+    display: flex;
+    width: 280px;
+    height: 163px;
+    bottom: 0;
+    top: auto;
+    z-index: 2;
+    right: 0;
 
     > svg {
-      width: 32vh;
+      width: 100%;
+      height: auto;
     }
   }
 
   .svg-rightlead {
     position: absolute;
-    width: 19vh;
-    top: 26vh;
-    right: 0;
+    top: auto;
+    bottom: 0;
+    right: -159px;
+    width: 161px;
+    height: 255px;
   }
 
   .container-fullWidth {
@@ -35,7 +57,6 @@
       width: 100%;
       height: 55vh;
       max-width: unset !important;
-      clip-path: polygon(0 0, 100% 0, 100% 67%, 81% 100%, 0 100%, 0% 50%);
       position: relative;
       overflow: hidden;
     }
@@ -67,65 +88,13 @@
     }
   }
 
-  @media (min-width: 2300px) {
-    .svg-bottomlead {
-      top: 36vh;
-      right: 34vh;
-    }
-
-    .svg-rightlead {
-      top: 25vh;
-      right: 17vh;
-    }
-
-    .container-fullWidth {
-      .imageLead {
-        clip-path: polygon(0 0, 100% 0, 100% 65%, 67% 100%, 0 100%, 0% 50%);
-      }
-    }
-  }
-
-  @media (max-width: calc(1440px + 200px)) {
-    .svg-bottomlead {
-      top: 37vh;
-      right: 17vh;
-
-      > svg {
-        width: 32vh;
-      }
-    }
-
-    .svg-rightlead {
-      top: 26vh;
-      right: 0;
-    }
-
-    .container-fullWidth {
-      .imageLead {
-        clip-path: polygon(0 0, 100% 0, 100% 67%, 77% 100%, 0 100%, 0% 50%);
-      }
-    }
-  }
-
   @media (max-width: calc(1024px + 200px)) {
-    .svg-bottomlead {
-      top: 36vh;
-      right: 0;
-      > svg {
-        width: 34vh;
-      }
-    }
-
     .svg-rightlead {
       display: none;
     }
 
     .container-fullWidth {
       padding: unset;
-
-      .imageLead {
-        clip-path: polygon(0 0, 100% 0, 100% 66%, 73% 100%, 0 100%, 0% 50%);
-      }
 
       .info {
         padding: 0 10rem;
@@ -134,22 +103,11 @@
   }
 
   @media (max-width: $tablet) {
-    .svg-bottomlead {
-      width: unset;
-      top: 38vh;
-      right: 0;
-
-      > svg {
-        width: 26vh;
-      }
-    }
-
     .container-fullWidth {
       padding: 10rem 0;
 
       .imageLead {
         height: 35vh;
-        clip-path: polygon(0 0, 100% 0, 100% 57%, 44% 100%, 0 100%, 0% 50%);
       }
 
       .info {

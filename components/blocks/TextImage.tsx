@@ -47,7 +47,10 @@ export const TextImage: FC<{
         {!block.inverted ? (
           <div className="svg-textImageRight">{IconTextImageRight}</div>
         ) : (
-          <div className="svg-textImageLeft">{IconTextImageLeft}</div>
+          <div className="svg-textImageLeft">
+            <div className="clip-me" />
+            {IconTextImageLeft}
+          </div>
         )}{' '}
       </div>
     </div>

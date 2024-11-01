@@ -1374,6 +1374,11 @@ export interface AllBlogPosts_primaryPage_blocks_ServiceSetRecord {
   readonly services: ReadonlyArray<AllBlogPosts_primaryPage_blocks_ServiceSetRecord_services>;
 }
 
+export interface AllBlogPosts_primaryPage_blocks_TeamRecord_members_link {
+  readonly __typename: "BlogPostRecord";
+  readonly slug: string | null;
+}
+
 export interface AllBlogPosts_primaryPage_blocks_TeamRecord_members_image_responsiveImage {
   readonly __typename: "ResponsiveImage";
   readonly aspectRatio: any;
@@ -1397,6 +1402,7 @@ export interface AllBlogPosts_primaryPage_blocks_TeamRecord_members {
   readonly id: any;
   readonly name: string | null;
   readonly title: string | null;
+  readonly link: AllBlogPosts_primaryPage_blocks_TeamRecord_members_link | null;
   readonly image: AllBlogPosts_primaryPage_blocks_TeamRecord_members_image | null;
 }
 

@@ -372,9 +372,20 @@ a.tag {
   }
 
   @include touch {
+    // navbar
+    > .container {
+      overflow-x: hidden;
+    }
     .navbar-menu {
       background-color: $navbar-background-color;
       border-radius: 0 0 $radius $radius;
+
+      padding-right: 15px;
+      margin-right: -15px !important;
+
+      .navbar-end {
+        padding-bottom: 15px;
+      }
     }
   }
 
@@ -640,6 +651,17 @@ a.navbar-item.is-tab:not(.button):hover {
         }
       }
     }
+  }
+}
+
+.logo-mask {
+  width: 47px;
+  height: 41px;
+  background-color: #ffffff;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  &:hover {
+    background-color: #1cbc83;
   }
 }
 
