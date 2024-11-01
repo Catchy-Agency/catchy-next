@@ -113,7 +113,7 @@
 
   @media (max-width: $tablet) {
     .text-container {
-      padding: 5rem $mobile-padding;
+      padding: $tablet-padding $mobile-padding;
       margin: unset;
       display: flex;
       flex-direction: column;
@@ -132,5 +132,10 @@
     .svg-left {
       display: none;
     }
+  }
+
+  @media (max-height: 670px) {
+    height: fit-content;
+    padding-bottom: $tablet-padding;
   }
 }

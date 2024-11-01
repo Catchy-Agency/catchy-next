@@ -156,4 +156,11 @@
       padding: 35vh $mobile-padding 22vh $mobile-padding;
     }
   }
+
+  @media screen and (min-width: 500px) and (max-width: $tablet),
+    screen and (max-height: 600px) and (max-width: $tablet) {
+    .soupContent {
+      padding: 60vw $mobile-padding 55vw $mobile-padding;
+    }
+  }
 }
