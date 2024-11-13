@@ -660,6 +660,10 @@ section:not(.has-background-grey-darker) {
   }
 }
 
+.card-rows-flex {
+  display: flex;
+  align-items: center;
+}
 .card-rows {
   .title {
     @include text-clamp(2);
@@ -679,7 +683,6 @@ section:not(.has-background-grey-darker) {
       flex-direction: column;
       height: 100%;
     }
-
     .button:not(.is-ghost, .avoid-tf) {
       @include font-size(16px, !important);
       display: flex;

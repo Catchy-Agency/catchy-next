@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { FC, HTMLAttributes } from 'react';
-import { Image } from 'react-datocms';
+import { Image, ResponsiveImageType } from 'react-datocms';
 
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { LinkData } from './LinkData';
 
 export const CardRows: FC<
@@ -12,6 +13,8 @@ export const CardRows: FC<
   } & HTMLAttributes<HTMLDivElement>
 > = ({ links, imageAlign, ...props }) => {
   const isCareers = props.className?.includes('is-careers');
+
+  const deviceSize = useMediaQuery();
 
   return (
     <div
@@ -29,7 +32,7 @@ export const CardRows: FC<
             },
           )}`}
         >
-          <div className="column is-7">
+          <div className="column is-7 card-rows-flex">
             <div className="p-6 card-rows-content">
               {link.title && <h3 className="title">{link.title}</h3>}
               {link.description && (
@@ -50,13 +53,18 @@ export const CardRows: FC<
               isCareers ? 'is-careers' : ''
             }`}
           >
-            {link.image && (
-              <Image
-                data={link.image}
-                lazyLoad={false}
-                objectFit={isCareers ? 'scale-down' : 'cover'}
-              />
-            )}
+            <Image
+              data={
+                deviceSize === 'mobile'
+                  ? (link.image as ResponsiveImageType)
+                  : ((link.imageSm ||
+                      link.imageCol ||
+                      link.imageLg ||
+                      link.image) as ResponsiveImageType)
+              }
+              lazyLoad={false}
+              objectFit={isCareers || link.imageLg ? 'scale-down' : 'cover'}
+            />
           </div>
         </div>
       ))}
