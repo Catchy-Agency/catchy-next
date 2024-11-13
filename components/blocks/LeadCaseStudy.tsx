@@ -8,14 +8,12 @@ export const LeadCaseStudy: FC<{
   block: ServicePagesBySlug_service_blocks_CaseStudyTileRecord;
 }> = ({ block }) => {
   function getImage() {
-    if (block.caseStudy?.previewImageCol?.responsiveImage)
-      return block.caseStudy?.previewImageCol?.responsiveImage;
-    if (block.caseStudy?.previewImageSm?.responsiveImage)
-      return block.caseStudy?.previewImageSm?.responsiveImage;
-    if (block.caseStudy?.previewImage?.responsiveImage)
-      return block.caseStudy?.previewImage?.responsiveImage;
-
-    return undefined;
+    return (
+      block.caseStudy?.previewImageSm?.responsiveImage ||
+      block.caseStudy?.previewImageCol?.responsiveImage ||
+      block.caseStudy?.previewImage?.responsiveImage ||
+      undefined
+    );
   }
 
   const image = getImage();
