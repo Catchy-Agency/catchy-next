@@ -22,7 +22,10 @@ export const ColumnRow: FC<{
     })}
   >
     {block.columns
-      .filter((column) => !!column.title)
+      .filter(
+        (column) =>
+          column.title || column.image || column.text || column.blocks.length,
+      )
       .map((column) => (
         <div
           key={column.id}
