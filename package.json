@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
-    "node": "16",
-    "npm": "8"
+    "node": "22",
+    "npm": "10"
   },
   "scripts": {
     "dev": "next",
@@ -17,9 +17,6 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write .",
     "fix": "npm run format && npm run lint",
-    "schema-download": "export $(cat .env.local | xargs) && apollo schema:download --endpoint=\"https://graphql.datocms.com/\" --header=\"Authorization: Bearer $DATOCMS_API_TOKEN\"",
-    "schema-codegen": "apollo codegen:generate --localSchemaFile=schema.json --target=typescript --useReadOnlyTypes --includes=gql/queries/**/*.ts --tagName=gql --addTypename --outputFlat gql/types && rm ./gql/types/globalTypes.ts",
-    "schema": "npm run schema-download && npm run schema-codegen",
     "deploy:prod": "vercel --prod",
     "deploy:dev": "vercel"
   },
@@ -49,7 +46,6 @@
     "@types/react-dom": "18.0.6",
     "@typescript-eslint/eslint-plugin": "5.33.0",
     "@typescript-eslint/parser": "5.33.0",
-    "apollo": "2.34.0",
     "eslint": "8.21.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-react": "7.30.1",
