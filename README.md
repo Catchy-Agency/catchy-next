@@ -164,3 +164,10 @@ The preview cookie is set/unset by two endpoints, using Next.js [built-in helper
 - `/api/exit-preview`
 
 We use the [Next.js Preview Links](https://www.datocms.com/marketplace/plugins/i/datocms-plugin-nextjs-preview) plugin to generate a "Preview" button for content editors within the CMS, to view their unpublished updates.
+
+# Updated to Node 22 - 02/03/2025
+
+Vercel dropped support for Node 16, in order for us to the site to the latest version we had to deprecate and remove Apollo CLI as they don't have a valid option for newer versions of Node.
+
+> [!IMPORTANT]
+> This site needs to replace Apollo CLI if changes are needed.
